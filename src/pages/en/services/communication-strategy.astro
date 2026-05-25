@@ -1,0 +1,198 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+
+const pijlers = [
+  {
+    titel: 'Audience-driven',
+    tekst: 'Online media, AI and offline channels, well-deployed, enable effective hyper-personalisation. We often work with organisations that serve multiple audiences. How do you make sure the right knowledge lands with the right person in the right way? We dive into the audience and discover what gets each group moving.',
+  },
+  {
+    titel: 'Practice-oriented',
+    tekst: 'Good preparation is half the work, but real-world input makes the best preparation. Astrolads strategies are aimed at being able to start quickly. Something doesn\'t need to be 100% to have a positive impact. What are the quick wins that are going to matter anyway? We start while continuing to refine the strategy. Extra fast switching thanks to our in-house production team prevents a lot of noise on the line. Thoughtful plus quick results, the best of both worlds.',
+  },
+  {
+    titel: 'Continuous monitoring & optimisation',
+    tekst: 'Data is more than just clicks and views. Many of the organisations we work with deal with multiple themes that need to land with different audiences. For optimal monitoring and optimisation, we use custom-made benchmarking per theme and audience. Alongside online data, we also look at audience sentiment and qualitative results.',
+  },
+  {
+    titel: 'Close to new developments',
+    tekst: 'The communications field is partly stable and partly dependent on current trends. Not every organisation needs to be the first to jump on every new development. But it is essential to be aware of them. We pay a lot of attention to following industry developments and trends, and build into each strategy the considerations for when to step into which trend, and when not to. This keeps focus while making use of new possibilities as soon as they arise.',
+  },
+];
+---
+
+<LayoutEN
+  title="Communication strategy"
+  description="Communication strategy by Astrolads. We translate complex content into clear messages, bring stakeholders together, and turn knowledge into momentum."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Communication strategy",
+    "provider": { "@type": "Organization", "name": "Astrolads", "@id": "https://astrolads.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "description": "Communication strategy for social organisations. Audience-driven, practice-oriented, with continuous monitoring and an eye for new developments.",
+    "url": "https://astrolads.com/en/services/communication-strategy"
+  })} />
+
+  <div class="dienst-page">
+    <div class="section-inner">
+      <Breadcrumb 
+        lang="en"
+        items={[
+          { name: 'Services', url: '/en/services' },
+          { name: 'Communication Strategy' }
+        ]} 
+      />
+
+      <!-- Header -->
+      <div class="dienst-header">
+        <div class="dienst-header-tekst">
+          <p class="section-label">Services</p>
+          <h1>Communication strategy</h1>
+          <p class="dienst-intro">Communication isn't a by-product of complex processes, it's a precondition for them to succeed. We're the partner that translates content into understanding, brings stakeholders together, and turns knowledge into momentum.</p>
+          <p class="dienst-intro">What do you want to land with whom? Who needs to actually start moving on what? We're happy to help you build a fitting strategy for both internal and external communication.</p>
+          <a href="/en/contact" class="btn-orange">Get in touch</a>
+        </div>
+        <div class="dienst-header-img">
+          <img src="/images/diensten/strategie-header.webp" alt="Astrolads communication strategy" width="640" height="460" loading="eager" fetchpriority="high" decoding="sync" />
+        </div>
+      </div>
+
+      <!-- Pillars -->
+      <div class="strategie-pijlers">
+        <h2 class="pijlers-titel">How we approach strategy</h2>
+        <div class="pijlers-grid">
+          {pijlers.map(p => (
+            <div class="pijler-kaart">
+              <h3>{p.titel}</h3>
+              <p>{p.tekst}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="dienst-cta">
+        <h2>Ready to get started?</h2>
+        <p>Curious how a good communication strategy can take your organisation further? We're happy to think along with you.</p>
+        <a href="/en/contact" class="btn-orange">Get in touch</a>
+      </div>
+
+    </div>
+  </div>
+</LayoutEN>
+
+<style>
+  .dienst-page { padding: 64px 0 96px; }
+
+  .dienst-header {
+    display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
+    gap: 64px; align-items: center;
+    margin-bottom: 120px;
+  }
+  .dienst-header-tekst h1 {
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 24px;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  .dienst-intro {
+    font-size: 17px; color: var(--muted);
+    line-height: 1.7; margin-bottom: 24px;
+  }
+  .dienst-intro + .dienst-intro { margin-top: -8px; }
+
+  .dienst-header-img img {
+    width: 100%; height: 460px;
+    border-radius: var(--radius);
+    object-fit: cover;
+    object-position: 70% center;
+  }
+
+  .strategie-pijlers { margin-bottom: 120px; }
+  .pijlers-titel {
+    font-size: 32px; font-weight: 700;
+    margin-bottom: 48px; text-align: center;
+  }
+  .pijlers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .pijler-kaart {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 40px;
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+  .pijler-kaart h3 {
+    font-size: 22px; font-weight: 700;
+    margin-bottom: 16px; line-height: 1.3;
+  }
+  .pijler-kaart p {
+    color: var(--muted);
+    line-height: 1.8; font-size: 15px;
+  }
+
+  .dienst-cta {
+    text-align: center;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 64px;
+    color: #fff;
+  }
+  .dienst-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+  .dienst-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  @media (max-width: 768px) {
+    .dienst-page { padding: 32px 0 56px; }
+
+    /* Header: foto eerst, dan tekst */
+    .dienst-header {
+      display: flex; flex-direction: column-reverse;
+      gap: 28px;
+      margin-bottom: 56px;
+    }
+    .dienst-header-tekst h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .dienst-intro {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .dienst-header-img img {
+      height: auto;
+      aspect-ratio: 16 / 9;
+      max-height: 240px;
+    }
+
+    /* Pillars: 1 column compacter */
+    .strategie-pijlers { margin-bottom: 56px; }
+    .pijlers-titel { font-size: 24px; margin-bottom: 24px; }
+    .pijlers-grid { grid-template-columns: 1fr; gap: 12px; }
+    .pijler-kaart { padding: 24px; }
+    .pijler-kaart h3 { font-size: 18px; margin-bottom: 12px; }
+    .pijler-kaart p { font-size: 14px; line-height: 1.7; }
+
+    /* CTA compact */
+    .dienst-cta {
+      padding: 36px 24px;
+    }
+    .dienst-cta h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .dienst-cta p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+</style>

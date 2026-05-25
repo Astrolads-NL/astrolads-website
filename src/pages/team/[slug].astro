@@ -1,0 +1,659 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'kylian-benna' } },
+    { params: { slug: 'floor-van-der-hoeven' } },
+    { params: { slug: 'luuk-van-ooijen' } },
+    { params: { slug: 'joey-meeuwenoord' } },
+    { params: { slug: 'nick-mooijekind' } },
+    { params: { slug: 'philip-tjahjadi' } },
+    { params: { slug: 'doa-karasahin' } },
+    { params: { slug: 'thijs-riep' } },
+    { params: { slug: 'paulina-kacymirow' } },
+    { params: { slug: 'sude-kirlioglu' } },
+    { params: { slug: 'jamie-kuiper' } },
+    { params: { slug: 'zofia-michalak' } },
+    { params: { slug: 'bas-nieuwenhuijs' } },
+    { params: { slug: 'jelle-van-der-zanden' } },
+    { params: { slug: 'dave-verwey' } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+const teamleden = {
+  'kylian-benna': {
+    naam: 'Kylian Benna',
+    rollen: ['Projecteigenaar Socials', 'Projecteigenaar Vormgeving', 'Projecteigenaar Animaties', 'Mediamaker Fotografie', 'Mediamaker Studio/Podcasts'],
+    foto: '/images/team/kylian.webp',
+    fotoPositie: 'center 15%',
+    bio: 'Kylian begon ooit als mediamaker, maar groeide razendsnel uit tot een onmisbare creatieve kracht binnen het team. Van strakke designs en social content tot animaties en fotografie... zijn werk zit overal. Met een scherp oog voor vorm én verhaal tilt hij elk project naar een hoger niveau.',
+    bioLang: 'Toen Kylian aanklopte bij het studentenmediateam met de vraag of hij nog last-minute kon aansluiten, zagen Jelle en Dave direct een aanwinst voor het team. Kylian krijgt energie van het opzetten van merken en het ontwerpen van elke vorm van fysieke en digitale vormgeving. Van website-opmaak tot infographics, Kylian zorgt er als <strong>Projecteigenaar Vormgeving</strong> voor dat de inhoud klopt en de look-and-feel optimaal tot uiting komt. Daarmee is Kylian ook gelijk de aangewezen persoon voor het structureel creëren en plaatsen van social media content voor meerdere opdrachtgevers. Zo groeide hij van mediamaker door naar <strong>Projecteigenaar Socials</strong>.<br><br>Maar niet alleen voor stilstaand beeld moet je bij Kylian zijn. Ook voor 2D-animaties en bewegende illustraties, klapt hij met alle liefde zijn Macbook open. Als <strong>Projecteigenaar Animaties,</strong> brengt Kylian dan ook de meest complexe adviesrapporten tot leven en neemt hij de kijkers door middel van bewegend beeld hierin mee.<br><br>Naast al dit laptop-werk, is Kylian ook op evenementen en congressen te vinden als <strong>Mediamaker Fotografie</strong>. Of het nou om een groepsfoto, sfeerimpressie of profielfoto gaat... Kylian zorgt dat de beeldbank er representatief bij staat en de online ervaring uiteindelijk niet afdoet aan de sfeer van het event.<br><br>Last but not least, is Kylian soms ook op locatie te vinden als <strong>Mediamaker Studio/Podcasts</strong>, waar hij podcasts op locatie opbouwt en opneemt. Kortom: een creatief multitalent dat zijn oog voor vorm en kleur op vele manieren weet in te zetten!',
+    linkedin: 'https://www.linkedin.com/in/kylian-b-a0a05b270/',
+    buiten: 'Kylian hecht al sinds jonge leeftijd waarde aan uitstraling en stijl. Van gladgestreken pantalons tot stijlvolle quarter zips, Kylian zorgt altijd voor een representatieve en nette look. De combinatie van deze passie en zijn creatieve skills, leidde daarom al snel tot zijn eigen premium kledinglijn Benna. Via zijn zelf opgezette merk en website, verkoopt hij stropdassen, petten en quarters. Met een groeiend assortiment en een sterke focus op branding en storybuilding, wordt dit ongetwijfeld een nog veel groter merk.<br><br>Als Kylian even niet op zoek is naar de fijnste stofjes en pasmaten, zet hij met alle liefde een vroege wekker voor de Formule 1. Ook drinkt hij graag een lekker wijntje of mooie champagne met vrienden, slaat hij een straf balletje op de golfbaan en kan hij enorm genieten van een culinaire avond (in het restaurant óf thuis).',
+    fotos: ['/images/team/kylian-1.webp', '/images/team/kylian-2.webp', '/images/team/kylian-3.webp', '/images/team/kylian-4.webp'],
+    fotosBuiten: ['/images/team/kylian-buiten-1.webp', '/images/team/kylian-buiten-2.webp', '/images/team/kylian-buiten-3.webp', '/images/team/kylian-buiten-4.webp'],
+    decoratie: { kleur: 'var(--navy)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'floor-van-der-hoeven': {
+    naam: 'Floor van der Hoeven',
+    rollen: ['Communicatieadviseur', 'Projecteigenaar Copywriting', 'Facilitair medewerker'],
+    foto: '/images/team/floor.webp',
+    fotoPositie: 'center 10%',
+    bio: 'Floor viel meteen op als een ontbrekend puzzelstukje binnen Astrolads. Met haar gevoel voor communicatie, structuur en inhoud brengt ze rust én richting in elk project. Van klantcontact tot copy en van meetings tot interviews... Floor zorgt dat datgeen wat de doelgroep te zien krijgt, aansluit bij de inhoudelijke wens en vermakelijke verwachting.',
+    bioLang: 'Als Astrolads een puzzel zou zijn, is Floor een puzzelstukje dat lang ontbrak in de organisatie. Met een voorliefde voor communicatie, maatschappelijke thema\'s en organisatie management kwam Floor als geroepen om het groeiende aantal opdrachtgevers en projecten op te vangen. Vanuit haar rol als <strong>Communicatieadviseur</strong> is zij voor een groot aantal samenwerkingen het gezicht en aanspreekpunt vanuit Astrolads. Van offertes tot planning, en van interviews tot het bewaken van de essentiële inhoud… Floor zorgt dat het eindproduct aansluit bij de (inhoudelijke) wensen van de opdrachtgever!<br><br>Naast het communicatiewerk, is Floor ook enorm talig en kan zij enorm genieten van compacte en inhoudelijk sterke teksten schrijven. Daarom pakt zij in haar rol als <strong>Projecteigenaar Copywriting</strong> vaak de taak op zich om ondertiteling te controleren, captions en (nieuws)artikelen te schrijven of draaiboeken op te zetten.<br><br>In haar eerste week werd direct duidelijk dat Floor ook waarde hecht aan een inspirerende en gestructureerde werkomgeving. Daarom omarmde ze al snel de rol van <strong>Facilitair medewerker</strong>, waarmee ze samen met Joey zorgt dat het kantoor er representatief bij staat.',
+    linkedin: 'https://www.linkedin.com/in/floor-van-der-hoeven-496991297/',
+    buiten: 'Als Floor even wil opladen in het weekend, betekent dat niet dat ze uren lang uitslaapt, op de bank gaat liggen of zich aan de eettafel zit te vervelen. Integendeel zelfs, het liefst omringt ze zich de hele dag met haar vrienden en vriendinnen. Van gezellig met huisgenoten borrelen, tot een festival in Amsterdam… als het maar gezellig is! Floor is een vrolijke noot die iedereen graag op z\'n gemak stelt en moeiteloos in elke kring meekomt.<br><br>Om naast al deze mentale ontspanning ook fysiek gezond te blijven, is Floor vaak in de sportschool te vinden. Van biceps curl tot glute bridge, als het daarna maar lekker verzuurd voelt!',
+    fotos: ['/images/team/floor-1.webp', '/images/team/floor-2.webp', '/images/team/floor-3.webp', '/images/team/floor-4.webp', '/images/team/floor-5.webp'],
+    fotosBuiten: ['/images/team/floor-buiten-1.webp', '/images/team/floor-buiten-2.webp', '/images/team/floor-buiten-3.webp', '/images/team/floor-buiten-4.webp'],
+    decoratie: { kleur: 'var(--orange)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'luuk-van-ooijen': {
+    naam: 'Luuk van Ooijen',
+    rollen: ['Teammanager', 'Financieel Manager', 'Projecteigenaar Advertenties'],
+    foto: '/images/team/luuk.webp',
+    fotoPositie: 'center center',
+    bio: 'Luuk begon als stagiair, maar groeide in no-time door tot een van de drijvende krachten achter Astrolads. Van campagnes en cijfers tot teammanagement, Luuk gaat geen uitdaging uit de weg. Sterker nog, hij zoekt ze met alle liefde op! Met een scherp oog voor groei en innovatie blijft hij de organisatie vooruit duwen. Een enorme aanwinst voor het team die nog lang niet uitontwikkeld is dus!',
+    bioLang: 'Luuk begon in 2021 als stagiair bedrijfskunde bij Astrolads, maar ontdekte al snel dat hij de praktijk veel leuker en leerzamer vond dan theorie. Met 3 jaar kennis op zak begon hij als allereerste fulltimer in de rol van <strong>Studentmanager</strong>. Samen met Jelle en Dave begeleidde hij meerdere groepen studenten mediateams. Zo ook de teams waar Joey, Kylian en Bas aan deelnamen.<br><br>Vanuit zijn liefde voor statistiek en geldstromen, pakte Luuk al snel meer verantwoordelijkheid en ging hij aan de slag als <strong>Projecteigenaar Advertenties</strong>. Hij zet volledige social media campagnes op en voorziet opdrachtgevers van uitgebreide rapportages en adviezen op basis van cijfers. Ook ging Luuk vanaf toen aan de slag als financieel medewerker, wat inmiddels is uitgegroeid tot het zijn van <strong>Financieel Manager</strong>. Luuk draagt hierin de eindverantwoordelijkheid voor de cashflow en financiële gezondheid van de organisatie.<br><br>In 2025 schreeuwde de organisatie om meer overzicht en planning. Die rol pakte Luuk feilloos op, waarmee hij vorm gaf aan de rol van <strong>Teammanager</strong>. Binnen deze rol zorgt Luuk dat deadlines worden gehaald én kwaliteit gewaarborgd blijft.<br><br>Is Luuk dan nu eindelijk gesetteld en tevreden binnen de organisatie? Dat nooit! Inmiddels werkt hij ook aan het opzetten van de AI-tak. Wat kan Artificial Intelligence voor onze opdrachtgevers betekenen (nu al, en in de toekomst) en hoe kunnen wij hen hierin ontzorgen? Een onmisbare schakel in deze tijd, die Luuk volop aan het verkennen is.',
+    linkedin: 'https://www.linkedin.com/in/luuk-van-ooijen-6b11ab20b/',
+    buiten: 'Het geluksgetal van Luuk? 010! Als trots Rotterdammer mist Luuk geen enkele Feyenoord wedstrijd en is hij bij vrijwel elke overwinning rondom (of in) de fontein te vinden. \'born & raised\' in Roffa, is Luuk altijd wel ergens in de stad te vinden (behalve als hij aan het werk is dus).<br><br>Als de werktijd voorbij is, gooit Luuk graag een paar pijltjes met vrienden, houdt hij de aandelenmarkt in de gaten of duikt hij met alle liefde het terras op. Kortom: een levensgenieter die carrière hoog in het vaandel heeft staan, en de uurtjes die daarbuiten vallen vooral inzet om te genieten van het leven.',
+    fotos: ['/images/team/luuk-1.webp', '/images/team/luuk-2.webp', '/images/team/luuk-3.webp', '/images/team/luuk-4.webp'],
+    fotosBuiten: ['/images/team/luuk-buiten-1.webp', '/images/team/luuk-buiten-2.webp', '/images/team/luuk-buiten-3.webp', '/images/team/luuk-buiten-4.webp'],
+    fotosBuitenPosities: ['center 30%', 'center 30%', 'center 60%', 'center 60%'],
+    decoratie: { kleur: 'var(--navy)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'joey-meeuwenoord': {
+    naam: 'Joey Meeuwenoord',
+    rollen: ['Projecteigenaar Videos', 'Studentmanager', 'Mediamaker Studio/Podcasts', 'Facilitair Medewerker'],
+    foto: '/images/team/joey.webp',
+    fotoPositie: 'center center',
+    bio: 'Joey is er vaak al voordat de rest binnenkomt... en vaak ook nog als laatste bezig. Wat begon in het studentenmediateam groeide uit tot een sleutelrol in het maken van videos, opnames in de studio én studentbegeleiding. Met een enorm hart voor de organisatie en een gedrevenheid waar je u tegen zegt, zorgt Joey dat elke Astrolads productie raak is!',
+    bioLang: 'Joey is een zogenaamde early bird die vaak vanaf 07:00 al op kantoor te vinden is. Hij begon in het studenten mediateam onder begeleiding van Luuk. Al snel groeide hij door tot dé videomaker van Astrolads en speelt hij als <strong>Projecteigenaar Videos</strong> nu een grote rol in de aansturing van de mediamakers. Daarnaast is Joey altijd betrokken gebleven bij het studenten mediateam als <strong>Studentmanager</strong>, waar hij de eindverantwoordelijkheid draagt voor de groei en ontwikkeling van de studenten.<br><br>Naast dit alles verzorgt Joey als <strong>Mediamaker Studio/Podcasts</strong> de opnames van voice-overs, podcasts op locatie en live webinars vanuit de Astrolads Studio.<br><br>Is dat dan alles? Zeker niet! Joey voelt namelijk ook een hoge mate van verantwoordelijkheid voor de mensen en werkplek om zich heen. Daarom zet hij zich als <strong>Facilitair Medewerker</strong> ook elke dag in voor een schone, georganiseerde en prettige werkomgeving.',
+    linkedin: 'https://www.linkedin.com/in/joey-meeuwenoord-668bb21a4/',
+    buiten: 'Naast zijn hechte familie en eigen videoprojecten, heeft Joey nog een enorme passie die begint met een C en eindigt op hevrolet. Hij groeide als jonge jongen op tussen de klassieke auto\'s tijdens carmeetings van zijn vader, en die hobby heeft hij, samen met zijn zusje, volledig eigen gemaakt.<br><br>Het hoogtepunt van deze hobby uit zich in de bouw van zijn eigen Chevrolet 69, de Calimero. Rijd je op een zomerse dag in de omgeving van Noordwijkerhout? Kijk dan maar uit, want het kan zo maar zijn dat Joey, al cruisend met pilotenbril, je in zijn blauwe rakker voorbij scheurt.',
+    fotos: ['/images/team/joey-1.webp', '/images/team/joey-2.webp', '/images/team/joey-3.webp', '/images/team/joey-4.webp'],
+    fotosBuiten: ['/images/team/joey-buiten-1.webp', '/images/team/joey-buiten-2.webp', '/images/team/joey-buiten-3.webp', '/images/team/joey-buiten-4.webp'],
+  decoratie: { kleur: 'var(--orange)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'nick-mooijekind': {
+    naam: 'Nick Mooijekind',
+    rollen: ['Mediamaker Video', 'Mediamaker Studio/Podcasts'],
+    foto: '/images/team/nick.webp',
+    fotoPositie: 'center center',
+    bio: 'Nick viel al vroeg op door nét dat stapje extra te zetten. Wat begon als stagiair, groeide snel door naar een vaste rol in het video- en studioteam. Hij zorgt dat de studio draait, de camera\'s werken en dat de opdrachtgever zich technisch nergens zorgen over hoeft te maken. Met zijn talent voor 3D-animaties en urenlang doorbeuken in taaiere edits, is Nick een onmisbare stille kracht in het Astrolads team.',
+    bioLang: 'Toen Nick onderdeel werd van het studenten mediateam, viel hij al snel op. Hij liep graag een extra meter, zette vaak de sfeer in de groep en kon vanuit zijn ervaring, in zowel opleiding als vrije tijd, al vrij snel helpen met Astrolads edits. Toen zijn tijd in het studenten mediateam voorbij was, stond hij dan ook snel weer op de stoep voor een stage bij Astrolads.<br><br>Ook hier groeide Nick heel snel mee met het team. Van inhoudelijke aftermovies tot korte reels, Nick gaat geen edit-uitdaging uit de weg en probeert altijd zijn stempel op de producties te drukken. Zodoende ging hij naast zijn stage ook al snel parttime aan de slag als <strong>Mediamaker Video</strong>. Inmiddels is hij vaak op draaidagen te vinden als tweede cameraman en sleutelt hij in het videoteam met Joey volledige edits in elkaar.<br><br>Naast het videowerk, is Nick ook vaak achter de studio-knoppen te vinden als <strong>Mediamaker Studio/Podcasts</strong>. Van webinars technisch begeleiden tot podcasts strak opnemen, Nick zorgt dat de lampen goed staan, de mics het geluid strak opnemen en de camera\'s constant draaien. Hoewel dus vooral vaak achter de schermen te vinden, is Nick een stille kracht in het team!<br><br>Als het werk dan voorbij is, en de iMac\'s worden uitgeschakeld, kan de toon gezet worden. Astrolads hoeft zich met Nick nooit meer zorgen te maken dat de vrijmibo niet doorgaat, want Nick haalt met alle liefde de drankjes en nodigt iedereen uit om nog even te blijven hangen!',
+    linkedin: 'https://www.linkedin.com/in/nick-mooijekind-12506a277/',
+    buiten: 'Nick werd nog net niet geboren met een toetsenbord in zijn hand. Hij edit, monteert en animeert al sinds jonge jaren. Wat begon als een lego- en stopmotion hobby, groeide uit tot het volledig animeren van eigen Lego-films. Volledig voorzien van 3D-renders, voice-overs en geluidseffecten.<br><br>Als de computer dan even 40 uur lang moet renderen om de nieuwste lego-scene goed uit te draaien, vind je Nick met een grote glimlach met vrienden in de lokale stamkroeg, of op een ander gezellig terras in de stad.',
+    fotos: ['/images/team/nick-1.webp', '/images/team/nick-2.webp', '/images/team/nick-3.webp'],
+    fotosBuiten: ['/images/team/nick-buiten-1.webp', '/images/team/nick-buiten-2.webp', '/images/team/nick-buiten-3.webp', '/images/team/nick-buiten-4.webp'],
+    decoratie: { kleur: 'var(--navy)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'philip-tjahjadi': {
+    naam: 'Philip Tjahjadi',
+    rollen: ['Community Manager'],
+    foto: '/images/team/philip.webp',
+    fotoPositie: 'center center',
+    bio: 'Philip kwam ooit binnen als stagiair, maar bracht meteen zijn eigen energie en ideeën mee. Van een eigen magazine tot het bouwen aan een creatieve community, hij brengt het liefst mensen in beweging. Met events, samenwerkingen én creatieve begeleiding zorgt hij dat er geen creatief talent in Den Haag verloren gaat!',
+    bioLang: 'Philip kwam vanuit zijn studie International Creative Business als stagiair bij Astrolads binnenwandelen. Het hoogtepunt van zijn afstudeerstage was het bedenken, ontwikkelen en verspreiden van het <strong>Geen Idee Magazine</strong>, een gratis verkrijgbaar magazine met werken van lokale creatievelingen.<br><br>Inmiddels vervult hij een unieke rol in de organisatie als <strong>Community Manager</strong>. Binnen deze rol is Philip constant bezig met het doorontwikkelen van de creatieve community als onlosmakelijk onderdeel van Astrolads. Van toffe samenwerkingen met lokale studentenverenigingen en opleidingen, tot creatieve workshops op het Astrolads kantoor. Philip zorgt dat creatievelingen in Den Haag van hun zolderkamer afkomen om te ontwikkelen, ontmoeten en vooral… te maken!<br><br>Naast alle evenementen die Philip weet te organiseren, is hij ook elk half jaar verantwoordelijk voor het begeleiden van een groep InHolland Creative Business studenten die aan de slag gaan met een creatief vraagstuk binnen Astrolads. Philip zorgt dat ze zichzelf creatief blijven uitdagen en geeft ze sturing en feedback vanuit zijn eigen ervaringen binnen de studie.',
+    linkedin: 'https://www.linkedin.com/in/philip-christopher-tjahjadi-065b071a2/?locale=nl_NL',
+    buiten: 'Het is bijna niet te doen om Philip in een paar regels te omschrijven. Met een unieke verzameling van werkkleding (van Jumbo tot Hema en van Thuisbezorgd tot Ikea) en plotse Flixbus-reizen door heel Europa, is het altijd de vraag wat Philip nu weer uitspookt.<br><br>Ook stopt Philip veel tijd in zijn band <strong>James Burki</strong>, waar hij zorgt dat je de bass niet alleen hoort… maar ook voelt! Naast zijn vele creatieve hobby\'s, muzikale talenten en reizen, is hij ook druk bezig met zijn eigen bedrijf <strong>Geen Idee Lab</strong> dat hij in 2026 samen met Paulina oprichtte. Samen zetten ze de meest opvallende en spraakmakende (fysieke) marketingacties op en bedenken ze de gekste creatieve concepten en evenementen.<br><br>En wat als alles dan even klaar is? Dan gaat hij niet uitgeput thuis op de bank zitten, maar vind je hem met een perfect getapte Guinness in de Irish Pub. Hoewel het soms moeilijk te geloven is, heeft Philip net als anderen maar 24 uur in een dag en die benut hij optimaal!',
+    fotos: ['/images/team/philip-1.webp', '/images/team/philip-2.webp', '/images/team/philip-3.webp'],
+    fotosBuiten: ['/images/team/philip-buiten-1.webp', '/images/team/philip-buiten-2.webp', '/images/team/philip-buiten-3.webp', '/images/team/philip-buiten-4.webp', '/images/team/philip-buiten-5.webp', '/images/team/philip-buiten-6.webp'],
+    decoratie: { kleur: 'var(--orange)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'doa-karasahin': {
+    naam: 'Doa Karasahin',
+    rollen: ['Studentenbegeleider', 'Mediamaker Socials', 'Mediamaker Fotografie'],
+    foto: '/images/team/doa.webp',
+    fotoPositie: 'center center',
+    bio: 'Doa begon in het studentenmediateam, maar liet al snel zien dat ze meer in huis had dan alleen talent achter de fotocamera. Met haar rustige energie en oog voor detail is ze zowel een grote aanwinst binnen de studentbegeleiding én het socials team!',
+    bioLang: 'Doa begon haar carrière binnen Astrolads als onderdeel van het studentenmediateam. Met een scherp oog voor vormgeving en fotografie, viel zij al snel op binnen de groep. Toen er bij de volgende groep studenten een plek beschikbaar kwam voor een nieuwe <strong>Studentenbegeleider</strong> onder de hoede van student manager Joey, dachten we dan ook al snel aan Doa. Omdat Doa is gaan doorstuderen, doet ze dit nu 1 dag per week naast haar studie. Zij zorgt er binnen deze rol voor dat de studenten o.a. groeien in hun camerawerk, edit skills en sociale skills op draaidagen.<br><br>Naast haar betrokkenheid bij het studentenmediateam, heeft Doa ook een grote passie voor fotografie. Of het nou gaat om portretfotografie of evenementenfotografie, geef de camera aan Doa en je bent ervan verzekerd dat je mooie plaatjes krijgt! Daarom werkt ze, wanneer haar drukke studieagenda het toelaat, ook als <strong>Mediamaker Fotografie</strong>.<br><br>Doa is een enthousiaste toevoeging aan het team, die ook rust met zich mee brengt en geen uitdaging uit de weg gaat. Ze zorgt ervoor dat er altijd gebeurt wat er moet gebeuren en dat alle wensen vanuit de opdrachtgever in het eindproduct zijn meegenomen.',
+    linkedin: 'https://www.linkedin.com/in/doa-karasahin-b9b471253/',
+    buiten: 'Zoals al benoemd, is Doa na haar studie Mediavormgeving op MboRijnland, ook nog Crossmediale Communicatie gaan studeren op InHolland. Hier hoopt ze meer te leren over de breedte van het communicatievak, als toevoeging op haar creatieve skills.<br><br>In haar vrije tijd is Doa vooral vaak in de natuur te vinden. Ze haalt graag elke dag de 10.000 stappen, en met haar hond als metgezel gaat ze dan ook met alle liefde lekker wandelen in de regio. Maar naast het wandelen en sporten in de sportschool, is Doa ook niet vies van een drankje op het terras met vriendinnen of een avondje de kroeg in. Een druk studentenleven dus, waar het buitenleven hoog in het vaandel staat!',
+    fotos: ['/images/team/doa-1.webp', '/images/team/doa-2.webp'],
+    fotosBuiten: ['/images/team/doa-buiten-1.webp', '/images/team/doa-buiten-2.webp', '/images/team/doa-buiten-3.webp', '/images/team/doa-buiten-4.webp'],
+    decoratie: { kleur: 'var(--navy)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'thijs-riep': {
+    naam: 'Thijs Riep',
+    rollen: ['Financieel Medewerker', 'Mediamaker Advertenties'],
+    foto: '/images/team/thijs.webp',
+    fotoPositie: 'center center',
+    bio: 'Thijs gooide het roer compleet om en verruilde zijn vaste leven voor een zelfgebouwde camper en de vrijheid van onderweg zijn. Toch bleef hij verbonden aan Astrolads, alleen op zijn eigen manier. Vanuit verschillende plekken in de wereld ondersteunt hij nu het team met advertenties, financiën én een wekelijkse portie beweging.',
+    bioLang: 'Thijs werkte jarenlang als fysiotherapeut en was al langer betrokken bij de organisatie als zelfstandig personal trainer van Jelle en Dave. Na een ingrijpend ongeluk kwam Thijs echter tot de conclusie dat hij diep van binnen een andere grote passie had die hij niet langer wilde uitstellen. Samen met zijn vrouw kocht hij een oude bus, toverde deze om tot reisklare home-made camper, en trok de wijde wereld in. Zonder plan en zonder eindstreep… gewoon genieten van die prachtige zwevende bal waar we ons op bevinden.<br><br>Samen zochten we naar manieren om Thijs zijn rol binnen Astrolads vorm te geven op een manier die past bij zijn nieuwe levensstijl. Kijkend naar welke werkzaamheden op afstand uitvoerbaar zijn, en zijn talent voor nauwkeurigheid en structuur, is Thijs nu werkzaam als <strong>Mediamaker Advertenties</strong>, waarin hij Luuk ondersteunt in het opzetten en monitoren van online campagnes, én werkt hij als <strong>Financieel Medewerker</strong> aan het op orde houden van de (btw)administratie.<br><br>Ook belt hij nog elke week online in, om meerdere collega\'s fit en soepel te houden tijdens een uurtje personal training!',
+    linkedin: '',
+    buiten: 'Zoals al benoemd, is Thijs overal en nergens te vinden omdat hij zijn huis heeft opgezegd en samen met zijn vrouw de wereld rondreist. Daarnaast heeft hij meerdere hobby\'s die hij op reis heeft meegenomen. Thijs speelt namelijk al sinds zijn jonge jaren gitaar, en haalt hier ook op reis nog steeds plezier uit.<br><br>Daarnaast heeft hij een grote passie voor duiken (in water, niet bij de belastingdienst), waarvoor hij op reis natuurlijk de mooiste locaties tegenkomt. Naast dit alles, kan hij ook enorm genieten van rennen, klimmen, zwemmen… sporten dus! Thijs wordt gekenmerkt door een positieve en energieke mindset, die altijd opzoek is naar wat wél kan!',
+    fotos: ['/images/team/thijs-1.webp', '/images/team/thijs-2.webp'],
+    fotosBuiten: ['/images/team/thijs-buiten-1.webp', '/images/team/thijs-buiten-2.webp', '/images/team/thijs-buiten-3.webp', '/images/team/thijs-buiten-4.webp'],
+    faderSpeed: 7000,
+    faderSpeedBuiten: 4000,
+    decoratie: { kleur: 'var(--orange)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'paulina-kacymirow': {
+    naam: 'Paulina Kacymirow',
+    rollen: ['Mediamaker Copywriting', 'Mediamaker Socials', 'Projecteigenaar Community'],
+    foto: '/images/team/paulina.webp',
+    fotoPositie: 'center center',
+    bio: 'Paulina brengt niet alleen een internationale blik mee naar Astrolads, maar ook bakken energie en verantwoordelijkheid. Met haar creatieve aanpak en scherpe gevoel voor communities weet ze mensen én ideeën samen te brengen.',
+    bioLang: 'Paulina was de eerste international in het Astrolads team en heeft zich in korte tijd onmisbaar gemaakt in meerdere facetten. Binnen de internationale samenwerking is zij veelal te vinden in de rol van <strong>Mediamaker Socials</strong> en <strong>Mediamaker Copywriting</strong>, waarin Paulina zorgt dat de website, social kanalen én nieuwsbrief er altijd op-en-top uitzien. Met haar hoge mate van verantwoordelijkheidsgevoel, levert ze nooit half werk en zorgt ze dat elke productie de eindstreep (op tijd) haalt.<br><br>Naast haar vele talenten binnen de creatieve \'realm\', heeft Paulina ook een groot hart voor de jonge creatieve generatie in de stad. Daarom paste zij als geen ander in de rol van <strong>Projecteigenaar Community</strong>, vanuit waar ze (Astrolads Community) events op ons kantoor organiseert, via de social media kanalen nieuwe leden werft en zorgt dat degene voor wie de community bedoeld is, deze ook kennen. Dit vraagt om een creatieve en eigentijdse benadering en een liefde voor de onconventionele werkweek, die Paulina als geen ander beheerst en omarmt.<br><br>Paulina is een unieke schakel in het team, zet Astrolads internationaal op de kaart én tilt de community naar een nieuw niveau!',
+    linkedin: 'https://www.linkedin.com/in/paulina-kacymirow-523424262/',
+    buiten: 'Paulina komt oorspronkelijk uit Polen, maar besloot om International Creative Business te gaan studeren op InHolland in Den Haag. Daar leerde ze al snel Philip kennen en dat was de geboorte van een creatieve samenwerking die uiteindelijk zou uitmonden in hun eigen bedrijf <strong>Geen Idee Lab</strong>. Genesteld in het succes van het <strong>Geen Idee Magazine</strong>, startten ze samen een (guerrilla) marketing/evenementenbureau dat zich inzet voor opvallende en out-of-the-box marketingstrategieën. Dit zijn overigens geen talenten die ze op school pas leerde beheersen, want ook in Polen zette Paulina zich al in voor het organiseren van evenementen (zelfs op Europese schaal!).<br><br>Als Paulina haar hoofd even niet kraakt over creatieve concepten en het samenbrengen van gelijkgestemden, vind je haar soms achter de bar bij de lokale Irish Pub, met snowboard aan de voeten op een sneeuwberg of in de rijke Europese natuur.',
+    fotos: ['/images/team/paulina-1.webp', '/images/team/paulina-2.webp', '/images/team/paulina-3.webp'],
+    fotosBuiten: ['/images/team/paulina-buiten-1.webp', '/images/team/paulina-buiten-2.webp', '/images/team/paulina-buiten-3.webp', '/images/team/paulina-buiten-4.webp', '/images/team/paulina-buiten-5.webp', '/images/team/paulina-buiten-6.webp', '/images/team/paulina-buiten-7.webp'],
+    decoratie: { kleur: 'var(--navy)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'sude-kirlioglu': {
+    naam: 'Sude Kirlioglu',
+    rollen: ['Stagiair Studio/Podcasts', 'Stagiair Socials', 'Stagiair Video', 'Stagiair Facilitair Medewerker'],
+    foto: '/images/team/sude.webp',
+    fotoPositie: 'center center',
+    bio: 'Snel, scherp en betrokken. Sude komt elke dag weer binnen met een bak energie en maakt zichzelf bij elke productie in no-time onmisbaar. Met een hart voor de productionele kant van het werk, een echte maker!',
+    bioLang: 'Tijdens de eerste meeting met Sude waren we gelijk enthousiast over de energie die binnen kwam waaien. Met de wens om meer te leren over de productiekant van het mediawerk, begon Sude als <strong>Stagiair Studio/Podcasts</strong>, <strong>Stagiair Socials</strong> én <strong>Stagiair Videos</strong>. Het duurde slechts een paar weken voordat de audio-edits en studio-draaidagen bijna niet meer naar iemand anders geschoven konden worden, omdat Sude stond te popelen om het te mogen doen en ze stuk voor stuk in een ongekend rap tempo aanleverden bij desbetreffende projecteigenaren. Met zo\'n enorme dosis energie en verantwoordelijkheidsgevoel, is Sude inmiddels een begrip geworden in de organisatie en willen we eigenlijk niet meer zonder… dat belooft wat!<br><br>Naast al het productieve werk, is Sude ook trots onderdeel van het facilitaire team als <strong>Stagiair Facilitair Medewerker</strong> en komt geen collega meer weg met een achtergelaten koffiekopje of niet-teruggelegde harde schijf. Een zeldzaam talent in de organisatie dat enorm gewaardeerd wordt, want uiteindelijk zorgt dit ervoor dat onze werkplek er elke dag weer representatief bij staat!<br><br>Van last-minute stagiair naar studio-expert… Sude zorgt dat alles rondom producties tot in de puntjes geregeld is!',
+    linkedin: 'https://www.linkedin.com/in/sude-kirlioglu-5b226a365/',
+    buiten: 'Het hart van Sude gaat met name sneller kloppen van menig Koreaanse rockband. Van een enorme collectie albums tot stickers en merchandise… Sude zit nog net niet in de tourbus met de band, want de tickets worden door heel Europa geboekt om de concerten in meerdere landen te kunnen zien.<br><br>En als er dan even geen muziek aanstaat en het tijd is voor een andere vorm van ontspanning, vind je Sude waarschijnlijk gekluisterd aan de buis voor de zoveelste watch party van Tick Tick Boom of een andere rockmusical. Maar het is niet altijd muziek, dans, musicals en verzameldrang! Sude kan soms ook de rust omarmen en ontzettend genieten van een prachtige zonsondergang, natuurwandeling of een hangout met vrienden!',
+    fotos: ['/images/team/sude-1.webp', '/images/team/sude-2.webp', '/images/team/sude-3.webp', '/images/team/sude-4.webp', '/images/team/sude-5.webp'],
+fotosBuiten: ['/images/team/sude-buiten-1.webp', '/images/team/sude-buiten-2.webp', '/images/team/sude-buiten-3.webp', '/images/team/sude-buiten-4.webp', '/images/team/sude-buiten-5.webp', '/images/team/sude-buiten-6.webp', '/images/team/sude-buiten-7.webp'],    decoratie: { kleur: 'var(--orange)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'jamie-kuiper': {
+    naam: 'Jamie Kuiper',
+    rollen: ['Stagiair Fotografie', 'Stagiair Socials', 'Stagiair Video', 'Stagiair Studio/Podcasts'],
+    foto: '/images/team/jamie.webp',
+    fotoPositie: 'center center',
+    bio: 'Jamie begon achter de camera, maar ontdekte al snel dat hij ook vóór de camera helemaal op zijn plek is. Met zijn enthousiasme en nieuwsgierigheid groeide hij uit tot een creatieve alleskunner binnen het team.',
+    bioLang: 'Jamie kwam binnen als onderdeel van het studentenmediateam. Waar hij begon met camera- en editwerk, ontdekte hij als snel dat hij erg veel plezier haalde uit het doen van interviews en presenteren voor de camera. Toen de stage voorbij was, had hij het gevoel dat hij nog niet uitgeleerd was bij Astrolads, dus solliciteerde hij naar een stageplek en zo geschiedde. Jamie kwam binnen in het Astrolads team als <strong>Stagiair Videos</strong>, <strong>Stagiair Socials</strong> en <strong>Stagiair Studio/Podcasts</strong>. Al snel bleek dat Jamie het ook ontzettend leuk vond om foto\'s te maken, en zo rolde hij langzaam maar zeker ook de rol van <strong>Stagiair Fotografie</strong> in.<br><br>Inmiddels is hij een waardige toevoeging aan het creatieve team, en speelt hij een steeds grotere rol bij het afnemen van interviews op straat. Hij stapt zonder angst en met de grootste glimlach op elke wildvreemde af en weet de juiste vragen te stellen. Jamie is een enorm leergierige en enthousiaste toevoeging aan ons team, die open staat voor nieuwe uitdagingen en wil laten zien wat hij kan.',
+    linkedin: 'https://www.linkedin.com/in/jamie-kuiper-b6ba64329/',
+    buiten: 'Jamie heeft naast zijn studie en werk bij Astrolads 1 grote passie: sport! Er gaat bijna geen dag voorbij dat Jamie niet bezig is met kettlebells, pushups en deadlifts. Voor hem is de sportschool dan ook een enorme energie-uitlaatklep.<br><br>Maar er zijn natuurlijk ook altijd de uurtjes dat hij met vermoeide spieren en een pot kwark thuis op de bank zit. Dan vindt hij het het leukst om de laatste AI-technologieën te ontdekken of duikt hij met alle liefde in de Star Wars universe!',
+    fotos: ['/images/team/jamie-1.webp', '/images/team/jamie-2.webp', '/images/team/jamie-3.webp'],
+    fotosBuiten: ['/images/team/jamie-buiten-1.webp', '/images/team/jamie-buiten-2.webp', '/images/team/jamie-buiten-3.webp', '/images/team/jamie-buiten-4.webp'],
+    decoratie: { kleur: 'var(--navy)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'bas-nieuwenhuijs': {
+    naam: 'Bas Nieuwenhuijs',
+    rollen: ['Studentbegeleider', 'Mediamaker Video'],
+    foto: '/images/team/bas.webp',
+    fotoPositie: 'center center',
+    bio: 'Bas viel al vroeg op door zijn rustige aanpak en scherpe creatieve blik. Waar anderen de drukte opzoeken, houdt Bas juist het overzicht en brengt hij rust in het proces. Als begeleider én videomaker weet hij mensen op hun gemak te stellen en het beste uit een productie te halen. Een stabiele kracht met droge humor en een relaxte energie.',
+    bioLang: 'Bas kwam binnen in het studentenmediateam en viel binnen zijn groep al snel op. Want waar de ene creatieveling rond stuitert en altijd op de voorgrond treedt, is Bas juist iemand die het creatieve proces in rust betreedt en vanuit daar excelleert.<br><br>Omdat Bas niet snel op de kast te jagen is en met de lange adem elk proces goed weet te begeleiden, is hij een natuurtalent binnen zijn rol als <strong>Studentbegeleider</strong>. Na het afronden van zijn studie, ging hij door met een HBO opleiding filmmaker en ging hij bij ons aan de slag om de nieuwe lichting studenten te begeleiden en de door hem geleerde skills door te geven. Van begeleiding op draaidagen tot zorgen dat iedereen op tijd aanwezig is, Bas zorgt dat elke student het beste uit zichzelf probeert te halen en in 6 maanden meer leert van de praktijk dan ze in 4 jaar uit theorie hadden kunnen halen.<br><br>Naast zijn werk als begeleider, is Bas ook steeds vaker voor de camera te vinden als <strong>Mediamaker Video</strong>. Vanuit deze rol doet Bas straatinterviews en presenteert hij voor de greenscreen. Zonder moeite stapt hij op mensen af om ze te ondervragen of een dilemma voor te leggen.<br><br>Bas is een stabiele factor in het team, die tegelijkertijd zorgt voor humor en luchtigheid!',
+    linkedin: 'https://www.linkedin.com/in/bas-nieuwenhuijs-3b79531b6/',
+    buiten: 'Bas heeft al sinds jongs af aan een passie voor film maken. Dit lag ten grondslag aan zijn studiekeuze, maar is ook een hobby die hij in zijn vrije uren met alle liefde beoefent. Daarnaast is hij ook vaak (hoewel hij het zelf vaker zou willen) in hardloopschoenen te vinden. In 2026 werd deze hobby verzegeld met zijn eerste echte medaille op de 10km tijdens de CPC run in Den Haag.<br><br>Als de hardloop- en camera batterijen dan even leeg zijn, gooit Bas de beentjes omhoog en gaat de Playstation aan. Alleen of met vrienden, even wat onschuldige burgers redden of zombies afknallen kan immers geen kwaad!',
+    fotos: ['/images/team/bas-1.webp', '/images/team/bas-2.webp', '/images/team/bas-3.webp'],
+    fotosBuiten: ['/images/team/bas-buiten-1.webp', '/images/team/bas-buiten-2.webp', '/images/team/bas-buiten-3.webp', '/images/team/bas-buiten-4.webp', '/images/team/bas-buiten-5.webp'],
+    decoratie: { kleur: 'var(--navy)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'zofia-michalak': {
+    naam: 'Zofia Michalak',
+    rollen: ['Stagiair Community'],
+    foto: '/images/team/zofia.webp',
+    fotoPositie: 'center center',
+    bio: 'Met haar energie, creativiteit en open houding groeide Zofia razendsnel uit tot een vaste kracht binnen de community. Van events tot socials, ze brengt mensen samen en laat iedereen zich welkom voelen. Een echte verbinder met een aanstekelijk enthousiasme.',
+    bioLang: 'Nadat haar stagebedrijf werd opgeheven, klopte Zofia in nood aan bij Astrolads voor een stageplek. Zo kon ze in een paar maanden alsnog haar stageperiode succesvol afsluiten. Met haar oorsprong in Polen, kon ze als International Student perfect aan de slag in het communityteam. Als <strong>Stagiair Community</strong> kreeg ze de opdracht om het team te ondersteunen bij events en het oppoetsen en managen van het Instagramkanaal. Deze kans pakte Zofia dan ook met beide handen aan. Inmiddels draait het social media kanaal van de community als een geoliede machine en ontgaat bijna geen enkele creatieveling in de stad nog het bestaan van de Astrolads Community. Ze zoekt constant vernieuwing en uitdaging op en blijft zichzelf op creatief vlak uitdagen.<br><br>Zofia wordt gekenmerkt door een onuitputbaar enthousiasme dat ze op aanstekelijke wijze tot uiting weet te brengen. Je hoeft je nooit zorgen te maken dat iemand zich niet welkom of oncomfortabel voelt als Zofia in de buurt is, want zij zal alles uit de kast halen om te zorgen dat je je welkom voelt. Van luisterend oor tot ontzorger… Zofia zorgt dat je op je plek bent!<br><br>Een ultra-optimistische verbinder dus!',
+    linkedin: 'https://www.linkedin.com/in/zofia-michalak-a85aa22a0/',
+    buiten: 'Je kunt je afvragen waarom Zofia eigenlijk nog huur betaalt, want thuis is ze nooit! Van rollerskaten in de omgeving tot concerten van haar favoriete artiesten, en van creatieve evenementen tot wandelingen in de natuur… Zofia is constant op pad om nieuwe ervaringen op te doen en mensen te ontmoeten. Ook kunstgalerijen en musea zijn niet veilig, want hier komt Zofia maar al te graag voor creatieve inspiratie.<br><br>Kortom… als je Zofia nodig hebt, hoef je haar niet thuis te zoeken!',
+    fotos: ['/images/team/zofia-1.webp', '/images/team/zofia-2.webp', '/images/team/zofia-3.webp'],
+    fotosBuiten: ['/images/team/zofia-buiten-1.webp', '/images/team/zofia-buiten-2.webp', '/images/team/zofia-buiten-3.webp', '/images/team/zofia-buiten-4.webp', '/images/team/zofia-buiten-5.webp', '/images/team/zofia-buiten-6.webp', '/images/team/zofia-buiten-7.webp', '/images/team/zofia-buiten-8.webp', '/images/team/zofia-buiten-9.webp'],
+    decoratie: { kleur: 'var(--orange)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'jelle-van-der-zanden': {
+    naam: 'Jelle van der Zanden',
+    rollen: ['Mede-oprichter', 'Communicatieadviseur'],
+    foto: '/images/team/jelle.webp',
+    fotoPositie: 'center 18%',
+    bio: 'Jelle vormt samen met Dave al jarenlang de creatieve motor achter Astrolads. Met een diepe interesse in mensen, verhalen en uiteenlopende onderwerpen duikt hij graag ergens volledig in om het echt te begrijpen. Vervolgens zoekt hij naar de verbinding tussen ideeën, mensen en perspectieven, zodat kennis niet alleen blijft hangen, maar ook echt iets in beweging brengt.',
+    duoBlok: {
+      titel: 'Ondernemersduo Jelle & Dave',
+      tekst: 'De namen Jelle & Dave worden eigenlijk altijd in één adem genoemd. Een vriendschap die is ontstaan uit een passie voor samen creëren. Eerst door muziek, videoseries en het organiseren van evenementen. Daarna door het samen starten en bouwen van Astrolads. Een plek waar wordt beoogd een waardevolle bijdrage te leveren aan maatschappelijke vooruitgang en de ontplooiing van creatief talent. Een onuitputtelijk ondernemersduo, zowel in energie als in ideeën. En… nog altijd beste vrienden!',
+      fotos: ['/images/team/jelle-dave-1.webp', '/images/team/jelle-dave-2.webp', '/images/team/jelle-dave-3.webp', '/images/team/jelle-dave-4.webp'],
+    },
+    bioLang: 'Jelle\'s grootste drijfveer is nieuwe werelden ontdekken en anderen erbij betrekken. Een levenslange leerling en verbinder in hart en nieren. Hij duikt het liefst in een breed scala aan onderwerpen, om zo alles bij elkaar opgeteld een steeds vollediger beeld van de werkelijkheid te schetsen. Om dat vervolgens natuurlijk weer zo snel mogelijk te kunnen delen met anderen! Bij opdrachten uit zich dit door grote interesse voor ieders verhaal, kennis en unieke kijk. Dit bij elkaar brengen en bruggen leggen waar nodig is zijn grote kracht.<br><br>Binnen Astrolads is Jelle voor opdrachtgevers hoofdzakelijk actief als <strong>Communicatieadviseur</strong>. Vanuit deze rol helpt hij organisaties aan pakkende strategieën om interne en externe communicatie te optimaliseren, en dit te koppelen aan praktische middelen die kennis omzetten in beweging. Daarnaast is Jelle nauw betrokken bij producties, als interviewer, regisseur, of zelf gewapend met foto- of videocamera.<br><br>Wat betreft bedrijfsmanagement van Astrolads richt Jelle zich het meest op R&D. Wat komt er op ons af aan ontwikkelingen en mogelijkheden en hoe verhouden wij ons daar optimaal binnen? Wat willen wij als bureau betekenen voor opdrachtgevers en voor al het creatief talent dat via werk, school of community ons kantoor weet te vinden?',
+    linkedin: 'https://www.linkedin.com/in/jellepaul/',
+    buiten: 'Jelle\'s creativiteit krijgt in zijn persoonlijke leven uiting door het maken en schrijven van muziek en poëzie. Wanneer woorden tekortschieten staat hij het liefst met een kwast in zijn hand of geniet hij van de wonderen van de natuur. Daarnaast duikt hij ook graag in de boeken en houdt hij zich door middel van zelfstudie veel bezig met het bestuderen van filosofie, geschiedenis en theologie. Kortom, zowel in werk als daarbuiten heeft Jelle een oneindige nieuwsgierigheid en voorliefde voor creatie.',
+    fotos: ['/images/team/jelle-1.webp', '/images/team/jelle-2.webp', '/images/team/jelle-3.webp'],
+    fotosBuiten: ['/images/team/jelle-buiten-1.webp', '/images/team/jelle-buiten-2.webp', '/images/team/jelle-buiten-3.webp', '/images/team/jelle-buiten-4.webp', '/images/team/jelle-buiten-5.webp'],
+    decoratie: { kleur: 'var(--navy)', top: '40px', right: '-120px', size: '480px' },
+  },
+  'dave-verwey': {
+    naam: 'Dave Verwey',
+    rollen: ['Mede-oprichter', 'Communicatieadviseur'],
+    foto: '/images/team/dave.webp',
+    fotoPositie: 'center 18%',
+    bio: 'Dave vormt samen met Jelle al jarenlang de creatieve motor achter Astrolads. Met zijn energie, humor en enorme drive krijgt hij mensen én projecten in beweging. In een zee van informatie en complexiteit weet Dave snel de kern te pakken en met luchtigheid te vertalen naar waar het écht om gaat.',
+    duoBlok: {
+      titel: 'Ondernemersduo Jelle & Dave',
+      tekst: 'De namen Jelle & Dave worden eigenlijk altijd in één adem genoemd. Een vriendschap die is ontstaan uit een passie voor samen creëren. Eerst door muziek, videoseries en het organiseren van evenementen. Daarna door het samen starten en bouwen van Astrolads. Een plek waar wordt beoogd een waardevolle bijdrage te leveren aan maatschappelijke vooruitgang en de ontplooiing van creatief talent. Een onuitputtelijk ondernemersduo, zowel in energie als in ideeën. En… nog altijd beste vrienden!',
+      fotos: ['/images/team/jelle-dave-1.webp', '/images/team/jelle-dave-2.webp', '/images/team/jelle-dave-3.webp', '/images/team/jelle-dave-4.webp'],
+    },
+    bioLang: 'Waar hij vroeger werd bestempeld als AD(H)D en iemand met een buitensporige behoefte aan prikkels en vernieuwing, zet Dave die eigenschappen nu in als zijn grootste kracht. Met eindeloze energie, ontwapende humor en sterke drang naar vooruitgang, zorgt Dave dat elk project vooruit komt en dat alle betrokkenen ook de waardering en het plezier ervaren dat het betekenisvolle werk met zich meebrengt. Vanuit een servicegerichte en pragmatische instelling, krijgt Dave energie van het meedenken met complexe vraagstukken en daarin de meest ontzorgende rol op zich te nemen. Door altijd met één been in de belevingswereld van de doelgroep te blijven, en met één been in de bubbel van de opdrachtgever, wordt de juiste kennis op de meest effectieve manier doorvertaald naar daar waar het impact heeft.<br><br>Binnen Astrolads is Dave voor opdrachtgevers hoofdzakelijk actief als <strong>Communicatieadviseur</strong>. Vanuit deze rol helpt hij organisaties aan pakkende strategieën om interne en externe communicatie te optimaliseren, kennis om te zetten in beweging en dit te koppelen aan praktische middelen. Wat betreft bedrijfsmanagement van Astrolads richt Dave zich via HR & Operations op het creëren van een inspirerende werksfeer waar zelfontwikkeling centraal staat, zowel in de fysieke ruimte als bij de mensen. Van ontwikkelgesprekken met het team tot klusprojecten en van werving- en selectie tot kwaliteitsmanagement… Dave krijgt energie van een plek creëren (en behouden) waar iedereen zich thuis voelt, persoonlijk kan excelleren en waar levensplezier en een gevoel van waarde centraal staan. Naast dit alles is Dave ook een presentatietalent. Van live podium, tot video\'s en podcasts… Dave brengt luchtigheid waar het zwaar wordt, en maakt vanuit de complexiteit de praktische vertaalslag.',
+    linkedin: 'https://www.linkedin.com/in/davenickverwey/',
+    buiten: 'Dave wordt vooral gelukkig van actief bezig zijn, zowel fysiek als mentaal. Dit krijgt buiten Astrolads voornamelijk vorm in zijn cabaretduo <strong>Joey & Dave</strong>. Samen met zijn broer stond hij in de finale van Cameretten in 2022, en sindsdien toert hij met eigen avondvullende theaterprogramma\'s door heel het land.<br><br>En hoe ontspant iemand die het liefst altijd druk bezig is? Door voor de lol 42.2 kilometer te rennen! Met inmiddels de derde marathon op de kalender, heeft Dave in het hardlopen een passie ontdekt waar hij energie uit put en lekker in kan \'nerden\'.<br><br>Als Dave zichzelf dan wel heel even de tijd gunt om op zijn achterwerk te zitten, doet hij dat het liefst tijdens het spelen van bordspellen of met een boek in de hand.',
+    fotos: ['/images/team/dave-1.webp', '/images/team/dave-2.webp', '/images/team/dave-3.webp', '/images/team/dave-4.webp', '/images/team/dave-5.webp', '/images/team/dave-6.webp'],
+    fotosPosities: ['center center', 'center center', 'center center', '30% center', 'center center', 'center center'],
+    fotosBuiten: ['/images/team/dave-buiten-1.webp', '/images/team/dave-buiten-2.webp', '/images/team/dave-buiten-3.webp', '/images/team/dave-buiten-4.webp'],
+    decoratie: { kleur: 'var(--orange)', top: '40px', right: '-120px', size: '480px' },
+  },
+};
+
+
+const data = teamleden[slug as keyof typeof teamleden];
+if (!data) return Astro.redirect('/over-ons');
+
+// Genereer een SEO-geoptimaliseerde meta description
+const bioKort = data.bio.split(/[.!?]/)[0].trim();
+const metaDescription = data.naam + ', ' + data.rollen[0].toLowerCase() + ' bij Astrolads in Den Haag. ' + bioKort + '.';
+
+const volgorde = [
+  'luuk-van-ooijen',
+  'floor-van-der-hoeven',
+  'joey-meeuwenoord',
+  'kylian-benna',
+  'jelle-van-der-zanden',
+  'dave-verwey',
+  'philip-tjahjadi',
+  'nick-mooijekind',
+  'paulina-kacymirow',
+  'bas-nieuwenhuijs',
+  'doa-karasahin',
+  'thijs-riep',
+  'sude-kirlioglu',
+  'zofia-michalak',
+  'jamie-kuiper',
+];
+
+const andereTeamleden = volgorde
+  .filter(s => s !== slug && teamleden[s as keyof typeof teamleden])
+  .map(s => {
+    const d = teamleden[s as keyof typeof teamleden];
+    return { slug: s, naam: d.naam, foto: d.foto };
+  });
+---
+
+<Layout
+  title={data.naam}
+  description={metaDescription}
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": data.naam,
+    "jobTitle": data.rollen[0],
+    "description": data.bio,
+    "image": `https://astrolads.com${data.foto}`,
+    "url": `https://astrolads.com/team/${slug}`,
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Astrolads",
+      "@id": "https://astrolads.com/#organization"
+    },
+    "knowsAbout": data.rollen,
+    ...(data.linkedin ? { "sameAs": [data.linkedin] } : {}),
+    "mainEntityOfPage": `https://astrolads.com/team/${slug}`
+  })} />
+
+  <div class="team-detail">
+    <div class="deco-cirkel" aria-hidden="true" style={
+      'background:' + data.decoratie.kleur + ';' +
+      'width:' + data.decoratie.size + ';' +
+      'height:' + data.decoratie.size + ';' +
+      'top:' + (data.decoratie.top || 'auto') + ';' +
+      'right:' + (data.decoratie.right || 'auto') + ';' +
+      'bottom:' + (data.decoratie.bottom || 'auto') + ';' +
+      'left:' + (data.decoratie.left || 'auto') + ';'
+    }></div>
+    <div class="section-inner">
+      <Breadcrumb items={[
+        { name: 'Over ons', url: '/over-ons' },
+        { name: data.naam }
+      ]} />
+
+      <!-- Header -->
+      <div class="team-header">
+        <div class="team-header-left">
+          <h1>{data.naam}</h1>
+          <div class="rollen">
+            {data.rollen.map(r => (
+              <span class="rol-pill">{r}</span>
+            ))}
+          </div>
+          <p class="team-bio">{data.bio}</p>
+          {data.linkedin && (
+            <a href={data.linkedin} class="linkedin-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          )}
+        </div>
+        <div class="team-header-img">
+          <img src={data.foto} alt={data.naam + ' - ' + data.rollen[0] + ' bij Astrolads'} width="480" height="560" loading="eager" fetchpriority="high" decoding="sync" style={'object-position:' + (data.fotoPositie || 'center center')} />
+        </div>
+      </div>
+
+      <!-- Duo-blok (alleen Jelle & Dave): tekst LINKS, fader RECHTS -->
+      {data.duoBlok && (
+        <div class="over-sectie duo-blok">
+          <div class="over-tekst">
+            <h2>{data.duoBlok.titel}</h2>
+            <p>{data.duoBlok.tekst}</p>
+          </div>
+          <div class="over-fader" data-speed="4000">
+            {data.duoBlok.fotos.map((f, i) => (
+              <img
+                src={f}
+                alt={'Jelle en Dave foto ' + (i + 1)}
+                width="480" height="560"
+                loading="lazy"
+                class:list={['fader-slide', { active: i === 0 }]}
+              />
+            ))}
+            <div class="fader-dots">
+              {data.duoBlok.fotos.map((_, i) => (
+                <button class:list={['fader-dot', { active: i === 0 }]} data-index={i} aria-label={'Foto ' + (i + 1)}></button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- Over sectie: fader LINKS, tekst RECHTS -->
+      {data.bioLang && (
+        <div class="over-sectie">
+          {data.fotos.length > 0 && (
+            <div class="over-fader" data-speed={data.faderSpeed || 4000}>
+              {data.fotos.map((f, i) => (
+                <img
+                  src={f}
+                  alt={data.naam + ' foto ' + (i + 1)}
+                  width="480" height="560"
+                  loading="lazy"
+                  class:list={['fader-slide', { active: i === 0 }]}
+                  style={data.fotosPosities && data.fotosPosities[i] ? 'object-position:' + data.fotosPosities[i] : ''}
+                />
+              ))}
+              <div class="fader-dots">
+                {data.fotos.map((_, i) => (
+                  <button class:list={['fader-dot', { active: i === 0 }]} data-index={i} aria-label={'Foto ' + (i + 1)}></button>
+                ))}
+              </div>
+            </div>
+          )}
+          <div class="over-tekst">
+            <h2>Over {data.naam.split(' ')[0]}</h2>
+            <p set:html={data.bioLang}></p>
+          </div>
+        </div>
+      )}
+
+      <!-- Buiten Astrolads: tekst LINKS, fader RECHTS -->
+      <div class="over-sectie">
+        <div class="over-tekst">
+          <h2>Buiten Astrolads</h2>
+          <p set:html={data.buiten}></p>
+        </div>
+        {data.fotosBuiten.length > 0 && (
+          <div class="over-fader" data-speed={data.faderSpeedBuiten || data.faderSpeed || 4000}>
+            {data.fotosBuiten.map((f, i) => (
+              <img
+                src={f}
+                alt={data.naam + ' buiten Astrolads ' + (i + 1)}
+                width="480" height="560"
+                loading="lazy"
+                class:list={['fader-slide', { active: i === 0 }]}
+                style={data.fotosBuitenPosities && data.fotosBuitenPosities[i] ? 'object-position:' + data.fotosBuitenPosities[i] : ''}
+              />
+            ))}
+            <div class="fader-dots">
+              {data.fotosBuiten.map((_, i) => (
+                <button class:list={['fader-dot', { active: i === 0 }]} data-index={i} aria-label={'Foto ' + (i + 1)}></button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <!-- Ons team -->
+      <div class="ons-team">
+        <h2>Ons team</h2>
+        <div class="team-grid" id="teamGrid">
+          {andereTeamleden.map(lid => (
+            <a href={'/team/' + lid.slug} class="team-card">
+              <img src={lid.foto} alt={lid.naam} width="300" height="300" loading="lazy" />
+              <div class="team-card-body">
+                <h3>{lid.naam}</h3>
+                <span class="btn-text-arrow" style="margin-top:12px">Lees meer</span>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-btn" onclick="scrollOnsTeam(-1)" aria-label="Vorige">←</button>
+          <button class="carousel-btn" onclick="scrollOnsTeam(1)" aria-label="Volgende">→</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .team-detail { padding: 64px 0 96px; position: relative; overflow-x: clip; }
+
+  .deco-cirkel {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0; pointer-events: none;
+  }
+
+  .section-inner { position: relative; z-index: 1; }
+
+  .team-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: start; margin-bottom: 96px;
+  }
+  .team-header h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 700; margin-bottom: 20px; }
+  .rollen { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .rol-pill {
+    font-size: 12px; background: var(--white);
+    border-radius: 999px; padding: 5px 14px;
+    border: 1px solid rgba(0,0,0,.12); color: var(--text);
+  }
+  .team-bio { color: var(--muted); line-height: 1.7; margin-bottom: 24px; font-size: 16px; }
+  .linkedin-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #0A66C2; color: #fff;
+    text-decoration: none; font-size: 13px;
+    border-radius: 999px; padding: 8px 18px;
+    transition: opacity .2s;
+  }
+  .linkedin-btn:hover { opacity: .88; }
+  .team-header-img img { width: 100%; border-radius: var(--radius); object-fit: cover; }
+
+  .over-sectie {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start; margin-bottom: 96px;
+  }
+
+  /* Duo-blok: wit blok met afgeronde hoeken */
+  .duo-blok {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 56px;
+    gap: 48px;
+    align-items: center;
+  }
+  .duo-blok .over-fader {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  } 
+  .over-tekst h2 { font-size: 32px; font-weight: 700; margin-bottom: 24px; }
+  .over-tekst p { color: var(--muted); line-height: 1.8; font-size: 15px; }
+  .over-tekst p strong { color: var(--text); font-weight: 700; }
+
+  .over-fader {
+    position: relative; border-radius: var(--radius);
+    overflow: hidden; aspect-ratio: 4/5;
+  }
+  .fader-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity .8s ease;
+  }
+  .fader-slide.active { opacity: 1; }
+  .fader-dots {
+    position: absolute; bottom: 16px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 2;
+  }
+  .fader-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,.5);
+    border: none; cursor: pointer; transition: background .2s; padding: 0;
+  }
+  .fader-dot.active { background: #fff; }
+
+  .ons-team { margin-top: 80px; }
+  .ons-team h2 { font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+  .team-grid {
+    display: flex; gap: 20px;
+    overflow-x: auto; overflow-y: visible;
+    padding: 8px 4px 32px;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .team-grid::-webkit-scrollbar { display: none; }
+  .team-card {
+    flex: 0 0 220px; background: var(--white);
+    border-radius: var(--radius); overflow: hidden;
+    text-decoration: none; color: inherit;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,.1);
+  }
+  .team-card img { width: 100%; height: 220px; object-fit: cover; }
+  .team-card-body { padding: 16px; display: flex; flex-direction: column; }
+  .team-card-body h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+
+  .carousel-nav { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
+  .carousel-btn {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,.2); background: transparent;
+    cursor: pointer; font-size: 16px; transition: background .2s;
+  }
+  .carousel-btn:hover { background: var(--white); }
+
+  @media (max-width: 768px) {
+    .team-detail { padding: 32px 0 56px; }
+
+    /* Decoratie-cirkel kleiner, hoger en achter de nav langs */
+    .deco-cirkel {
+      width: 280px !important;
+      height: 280px !important;
+      top: -150px !important;
+      right: -100px !important;
+      z-index: -1 !important;
+    }
+
+    /* Header: foto eerst, tekst eronder */
+    .team-header {
+      display: flex; flex-direction: column-reverse;
+      gap: 28px;
+      margin-bottom: 56px;
+    }
+    .team-header h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .rollen { gap: 6px; margin-bottom: 18px; }
+    .rol-pill { font-size: 11px; padding: 4px 12px; }
+    .team-bio { font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+    .linkedin-btn { font-size: 12px; padding: 7px 16px; }
+    .team-header-img img {
+      aspect-ratio: 4 / 3;
+      height: auto;
+      object-fit: cover;
+      object-position: center 18% !important;
+    }
+
+    /* Over-secties: foto altijd boven, tekst eronder (forceer order ondanks DOM-volgorde) */
+    .over-sectie {
+      display: flex; flex-direction: column;
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+    /* Duo-blok op mobile: compacter wit blok */
+    .duo-blok {
+      padding: 24px;
+      gap: 20px;
+    }
+    .over-sectie .over-fader { order: -1; }
+    .over-tekst h2 { font-size: 24px; margin-bottom: 16px; }
+    .over-tekst p { font-size: 14px; line-height: 1.7; }
+    .over-fader {
+      aspect-ratio: 16 / 9;
+      max-height: none;
+      width: 100%;
+      min-height: 200px;
+    }
+    .over-fader .fader-slide { object-position: center 30%; }
+    
+
+    /* Touch-target van fader-dots iets groter */
+    .fader-dot { width: 10px; height: 10px; }
+
+    /* Ons team: peek-scroll zoals homepage */
+    .ons-team { margin-top: 48px; }
+    .ons-team h2 { font-size: 24px; margin-bottom: 20px; text-align: left; }
+    .team-grid {
+      margin: 0 -20px;
+      padding: 8px 20px 24px;
+      gap: 12px;
+    }
+    .team-card { flex: 0 0 200px; }
+    .team-card img { height: 200px; }
+    .team-card-body { padding: 14px; }
+    .team-card-body h3 { font-size: 14px; }
+
+    /* Pijltjes verbergen op mobile, swipe is genoeg */
+    .ons-team .carousel-nav { display: none; }
+  }
+</style>
+
+<script>
+function scrollOnsTeam(dir) {
+    var el = document.getElementById('teamGrid');
+    if (el) el.scrollBy({ left: dir * 240, behavior: 'smooth' });
+  }
+  window.scrollOnsTeam = scrollOnsTeam;
+
+
+  document.querySelectorAll('.over-fader').forEach(function(fader) {
+    var slides = fader.querySelectorAll('.fader-slide');
+    var dots = fader.querySelectorAll('.fader-dot');
+    var current = 0;
+    var speed = parseInt(fader.getAttribute('data-speed')) || 4000;
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goTo(parseInt(dot.getAttribute('data-index')));
+      });
+    });
+
+    if (slides.length > 1) {
+      setInterval(function() {
+        goTo((current + 1) % slides.length);
+      }, speed);
+    }
+  });
+</script>

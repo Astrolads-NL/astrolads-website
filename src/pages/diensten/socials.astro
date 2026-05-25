@@ -1,0 +1,238 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const vormen = [
+  {
+    titel: 'Volledig beheren van kanalen',
+    tekst: 'Een actief kanaal vraagt om consistentie. Van het plannen en plaatsen van content tot het bijhouden van reacties en berichten, wij nemen het dagelijkse beheer van je social media kanalen uit handen. Zo blijft je boodschap zichtbaar en de doelgroep betrokken. We creëren een grote diversiteit aan content en zorgen dat voor elke subdoelgroep de juiste toon wordt geraakt. Hierbij werken we graag volgens het principe van "macro naar micro" contentcreatie: grotere contentformats zoals een website of podcast omzetten tot kleine behapbare video\'s, afbeeldingen en carrousels, zodat de kennis daar zichtbaar is waar de doelgroep zelf het liefst aanwezig is.',
+    img: '/images/diensten/socials-beheer.webp',
+  },
+  {
+    titel: 'Advertentiecampagnes',
+    tekst: 'Met de juiste advertentiestrategie versterk je het effect en bereik je de juiste mensen. We denken mee over doelgroepen, budgetten en formats, en sturen waar nodig bij. Data is meer dan alleen klikken en weergaven. Vele partijen waar wij mee werken hebben namelijk te maken met meerdere thema\'s die bij verschillende doelgroepen moeten landen. Bij onze projecten gebruiken we voor optimale monitoring en optimalisatie op maat gemaakte benchmarking per thema en doelgroep. Hierbij wordt naast online data, ook gekeken naar sentiment van de doelgroep en kwalitatieve resultaten.',
+    img: '/images/diensten/socials-advertenties.webp',
+  },
+];
+---
+
+<Layout
+  title="Social Media"
+  description="Social media beheer en advertentiecampagnes door Astrolads. Van contentstrategie tot dagelijks beheer op LinkedIn, TikTok, Instagram en Facebook. Bereik je doelgroep."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Social media",
+    "provider": { "@type": "Organization", "name": "Astrolads", "@id": "https://astrolads.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "description": "Social media contentstrategie, kanaalbeheer en advertentiecampagnes op LinkedIn, TikTok, Instagram en Facebook.",
+    "url": "https://astrolads.com/diensten/socials"
+  })} />
+
+  <div class="dienst-page">
+    <div class="section-inner">
+      <Breadcrumb items={[
+        { name: 'Diensten', url: '/diensten' },
+        { name: 'Social Media' }
+      ]} />
+
+      <!-- Header -->
+      <div class="dienst-header">
+        <div class="dienst-header-titel">
+          <p class="section-label">Diensten</p>
+          <h1>Social Media</h1>
+        </div>
+        <div class="dienst-header-img">
+          <img src="/images/diensten/socials-header.webp" alt="Astrolads social media" width="640" height="480" loading="eager" fetchpriority="high" decoding="sync" />
+        </div>
+        <div class="dienst-header-tekst">
+          <p class="dienst-intro">Verticale video's, vormgeving, rake teksten; op social media komen alle mediavormen samen. Bij Astrolads ontzorgen we je in het opzetten en uitvoeren van de social media contentstrategie, met of zonder advertenties. Maar ook het aanleveren van losse content voor campagnes gebeurt veel.</p>
+          <p class="dienst-intro">LinkedIn, TikTok, Instagram en Facebook. Bij Astrolads hebben we alle expertise in huis om samen met jou de doelgroep te bereiken op een manier die aansluit bij de toon van ieder platform.</p>
+          <a href="/contact" class="btn-orange">Kennismaken</a>
+        </div>
+      </div>
+
+      <!-- Vormen -->
+      <div class="dienst-vormen">
+        <h2 class="vormen-titel">Wat kunnen we voor je doen?</h2>
+        <div class="vormen-grid">
+          {vormen.map((v, i) => (
+            <div class:list={['vorm-sectie', { flip: i % 2 !== 0 }]}>
+              <div class="vorm-img">
+                <img src={v.img} alt={v.titel + ' door Astrolads'} width="600" height="400" loading="lazy" />
+              </div>
+              <div class="vorm-tekst">
+                <h3>{v.titel}</h3>
+                <p>{v.tekst}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="dienst-cta">
+        <h2>Nog niet helemaal zeker van de juiste aanpak?</h2>
+        <p>Laat ons met je meedenken en dit uitwerken tot een volledige communicatiestrategie.<br />We kijken samen welke kanalen, doelgroepen en formats het beste bij jouw organisatie passen.</p>
+        <a href="/diensten/communicatiestrategie" class="btn-orange">Naar communicatiestrategie</a>
+      </div>
+
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  .dienst-page { padding: 64px 0 96px; }
+
+  .dienst-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "titel slider"
+      "tekst slider";
+    gap: 0 80px; align-items: start;
+    margin-bottom: 120px;
+  }
+  .dienst-header-titel { grid-area: titel; align-self: end; padding-bottom: 16px; }
+  .dienst-header-img { grid-area: slider; align-self: center; }
+  .dienst-header-tekst { grid-area: tekst; }
+  .dienst-header-titel h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 0;
+  }
+  .dienst-intro {
+    font-size: 17px; color: var(--muted);
+    line-height: 1.7; margin-bottom: 24px;
+  }
+  .dienst-intro + .dienst-intro { margin-top: -8px; margin-bottom: 32px; }
+  .dienst-header-img img { width: 100%; border-radius: var(--radius); object-fit: cover; height: 460px; }
+
+  .vormen-titel {
+    font-size: 32px; font-weight: 700;
+    margin-bottom: 64px; text-align: center;
+  }
+
+  .vorm-sectie {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start;
+    margin-bottom: 120px;
+  }
+  .vorm-sectie.flip .vorm-img { order: 2; }
+  .vorm-sectie.flip .vorm-tekst { order: 1; }
+  .vorm-img img {
+    width: 100%; border-radius: var(--radius);
+    object-fit: contain; height: 560px;
+  }
+  .vorm-tekst h3 { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+  .vorm-tekst p { color: var(--muted); line-height: 1.8; font-size: 15px; }
+
+  .dienst-cta {
+    text-align: center;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 64px;
+    color: #fff;
+    margin-top: 40px;
+  }
+  .dienst-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+  .dienst-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  @media (max-width: 768px) {
+    .dienst-page { padding: 32px 0 56px; }
+
+    /* Header: titel → foto → tekst → knop */
+    .dienst-header {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-areas: none !important;
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .dienst-header-titel,
+    .dienst-header-img,
+    .dienst-header-tekst {
+      grid-area: auto !important;
+      align-self: auto !important;
+      width: 100%;
+    }
+    .dienst-header-titel {
+      padding-bottom: 0;
+    }
+    .dienst-header-titel h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.15;
+      margin-bottom: 0;
+    }
+    .dienst-intro {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .dienst-intro + .dienst-intro { margin-top: -4px; margin-bottom: 20px; }
+    .dienst-header-img img {
+      width: 100%;
+      height: auto !important;
+      aspect-ratio: 16 / 9;
+    }
+
+    /* Vormen-titel kleiner */
+    .vormen-titel {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    /* Vorm-secties: tekst boven, foto eronder (gecentreerd) */
+    .vorm-sectie {
+      display: flex; flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .vorm-sectie .vorm-img,
+    .vorm-sectie.flip .vorm-img {
+      order: 2;
+      display: flex;
+      justify-content: center;
+    }
+    .vorm-sectie .vorm-tekst { order: 1; }
+    .vorm-img {
+      width: 100%;
+      text-align: center;
+    }
+    .vorm-img img {
+      height: auto !important;
+      aspect-ratio: 4 / 5;
+      max-height: 280px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+    .vorm-tekst h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .vorm-tekst p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* CTA compacter */
+    .dienst-cta {
+      padding: 36px 24px;
+      margin-top: 24px;
+    }
+    .dienst-cta h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .dienst-cta p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Privacy & Cookies"
+  description="Privacy- en cookieverklaring van Astrolads. Welke gegevens we verzamelen, waarom, en wat je rechten zijn."
+>
+  <div class="privacy-page">
+    <div class="section-inner">
+
+      <div class="privacy-header">
+        <p class="section-label">Privacy & Cookies</p>
+        <h1>Hoe we omgaan met je gegevens</h1>
+        <p class="privacy-intro">
+          Bij Astrolads vinden we privacy belangrijk. Op deze pagina lees je in mensentaal welke gegevens we verzamelen, waarom, en wat je daar zelf over kunt zeggen.
+        </p>
+      </div>
+
+      <div class="privacy-content">
+
+        <section class="privacy-section">
+          <h2>Wie zijn wij?</h2>
+          <p>
+            Astrolads B.V., gevestigd aan de Grote Markt 22, 2511 BG Den Haag, is verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven op deze pagina. Vragen? Mail naar <a href="mailto:info@astrolads.com">info@astrolads.com</a>.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>Welke gegevens verzamelen we?</h2>
+          <p>
+            <strong>Via het contactformulier:</strong> Als je het contactformulier invult, krijgen we je naam, e-mailadres en bericht. We gebruiken dit alleen om je vraag te beantwoorden en bewaren het zolang dat nodig is voor goede klantenservice (max. 2 jaar).
+          </p>
+          <p>
+            <strong>Via Google Analytics:</strong> Met je toestemming meten we anoniem hoe bezoekers de website gebruiken. We zien bijvoorbeeld welke pagina's populair zijn, maar niet wie jij persoonlijk bent. Je IP-adres wordt geanonimiseerd. Dit helpt ons de site beter te maken.
+          </p>
+          <p>
+            <strong>Via embeds:</strong> Op sommige pagina's tonen we content van Spotify (podcasts) en Mave (video's). Deze diensten kunnen cookies plaatsen volgens hun eigen privacybeleid. Bekijk hun voorwaarden voor meer info: <a href="https://www.spotify.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Spotify privacybeleid</a>, <a href="https://www.mave.io/privacy" target="_blank" rel="noopener noreferrer">Mave privacybeleid</a>.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>Welke cookies gebruiken we?</h2>
+          <p>
+            <strong>Functionele cookies:</strong> Klein beetje techniek dat ervoor zorgt dat de website werkt. Bijvoorbeeld om te onthouden of je toestemming hebt gegeven voor cookies. Hier hebben we geen toestemming voor nodig.
+          </p>
+          <p>
+            <strong>Analytische cookies:</strong> Alleen met jouw toestemming. We meten anoniem hoe de site gebruikt wordt via Google Analytics. Je kunt deze toestemming op elk moment intrekken.
+          </p>
+          <p>
+            <strong>Embed-cookies:</strong> Spotify en Mave kunnen cookies plaatsen als je hun content afspeelt. Wil je dat niet? Speel die content dan niet af.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>Wat zijn je rechten?</h2>
+          <p>
+            Onder de AVG heb je een aantal rechten over jouw gegevens:
+          </p>
+          <ul>
+            <li><strong>Inzage:</strong> je mag weten welke gegevens we van je hebben.</li>
+            <li><strong>Correctie:</strong> kloppen ze niet? Dan passen we ze aan.</li>
+            <li><strong>Verwijdering:</strong> je kunt vragen om je gegevens te wissen.</li>
+            <li><strong>Bezwaar:</strong> je kunt bezwaar maken tegen het gebruik van je gegevens.</li>
+            <li><strong>Dataportabiliteit:</strong> je kunt vragen om een kopie van je gegevens.</li>
+          </ul>
+          <p>
+            Stuur een mail naar <a href="mailto:info@astrolads.com">info@astrolads.com</a> en we regelen het binnen 4 weken.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>Hoe beveiligen we je gegevens?</h2>
+          <p>
+            We gaan zorgvuldig om met je gegevens en delen ze niet met derden zonder jouw toestemming, tenzij dat wettelijk verplicht is. Onze hosting verloopt via Netlify, formulieren via Netlify Forms. Beide voldoen aan AVG-eisen.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>Klacht?</h2>
+          <p>
+            Vind je dat we het niet goed doen? Laat het ons eerst weten via <a href="mailto:info@astrolads.com">info@astrolads.com</a>, dan komen we er waarschijnlijk samen uit. Lukt dat niet? Dan kun je een klacht indienen bij de <a href="https://autoriteitpersoonsgegevens.nl/" target="_blank" rel="noopener noreferrer">Autoriteit Persoonsgegevens</a>.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>Cookievoorkeuren wijzigen</h2>
+          <p>
+            Wil je je eerdere keuze aanpassen? Klik dan op de knop hieronder om je voorkeuren te resetten. De cookiebanner verschijnt dan opnieuw bij je volgende bezoek.
+          </p>
+          <button id="resetCookies" class="btn-orange">Cookievoorkeuren resetten</button>
+        </section>
+
+        <p class="privacy-update">Laatst bijgewerkt: mei 2026</p>
+
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .privacy-page { padding: 64px 0 96px; }
+
+  .privacy-header {
+    margin-bottom: 64px;
+    max-width: 720px;
+  }
+  .privacy-header h1 {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  .privacy-intro {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 17px;
+  }
+
+  .privacy-content {
+    max-width: 720px;
+  }
+
+  .privacy-section {
+    margin-bottom: 48px;
+  }
+  .privacy-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .privacy-section p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+  .privacy-section p strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+  .privacy-section a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .privacy-section a:hover { text-decoration: underline; }
+
+  .privacy-section ul {
+    margin: 0 0 16px;
+    padding-left: 20px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  .privacy-section ul li { margin-bottom: 6px; }
+  .privacy-section ul strong { color: var(--text); }
+
+  .privacy-update {
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,.08);
+  }
+
+  @media (max-width: 768px) {
+    .privacy-page { padding: 32px 0 56px; }
+    .privacy-header { margin-bottom: 40px; }
+    .privacy-header h1 {
+      font-size: clamp(26px, 6.5vw, 34px);
+      margin-bottom: 16px;
+    }
+    .privacy-intro { font-size: 14px; line-height: 1.7; }
+    .privacy-section { margin-bottom: 32px; }
+    .privacy-section h2 { font-size: 18px; margin-bottom: 12px; }
+    .privacy-section p { font-size: 14px; line-height: 1.7; }
+    .privacy-section ul { font-size: 14px; }
+  }
+</style>
+
+<script>
+  var resetBtn = document.getElementById('resetCookies');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      localStorage.removeItem('astrolads-cookie-consent');
+      alert('Je cookievoorkeuren zijn gereset. Bij je volgende paginabezoek krijg je de cookiebanner opnieuw te zien.');
+    });
+  }
+</script>

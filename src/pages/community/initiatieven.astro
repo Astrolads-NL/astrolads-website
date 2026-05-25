@@ -1,0 +1,90 @@
+---
+import LayoutNight from '../../layouts/LayoutNight.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+
+<LayoutNight
+  title="Initiatieven"
+  description="Initiatieven die de Astrolads Community ondersteunt."
+>
+  <div class="coming-soon">
+    <div class="section-inner">
+      <Breadcrumb 
+        theme="dark"
+        items={[
+          { name: 'Community', url: '/community' },
+          { name: 'Events' }
+        ]} 
+      />
+      <h1>Initiatieven die wij steunen</h1>
+      <p class="lead">Binnenkort tonen we hier alle initiatieven en projecten die de Astrolads Community ondersteunt, van creatieve experimenten tot maatschappelijke samenwerkingen.</p>
+      <p class="muted">Vragen of suggesties? Mail naar <a href="mailto:info@astrolads.com">info@astrolads.com</a>.</p>
+      <div class="back-cta">
+        <a href="/community" class="btn-night-ghost">← Terug naar Community</a>
+      </div>
+    </div>
+  </div>
+</LayoutNight>
+
+<style>
+  .coming-soon { padding: 96px 0 120px; text-align: center; }
+  .eyebrow {
+    font-size: 13px; font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase; letter-spacing: .12em;
+    margin-bottom: 16px;
+  }
+  .coming-soon h1 {
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  .lead {
+    color: var(--night-text);
+    font-size: 17px; line-height: 1.7;
+    max-width: 600px; margin: 0 auto 24px;
+  }
+  .muted {
+    color: var(--night-muted);
+    max-width: 500px; margin: 0 auto 48px;
+  }
+  .muted a { color: var(--orange); text-decoration: none; }
+  .muted a:hover { text-decoration: underline; }
+  .back-cta { margin-top: 32px; }
+  .btn-night-ghost {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid var(--night-border);
+    color: var(--night-text);
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background .2s, border-color .2s;
+  }
+  .btn-night-ghost:hover { background: var(--night-surface); border-color: var(--orange); }
+
+  @media (max-width: 768px) {
+    .coming-soon { padding: 48px 0 64px; }
+    .eyebrow { font-size: 12px; margin-bottom: 12px; }
+    .coming-soon h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .lead {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .muted {
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .back-cta { margin-top: 20px; }
+    .btn-night-ghost {
+      font-size: 13px;
+      padding: 10px 22px;
+    }
+  }
+</style>

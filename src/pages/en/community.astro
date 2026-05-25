@@ -1,0 +1,384 @@
+---
+import LayoutNightEN from '../../layouts/LayoutNightEN.astro';
+
+const sfeerFotos = [
+  '/images/community/sfeer-1.webp',
+  '/images/community/sfeer-2.webp',
+  '/images/community/sfeer-3.webp',
+  '/images/community/sfeer-4.webp',
+  '/images/community/sfeer-5.webp',
+];
+
+const eventFotos = [
+  '/images/community/event-1.webp',
+  '/images/community/event-2.webp',
+  '/images/community/event-3.webp',
+  '/images/community/event-4.webp',
+];
+
+const initiatiefFotos = [
+  '/images/community/initiatief-1.webp',
+  '/images/community/initiatief-2.webp',
+  '/images/community/initiatief-3.webp',
+];
+---
+
+<LayoutNightEN
+  title="Community"
+  description="Astrolads Community is the community hub for creative talent in The Hague. Meet like-minded people at events and kickstart valuable creative initiatives."
+>
+  <div class="community-page">
+    <div class="section-inner">
+
+      <!-- Hero -->
+      <section class="hero">
+        <p class="eyebrow">Astrolads Community</p>
+        <h1>The community hub for creative talent in The Hague.</h1>
+        <p class="hero-sub">
+          Astrolads is the hotspot for creative talent in The Hague. To meet others at events and to kickstart valuable ideas. Whether you love photography, art, music, games, design or are still figuring out where your talent lies. At the Astrolads Community Hub you'll find like-minded people and grow together!
+        </p>
+      </section>
+
+      <!-- Atmosphere slider -->
+      <section class="slider-sectie">
+        <div class="fader" data-fader>
+          {sfeerFotos.map((f, i) => (
+            <img src={f} alt={'Astrolads Community atmosphere ' + (i + 1)} class:list={['fader-slide', { active: i === 0 }]} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding={i === 0 ? 'sync' : 'async'} />
+          ))}
+          <div class="fader-dots">
+            {sfeerFotos.map((_, i) => (
+              <button class:list={['fader-dot', { active: i === 0 }]} data-index={i} aria-label={'Photo ' + (i + 1)}></button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Two pillars -->
+      <section class="pijlers">
+        <h2>Discover the community</h2>
+        <p class="sectie-intro">The Astrolads Community is built on two main pillars:</p>
+        <ol class="pijler-intro-lijst">
+          <li><strong>Events</strong>, (recurring) events where you discover new hobbies, meet people and celebrate shared passions.</li>
+          <li><strong>Initiatives</strong>, concepts and ideas from outsiders that get a boost from Astrolads to help them get off the ground. This can range from financial support, material support in the form of studios and cameras, networking opportunities or entrepreneurial advice.</li>
+        </ol>
+
+        <div class="pijler-grid">
+          <a href="/en/community/events" class="pijler">
+            <div class="pijler-fader" data-fader>
+              {eventFotos.map((f, i) => (
+                <img src={f} alt={'Event impression ' + (i + 1)} class:list={['fader-slide', { active: i === 0 }]} loading="lazy" />
+              ))}
+              <div class="fader-dots">
+                {eventFotos.map((_, i) => (
+                  <button class:list={['fader-dot', { active: i === 0 }]} data-index={i} aria-label={'Photo ' + (i + 1)}></button>
+                ))}
+              </div>
+            </div>
+            <div class="pijler-body">
+              <h3>Events</h3>
+              <p>An accessible way to meet others and discover new forms of creativity together. You're welcome!</p>
+              <span class="btn-night-ghost">To the agenda →</span>
+            </div>
+          </a>
+
+          <a href="/en/community/initiatives" class="pijler">
+            <div class="pijler-fader" data-fader>
+              {initiatiefFotos.map((f, i) => (
+                <img src={f} alt={'Initiative impression ' + (i + 1)} class:list={['fader-slide', { active: i === 0 }]} loading="lazy" />
+              ))}
+              <div class="fader-dots">
+                {initiatiefFotos.map((_, i) => (
+                  <button class:list={['fader-dot', { active: i === 0 }]} data-index={i} aria-label={'Photo ' + (i + 1)}></button>
+                ))}
+              </div>
+            </div>
+            <div class="pijler-body">
+              <h3>Initiatives</h3>
+              <p>Astrolads supports valuable creative initiatives that contribute to the world, the region or simply to the lives of creatives themselves. What's your idea?</p>
+              <span class="btn-night-ghost">View initiatives →</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- CTA pitch -->
+      <section class="cta-sectie">
+        <h2>Got an idea?</h2>
+        <p>Pitch your idea to the co-founders of Astrolads and get a meeting where we'll look together at how we can help you further.</p>
+        <a href="/en/community/initiatives#pitch" class="btn-night-primary">Pitch your idea</a>
+      </section>
+
+    </div>
+  </div>
+</LayoutNightEN>
+
+<style>
+  .community-page { padding: 64px 0 96px; }
+
+  .hero { text-align: center; margin-bottom: 80px; }
+  .eyebrow {
+    font-size: 13px; font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase; letter-spacing: .12em;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: var(--night-text);
+    max-width: 880px; margin-left: auto; margin-right: auto;
+  }
+  .hero-sub {
+    color: var(--night-muted);
+    font-size: 17px; line-height: 1.7;
+    max-width: 720px; margin: 0 auto;
+  }
+
+  .btn-night-primary {
+    background: var(--orange);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 400;
+    text-decoration: none;
+    transition: opacity .2s, transform .15s;
+    display: inline-block;
+  }
+  .btn-night-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+  .btn-night-ghost {
+    background: transparent;
+    border: 1px solid var(--night-border);
+    color: var(--night-text);
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background .2s, border-color .2s;
+    display: inline-block;
+  }
+  .btn-night-ghost:hover { background: var(--night-surface); border-color: var(--orange); }
+
+  .slider-sectie { margin-bottom: 120px; }
+  .fader {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 21/9;
+    background: var(--night-surface);
+    border: 1px solid var(--night-border);
+  }
+  .fader-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity .8s ease;
+  }
+  .fader-slide.active { opacity: 1; }
+  .fader-dots {
+    position: absolute; bottom: 16px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 2;
+  }
+  .fader-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,.4);
+    border: none; cursor: pointer; transition: background .2s; padding: 0;
+  }
+  .fader-dot.active { background: var(--orange); }
+
+  .pijlers { margin-bottom: 120px; }
+  .pijlers h2 {
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .sectie-intro {
+    color: var(--night-muted);
+    text-align: center;
+    max-width: 640px; margin: 0 auto 20px;
+  }
+  .pijler-intro-lijst {
+    color: var(--night-muted);
+    max-width: 720px;
+    margin: 0 auto 48px;
+    padding-left: 24px;
+    list-style: decimal;
+    line-height: 1.7;
+  }
+  .pijler-intro-lijst li {
+    margin-bottom: 12px;
+    padding-left: 8px;
+  }
+  .pijler-intro-lijst li::marker {
+    color: var(--orange);
+    font-weight: 700;
+  }
+  .pijler-intro-lijst strong {
+    color: var(--night-text);
+    font-weight: 700;
+  }
+  .pijler-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .pijler {
+    background: var(--night-surface);
+    border: 1px solid var(--night-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color .2s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .pijler:hover { border-color: var(--orange); }
+  .pijler-fader {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+  }
+  .pijler-fader .fader-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity .8s ease;
+  }
+  .pijler-fader .fader-slide.active { opacity: 1; }
+  .pijler-fader .fader-dots {
+    position: absolute; bottom: 12px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 6px; z-index: 2;
+  }
+  .pijler-body { padding: 28px; }
+  .pijler-body h3 {
+    font-size: 22px; font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--night-text);
+  }
+  .pijler-body p {
+    color: var(--night-muted);
+    font-size: 15px; line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .cta-sectie {
+    text-align: center;
+    padding: 64px 32px;
+    background: var(--night-surface);
+    border: 1px solid var(--night-border);
+    border-radius: var(--radius);
+  }
+  .cta-sectie h2 {
+    font-size: clamp(24px, 2.5vw, 32px);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .cta-sectie p {
+    color: var(--night-muted);
+    max-width: 520px; margin: 0 auto 24px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .community-page { padding: 32px 0 56px; }
+
+    .hero { margin-bottom: 40px; }
+    .eyebrow { font-size: 12px; margin-bottom: 12px; }
+    .hero h1 {
+      font-size: clamp(26px, 7vw, 36px);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .slider-sectie { margin-bottom: 56px; }
+    .fader { aspect-ratio: 16 / 9; }
+    .fader-dot { width: 10px; height: 10px; }
+
+    .pijlers { margin-bottom: 56px; }
+    .pijlers h2 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .sectie-intro {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .pijler-intro-lijst {
+      font-size: 14px;
+      margin-bottom: 28px;
+      padding-left: 20px;
+    }
+    .pijler-intro-lijst li {
+      margin-bottom: 10px;
+    }
+    .pijler-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .pijler-fader { aspect-ratio: 16 / 9; }
+    .pijler-fader .fader-dot { width: 10px; height: 10px; }
+    .pijler-body { padding: 20px; }
+    .pijler-body h3 { font-size: 18px; margin-bottom: 10px; }
+    .pijler-body p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .cta-sectie {
+      padding: 36px 24px;
+    }
+    .cta-sectie h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .cta-sectie p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .btn-night-primary,
+    .btn-night-ghost {
+      font-size: 13px;
+      padding: 10px 22px;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-fader]').forEach(function(fader) {
+    var slides = fader.querySelectorAll('.fader-slide');
+    var dots = fader.querySelectorAll('.fader-dot');
+    if (slides.length === 0) return;
+    var current = 0;
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      if (dots[current]) dots[current].classList.remove('active');
+      current = index;
+      slides[current].classList.add('active');
+      if (dots[current]) dots[current].classList.add('active');
+    }
+
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goTo(parseInt(dot.getAttribute('data-index')));
+      });
+    });
+
+    if (slides.length > 1) {
+      setInterval(function() {
+        goTo((current + 1) % slides.length);
+      }, 4500);
+    }
+  });
+</script>

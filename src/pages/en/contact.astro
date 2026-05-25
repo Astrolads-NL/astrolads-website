@@ -1,0 +1,229 @@
+---
+import LayoutEN from '../../layouts/LayoutEN.astro';
+---
+
+<LayoutEN title="Get in touch with Astrolads" description="Get in touch with Astrolads for your communication project. Send us a message or drop by our office at the Grote Markt in The Hague.">
+  <div class="contact-page">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <div class="contact-title-row">
+            <div>
+              <p class="section-label">Contact</p>
+              <h1 class="section-title">Let's get in touch.</h1>
+            </div>
+            <img src="/images/contact/contact-icon.webp" alt="" class="contact-icon-mobile" aria-hidden="true" />
+          </div>
+          <p class="contact-intro">
+            Curious what Astrolads can do for your communication?
+            Send us a message and we'll get back to you as soon as possible.
+          </p>
+
+          <div class="contact-faces-wrap">
+            <p class="faces-bericht">One of us will get back to you as soon as possible! <span class="faces-arrow" aria-hidden="true">↓</span></p>
+            <div class="contact-faces">
+              <div class="face">
+                <img src="/images/team/jelle.webp" alt="Jelle van der Zanden, co-founder and communications advisor at Astrolads" class="face-img" />
+                <p class="face-naam">Jelle</p>
+              </div>
+              <div class="face">
+                <img src="/images/team/dave.webp" alt="Dave Verwey, co-founder and communications advisor at Astrolads" class="face-img" />
+                <p class="face-naam">Dave</p>
+              </div>
+              <div class="face">
+                <img src="/images/team/floor.webp" alt="Floor van der Hoeven, communications advisor at Astrolads" class="face-img" />
+                <p class="face-naam">Floor</p>
+              </div>
+            </div>
+          </div>
+
+          <img src="/images/contact/contact-icon.webp" alt="" class="contact-icon-desktop" aria-hidden="true" />
+        </div>
+
+        <div class="contact-right">
+          <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p style="position:absolute; left:-9999px;" aria-hidden="true">
+              <label>Do not fill this in: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
+
+            <div class="form-group">
+              <label for="naam">Name</label>
+              <input type="text" id="naam" name="naam" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="organisatie">Organisation</label>
+              <input type="text" id="organisatie" name="organisatie" placeholder="Your organisation" />
+            </div>
+            <div class="form-group">
+              <label for="bericht">Message</label>
+              <textarea id="bericht" name="bericht" rows="5" placeholder="Tell us about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn-orange" style="width:100%; padding:14px; font-size:15px;">
+              Send message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</LayoutEN>
+
+<style>
+  .contact-page { padding: 64px 0 96px; }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr;
+    gap: 80px; align-items: start;
+  }
+  .contact-title-row { display: contents; }
+  .contact-icon-mobile { display: none; }
+  .contact-icon-desktop {
+    display: block;
+    width: 260px;
+    height: auto;
+    object-fit: contain;
+    margin: 40px auto 0;
+  }
+
+  .contact-intro { color: var(--muted); line-height: 1.7; margin-bottom: 32px; font-size: 15px; }
+
+  /* Faces-blok */
+  .contact-faces-wrap {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 40px;
+  }
+  .faces-bericht {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .faces-arrow {
+    color: var(--orange);
+    font-weight: 700;
+    margin-left: 4px;
+  }
+  .contact-faces {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .face {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 8px;
+    flex: 0 0 auto;
+  }
+  .face-img {
+    width: 80px; height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+  .face-naam {
+    font-size: 13px; font-weight: 700;
+    color: var(--text);
+  }
+
+  /* Formulier */
+  .contact-form { background: var(--white); border-radius: var(--radius); padding: 40px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .form-group label { font-size: 13px; font-weight: 700; }
+  .form-group input, .form-group textarea {
+    border: 1.5px solid rgba(0,0,0,.12);
+    border-radius: 10px; padding: 12px 16px;
+    font-family: var(--font); font-size: 14px;
+    background: var(--bg); color: var(--text);
+    outline: none; transition: border-color .2s;
+    resize: vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus {
+    border-color: var(--orange);
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: var(--muted); }
+
+  @media (max-width: 768px) {
+    .contact-page { padding: 32px 20px 56px; }
+
+    /* Section-inner geen padding op mobile zodat content edge-to-edge kan */
+    .contact-page .section-inner { padding: 0; }
+
+    /* Grid kolom-stack */
+    .contact-grid {
+      display: flex; flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Title row: tekst links, kopje koffie rechts */
+    .contact-title-row {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+    .contact-icon-mobile {
+      display: block;
+      width: 110px;
+      height: auto;
+      flex-shrink: 0;
+      margin-top: -8px;
+    }
+    .contact-icon-desktop { display: none; }
+
+    .section-title {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+    .contact-intro {
+      font-size: 14px;
+      margin-top: 28px;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    /* Faces-blok */
+    .contact-faces-wrap {
+      padding: 20px 16px;
+      margin-bottom: 0;
+    }
+    .faces-bericht {
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    .contact-faces {
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .face-img {
+      width: 92px; height: 92px;
+      border-radius: 12px;
+      object-position: center 18%;
+    }
+    .face-naam { font-size: 13px; }
+
+    /* Formulier */
+    .contact-form {
+      padding: 24px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .contact-right { width: 100%; min-width: 0; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { font-size: 12px; }
+    .form-group input,
+    .form-group textarea {
+      padding: 11px 14px;
+      font-size: 14px;
+    }
+  }
+</style>

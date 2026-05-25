@@ -1,0 +1,172 @@
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Fonts ── */
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('Avenir Next Bold'), local('AvenirNext-Bold');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: local('Avenir Next Regular'), local('AvenirNext-Regular');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Variables ── */
+:root {
+  --orange:      #F4622A;
+  --orange-dark: #D84F1A;
+  --navy:    #1A2744;
+  --bg:      #EDEDED;
+  --white:   #FFFFFF;
+  --text:    #1A1A1A;
+  --muted:   #6B6B6B;
+  --radius:  16px;
+  --font:    'Avenir Next', 'Avenir', 'Century Gothic', sans-serif;
+  --max-w:   1280px;
+
+  /* Night mode — Community */
+  --night-bg:      #0B1020;
+  --night-surface: #141A2E;
+  --night-text:    #EDEDED;
+  --night-muted:   #8A92A8;
+  --night-border:  rgba(255,255,255,.08);
+  --night-glow:    #B247FF;
+}
+
+/* Night-mode body styling (alleen op pagina's met data-theme="night") */
+html[data-theme="night"] body {
+  background: var(--night-bg);
+  color: var(--night-text);
+}
+html[data-theme="night"] body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at top right, rgba(178,71,255,.10), transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(244,98,42,.08), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+html[data-theme="night"] main { position: relative; z-index: 1; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* Skip-to-content link voor toetsenbordnavigatie */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--navy);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  z-index: 9999;
+  transition: top .2s;
+}
+.skip-link:focus {
+  top: 16px;
+  outline: 3px solid var(--navy);
+  outline-offset: 2px;
+}
+
+/* ── Utilities ── */
+.section-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+.section-label {
+  font-size: 13px; font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 8px;
+  text-transform: uppercase; letter-spacing: .08em;
+}
+.section-title {
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.btn-orange,
+.btn-orange:link,
+.btn-orange:visited,
+.btn-orange:hover,
+.btn-orange:active {
+  color: #fff;
+}
+.btn-orange {
+  background: var(--orange-dark);
+  border: none; cursor: pointer;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-family: var(--font);
+  font-size: 14px; font-weight: 400;
+  text-decoration: none;
+  transition: opacity .2s, transform .15s;
+  display: inline-block;
+}
+.btn-orange:hover { opacity: .88; transform: translateY(-1px); }
+
+.btn-text-arrow {
+  display: inline-flex; align-items: center;
+  color: var(--text);
+  font-size: 13px;
+  text-decoration: none;
+  background: rgba(0,0,0,.07);
+  border-radius: 999px;
+  padding: 8px 16px;
+  transition: background .2s;
+}
+.btn-text-arrow:hover { background: rgba(0,0,0,.12); }
+/* ── Focus states voor toegankelijkheid ── */
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Buttons en links binnen dark surfaces krijgen lichte outline */
+html[data-theme="night"] :focus-visible {
+  outline-color: var(--orange);
+}
+
+/* Verbeterde focus voor de oranje knop (anders valt outline weg op oranje) */
+.btn-orange:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+/* Form fields hebben al border-color focus, maar voeg extra outline toe */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 1px;
+}
+/* ── Reduced motion respect ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  body { overflow-x: clip; }
+}

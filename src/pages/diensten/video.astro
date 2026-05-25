@@ -1,0 +1,486 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const vormen = [
+ {
+    titel: 'Inhoudelijke aftermovies',
+    tekst: 'Om de impact van jouw event of congres (online) te vergroten, is een inhoudelijke aftermovie het ideale middel. Door middel van interviews met de organisatoren, sprekers én bezoekers/deelnemers, brengen we in 2-3 minuten de inhoud van het event in beeld. In combinatie met sprekende sfeerbeelden, maken we zo een videoverslag van de dag. Inzetbaar als nabrander voor alle deelnemers om het event te herbeleven, maar ook de ideale manier om online de doelgroep die niet aanwezig kon zijn alsnog mee te nemen in de inhoud van het event. Ook leent deze vorm zich als perfecte wervingscontent voor een eventuele vervolgeditie van jouw event of congres.',
+    mave: [
+      { src: 'https://space-10z8x.video-dns.com/2JzghPTMiJ/player.html', titel: 'Waardevol regeren' },
+      { src: 'https://space-10z8x.video-dns.com/6lG42imBIZ/player.html', titel: 'Duurzaamheidscongres' },
+      { src: 'https://space-10z8x.video-dns.com/xAPD6BJf7s/player.html', titel: 'VR/AI Experience' },
+      { src: 'https://space-10z8x.video-dns.com/CIrQ4yEQdP/player.html', titel: 'Rijnpark' },
+      { src: 'https://space-10z8x.video-dns.com/8inYzSnFG7/player.html', titel: 'Shared Mobility Rocks' },
+    ],
+  },
+  {
+    titel: 'Explainers',
+    tekst: 'Niet iedereen leest uitgebreide overheidsrapporten of beleidsadviezen. Toch is het belangrijk dat de inhoud zoveel als mogelijk mensen bereikt. Om de impact van deze onderzoeken, rapporten en adviezen te vergroten, maken we explainervideo\'s waar we de kijker in korte tijd meenemen door de belangrijkste kernpunten uit het document. Van stapels A4 naar videoscript, en van greenscreen opname naar geanimeerde video… dé videovorm voor het overbrengen van complexe materie.',
+    mave: [
+      { src: 'https://space-10z8x.video-dns.com/fTYTktVHJU/player.html', titel: 'Drinkwatervoorziening' },
+    ],
+  },
+  {
+    titel: 'Reportages',
+    tekst: 'De videovorm van een (nieuws)artikel. Of het nou gaat om het uitlichten van een project, nieuwe ontwikkeling of belangrijk thema… door middel van reportages neem je de kijker in enkele minuten mee door de belangrijkste topics. Een vorm die goed past in nieuwsbrieven en op LinkedIn pagina\'s. Door middel van interviews (eventueel met reporter), vangen we de inhoud en brengen we de verhaallijn in beeld.',
+    mave: [
+      { src: 'https://space-10z8x.video-dns.com/xOBeadJAT4/player.html', titel: 'Kracht van híer' },
+      { src: 'https://space-10z8x.video-dns.com/YAfVTptFoh/player.html', titel: 'OOMT on the road' },
+      { src: 'https://space-10z8x.video-dns.com/TbBy8kTOG4/player.html', titel: 'Phytophthora demovelden' },
+      { src: 'https://space-10z8x.video-dns.com/mEFxkBEKj3/player.html', titel: 'Geitenkamp, Arnhem' },
+      { src: 'https://space-10z8x.video-dns.com/KPNDoGjpKh/player.html', titel: 'Gemeenteraadsverkiezingen' },
+    ],
+  },
+  {
+    titel: 'Verticale video\'s',
+    tekst: 'Door de onmisbare rol van telefoons, zijn video\'s steeds vaker verticaal beter inzetbaar én bekeken. Van podcast-snippets tot gehele aftermovies, afhankelijk van de doelgroep kan de keuze voor verticale video slim zijn. Met alle beeldelementen en ondertiteling binnen de safemarges, zorg je dat jouw thema of vraagstuk tijdens het scrollen naadloos aansluit bij de contentwens op social media kanalen.',
+   verticaal: [
+      { src: 'https://space-10z8x.video-dns.com/MhlKFfYJre/player.html', titel: 'Ik sluit aan!' },
+      { src: 'https://space-10z8x.video-dns.com/mS6gdfdz7b/player.html', titel: 'Softskills' },
+      { src: 'https://space-10z8x.video-dns.com/bkN0yYevSW/player.html', titel: 'Gastles' },
+    ],
+  },
+  {
+    titel: 'Straatinterviews',
+    tekst: 'Als je in kaart wilt brengen wat mensen ergens écht van vinden, zul je het ze zelf moeten vragen. Met straatinterviews duiken we de straten op om mensen vragen voor te leggen omtrent jouw thema of vraagstuk. Een ideale contentvorm voor advertenties (sluit aan bij de kijkwens op socials), leuke opener voor congressen (voor wie doen we het eigenlijk?) of pakkende contentvorm voor je online kanalen.',
+    verticaal: [
+      { src: 'https://space-10z8x.video-dns.com/57iEzyDfmr/player.html', titel: 'Stamceldonatie' },
+      { src: 'https://space-10z8x.video-dns.com/KdQ3ulkUpM/player.html', titel: 'Gaat u stemmen?' },
+    ],
+  },
+  {
+    titel: 'Documentaires',
+    tekst: 'Soms is een boodschap zó belangrijk, dat het niet in short-formats te vangen is. In dat geval is een (short)docu vaak de oplossing. Een uitgebreidere video waar de kijker wordt meegenomen in een verhaallijn of vraagstuk, dat wordt uitgezet d.m.v. voice-overs, interviews, sfeerbeelden en meer. Een grotere productie maar ook een visueel aantrekkelijke manier om de doelgroep helemaal mee te nemen in jouw thematieken.',
+    mave: [
+      { src: 'https://space-10z8x.video-dns.com/FLnv8XhtLm/player.html', titel: 'Documentaire' },
+    ],
+  },
+ {
+    titel: 'YouTube-series',
+    tekst: 'Hoewel het soms lijkt alsof YouTube puur ter entertainment dient, is het tegenovergestelde waar! Door middel van een vermakelijke serie die de doelgroep aanspreekt, trek je de aandacht en bouw je een community op het drukst bezochte videoplatform ter wereld. Door slim inhoudelijke thema\'s te verweven in de afleveringen, bied je de doelgroep waarde én neem je ze mee in actuele onderwerpen die belangrijk zijn voor jouw organisatie of doelstelling.',
+    mave: [
+      { src: 'https://space-10z8x.video-dns.com/NbcfnKMuqV/player.html', titel: 'Mijn voertuig & ik' },
+    ],
+  },
+  {
+    titel: 'Animaties',
+    tekst: 'Sommige verhalen zijn te complex voor film of te abstract voor tekst; met animatie heb je de volledige vrijheid om alles te laten zien wat je kunt bedenken. Het is speels, duidelijk en houdt de aandacht ijzersterk vast. Ideaal om in korte tijd een ingewikkeld proces uit te leggen of een abstract concept logisch stapsgewijs in beeld te brengen.',
+    mave: [
+      { src: 'https://space-10z8x.video-dns.com/SQFnaN2lew/player.html', titel: 'Het Atelier' },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Video"
+  description="Videoproductie voor straatinterviews, aftermovies, animaties en bedrijfsfilms. Astrolads verzorgt van concept tot oplevering, met een eigen team en studio in Den Haag."
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Videoproductie",
+    "provider": { "@type": "Organization", "name": "Astrolads", "@id": "https://astrolads.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "description": "Videoproductie voor straatinterviews, aftermovies, animatievideo's en bedrijfsfilms. Van concept tot oplevering.",
+    "url": "https://astrolads.com/diensten/video"
+  })} />
+
+  <div class="dienst-page">
+    <div class="section-inner">
+      <Breadcrumb items={[
+        { name: 'Diensten', url: '/diensten' },
+        { name: 'Video' }
+      ]} />
+
+      <!-- Header -->
+      <div class="dienst-header">
+        <div class="dienst-header-titel">
+          <p class="section-label">Diensten</p>
+          <h1>Video</h1>
+        </div>
+        <div class="dienst-header-img">
+          <div class="header-slider">
+            <img class="header-slide active" src="/images/diensten/video-slide-1.webp" alt="Astrolads videoproductie" width="640" height="480" loading="eager" fetchpriority="high" decoding="sync" />
+            <img class="header-slide" src="/images/diensten/video-slide-2.webp" alt="Astrolads videoproductie" width="640" height="480" loading="lazy" />
+            <img class="header-slide" src="/images/diensten/video-slide-3.webp" alt="Astrolads videoproductie" width="640" height="480" loading="lazy" />
+            <img class="header-slide" src="/images/diensten/video-slide-4.webp" alt="Astrolads videoproductie" width="640" height="480" loading="lazy" />
+            <img class="header-slide" src="/images/diensten/video-slide-5.webp" alt="Astrolads videoproductie" width="640" height="480" loading="lazy" />
+            <img class="header-slide" src="/images/diensten/video-slide-6.webp" alt="Astrolads videoproductie" width="640" height="480" loading="lazy" />
+            <img class="header-slide" src="/images/diensten/video-slide-7.webp" alt="Astrolads videoproductie" width="640" height="480" loading="lazy" />
+          </div>
+        </div>
+        <div class="dienst-header-tekst">
+          <p class="dienst-intro">Of je het nou inzet om complexe thema's helder en beknopt te delen, of om te inspireren en aan te wakkeren… de inzet van video's is een onmisbare tool in onze tijd. Beelden, visuals en geluid samen blijven beter plakken dan alleen tekst. Het is ook dé manier om je boodschap een gezicht te geven en echt een gevoel over te brengen. En als bonus: zoekmachines en social media algoritmes zijn er dol op, waardoor je direct een stuk beter vindbaar bent.</p>
+          <a href="/contact" class="btn-orange">Kennismaken</a>
+        </div>
+      </div>
+
+      <!-- Vormen -->
+      <div class="dienst-vormen">
+        <h2 class="vormen-titel">Wat kunnen we voor je maken?</h2>
+        <div class="vormen-grid">
+          {vormen.map((v, i) => (
+            <div class:list={['vorm-sectie', { flip: i % 2 !== 0 }]}>
+              <div class="vorm-img">
+                {'mave' in v ? (
+                  <div class="mave-player">
+                    <div class="mave-main">
+                      <iframe
+                        src={v.mave[0].src}
+                        width="100%" height="100%"
+                        frameborder="0" scrolling="no" allowfullscreen
+                        id={'mave-' + v.titel.replace(/\s/g, '-')}
+                        style="border-radius:16px;"
+                      ></iframe>
+                    </div>
+                    {v.mave.length > 1 && (
+                      <div class="mave-thumbs">
+                        {v.mave.map((m, i) => (
+                          <button
+                            class:list={['mave-thumb', { active: i === 0 }]}
+                            data-src={m.src}
+                            data-player={'mave-' + v.titel.replace(/\s/g, '-')}
+                          >
+                            {m.titel}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : 'verticaal' in v ? (
+                  <div class="verticaal-swiper">
+                    <div class="verticaal-telefoon">
+                      <div class="telefoon-scherm">
+                        <iframe
+                          src={v.verticaal[0].src}
+                          width="100%" height="100%"
+                          frameborder="0" scrolling="no" allowfullscreen
+                          id={'vert-main-' + v.titel.replace(/\s/g, '-')}
+                          style="border:none;"
+                        ></iframe>
+                      </div>
+                    </div>
+                    <div class="verticaal-nav">
+                      {v.verticaal.map((m, i) => (
+                        <button
+                          class:list={['vert-thumb', { active: i === 0 }]}
+                          data-src={m.src}
+                          data-player={'vert-main-' + v.titel.replace(/\s/g, '-')}
+                        >
+                          {m.titel}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <img src={v.img} alt={v.titel + ' door Astrolads'} width="600" height="400" loading="lazy" />
+                )}
+              </div>
+              <div class="vorm-tekst">
+                <h3>{v.titel}</h3>
+                <p>{v.tekst}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="dienst-cta">
+        <h2>Klaar om aan de slag te gaan?</h2>
+        <p>Benieuwd wat video voor jouw organisatie kan betekenen? We denken graag met je mee.</p>
+        <a href="/contact" class="btn-orange">Kennismaken</a>
+      </div>
+
+    </div>
+  </div>
+
+</Layout>
+
+<script>
+document.querySelectorAll('.vert-thumb').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var playerId = btn.getAttribute('data-player');
+      var src = btn.getAttribute('data-src');
+      var iframe = document.getElementById(playerId);
+      if (iframe) iframe.src = src;
+      var thumbs = btn.closest('.verticaal-nav').querySelectorAll('.vert-thumb');
+      thumbs.forEach(function(t) { t.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+document.querySelectorAll('.mave-thumb').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var playerId = btn.getAttribute('data-player');
+      var src = btn.getAttribute('data-src');
+      var iframe = document.getElementById(playerId);
+      if (iframe) iframe.src = src;
+      var thumbs = btn.closest('.mave-thumbs').querySelectorAll('.mave-thumb');
+      thumbs.forEach(function(t) { t.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+  var slides = document.querySelectorAll('.header-slide');
+  var current = 0;
+  setInterval(function() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+</script>
+
+<style>
+  .dienst-page { padding: 64px 0 96px; }
+
+  .dienst-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "titel slider"
+      "tekst slider";
+    gap: 0 80px; align-items: start;
+    margin-bottom: 120px;
+  }
+  .dienst-header-titel { grid-area: titel; align-self: end; padding-bottom: 16px; }
+  .dienst-header-img { grid-area: slider; align-self: center; }
+  .dienst-header-tekst { grid-area: tekst; }
+  .dienst-header-titel h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 0;
+  }
+  .dienst-intro {
+    font-size: 17px; color: var(--muted);
+    line-height: 1.7; margin-bottom: 32px;
+  }
+  .dienst-header-img img { width: 100%; border-radius: var(--radius); object-fit: cover; height: 460px; }
+  .header-slider { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; }
+  .header-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity 1s ease;
+  }
+  .header-slide.active { opacity: 1; }
+  .vormen-titel {
+    font-size: 32px; font-weight: 700;
+    margin-bottom: 64px; text-align: center;
+  }
+
+  .vorm-sectie {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start;
+    margin-bottom: 120px;
+  }
+  .vorm-sectie.flip .vorm-img { order: 2; }
+  .vorm-sectie.flip .vorm-tekst { order: 1; }
+  .vorm-img img { width: 100%; border-radius: var(--radius); object-fit: cover; height: 320px; }
+  .mave-player { display: flex; flex-direction: column; gap: 12px; }
+  .mave-main { width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; background: #000; }
+  .mave-main iframe { width: 100%; height: 100%; border: none; }
+  .mave-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .mave-thumb {
+    flex: 1; padding: 7px 12px;
+    border: 1.5px solid rgba(0,0,0,.12);
+    border-radius: 999px; background: var(--white);
+    font-family: var(--font); font-size: 12px;
+    cursor: pointer; transition: all .2s;
+    color: var(--muted); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .mave-thumb:hover { border-color: var(--orange); color: var(--orange); }
+  .mave-thumb.active { border-color: var(--orange); color: var(--orange); font-weight: 700; }
+  .vorm-tekst h3 { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+  .verticaal-swiper {
+    display: flex; flex-direction: column; align-items: center; gap: 24px;
+  }
+  .verticaal-telefoon {
+    width: 260px;
+    aspect-ratio: 9/16;
+    background: #111;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 0 0 8px #1a1a1a, 0 20px 60px rgba(0,0,0,.3);
+    position: relative;
+  }
+  .telefoon-scherm {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .telefoon-scherm iframe {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180%;
+    height: 180%;
+    border: none;
+    pointer-events: all;
+  }
+  .verticaal-nav {
+    display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  }
+  .vert-thumb {
+    padding: 7px 16px;
+    border: 1.5px solid rgba(0,0,0,.12);
+    border-radius: 999px; background: var(--white);
+    font-family: var(--font); font-size: 12px;
+    cursor: pointer; transition: all .2s; color: var(--muted);
+  }
+  .vert-thumb:hover { border-color: var(--orange); color: var(--orange); }
+  .vert-thumb.active { border-color: var(--orange); color: var(--orange); font-weight: 700; }
+  .vorm-tekst p { color: var(--muted); line-height: 1.8; font-size: 15px; }
+
+  .dienst-cta {
+    text-align: center;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 64px;
+    color: #fff;
+  }
+  .dienst-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+  .dienst-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  @media (max-width: 768px) {
+    .dienst-page { padding: 32px 0 56px; }
+
+    /* Header: titel → slider → tekst → knop */
+    .dienst-header {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-areas: none !important;
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .dienst-header-titel,
+    .dienst-header-img,
+    .dienst-header-tekst {
+      grid-area: auto !important;
+      align-self: auto !important;
+      width: 100%;
+    }
+    .dienst-header-titel {
+      padding-bottom: 0;
+    }
+    .dienst-header-titel h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.15;
+      margin-bottom: 0;
+    }
+    .dienst-intro {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .header-slider {
+      height: auto !important;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      position: relative;
+    }
+    .header-slider .header-slide {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    /* Vormen-titel */
+    .vormen-titel {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    /* Vorm-secties: titel boven, dan foto, dan tekst */
+    .vorm-sectie {
+      display: flex; flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .vorm-sectie .vorm-img { order: 2; }
+    .vorm-sectie .vorm-tekst { order: 1; display: contents; }
+    .vorm-sectie .vorm-tekst h3 { order: 1; }
+    .vorm-sectie .vorm-tekst p { order: 3; }
+    .vorm-sectie.flip .vorm-img { order: 2; }
+    .vorm-img img {
+      height: auto;
+      aspect-ratio: 16 / 9;
+      max-height: 240px;
+    }
+    .vorm-tekst h3 {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+    .vorm-tekst p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* Voorkom dat parent-elementen swipe-gestures opvangen */
+    .vorm-sectie, .vorm-img, .mave-player, .verticaal-swiper {
+      touch-action: pan-y;
+    }
+
+    /* Mave-player thumbs wrappable */
+    .mave-thumbs {
+      display: flex; flex-wrap: wrap;
+      gap: 6px;
+    }
+    .mave-thumb {
+      flex: 1 1 calc(50% - 4px);
+      font-size: 11px;
+      padding: 6px 10px;
+    }
+
+    /* Verticaal-swiper: telefoon gecentreerd onder tekst */
+    .vorm-sectie .vorm-img:has(.verticaal-swiper),
+    .vorm-sectie.flip .vorm-img:has(.verticaal-swiper) {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+    }
+    .verticaal-swiper {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .verticaal-telefoon {
+      width: 200px;
+      margin: 0 auto;
+      box-shadow: 0 0 0 6px #1a1a1a, 0 12px 32px rgba(0,0,0,.25);
+      border-radius: 24px;
+    }
+    .verticaal-nav {
+      display: block;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .vert-thumb {
+      display: inline-block;
+      margin: 0 3px;
+      font-size: 11px;
+      padding: 6px 12px;
+    }
+
+    /* CTA compacter */
+    .dienst-cta {
+      padding: 36px 24px;
+    }
+    .dienst-cta h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .dienst-cta p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,323 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+
+const vormen = [
+  {
+    titel: 'Digital graphic work',
+    tekst: 'Whether it\'s the design of a government publication or an infographic for a PowerPoint presentation, we make sure your brand comes across as representative! A congress makes more impact when the screens align with your brand, and your social media channels offer a warmer welcome when your profile page fully matches your look-and-feel. But think also of the styling of reports and PDFs, or one-pagers that bring your complex message together into a clear visual story.',
+    fotos: [
+      '/images/diensten/vormgeving-dig-1.webp',
+      '/images/diensten/vormgeving-dig-2.webp',
+      '/images/diensten/vormgeving-dig-3.webp',
+    ],
+  },
+  {
+    titel: 'Print',
+    tekst: 'Think of marketing materials (posters, flyers, banners, congress badges etc.), but also promotional clothing. We make sure everything fits within your brand rules and that print materials arrive neatly, on time and at the right location. We focus on short lines and last-minute solutions, so if you want to present something cool at your congress or event at the very last moment, we make it reality!',
+    fotos: [
+      '/images/diensten/vormgeving-drukwerk-1.webp',
+      '/images/diensten/vormgeving-drukwerk-2.webp',
+      '/images/diensten/vormgeving-drukwerk-3.webp',
+    ],
+  },
+];
+---
+
+<LayoutEN
+  title="Graphic Design"
+  description="A poster, banner, print, infographic, illustration, animation or individual content for social media. We provide graphic design in all shapes and sizes."
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Graphic design",
+    "provider": { "@type": "Organization", "name": "Astrolads", "@id": "https://astrolads.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "description": "Graphic design for publications, presentation templates, infographics and visual identity. From brandbook to print.",
+    "url": "https://astrolads.com/en/services/graphic-design"
+  })} />
+
+  <div class="dienst-page">
+    <div class="section-inner">
+      <Breadcrumb 
+        lang="en"
+        items={[
+          { name: 'Services', url: '/en/services' },
+          { name: 'Graphic Design' }
+        ]} 
+      />
+
+      <!-- Header -->
+      <div class="dienst-header">
+        <div class="dienst-header-titel">
+          <p class="section-label">Services</p>
+          <h1>Graphic Design</h1>
+        </div>
+        <div class="dienst-header-img">
+          <div class="header-slider">
+            <img class="header-slide active" src="/images/diensten/vormgeving-slide-1.webp" alt="Astrolads graphic design" width="640" height="480" loading="eager" fetchpriority="high" decoding="sync" />
+            <img class="header-slide" src="/images/diensten/vormgeving-slide-2.webp" alt="Astrolads graphic design" width="640" height="480" loading="lazy" />
+            <img class="header-slide" src="/images/diensten/vormgeving-slide-3.webp" alt="Astrolads graphic design" width="640" height="480" loading="lazy" />
+          </div>
+        </div>
+        <div class="dienst-header-tekst">
+          <p class="dienst-intro">A poster, banner, print, infographic, illustration, animation or individual content for social media… graphic design comes in all shapes and sizes. It takes the reader by the hand through complex material and creates cohesion between all published content. It connects all channels (physical and digital) of your organisation. That way, your audience immediately knows they're dealing with the right organisation.</p>
+          <a href="/en/contact" class="btn-orange">Get in touch</a>
+        </div>
+      </div>
+
+      <!-- Forms -->
+      <div class="dienst-vormen">
+        <h2 class="vormen-titel">What can we make for you?</h2>
+        {vormen.map((v, i) => (
+          <div class:list={['vorm-sectie', { flip: i % 2 !== 0 }]}>
+            <div class="vorm-img">
+              <div class="foto-slider">
+                {v.fotos.map((f, j) => (
+                  <img
+                    src={f} alt={v.titel + ' by Astrolads'}
+                    width="600" height="400" loading="lazy"
+                    class:list={['foto-slide', { active: j === 0 }]}
+                  />
+                ))}
+                <div class="foto-dots">
+                  {v.fotos.map((_, j) => (
+                    <button class:list={['foto-dot', { active: j === 0 }]} data-index={j} aria-label={'Photo ' + (j + 1)}></button>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div class="vorm-tekst">
+              <h3>{v.titel}</h3>
+              <p>{v.tekst}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="dienst-cta">
+        <h2>Ready to get started?</h2>
+        <p>Curious what graphic design can do for your organisation? We're happy to think along with you.</p>
+        <a href="/en/contact" class="btn-orange">Get in touch</a>
+      </div>
+
+    </div>
+  </div>
+</LayoutEN>
+
+<style>
+  .dienst-page { padding: 64px 0 96px; }
+
+  .dienst-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "titel slider"
+      "tekst slider";
+    gap: 0 80px; align-items: start;
+    margin-bottom: 96px;
+  }
+  .dienst-header-titel { grid-area: titel; align-self: end; padding-bottom: 16px; }
+  .dienst-header-img { grid-area: slider; align-self: center; }
+  .dienst-header-tekst { grid-area: tekst; }
+  .dienst-header-titel h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 0;
+  }
+  .dienst-intro {
+    font-size: 16px; color: var(--muted);
+    line-height: 1.7; margin-bottom: 32px;
+  }
+  .header-slider { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; }
+  .header-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity 1s ease;
+  }
+  .header-slide.active { opacity: 1; }
+
+  .vormen-titel {
+    font-size: 32px; font-weight: 700;
+    margin-bottom: 64px; text-align: center;
+  }
+  .vorm-sectie {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start;
+    margin-bottom: 120px;
+  }
+  .vorm-sectie.flip .vorm-img { order: 2; }
+  .vorm-sectie.flip .vorm-tekst { order: 1; }
+  .vorm-tekst h3 { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+  .vorm-tekst p { color: var(--muted); line-height: 1.8; font-size: 15px; }
+
+  .foto-slider {
+    position: relative; border-radius: var(--radius);
+    overflow: hidden; height: 320px;
+  }
+  .foto-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity .8s ease;
+  }
+  .foto-slide.active { opacity: 1; }
+  .foto-dots {
+    position: absolute; bottom: 16px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 2;
+  }
+  .foto-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,.5);
+    border: none; cursor: pointer; padding: 0;
+    transition: background .2s;
+  }
+  .foto-dot.active { background: #fff; }
+
+  .dienst-cta {
+    text-align: center;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 64px; color: #fff;
+  }
+  .dienst-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+  .dienst-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  @media (max-width: 768px) {
+    .dienst-page { padding: 32px 0 56px; }
+
+    /* Header: title → slider → text → button */
+    .dienst-header {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-areas: none !important;
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .dienst-header-titel,
+    .dienst-header-img,
+    .dienst-header-tekst {
+      grid-area: auto !important;
+      align-self: auto !important;
+      width: 100%;
+    }
+    .dienst-header-titel {
+      padding-bottom: 0;
+    }
+    .dienst-header-titel h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.15;
+      margin-bottom: 0;
+    }
+    .dienst-intro {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .header-slider {
+      height: auto !important;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      position: relative;
+    }
+    .header-slider .header-slide {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    /* Forms title */
+    .vormen-titel {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    /* Form sections: title above, photo, then text */
+    .vorm-sectie {
+      display: flex; flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .vorm-sectie .vorm-img { order: 2; }
+    .vorm-sectie .vorm-tekst { order: 1; display: contents; }
+    .vorm-sectie .vorm-tekst h3 { order: 1; }
+    .vorm-sectie .vorm-tekst p { order: 3; }
+    .vorm-sectie.flip .vorm-img { order: 2; }
+    .vorm-img { width: 100%; }
+    .foto-slider {
+      aspect-ratio: 16 / 9 !important;
+      height: auto !important;
+      width: 100%;
+      position: relative;
+    }
+    .foto-slider .foto-slide {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+    .foto-dot { width: 10px; height: 10px; }
+    .vorm-tekst h3 {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+    .vorm-tekst p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* CTA compact */
+    .dienst-cta {
+      padding: 36px 24px;
+    }
+    .dienst-cta h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .dienst-cta p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.foto-slider').forEach(function(slider, idx) {
+    var slides = slider.querySelectorAll('.foto-slide');
+    var dots = slider.querySelectorAll('.foto-dot');
+    var current = 0;
+    var interval = idx === 0 ? 3000 : 4000;
+    function goTo(i) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = i;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goTo(parseInt(dot.getAttribute('data-index')));
+      });
+    });
+    if (slides.length > 1) {
+      setInterval(function() { goTo((current + 1) % slides.length); }, interval);
+    }
+  });
+
+  var headerSlides = document.querySelectorAll('.header-slide');
+  var headerCurrent = 0;
+  setInterval(function() {
+    headerSlides[headerCurrent].classList.remove('active');
+    headerCurrent = (headerCurrent + 1) % headerSlides.length;
+    headerSlides[headerCurrent].classList.add('active');
+  }, 4000);
+</script>

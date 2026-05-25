@@ -1,0 +1,67 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: nl
+
+collections:
+  - name: "cases"
+    label: "Cases"
+    folder: "src/content/cases"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Tag / Opdrachtgever", name: "tag", widget: "string" }
+      - { label: "Introductie", name: "intro", widget: "text" }
+      - { label: "Headerafbeelding", name: "img", widget: "image" }
+      - label: "Diensten"
+        name: "diensten"
+        widget: "select"
+        multiple: true
+        options: ["Video", "Webinar", "Socials", "Podcast", "Fotografie", "Grafische vormgeving", "Website", "AI en Innovatie"]
+      - label: "Secties"
+        name: "secties"
+        widget: "list"
+        fields:
+          - { label: "Titel", name: "titel", widget: "string" }
+          - { label: "Tekst", name: "tekst", widget: "text" }
+          - { label: "Afbeelding", name: "img", widget: "image" }
+          - { label: "Gespiegeld", name: "flip", widget: "boolean", default: false }
+
+  - name: "team"
+    label: "Teamleden"
+    folder: "src/content/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Naam", name: "naam", widget: "string" }
+      - label: "Rollen"
+        name: "rollen"
+        widget: "list"
+        field: { label: "Rol", name: "rol", widget: "string" }
+      - { label: "Profielfoto", name: "foto", widget: "image" }
+      - { label: "Korte bio", name: "bio", widget: "text" }
+      - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+      - { label: "Over (lang)", name: "over", widget: "markdown" }
+      - { label: "Buiten Astrolads", name: "buiten", widget: "text" }
+      - label: "Extra foto's"
+        name: "fotos"
+        widget: "list"
+        field: { label: "Foto", name: "foto", widget: "image" }
+
+  - name: "instellingen"
+    label: "Site-instellingen"
+    files:
+      - label: "Algemeen"
+        name: "algemeen"
+        file: "src/content/instellingen.json"
+        fields:
+          - { label: "Telefoonnummer", name: "telefoon", widget: "string" }
+          - { label: "E-mailadres", name: "email", widget: "string" }
+          - { label: "Adres", name: "adres", widget: "text" }
+          - { label: "Instagram URL", name: "instagram", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }

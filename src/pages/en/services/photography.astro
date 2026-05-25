@@ -1,0 +1,318 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+
+const vormen = [
+  {
+    titel: 'Event photography',
+    tekst: 'Events are often a lot of work to set up. All the more reason to capture everything in beautiful stills on the day itself. That way you can take visitors through your event again in a follow-up email or on social media. Photos of your event are also great as marketing material for a possible next edition. We make sure you have the best shots of the overall event, visitors, speakers, decor and drinks. Often you want to share something on the same evening of the event, or the morning after. So we make sure you receive some photos on the day itself for a newsletter or social media post!',
+    fotos: [
+      '/images/diensten/fotografie-evenementen-1.webp',
+      '/images/diensten/fotografie-evenementen-2.webp',
+      '/images/diensten/fotografie-evenementen-3.webp',
+      '/images/diensten/fotografie-evenementen-4.webp',
+      '/images/diensten/fotografie-evenementen-5.webp',
+      '/images/diensten/fotografie-evenementen-6.webp',
+      '/images/diensten/fotografie-evenementen-7.webp',
+      '/images/diensten/fotografie-evenementen-8.webp',
+      '/images/diensten/fotografie-evenementen-9.webp',
+      '/images/diensten/fotografie-evenementen-10.webp',
+    ],
+  },
+  {
+    titel: 'Portrait photography',
+    tekst: 'Good photos of your team/colleagues are multi-usable. From a team page on the website and matching LinkedIn profile pictures, to the signature at the bottom of your email... we make sure everyone looks the part. We shoot portrait photos at our own photo studio, but also happily come to your workplace or a nice outdoor location to capture the best shots!',
+    fotos: [
+      '/images/diensten/fotografie-portret-1.webp',
+      '/images/diensten/fotografie-portret-2.webp',
+      '/images/diensten/fotografie-portret-3.webp',
+      '/images/diensten/fotografie-portret-4.webp',
+      '/images/diensten/fotografie-portret-5.webp',
+      '/images/diensten/fotografie-portret-6.webp',
+      '/images/diensten/fotografie-portret-7.webp',
+    ],
+  },
+];
+---
+
+<LayoutEN
+  title="Photography"
+  description="Professional photography for events, portraits and brand expressions. Astrolads provides a uniform image bank and atmosphere capture of your brand or event."
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Photography",
+    "provider": { "@type": "Organization", "name": "Astrolads", "@id": "https://astrolads.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "description": "Professional photography for events, portraits and brand expressions. From event photography to uniform team portraits.",
+    "url": "https://astrolads.com/en/services/photography"
+  })} />
+
+  <div class="dienst-page">
+    <div class="section-inner">
+      <Breadcrumb 
+        lang="en"
+        items={[
+          { name: 'Services', url: '/en/services' },
+          { name: 'Photography' }
+        ]} 
+      />
+
+      <!-- Header -->
+      <div class="dienst-header">
+        <div class="dienst-header-titel">
+          <p class="section-label">Services</p>
+          <h1>Photography</h1>
+        </div>
+        <div class="dienst-header-img">
+          <img src="/images/diensten/fotografie-slide-1.webp" alt="Astrolads photography" width="640" height="480" loading="eager" fetchpriority="high" decoding="sync" />
+        </div>
+        <div class="dienst-header-tekst">
+          <p class="dienst-intro">A good image says more than 1,000 words. With the right photos you put yourself (online) in the spotlight and build an image bank for future communications. Every website, newsletter or LinkedIn page becomes more appealing when you back it up with strong visuals. Our photographers shoot the most representative portrait photos and/or capture the atmosphere of your event in stills.</p>
+          <a href="/en/contact" class="btn-orange">Get in touch</a>
+        </div>
+      </div>
+
+      <!-- Forms -->
+      <div class="dienst-vormen">
+        <h2 class="vormen-titel">What can we capture for you?</h2>
+        <div class="vormen-grid">
+          {vormen.map((v, i) => (
+            <div class:list={['vorm-sectie', { flip: i % 2 !== 0 }]}>
+              <div class="vorm-img">
+                {'fotos' in v ? (
+                  <div class="foto-slider">
+                    {v.fotos.map((f, j) => (
+                      <img
+                        src={f} alt={v.titel + ' by Astrolads'}
+                        width="600" height="400" loading="lazy"
+                        class:list={['foto-slide', { active: j === 0 }]}
+                      />
+                    ))}
+                    <div class="foto-dots">
+                      {v.fotos.map((_, j) => (
+                        <button class:list={['foto-dot', { active: j === 0 }]} data-index={j} aria-label={'Photo ' + (j + 1)}></button>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <img src={v.img} alt={v.titel + ' by Astrolads'} width="600" height="400" loading="lazy" />
+                )}
+              </div>
+              <div class="vorm-tekst">
+                <h3>{v.titel}</h3>
+                <p>{v.tekst}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="dienst-cta">
+        <h2>Ready to get started?</h2>
+        <p>Curious what photography can do for your organisation? We're happy to think along with you.</p>
+        <a href="/en/contact" class="btn-orange">Get in touch</a>
+      </div>
+
+    </div>
+  </div>
+</LayoutEN>
+
+<style>
+  .dienst-page { padding: 64px 0 96px; }
+
+  .dienst-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "titel slider"
+      "tekst slider";
+    gap: 0 80px; align-items: start;
+    margin-bottom: 120px;
+  }
+  .dienst-header-titel { grid-area: titel; align-self: end; padding-bottom: 16px; }
+  .dienst-header-img { grid-area: slider; align-self: center; }
+  .dienst-header-tekst { grid-area: tekst; }
+  .dienst-header-titel h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 0;
+  }
+  .dienst-intro {
+    font-size: 17px; color: var(--muted);
+    line-height: 1.7; margin-bottom: 32px;
+  }
+  .dienst-header-img img {
+    width: 100%; border-radius: var(--radius);
+    object-fit: cover; height: 460px;
+  }
+
+  .vormen-titel {
+    font-size: 32px; font-weight: 700;
+    margin-bottom: 64px; text-align: center;
+  }
+
+  .vorm-sectie {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start;
+    margin-bottom: 120px;
+  }
+  .vorm-sectie.flip .vorm-img { order: 2; }
+  .vorm-sectie.flip .vorm-tekst { order: 1; }
+  .vorm-img img { width: 100%; border-radius: var(--radius); object-fit: cover; height: 320px; }
+  .foto-slider {
+    position: relative; border-radius: var(--radius);
+    overflow: hidden; aspect-ratio: 3/2;
+  }
+  .foto-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity .8s ease;
+  }
+  .foto-slide.active { opacity: 1; }
+  .foto-dots {
+    position: absolute; bottom: 16px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 2;
+  }
+  .foto-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,.5);
+    border: none; cursor: pointer; padding: 0;
+    transition: background .2s;
+  }
+  .foto-dot.active { background: #fff; }
+  .vorm-tekst h3 { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+  .vorm-tekst p { color: var(--muted); line-height: 1.8; font-size: 15px; }
+
+  .dienst-cta {
+    text-align: center;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 64px;
+    color: #fff;
+  }
+  .dienst-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+  .dienst-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  @media (max-width: 768px) {
+    .dienst-page { padding: 32px 0 56px; }
+
+    /* Header: title → photo → text → button */
+    .dienst-header {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-areas: none !important;
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .dienst-header-titel,
+    .dienst-header-img,
+    .dienst-header-tekst {
+      grid-area: auto !important;
+      align-self: auto !important;
+      width: 100%;
+    }
+    .dienst-header-titel {
+      padding-bottom: 0;
+    }
+    .dienst-header-titel h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.15;
+      margin-bottom: 0;
+    }
+    .dienst-intro {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .dienst-header-img img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+
+    /* Forms title */
+    .vormen-titel {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    /* Vorm-secties: title above, photo, then text */
+    .vorm-sectie {
+      display: flex; flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .vorm-sectie .vorm-img { order: 2; }
+    .vorm-sectie .vorm-tekst { order: 1; display: contents; }
+    .vorm-sectie .vorm-tekst h3 { order: 1; }
+    .vorm-sectie .vorm-tekst p { order: 3; }
+    .vorm-sectie.flip .vorm-img { order: 2; }
+    .vorm-img { width: 100%; }
+    .foto-slider {
+      aspect-ratio: 16 / 9 !important;
+      width: 100%;
+      height: auto !important;
+      position: relative;
+    }
+    .foto-slider .foto-slide {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+    .foto-dot { width: 10px; height: 10px; }
+    .vorm-tekst h3 {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+    .vorm-tekst p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* CTA compact */
+    .dienst-cta {
+      padding: 36px 24px;
+    }
+    .dienst-cta h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .dienst-cta p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.foto-slider').forEach(function(slider, sliderIndex) {
+    var slides = slider.querySelectorAll('.foto-slide');
+    var dots = slider.querySelectorAll('.foto-dot');
+    var current = 0;
+    var interval = sliderIndex === 0 ? 3000 : 4000;
+    function goTo(i) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = i;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goTo(parseInt(dot.getAttribute('data-index')));
+      });
+    });
+    if (slides.length > 1) {
+      setInterval(function() { goTo((current + 1) % slides.length); }, interval);
+    }
+  });
+</script>

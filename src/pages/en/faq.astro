@@ -1,0 +1,238 @@
+---
+import LayoutEN from '../../layouts/LayoutEN.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const faqs = [
+  {
+    vraag: 'What does Astrolads do exactly?',
+    antwoord: 'Astrolads is a communication agency with an in-house production studio in The Hague. We help organisations tell their story and make sure it lands, through video, podcast, socials, photography, webinars, websites, e-learnings and graphic design. By using communication tools smartly, we amplify the impact of policy advice, sustainability campaigns, social missions and more! From strategic advice to full execution, all under one roof. We mainly work for government, education, mobility, sustainability and science.',
+  },
+  {
+    vraag: 'Where is Astrolads located?',
+    antwoord: 'Our office and production studio are located at Grote Markt 22 in The Hague, on the liveliest square in town! Here we have our own podcast studio, webinar setup, event space and workstations for the team. For recordings and shoots we obviously also travel throughout the Netherlands (and beyond).',
+  },
+  {
+    vraag: 'Which organisations does Astrolads work for?',
+    antwoord: 'We mainly work with government bodies, knowledge institutes, industry associations and social initiatives. Our long-term partners include OOMT, the Netherlands School of Public Administration (NSOB), the Council for the Environment and Infrastructure (Rli), Betaalvereniging, NKL Nederland, Natuurlijk!Deelmobiliteit, the Dutch EV Drivers Association, BOB-KOB and many more. Themes range from mobility and sustainability to education and science.',
+  },
+  {
+    vraag: 'How does a collaboration with Astrolads work?',
+    antwoord: 'We prefer to connect on content. Once we fully understand what your organisation is trying to achieve, we explore how communication can be the connecting factor. Which (online) tools are suitable and how do we make sure the content actually lands with the intended audience? Always action-driven, efficient and relieving. From single projects to long-term partnerships, everything is possible!',
+  },
+  {
+    vraag: 'Does Astrolads have its own studio?',
+    antwoord: 'Yes, in our building on the Grote Markt in The Hague we have a fully equipped studio for podcasts, webinars and video recordings. The space is flexible: from intimate podcast recordings with two guests to live webinars with multiple cameras and panel guests. Prefer to record on location? No problem. We pack everything into cases and bags and build a custom studio on location!',
+  },
+  {
+    vraag: 'What sets Astrolads apart from other communication agencies?',
+    antwoord: 'Three things. One: we combine strategic communication advice with a complete in-house production facility, so no waiting for external parties and no meetings with 4 different media companies. Two: we choose to use our talent exclusively for social themes that move the world forward. This experience and connection between different worlds helps us work multidisciplinary. Three: we work with a tight-knit team where every specialist has their own role, connected to a community of young creative talent in The Hague that we invest part of our profit in. This ensures quick turnaround, fresh ideas and end products that really resonate with the audience. Work with Astrolads? Then you\'re also investing in the development of local creative talent!',
+  },
+];
+---
+
+<LayoutEN
+  title="Frequently Asked Questions"
+  description="Frequently asked questions about Astrolads. What do we do, where are we located, which organisations do we work for and what sets us apart as a communication agency in The Hague?"
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "en",
+    "mainEntity": faqs.map(f => ({
+      "@type": "Question",
+      "name": f.vraag,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.antwoord
+      }
+    }))
+  })} />
+
+  <div class="faq-page">
+    <div class="section-inner">
+      <Breadcrumb 
+        lang="en"
+        items={[
+          { name: 'FAQ' }
+        ]} 
+      />
+
+      <header class="faq-header">
+        <p class="section-label">Frequently Asked Questions</p>
+        <h1>Ask us anything</h1>
+        <p class="faq-intro">All frequently asked questions about Astrolads in one place. Don't see your question? Feel free to <a href="/en/contact">get in touch</a>, we're happy to answer it personally!</p>
+      </header>
+
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>
+              <span class="faq-q">{faq.vraag}</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-a">
+              <p>{faq.antwoord}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <div class="faq-cta">
+        <h2>Still have questions?</h2>
+        <p>We're ready to help you further. Schedule a no-strings introduction or send us a message.</p>
+        <a href="/en/contact" class="btn-orange">Get in touch</a>
+      </div>
+
+    </div>
+  </div>
+</LayoutEN>
+
+<style>
+  .faq-page { padding: 48px 0 96px; }
+
+  .faq-header {
+    max-width: 800px;
+    margin-bottom: 48px;
+  }
+  .faq-header h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  .faq-intro {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .faq-intro a {
+    color: var(--orange-dark);
+    text-decoration: underline;
+  }
+  .faq-intro a:hover {
+    text-decoration: none;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 900px;
+    margin-bottom: 80px;
+  }
+  .faq-item {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .faq-item:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,.06);
+  }
+  .faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: background .2s;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::marker { display: none; }
+  .faq-item summary:hover { background: rgba(0,0,0,.02); }
+  .faq-q {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .faq-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--orange);
+    position: relative;
+    transition: transform .3s ease, background .2s;
+  }
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    transition: transform .3s ease;
+  }
+  .faq-icon::before {
+    width: 12px;
+    height: 2px;
+    transform: translate(-50%, -50%);
+  }
+  .faq-icon::after {
+    width: 2px;
+    height: 12px;
+    transform: translate(-50%, -50%);
+  }
+  .faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    padding: 0 24px 24px;
+  }
+  .faq-a p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  .faq-cta {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 48px;
+    max-width: 900px;
+    text-align: center;
+  }
+  .faq-cta h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .faq-cta p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px) {
+    .faq-page { padding: 32px 0 56px; }
+    .faq-header { margin-bottom: 32px; }
+    .faq-header h1 {
+      font-size: clamp(28px, 6.5vw, 36px);
+      margin-bottom: 16px;
+    }
+    .faq-intro { font-size: 14px; line-height: 1.7; }
+
+    .faq-list {
+      gap: 10px;
+      margin-bottom: 48px;
+    }
+    .faq-item summary { padding: 16px 18px; gap: 12px; }
+    .faq-q { font-size: 14px; }
+    .faq-icon { width: 24px; height: 24px; }
+    .faq-icon::before { width: 10px; }
+    .faq-icon::after { height: 10px; }
+    .faq-a { padding: 0 18px 18px; }
+    .faq-a p { font-size: 13px; line-height: 1.7; }
+
+    .faq-cta { padding: 28px 24px; }
+    .faq-cta h2 { font-size: 22px; }
+    .faq-cta p { font-size: 14px; }
+  }
+</style>

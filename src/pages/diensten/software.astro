@@ -1,0 +1,215 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+
+<Layout
+  title="Software"
+  description="Astrolads bouwt e-learnings, community platformen, data dashboards en tools op maat. Software die past bij de mensen die het gebruiken en het doel waar het voor dient."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Software development",
+    "provider": {
+      "@type": "Organization",
+      "name": "Astrolads",
+      "@id": "https://astrolads.com/#organization"
+    },
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "description": "Astrolads ontwikkelt software op maat: e-learnings, community platformen, data dashboards en tools die precies doen wat nodig is.",
+    "url": "https://astrolads.com/diensten/software"
+  })} />
+
+  <div class="dienst-page">
+    <div class="section-inner">
+      <Breadcrumb items={[
+        { name: 'Diensten', url: '/diensten' },
+        { name: 'Software' }
+      ]} />
+
+      <!-- Header -->
+      <div class="dienst-header">
+        <div class="header-titel">
+          <p class="section-label">Dienst</p>
+          <h1>Software</h1>
+        </div>
+        <div class="header-img">
+          <img src="/images/diensten/software-header.webp" alt="Software ontwikkeling door Astrolads" width="640" height="420" loading="eager" fetchpriority="high" decoding="sync" />
+        </div>
+        <div class="header-tekst">
+          <p class="header-intro">
+            Software is meer dan code. Het is de digitale omgeving waarin mensen leren, samenwerken en informatie ophalen. Bij Astrolads bouwen we op maat of schalen we bestaande oplossingen naar jouw situatie. Van e-learnings tot community platformen en van data dashboards tot tools die precies doen wat nodig is.
+          </p>
+          <a href="/contact" class="btn-orange">Kennismaken</a>
+        </div>
+      </div>
+
+      <!-- Toepassingen in 2x2 grid -->
+      <div class="toepassingen-grid">
+        <div class="toepassing-blok">
+          <h3>E-learnings</h3>
+          <p>Kennis overbrengen op een manier die blijft hangen. We ontwikkelen e-learningomgevingen die aansluiten bij de doelgroep en de leerdoelen. Of het nu gaat om professionals, burgers, studenten of medewerkers. Visueel sterk, prettig in gebruik en schaalbaar naar zo veel gebruikers als nodig. Van interactieve modules tot complete leerpaden, samen kijken we wat het beste werkt voor wat de doelgroep moet meenemen.</p>
+        </div>
+        <div class="toepassing-blok">
+          <h3>Community platformen</h3>
+          <p>Soms is een plek om samen te komen het belangrijkste middel. Met een community platform geef je mensen de ruimte om te verbinden, vragen te stellen en kennis te delen. We kijken samen welke oplossing past, bestaand platform of op maat, en zorgen dat het aansluit bij de context en de mensen die het gebruiken. Een platform is namelijk pas waardevol als mensen er daadwerkelijk komen.</p>
+        </div>
+        <div class="toepassing-blok">
+          <h3>Data dashboards</h3>
+          <p>Cijfers zijn pas nuttig als je ze begrijpt. We bouwen dashboards die complexe informatie vertalen naar iets wat je daadwerkelijk kunt lezen en gebruiken, afgestemd op wie ermee werkt en welke vragen er beantwoord moeten worden. Geen wirwar van grafieken, maar inzichten die helpen om de juiste beslissingen te nemen.</p>
+        </div>
+        <div class="toepassing-blok">
+          <h3>Tools op maat</h3>
+          <p>Soms bestaat het juiste middel nog niet. We denken mee over wat er nodig is en bouwen het, van een intern werkproces tot een toegankelijke applicatie voor een breed publiek. Praktisch, doordacht en gemaakt om echt te gebruiken. Geen overbodige features, wel precies dat wat het werk lichter maakt.</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-blok">
+        <h2>Benieuwd naar de softwaremogelijkheden binnen jouw organisatie?</h2>
+        <p>Of het nu een eerste schets is of een uitgewerkt concept, we denken graag mee over wat het beste past bij jouw doel en doelgroep.</p>
+        <a href="/contact" class="btn-orange">Kennismaken</a>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .dienst-page { padding: 64px 0 96px; }
+
+  /* Header */
+  .dienst-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "titel slider"
+      "tekst slider";
+    gap: 0 64px; align-items: start;
+    margin-bottom: 96px;
+  }
+  .header-titel { grid-area: titel; align-self: end; padding-bottom: 16px; }
+  .header-img { grid-area: slider; align-self: center; }
+  .header-tekst { grid-area: tekst; }
+  .header-titel h1 {
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 700; line-height: 1.1; margin-bottom: 0;
+  }
+  .header-intro { color: var(--muted); line-height: 1.7; font-size: 16px; margin-bottom: 28px; }
+  .header-img img { width: 100%; border-radius: var(--radius); object-fit: cover; height: 400px; }
+
+  /* Toepassingen 2x2 grid */
+  .toepassingen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+  .toepassing-blok {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 40px;
+  }
+  .toepassing-blok h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .toepassing-blok p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  /* CTA */
+  .cta-blok {
+    background: var(--navy);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 56px 48px;
+    text-align: center;
+    margin-top: 64px;
+  }
+  .cta-blok h2 {
+    font-size: clamp(24px, 2.5vw, 32px);
+    font-weight: 700; margin-bottom: 16px;
+  }
+  .cta-blok p {
+    opacity: .8;
+    max-width: 520px; margin: 0 auto 28px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .dienst-page { padding: 32px 0 56px; }
+
+    /* Header: titel → foto → tekst → knop */
+    .dienst-header {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-areas: none !important;
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .header-titel,
+    .header-img,
+    .header-tekst {
+      grid-area: auto !important;
+      align-self: auto !important;
+      width: 100%;
+    }
+    .header-titel { order: 1 !important; padding-bottom: 0; }
+    .header-img { order: 2 !important; }
+    .header-tekst { order: 3 !important; }
+    .header-titel h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+    .header-intro {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .header-img img {
+      aspect-ratio: 16 / 9;
+      height: auto !important;
+      max-height: 240px;
+      width: 100%;
+    }
+
+    /* Toepassingen op mobile: 1 kolom */
+    .toepassingen-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .toepassing-blok {
+      padding: 24px;
+    }
+    .toepassing-blok h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .toepassing-blok p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* CTA compacter */
+    .cta-blok {
+      padding: 36px 24px;
+      margin-top: 48px;
+    }
+    .cta-blok h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .cta-blok p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+  }
+</style>

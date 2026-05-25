@@ -1,0 +1,206 @@
+---
+// Cookie banner met GA consent
+// Props: taal NL/EN (default NL)
+const { lang = 'nl' } = Astro.props;
+
+const teksten = {
+  nl: {
+    titel: 'Mogen wij cookies bewaren?',
+    tekst: 'We gebruiken cookies om de website te verbeteren via anonieme statistieken. Daarnaast laden we soms embeds van Spotify en Mave voor video\'s en podcasts.',
+    accepteer: 'Accepteren',
+    weiger: 'Weigeren',
+    meer: 'Meer info',
+    meerLink: '/privacy',
+  },
+  en: {
+    titel: 'May we store cookies?',
+    tekst: 'We use cookies to improve the website through anonymous statistics. We also sometimes load embeds from Spotify and Mave for videos and podcasts.',
+    accepteer: 'Accept',
+    weiger: 'Decline',
+    meer: 'More info',
+    meerLink: '/en/privacy',
+  },
+};
+
+const t = teksten[lang];
+---
+
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDesc" hidden>
+  <div class="cookie-inner">
+    <div class="cookie-tekst">
+      <h2 id="cookieTitle">{t.titel}</h2>
+      <p id="cookieDesc">
+        {t.tekst} <a href={t.meerLink}>{t.meer} →</a>
+      </p>
+    </div>
+    <div class="cookie-acties">
+      <button class="cookie-btn-weiger" id="cookieWeiger">{t.weiger}</button>
+      <button class="cookie-btn-accepteer" id="cookieAccepteer">{t.accepteer}</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: var(--white);
+    border-top: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 -4px 24px rgba(0,0,0,.08);
+    padding: 20px 24px;
+    transform: translateY(100%);
+    transition: transform .4s ease;
+  }
+  .cookie-banner.visible { transform: translateY(0); }
+
+  .cookie-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    justify-content: space-between;
+  }
+
+  .cookie-tekst { flex: 1; min-width: 0; }
+  .cookie-tekst h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .cookie-tekst p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .cookie-tekst a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .cookie-tekst a:hover { text-decoration: underline; }
+
+  .cookie-acties {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .cookie-btn-weiger,
+  .cookie-btn-accepteer {
+    border: none;
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity .2s, transform .15s;
+    font-family: inherit;
+  }
+  .cookie-btn-weiger {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid rgba(0,0,0,.15);
+  }
+  .cookie-btn-weiger:hover {
+    color: var(--text);
+    border-color: rgba(0,0,0,.3);
+  }
+  .cookie-btn-accepteer {
+    background: var(--orange);
+    color: #fff;
+  }
+  .cookie-btn-accepteer:hover {
+    opacity: .88;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    .cookie-banner { padding: 16px; }
+    .cookie-inner {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+    }
+    .cookie-tekst h2 { font-size: 14px; }
+    .cookie-tekst p { font-size: 12px; }
+    .cookie-acties {
+      flex-direction: row;
+      justify-content: stretch;
+    }
+    .cookie-btn-weiger,
+    .cookie-btn-accepteer {
+      flex: 1;
+      padding: 12px 18px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    var STORAGE_KEY = 'astrolads-cookie-consent';
+    var banner = document.getElementById('cookieBanner');
+    var btnAccept = document.getElementById('cookieAccepteer');
+    var btnDecline = document.getElementById('cookieWeiger');
+
+    if (!banner) return;
+
+    var stored = localStorage.getItem(STORAGE_KEY);
+
+    // Toon banner alleen als er geen keuze is gemaakt
+    if (!stored) {
+      banner.hidden = false;
+      // Kleine delay zodat slide-up animatie zichtbaar is
+      setTimeout(function() {
+        banner.classList.add('visible');
+      }, 100);
+    } else if (stored === 'accepted') {
+      loadGoogleAnalytics();
+    }
+
+    function hideBanner() {
+      banner.classList.remove('visible');
+      setTimeout(function() {
+        banner.hidden = true;
+      }, 400);
+    }
+
+    function loadGoogleAnalytics() {
+      // TODO: vervang G-XXXXXXXXXX met echte Measurement ID
+      var GA_ID = 'G-XXXXXXXXXX';
+      
+      // Skip als ID nog placeholder is
+      if (GA_ID === 'G-XXXXXXXXXX') return;
+
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', GA_ID, { anonymize_ip: true });
+    }
+
+    if (btnAccept) {
+      btnAccept.addEventListener('click', function() {
+        localStorage.setItem(STORAGE_KEY, 'accepted');
+        hideBanner();
+        loadGoogleAnalytics();
+      });
+    }
+
+    if (btnDecline) {
+      btnDecline.addEventListener('click', function() {
+        localStorage.setItem(STORAGE_KEY, 'declined');
+        hideBanner();
+      });
+    }
+  })();
+</script>

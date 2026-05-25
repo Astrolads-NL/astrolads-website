@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Pagina niet gevonden"
+  description="Deze pagina bestaat niet (meer) op de Astrolads website. Ga terug naar de homepage of bekijk onze diensten en cases."
+>
+  <div class="error-page">
+    <div class="section-inner">
+      <div class="error-inner">
+        <p class="error-code">404</p>
+        <h1>Deze pagina bestaat niet (meer).</h1>
+        <p class="error-text">Misschien is de link verouderd of heb je een typefoutje gemaakt. Geen zorgen, hieronder kun je verder.</p>
+        <div class="error-cta">
+          <a href="/" class="btn-orange">Terug naar home</a>
+          <a href="/diensten" class="btn-text-arrow">Bekijk onze diensten →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .error-page { padding: 96px 0 120px; }
+  .error-inner {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+  .error-code {
+    font-size: clamp(80px, 14vw, 140px);
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .error-inner h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  .error-text {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    font-size: 16px;
+  }
+  .error-cta {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    align-items: center;
+  }
+</style>

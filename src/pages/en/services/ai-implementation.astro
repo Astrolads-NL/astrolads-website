@@ -1,0 +1,263 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+
+const toepassingen = [
+  {
+    titel: 'Custom data dashboards',
+    tekst: 'Multiple sources in one overview, with AI that uncovers patterns and answers questions. Existing data finally becomes visible and usable.',
+  },
+  {
+    titel: 'AI chat functions',
+    tekst: 'For e-learnings, knowledge bases or customer contact. Trained on your own content, so answers are accurate and match who you are.',
+  },
+  {
+    titel: 'Gamification & learning apps',
+    tekst: 'For education and internal training, with AI as a personal coach. Learning becomes interactive, personalised and sticks better.',
+  },
+  {
+    titel: 'Tools for internal processes',
+    tekst: 'Automation of repetitive work, so your team can focus on what really matters. Smart, custom-made and without the noise.',
+  },
+];
+---
+
+<LayoutEN
+  title="AI implementation"
+  description="AI implementation by Astrolads. From data dashboards and chat functions to learning apps and internal tools. We combine AI with communication and audiovisual production."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "AI implementation",
+    "provider": { "@type": "Organization", "name": "Astrolads", "@id": "https://astrolads.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "description": "Custom-built AI applications for organisations. From data dashboards and chat functions to learning apps and internal process tools.",
+    "url": "https://astrolads.com/en/services/ai-implementation"
+  })} />
+
+  <div class="dienst-page">
+    <div class="section-inner">
+      <Breadcrumb 
+        lang="en"
+        items={[
+          { name: 'Services', url: '/en/services' },
+          { name: 'AI Implementation' }
+        ]} 
+      />
+
+      <!-- Header -->
+      <div class="dienst-header">
+        <div class="dienst-header-tekst">
+          <p class="section-label">Services</p>
+          <h1>AI implementation</h1>
+          <p class="dienst-intro">In the past, people had to learn the language of computers. Now computers speak our language, and that happens to be the very language we've built our expertise on. Communication remains human work, but AI makes us faster, sharper and more scalable.</p>
+          <a href="/en/contact" class="btn-orange">Get in touch</a>
+        </div>
+        <div class="dienst-header-img">
+          <div class="header-slider">
+            <img class="header-slide active" src="/images/diensten/ai-slide-1.webp" alt="Astrolads AI implementation" width="640" height="480" loading="eager" fetchpriority="high" decoding="sync" />
+            <img class="header-slide" src="/images/diensten/ai-slide-2.webp" alt="Astrolads AI implementation" width="640" height="480" loading="lazy" />
+            <img class="header-slide" src="/images/diensten/ai-slide-3.webp" alt="Astrolads AI implementation" width="640" height="480" loading="lazy" />
+            <img class="header-slide" src="/images/diensten/ai-slide-4.webp" alt="Astrolads AI implementation" width="640" height="480" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision / body -->
+      <div class="ai-visie">
+        <div class="ai-visie-tekst">
+          <h2>Human work plus AI is sharper results</h2>
+          <p>We combine our expertise in communication sciences and audiovisual production with the power of AI. The result: more efficient processes, smarter products and solutions that really fit your goal and audience.</p>
+          <p>While AI continues to optimise our own way of working, we also help organisations build their own, custom-made AI applications. This lets you not only make new things possible, but also extract more value from work already done, like unlocking existing knowledge through smart dashboards or interactive tools.</p>
+        </div>
+      </div>
+
+      <!-- Applications -->
+      <div class="ai-toepassingen">
+        <h2 class="toepassingen-titel">Concrete applications</h2>
+        <div class="toepassingen-grid">
+          {toepassingen.map(t => (
+            <div class="toepassing-kaart">
+              <h3>{t.titel}</h3>
+              <p>{t.tekst}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="dienst-cta">
+        <h2>Which AI application fits your project?</h2>
+        <p>We're happy to think along about what would deliver the most for your organisation. No hype, just concrete tools that work.</p>
+        <a href="/en/contact" class="btn-orange">Get in touch</a>
+      </div>
+
+    </div>
+  </div>
+</LayoutEN>
+
+<style>
+  .dienst-page { padding: 64px 0 96px; }
+
+  .dienst-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    margin-bottom: 120px;
+  }
+  .dienst-header-tekst h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .dienst-intro {
+    font-size: 17px; color: var(--muted);
+    line-height: 1.7; margin-bottom: 32px;
+  }
+  .header-slider { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; }
+  .header-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity 1s ease;
+  }
+  .header-slide.active { opacity: 1; }
+
+  .ai-visie {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 56px;
+    margin-bottom: 120px;
+    max-width: 880px; margin-left: auto; margin-right: auto;
+  }
+  .ai-visie-tekst h2 {
+    font-size: 28px; font-weight: 700;
+    margin-bottom: 20px; line-height: 1.3;
+  }
+  .ai-visie-tekst p {
+    color: var(--muted);
+    line-height: 1.8; font-size: 15px;
+    margin-bottom: 16px;
+  }
+  .ai-visie-tekst p:last-child { margin-bottom: 0; }
+
+  .ai-toepassingen { margin-bottom: 120px; }
+  .toepassingen-titel {
+    font-size: 32px; font-weight: 700;
+    margin-bottom: 48px; text-align: center;
+  }
+  .toepassingen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .toepassing-kaart {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 40px;
+    display: flex; flex-direction: column;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .toepassing-kaart:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.08); }
+  
+  .toepassing-kaart h3 {
+    font-size: 22px; font-weight: 700;
+    margin-bottom: 16px; line-height: 1.3;
+  }
+  .toepassing-kaart p {
+    color: var(--muted);
+    line-height: 1.8; font-size: 15px;
+  }
+
+  .dienst-cta {
+    text-align: center;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 64px;
+    color: #fff;
+  }
+  .dienst-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+  .dienst-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  @media (max-width: 768px) {
+    .dienst-page { padding: 32px 0 56px; }
+
+    /* Header: slider eerst (boven), tekst eronder */
+    .dienst-header {
+      display: flex; flex-direction: column-reverse;
+      gap: 28px;
+      margin-bottom: 56px;
+    }
+    .dienst-header-tekst h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .dienst-intro {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .header-slider {
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+
+    /* Vision-blok compacter */
+    .ai-visie {
+      padding: 24px;
+      margin-bottom: 56px;
+    }
+    .ai-visie-tekst h2 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+    .ai-visie-tekst p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* Applications: 1 column */
+    .ai-toepassingen { margin-bottom: 56px; }
+    .toepassingen-titel {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+    .toepassingen-grid { grid-template-columns: 1fr; gap: 12px; }
+    .toepassing-kaart { padding: 24px; }
+    .toepassing-kaart h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .toepassing-kaart p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* CTA compact */
+    .dienst-cta {
+      padding: 36px 24px;
+    }
+    .dienst-cta h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .dienst-cta p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+</style>
+
+<script>
+  var slides = document.querySelectorAll('.header-slide');
+  var current = 0;
+  if (slides.length > 1) {
+    setInterval(function() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  }
+</script>

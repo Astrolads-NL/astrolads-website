@@ -1,0 +1,396 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+
+const pijlers = [
+  {
+    slug: 'student-media-teams',
+    titel: 'Student media teams',
+    intro: 'To help schools with both talent development and a digital media strategy, Astrolads helps several educational institutions set up and supervise student media teams. These are groups of pupils or students who (temporarily) form a media team to create digital media productions for their own school or programme. Pupils who choose this from intrinsic motivation are activated and motivated to develop their talents.',
+    fotos: [
+      '/images/diensten/onderwijs-mediateam-1.webp',
+      '/images/diensten/onderwijs-mediateam-2.webp',
+      '/images/diensten/onderwijs-mediateam-3.webp',
+    ],
+    cases: [
+      {
+        titel: 'Spread',
+        partnerLogo: '/images/onderwijs/mborijnland.webp',
+        partnerNaam: 'mboRijnland',
+        tekst: 'In collaboration with mboRijnland, Astrolads supervises a group of students from the media design programme in Leiden every six months. Four to six media students together form the student media team Spread: five days a week, full-time supervised by experts from Astrolads, and producing for the region. In half a year they deliver more than 100 media products and pick up not only production experience but also knowledge about the practical side of the market. Think client contact, revisions, deadlines and planning.',
+      },
+      {
+        titel: 'Klaaswaal Media Team',
+        partnerLogo: '/images/onderwijs/yuverta.webp',
+        partnerNaam: 'Yuverta',
+        tekst: 'At the Yuverta location Klaaswaal, a secondary school focused on the green sector, Astrolads set up a student media team. This team of 4 to 6 pupils, after a workshop from Astrolads, creates media productions for the school. They\'re deployed on an on-call basis: from company visits to capture career opportunities, to interviews on open days asking visitors what draws them to Yuverta. All shoot days are supervised by experts from Astrolads. The productions appear on the online channels and help with the digital media strategy and recruitment of new pupils.',
+      },
+    ],
+  },
+  {
+    slug: 'hands-on-learning-programmes',
+    titel: 'Hands-on learning programmes',
+    intro: 'Astrolads is intensively committed to unique hands-on learning programmes. Groups of students work on a real-world assignment, supervised by Astrolads. This varies from one-off research projects to long-term collaborations.',
+    fotos: [
+      '/images/diensten/onderwijs-leertraject-1.webp',
+      '/images/diensten/onderwijs-leertraject-2.webp',
+      '/images/diensten/onderwijs-leertraject-3.webp',
+    ],
+    cases: [
+      {
+        titel: 'Innovative Student Team',
+        partnerLogo: '/images/onderwijs/tu-ecomotive.webp',
+        partnerNaam: 'TU/Ecomotive',
+        tekst: 'Students from TU Eindhoven and the surrounding area can choose to take a gap year in which they join the student team of TU/Ecomotive: 15 to 30 students who focus for a year on building a sustainable concept car. For 10 years now, cars like ZEM (with CO2 filter), LUCA (made from recycled material) and ETERNA (a modular car) have been designed, built and showcased around the world by students. Astrolads is the media partner of the team: from presentation videos and livestreams to content and photography workshops, and during the annual promotional world tour an Astrolads expert travels along as content creator.',
+      },
+      {
+        titel: 'Creative Agency',
+        partnerLogo: '/images/onderwijs/inholland.webp',
+        partnerNaam: 'Inholland',
+        tekst: 'From Inholland, a group of students forms a creative agency every six months with the assignment to carry out a real-world project. Astrolads is (alongside The Hague Municipality and Pathé Cinemas, among others) one of the partners that participate in this. From Astrolads the group receives a research question, which they work on for half a year. They regularly report on progress and obstacles they encounter. In the end they deliver an advisory report and receive an evaluation from both Inholland The Hague and Astrolads.',
+      },
+    ],
+  },
+  {
+    slug: 'career-guidance',
+    titel: 'Career guidance',
+    intro: 'Should I become a plumber, like my dad? Should I take a gap year and travel? Or do that hairdressing course that sounds so appealing? Alongside intensive media supervision, Astrolads also provides custom-made career guidance for secondary school pupils.',
+    fotos: [
+      '/images/diensten/onderwijs-loopbaan-1.webp',
+      '/images/diensten/onderwijs-loopbaan-2.webp',
+      '/images/diensten/onderwijs-loopbaan-3.webp',
+    ],
+    cases: [
+      {
+        titel: 'Taster internship',
+        partnerLogo: '/images/onderwijs/jinc.webp',
+        partnerNaam: 'JINC',
+        tekst: 'More and more young people get stuck in gap years after secondary school or drop out in their first year of higher education due to the wrong study choice. Astrolads is happy to play a role in this and voluntarily acts as career guidance for a group of pre-vocational pupils at a Yuverta location in The Hague. Experts from Astrolads individually guide different pupils in their third school year, to help them get a better picture of their talents and choose a suitable follow-up programme.',
+      },
+    ],
+  },
+];
+---
+
+<LayoutEN
+  title="Education innovation"
+  description="Education innovation by Astrolads. Student media teams, hands-on learning programmes and career guidance, tailored to each educational institution and target group."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Education innovation",
+    "provider": { "@type": "Organization", "name": "Astrolads", "@id": "https://astrolads.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "description": "Collaboration with educational institutions on student media teams, hands-on learning programmes and career guidance. Tailored to each target group and educational institution.",
+    "url": "https://astrolads.com/en/services/education-innovation"
+  })} />
+
+  <div class="dienst-page">
+    <div class="section-inner">
+      <Breadcrumb 
+        lang="en"
+        items={[
+          { name: 'Services', url: '/en/services' },
+          { name: 'Education Innovation' }
+        ]} 
+      />
+
+      <!-- Header -->
+      <div class="dienst-header">
+        <div class="dienst-header-tekst">
+          <p class="section-label">Services</p>
+          <h1>Education innovation</h1>
+          <p class="dienst-intro">Astrolads works closely with various educational institutions. While the strength of education lies in conveying theoretical knowledge, Astrolads mainly offers experience, assignments and supervision from practice. From media teams to hands-on learning programmes and career guidance, always tailored to the target group and the wishes of the educational institution.</p>
+          <a href="/en/contact" class="btn-orange">Get in touch</a>
+        </div>
+        <div class="dienst-header-img">
+          <img src="/images/diensten/onderwijs-header.webp" alt="Astrolads education innovation" width="640" height="460" loading="eager" fetchpriority="high" decoding="sync" />
+        </div>
+      </div>
+
+      <!-- Pillars -->
+      <div class="onderwijs-pijlers">
+        {pijlers.map((p, i) => (
+          <section class="pijler-blok" id={p.slug}>
+            <!-- Pillar header: text left, photo right -->
+            <div class="pijler-top">
+              <div class="pijler-tekst">
+                <h2>{p.titel}</h2>
+                <p class="pijler-intro">{p.intro}</p>
+              </div>
+              <div class="pijler-img">
+                <div class="pijler-fader" data-fader>
+                  {p.fotos.map((f, idx) => (
+                    <img src={f} alt={p.titel + ' photo ' + (idx + 1)} class:list={['fader-slide', { active: idx === 0 }]} loading="lazy" />
+                  ))}
+                  <div class="fader-dots">
+                    {p.fotos.map((_, idx) => (
+                      <button class:list={['fader-dot', { active: idx === 0 }]} data-index={idx} aria-label={'Photo ' + (idx + 1)}></button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cases side by side -->
+            <div class:list={['cases-grid', { single: p.cases.length === 1 }]}>
+              {p.cases.map(c => (
+                <article class="case-kaart">
+                  <div class="case-head">
+                    <h3>{c.titel}</h3>
+                    <img src={c.partnerLogo} alt={c.partnerNaam + ' logo'} class="case-logo" loading="lazy" />
+                  </div>
+                  <p>{c.tekst}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="dienst-cta">
+        <h2>Collaborating on education innovation?</h2>
+        <p>Are you connected to an educational institution and do you see opportunities for collaboration? We're happy to think along with you.</p>
+        <a href="/en/contact" class="btn-orange">Get in touch</a>
+      </div>
+
+    </div>
+  </div>
+</LayoutEN>
+
+<style>
+  .dienst-page { padding: 64px 0 96px; }
+
+  .dienst-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    margin-bottom: 120px;
+  }
+  .dienst-header-tekst h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .dienst-intro {
+    font-size: 17px; color: var(--muted);
+    line-height: 1.7; margin-bottom: 32px;
+  }
+  .dienst-header-img img {
+    width: 100%; height: 460px;
+    border-radius: var(--radius);
+    object-fit: cover;
+  }
+
+  .onderwijs-pijlers { margin-bottom: 96px; }
+  .pijler-blok { margin-bottom: 120px; }
+
+  .pijler-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, calc(50% - 12px));
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .pijler-fader {
+    position: relative;
+    aspect-ratio: 16/10;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--white);
+  }
+  .fader-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity .8s ease;
+  }
+  .fader-slide.active { opacity: 1; }
+  .fader-dots {
+    position: absolute; bottom: 16px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 2;
+  }
+  .fader-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,.5);
+    border: none; cursor: pointer; transition: background .2s; padding: 0;
+  }
+  .fader-dot.active { background: #fff; }
+
+  .pijler-tekst h2 {
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  .pijler-intro {
+    color: var(--muted);
+    line-height: 1.8; font-size: 15px;
+  }
+
+  /* Cases side by side */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .cases-grid.single {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .case-kaart {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    display: flex; flex-direction: column;
+  }
+  .case-head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .case-head h3 {
+    font-size: 22px; font-weight: 700;
+    line-height: 1.2;
+  }
+  .case-logo {
+    height: 36px; width: auto;
+    max-width: 110px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .case-kaart p {
+    color: var(--muted);
+    line-height: 1.8; font-size: 14px;
+  }
+
+  .dienst-cta {
+    text-align: center;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 64px;
+    color: #fff;
+  }
+  .dienst-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+  .dienst-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  @media (max-width: 768px) {
+    .dienst-page { padding: 32px 0 56px; }
+
+    /* Header: photo first, then text */
+    .dienst-header {
+      display: flex; flex-direction: column-reverse;
+      gap: 28px;
+      margin-bottom: 56px;
+    }
+    .dienst-header-tekst h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .dienst-intro {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .dienst-header-img img {
+      height: auto;
+      aspect-ratio: 16 / 9;
+      max-height: 240px;
+    }
+
+    /* Pillars: photo first, then text */
+    .onderwijs-pijlers { margin-bottom: 56px; }
+    .pijler-blok { margin-bottom: 56px; }
+    .pijler-top {
+      display: flex; flex-direction: column;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+    .pijler-top .pijler-img { order: -1; }
+    .pijler-img {
+      width: 100%;
+    }
+    .pijler-fader {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+    }
+    .pijler-tekst h2 {
+      font-size: clamp(22px, 5.5vw, 28px);
+      margin-bottom: 12px;
+    }
+    .pijler-intro {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .fader-dot { width: 10px; height: 10px; }
+
+    /* Cases: 1 column, compact */
+    .cases-grid { grid-template-columns: 1fr; gap: 12px; }
+    .cases-grid.single { max-width: none; }
+    .case-kaart { padding: 20px; }
+    .case-head {
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .case-head h3 {
+      font-size: 17px;
+      line-height: 1.25;
+    }
+    .case-logo {
+      height: 28px;
+      max-width: 90px;
+    }
+    .case-kaart p {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* CTA compact */
+    .dienst-cta {
+      padding: 36px 24px;
+    }
+    .dienst-cta h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .dienst-cta p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-fader]').forEach(function(fader) {
+    var faderSlides = fader.querySelectorAll('.fader-slide');
+    var dots = fader.querySelectorAll('.fader-dot');
+    if (faderSlides.length === 0) return;
+    var idx = 0;
+
+    function goTo(i) {
+      faderSlides[idx].classList.remove('active');
+      if (dots[idx]) dots[idx].classList.remove('active');
+      idx = i;
+      faderSlides[idx].classList.add('active');
+      if (dots[idx]) dots[idx].classList.add('active');
+    }
+
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goTo(parseInt(dot.getAttribute('data-index')));
+      });
+    });
+
+    if (faderSlides.length > 1) {
+      setInterval(function() {
+        goTo((idx + 1) % faderSlides.length);
+      }, 4500);
+    }
+  });
+</script>

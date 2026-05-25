@@ -1,0 +1,882 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CasesSlider from '../../components/CasesSlider.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'deelmobiliteit' } },
+    { params: { slug: 'nsob' } },
+    { params: { slug: 'bob-kob' } },
+    { params: { slug: 'na-de-oorlog' } },
+    { params: { slug: 'rli' } },
+    { params: { slug: 'vereniging-elektrische-rijders' } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+const cases = {
+  'deelmobiliteit': {
+    tag: 'Natuurlijk!Deelmobiliteit',
+    titel: 'Deelmobiliteit in Nederland versnellen',
+    metaDescription: 'Astrolads als vaste communicatiepartner van Natuurlijk!Deelmobiliteit. Van podcast en webinars tot drukwerk en grafische vormgeving voor het Shared Mobility Rocks event.',
+    intro: 'Deelmobiliteit kan veel betekenen voor onze samenleving als geheel en voor alle inwoners persoonlijk. Want het zorgt, als belangrijk onderdeel van het mobiliteitsnetwerk, voor een grotere bereikbaarheid, ruimte om te bouwen en te leven, en het geeft mensen keuzevrijheid. Om de knelpunten voor verdere groei weg te nemen zijn 30 gemeenten, regio\'s, provincies en het Rijk een Nationaal Samenwerkingsprogramma gestart: Natuurlijk!Deelmobiliteit (N!D).',
+    img: '/images/cases/deelmobiliteit.webp',
+    themas: ['mobiliteit', 'duurzaamheid'],
+    diensten: ['Podcast', 'Video', 'Webinars', 'Fotografie', 'Grafische Vormgeving', 'Drukwerk'],
+    beschrijvingImg: '/images/cases/deelmobiliteit-beschrijving.webp',
+    beschrijving: 'Bij de uitrol van deelmobiliteit komen ontzettend veel verschillende partijen kijken. Publiek, privaat en natuurlijk de gebruiker. Hoe zorg je dat de juiste informatie goed landt bij al deze verschillende groepen? Daarvoor zijn wij vaste communicatiepartner van het programma. Van een laagdrempelige podcast voor beginnende ambtenaren en beleidsmakers tot drukwerk voor op het Shared Mobility Rocks event: alle middelen worden ingezet voor deze brede communicatie-uitdaging!',
+    quote: {
+      foto: '/images/cases/deelmobiliteit-eddy.webp',
+      tekst: 'Het werken met Astrolads is voor mij als werken met een volledig (online) communicatieteam, maar dan extern georganiseerd. Divers, vaardig, flexibel, verschroeiend hoog tempo en bovenal... ontzettend fijne gasten om mee te werken!',
+      naam: 'Eddy Carree',
+    },
+    secties: [
+      {
+        label: 'Podcast',
+        titel: 'Dé podcast voor deelmobiliteit in Nederland',
+        tekst: 'Samen met N!D maken wij dé podcast voor deelmobiliteit in Nederland met de gelijknamige titel. Elke aflevering schuiven een of twee interessante gasten aan die een ander deel van de puzzel uitleggen. De podcast wordt opgenomen in onze podcaststudio in Den Haag. Het doel: ambtenaren en beleidsmakers een laagdrempelige kennisboost geven over dit snel ontwikkelende thema. Daarnaast maken we van elke aflevering snippets voor social media. Twee vliegen in één klap dus!',
+        spotify: 'https://open.spotify.com/embed/show/0UWucGAIw9miV2azC0MYvY?utm_source=generator',
+        flip: false,
+      },
+      {
+        label: 'Video',
+        titel: 'Straatinterviews en inhoudelijke aftermovies',
+        tekst: 'We maken voor N!D meerdere soorten video\'s. Met straatinterviews halen we de mening van mensen op straat op en delen die met overheidspartijen en bedrijven. Van events maken we inhoudelijke aftermovies die na afloop de belangrijkste boodschap met een online publiek delen. Zo houden we de aandacht vast, blijven de belangrijkste lessen hangen en vergroten we de impact.',
+        mave: [
+          { src: 'https://space-10z8x.video-dns.com/8inYzSnFG7/player.html', titel: 'Shared Mobility Rocks' },
+        ],
+        flip: true,
+      },
+      {
+        label: 'Webinar',
+        titel: 'Een interactief tafelprogramma',
+        tekst: 'De dagvoorzitter of presentator neemt de kijkers mee in een inhoudelijk programma, eventueel afgewisseld met video\'s. Denk aan een korte break met straatinterviews over het volgende inhoudelijke onderwerp dat aan bod komt. Kijkers kunnen live vragen stellen aan de tafelgasten of, waar nodig, om extra verdieping vragen.',
+        fotos: [
+          '/images/cases/deelmobiliteit-webinar-1.webp',
+          '/images/cases/deelmobiliteit-webinar-2.webp',
+          '/images/cases/deelmobiliteit-webinar-3.webp',
+        ],
+        flip: false,
+      },
+      {
+        label: 'Fotografie',
+        titel: 'Event- en teamfoto\'s',
+        tekst: 'Professionele eventfoto\'s helpen om de online impact te vergroten. De foto\'s worden gebruikt om na te genieten, maar vooral ook om volgende edities te promoten en zijn daarnaast multi-inzetbaar voor social media en nieuwsberichten. De portretfoto\'s van het hele team zorgen voor een uniform geheel op de website. Ook straalt het programma bij externe media en events professionaliteit en uniformiteit uit.',
+        fotos: [
+          '/images/cases/deelmobiliteit-fotografie-1.webp',
+          '/images/cases/deelmobiliteit-fotografie-2.webp',
+          '/images/cases/deelmobiliteit-fotografie-3.webp',
+          '/images/cases/deelmobiliteit-fotografie-4.webp',
+          '/images/cases/deelmobiliteit-fotografie-5.webp',
+          '/images/cases/deelmobiliteit-fotografie-6.webp',
+        ],
+        flip: true,
+      },
+      {
+        label: 'Grafische Vormgeving',
+        titel: 'Visueel aantrekkelijke handreikingen en uniforme presentaties',
+        tekst: 'Het risico van vele uitingsvormen is een gebrek aan uniformiteit. Om het "merk" Natuurlijk!Deelmobiliteit sterker en uniformer in de markt te zetten, hebben we vanuit het bestaande brandbook nieuwe templates voor de publicaties gemaakt. Daarnaast hebben we presentatietemplates opgezet, zodat iedereen die vanuit het programma naar buiten communiceert, dit in hetzelfde "jasje" doet (laat "jasjes" maar aan ons over).',
+        fotos: [
+          '/images/cases/deelmobiliteit-vormgeving-1.webp',
+          '/images/cases/deelmobiliteit-vormgeving-2.webp',
+          '/images/cases/deelmobiliteit-vormgeving-3.webp',
+        ],
+        flip: false,
+      },
+      {
+        label: 'Drukwerk',
+        titel: 'Unieke "festival t-shirts" voor het deelmobiliteitscongres',
+        tekst: 'Natuurlijk!Deelmobiliteit sloeg de handen ineen met Shared Mobility Rocks, een internationaal congres-fenomeen in de wereld van deelmobiliteit. Een vast onderdeel van dit concept is een line-up t-shirt in rockthema. Wij ontwierpen de print voor het drukwerk en verzorgden 80 vers-van-de-pers t-shirts voor alle sprekers en betrokkenen van het congres.',
+        img: '/images/cases/deelmobiliteit-drukwerk.webp',
+        flip: true,
+      },
+    ],
+  },
+  'nsob': {
+    tag: 'Nederlandse School voor Openbaar Bestuur',
+    titel: 'Hoogwaardig onderwijs en gefundeerd onderzoek over de publieke sector',
+    metaDescription: 'Astrolads als mediapartner van de Nederlandse School voor Openbaar Bestuur. Podcast "Uit de school", explainer-videos, fotografie en animaties voor publieke kennis.',
+    intro: 'De Nederlandse School voor Openbaar Bestuur (NSOB) versterkt het openbaar bestuur van Nederland door ruimte te creëren voor reflectie, vernieuwing en betekenisvolle dialoog. Als onafhankelijke ontmoetingsplek tussen wetenschap en praktijk helpt de NSOB publieke professionals om te kunnen handelen in een complexe wereld.',
+    img: '/images/cases/nsob.webp',
+    themas: ['overheid', 'wetenschap', 'onderwijs'],
+    diensten: ['Podcast', 'Video', 'Fotografie', 'Animaties'],
+    beschrijvingImg: '/images/cases/nsob-beschrijving.webp',
+    beschrijving: 'Bij de Nederlandse School voor Openbaar Bestuur (NSOB) helpen wij om complexe kennis toegankelijk te maken en zichtbaar te verspreiden. Van grootschalige onderzoeken tot nieuwe onderwijslijnen, essays en workshops: wij vertalen de inhoud naar heldere, krachtige verhalen. Met explainervideo\'s maken we ingewikkelde thema\'s begrijpelijk en online deelbaar. In de maandelijkse podcast brengen we onderzoekers, ervaringsdeskundigen en publieke professionals samen om te praten over de inzichten die ertoe doen. Ook leveren wij een bijdrage aan het innovatieve onderwijs door de video die wij voor een nieuw ontwikkelde serious game maakten. Omdat we praktisch buren zijn in het Haagse, pakken we ook regelmatig de camera voor portretten, opleidingscovers en events. Een prettige, vanzelfsprekende samenwerking waarin wij als mediapartner de NSOB helpen hun kennis te laten landen en hun impact te vergroten.',
+    quote: {
+      foto: '/images/cases/nsob-christiaan.webp',
+      tekst: 'Als de witte jasjes van Astrolads binnen komen wandelen, voel ik me direct op m\'n gemak. Wie die jas ook aanheeft. Je weet direct dat je je op technisch gebied nergens meer zorgen over hoeft te maken, dat (bijna) alles kan en dat iedereen zich op z\'n gemak voelt. En dat zo\'n partner dan ook nog inhoudelijk goed op de hoogte is en kan reflecteren op de inhoud van bijvoorbeeld een podcast: dat werkt als een trein!',
+      naam: 'Christiaan van der Kaaij',
+    },
+    secties: [
+      {
+        label: 'Podcast',
+        titel: 'In de school opgenomen, uit de school geklapt',
+        tekst: 'Elke eerste maandag van de maand, als het luchtalarm loeit, is dat niet alleen een reminder dat het landelijk alarmsysteem werkt, maar voor vele ambtenaren, bestuurders, onderzoekers en politici óók het signaal dat er weer een nieuwe aflevering van de podcast \'Uit de school\' online staat. Opgenomen vanuit de thuisbasis van de NSOB aan het Lange Voorhout, nemen wij elke maand een aflevering op over bestuurlijke thema\'s. Het doel van de podcast is om de vele kennis vanuit de school en de denktank, naast alle vele essays en opleidingen, ook in compacte audiovorm aan te bieden.',
+        spotify: 'https://open.spotify.com/embed/episode/5BBFSZwEzXEzxPikpzSC0W?utm_source=generator&t=0',
+        flip: false,
+      },
+      {
+        label: 'Video',
+        titel: 'Merkvideo en explainers',
+        tekst: 'De essays van de NSOB zijn enorm waardevolle documenten, maar vragen ook om een tijdsinvestering van de lezer. Daarom maken wij voor de NSOB explainer-video\'s die de kern van de essays en onderzoeken uitleggen om zowel de aandacht voor de inhoud te vergroten, als mensen te enthousiasmeren om het hele essay in te gaan duiken. Daarnaast maken we ook video\'s voor andere doeleinden, zoals een overkoepelende video over alle activiteiten en de identiteit van de NSOB.',
+        mave: [
+          { src: 'https://space-10z8x.video-dns.com/ZgjP7VxYsq/player.html', titel: 'Merkvideo NSOB' },
+          { src: 'https://space-10z8x.video-dns.com/xOBeadJAT4/player.html', titel: 'Kracht van Híer' },
+        ],
+        flip: true,
+      },
+      {
+        label: 'Fotografie',
+        titel: 'Opleidingscovers en teamfoto\'s',
+        tekst: 'Ook fotografie is bij de NSOB zeer goed inzetbaar. Denk bijvoorbeeld aan persoonlijke profielfoto\'s voor op de medewerkers-pagina en persoonlijke publicaties, maar ook voor de opleidingspagina hebben we semi-abstracte foto\'s met een knipoog naar de directe omgeving geschoten. Daarnaast zijn we geregeld op evenementen en diploma-uitreikingen aanwezig om ook deze mooie momenten vast te leggen.',
+        fotos: [
+          '/images/cases/nsob-fotografie-1.webp',
+          '/images/cases/nsob-fotografie-2.webp',
+          '/images/cases/nsob-fotografie-3.webp',
+          '/images/cases/nsob-fotografie-4.webp',
+          '/images/cases/nsob-fotografie-5.webp',
+        ],
+        flip: false,
+      },
+      {
+        label: 'Animaties',
+        titel: 'Het Atelier',
+        tekst: 'In 2025 ontwikkelde de NSOB een nieuw programma: \'Het Atelier\', waarin ruimte wordt geboden voor reflecteren, voor spiegelen en verdiepen rond actuele complexe vraagstukken met individuele professionals, teams, groepen, organisaties en netwerken. Om deze nieuwe werkvorm een digitale \'swung\' te geven, maakten we in samenwerking een korte heldere animatievideo waarin het vernieuwende concept haarfijn wordt uitgelegd en met bewegend beeld wordt versterkt.',
+        mave: [
+          { src: 'https://space-10z8x.video-dns.com/SQFnaN2lew/player.html', titel: 'Het Atelier animatie' },
+        ],
+        flip: true,
+      },
+    ],
+  },
+  'bob-kob': {
+    tag: 'BOB-KOB',
+    titel: 'Praktijkgerichte opleider die vakmanschap in bouw en infra versterkt.',
+    metaDescription: 'Communicatie voor BOB-KOB, opleider in de bouw- en infrasector. Video, fotografie en de podcast "Bouwverhalen" over grote bouw- en renovatieprojecten in Nederland.',
+    intro: 'BOB-KOB is een praktijkgerichte opleider in de bouw- en infrasector die zich richt op het ontwikkelen van vakmanschap en professionele groei. Met een breed aanbod aan opleidingen, trainingen en maatwerktrajecten ondersteunt BOB-KOB zowel startende als ervaren professionals.',
+    img: '/images/cases/bob-kob.webp',
+    themas: ['bouw', 'onderwijs'],
+    diensten: ['Video', 'Fotografie', 'Podcast'],
+    beschrijvingImg: '/images/cases/bob-kob-beschrijving.webp',
+    beschrijving: 'Het communicatieteam van BOB-KOB houdt elke dag vele ballen hoog. Van het aanjagen van nieuwe opleidingen en workshops, tot de interne communicatie met docenten en andere collega\'s. Om de focus op externe communicatie niet te laten wegzakken, is Astrolads ingevlogen. Wij helpen met het, zo efficiënt mogelijk, verzamelen van content op opleidingsdagen en workshops, zodat de beeldbank gevuld blijft. Tevens denken wij mee in nieuwe mogelijkheden voor communicatie, zoals de podcast en verticale video\'s omtrent soft skills. Een creatieve samenwerking met een gevestigd intern communicatieteam!',
+    secties: [
+      {
+        label: 'Video',
+        titel: 'Workshops en bijeenkomsten online gedeeld zodat alle geïnteresseerden de inhoud meekrijgen.',
+        tekst: 'Iedereen die werkzaam is in de wereld van de bouw en/of infra zal beamen: tijd is er niet in overmate. Des te belangrijker dat de fysieke evenementen van de BOB-KOB ook online zichtbaar zijn, zodat iedereen alsnog de inhoud meekrijgt. Om de impact en kennisdeling van al deze workshops en bijeenkomsten te vergroten, maken we korte inhoudelijke aftermovies die online gedeeld kunnen worden. Inzetbaar in nieuwsbrieven, op de socials kanalen of als marketingmateriaal voor volgende edities.',
+        mave: [
+          { src: 'https://space-10z8x.video-dns.com/xAPD6BJf7s/player.html', titel: 'VR/AI Experience' },
+          { src: 'https://space-10z8x.video-dns.com/vBPFRTN6cK/player.html', titel: 'AI in het onderwijs' },
+          { src: 'https://space-10z8x.video-dns.com/gT4DvH2Bkg/player.html', titel: 'Diplomauitreiking' },
+        ],
+        flip: false,
+      },
+      {
+        label: 'Fotografie',
+        titel: 'Een representatieve beeldbank die laat zien waar de BOB-KOB zich elke dag voor inzet.',
+        tekst: 'De opleidingen, workshops en bijeenkomsten van de BOB-KOB vliegen je om de oren. Ook de socials kanalen en nieuwsbrieven staan vol met waardevolle informatie voor iedereen in de branche. Om al deze kanalen ook visueel aantrekkelijk te maken, is een representatieve beeldbank essentieel. Daarom verzorgen wij, naast het maken van inhoudelijke aftermovies, tegelijkertijd ook de fotografie. Een mooie contentvorm om snel in te zetten als nabrander voor alle deelnemers, maar ook tijdloos inzetbaar als communicatiemiddel.',
+        fotos: [
+          '/images/cases/bob-kob-fotografie-1.webp',
+          '/images/cases/bob-kob-fotografie-2.webp',
+          '/images/cases/bob-kob-fotografie-3.webp',
+          '/images/cases/bob-kob-fotografie-4.webp',
+          '/images/cases/bob-kob-fotografie-5.webp',
+        ],
+        flip: true,
+      },
+      {
+        label: 'Podcast',
+        titel: 'Verhalen uit de bouw die verbinden, inspireren en het vak tot leven brengen.',
+        tekst: 'Wat iedereen in de sector verbindt, is de passie voor het vak. Van projecteigenaar tot uitvoerder, zodra een grootschalig project klaar is, is iedereen daar trots op! Om iedereen in de sector te verbinden en (online) samen te brengen, hebben we de podcast \'Bouwverhalen\' ontwikkeld. In deze podcast gaat presentator Patrick van Leeuwen in gesprek met betrokkenen van grootschalige, opvallende en/of inspirerende bouw-/renovatieprojecten. Van de Markthal in Rotterdam tot de renovatie van het Binnenhof, in elke aflevering nemen we de luisteraars mee in wat hun vak zo mooi en vooral zo belangrijk maakt.',
+        spotify: 'https://open.spotify.com/embed/episode/2PIgYM4PAC9nmRKWWbO8XT?utm_source=generator',
+        flip: false,
+      },
+    ],
+  },
+  'na-de-oorlog': {
+    tag: 'Stichting Na de Oorlog',
+    titel: 'Verhalen uit de Tweede Wereldoorlog doorgeven aan nieuwe generaties.',
+    metaDescription: 'Verticale video\'s voor Stichting Na de Oorlog. Persoonlijke verhalen uit de Tweede Wereldoorlog die leerlingen meenemen naar huis voor het gesprek met hun gezin.',
+    intro: 'Stichting Na de Oorlog brengt persoonlijke verhalen uit de Tweede Wereldoorlog tot leven door gastsprekers, vaak kinderen van ervaringsdeskundigen, langs scholen in heel Nederland te sturen. In de klas delen zij indringende familieverhalen over vervolging, onderduik en verzet, en maken ze de impact van de oorlog invoelbaar voor nieuwe generaties.',
+    img: '/images/cases/na-de-oorlog.webp',
+    themas: ['jongeren', 'onderwijs', 'maatschappelijk'],
+    diensten: ['Video'],
+    beschrijvingImg: '/images/cases/na-de-oorlog-beschrijving.webp',
+    beschrijving: 'Elke nieuwe generatie vraagt ook om een nieuwe communicatieaanpak voor Stichting Na de Oorlog. Hoe zorg je dat de kern van de boodschap landt bij een nieuwe generatie die informatie en media weer op een geheel eigen wijze consumeert en tot zich neemt? Om te zorgen dat de content aansluit bij de doelgroep, helpen wij bij het maken van de verticale video\'s die zowel de inhoud vangen, als aansluiten bij de spanningsboog en contentwens van de leerlingen/studenten. Een bijzondere samenwerking waar creatief werk écht verschil kan maken.',
+    secties: [
+      {
+        label: 'Video',
+        titel: 'Verticale video\'s van de gastsprekers die leerlingen uitnodigen om ook thuis over de oorlog en bijbehorende thema\'s te praten.',
+        tekst: 'Een gastles over de oorlogsperiode heeft altijd impact op de deelnemende leerlingen. Het zou daarom mooi zijn als ze de verhalen van gastsprekers meenemen naar huis als input voor een gesprek met hun eigen gezin. Echter bleek dat het thuisfront vaak niet eens wist dat de gastles had plaatsgevonden, waardoor de impact beperkt bleef. Daarom heeft Stichting Na de Oorlog een placemat ontwikkeld, die de leerlingen mee naar huis krijgen. Deze nodigt uit om met de familie te praten over de oorlog en de verhalen van hun gezin op te halen. Als gespreksstarter maakten we verticale video\'s die het verhaal van de gastspreker de woonkamer inbrengen.',
+        verticaal: [
+          { src: 'https://space-10z8x.video-dns.com/bkN0yYevSW/player.html', titel: 'Esther Karsch-Spiro' },
+          { src: 'https://space-10z8x.video-dns.com/dHSWMZdvvU/player.html', titel: 'Alex Waterman' },
+          { src: 'https://space-10z8x.video-dns.com/J5me3FGhFu/player.html', titel: 'Elisabeth Baumgarten' },
+        ],
+        flip: false,
+      },
+    ],
+  },
+  'rli': {
+    tag: 'Raad voor de leefomgeving en infrastructuur',
+    titel: 'Adviesraad voor regering en parlement omtrent o.a. wonen, ruimtelijke ordening & milieu.',
+    metaDescription: 'Explainer-videos en livestreams voor de Raad voor de leefomgeving en infrastructuur. Adviezen over wonen, milieu, mobiliteit en duurzaamheid toegankelijk maken.',
+    intro: 'De Raad voor de leefomgeving en infrastructuur (Rli) is het strategische adviescollege voor regering en parlement op het brede domein van de fysieke leefomgeving. De raad is onafhankelijk en adviseert, gevraagd en ongevraagd, over hoofdlijnen van beleid inzake de duurzame ontwikkeling van de leefomgeving en infrastructuur.',
+    img: '/images/cases/rli.webp',
+    themas: ['overheid', 'wetenschap', 'duurzaamheid', 'mobiliteit', 'infrastructuur'],
+    diensten: ['Video', 'Webinars'],
+    beschrijvingImg: '/images/cases/rli-beschrijving.webp',
+    beschrijving: 'Als warme broodjes vliegen de adviezen van de Raad voor de leefomgeving en infrastructuur over de balie. Van de drinkwatervoorziening tot woningnood… de raad duikt in elk bestuurlijk thema om kritisch mee te kijken met het huidige beleid en vooral te kijken naar wat beter kan. Van buurtbewoners tot beleidsmakers, het perspectief van elke doelgroep wordt hierin meegenomen. Om de impact van deze adviezen te vergroten en te zorgen dat de inhoud en waarde hiervan bij zoveel mogelijk mensen terecht komt, helpt Astrolads door middel van verschillende vormen content. Een mooie samenwerking waarin we echt impact kunnen maken met ons creatieve werk.',
+    quote: {
+      foto: '/images/cases/rli-douwe.webp',
+      tekst: 'Astrolads weet telkens goed de balans te vinden tussen inhoud / vorm, formeel / vlot en enthousiasme / zakelijkheid... altijd een feest om samen te werken!',
+      naam: 'Douwe Wielenga',
+    },
+    secties: [
+      {
+        label: 'Video',
+        titel: 'Adviesrapporten en bijeenkomsten samengevat in inhoudelijke aftermovies en explainers.',
+        tekst: 'Niet elke beleidsmaker, ambtenaar of bestuurder heeft de tijd of aandacht om een volledig adviesrapport te lezen. Om er toch voor te zorgen dat de adviezen van Rli bij zoveel mogelijk mensen uit de doelgroep belanden, maken we daarom korte explainer video\'s met daarin de kern van de probleemstelling en het bijbehorende advies. Aan de hand van het advies maken wij een video-script, nemen we een greenscreen-video op, en gaan we aan de slag met animaties en versterkende illustraties. Zo zorgen we ervoor dat iemand met maar 3 minuten tijd, óók de waardevolle inhoud van een Rli-advies mee kan krijgen.',
+        mave: [
+          { src: 'https://space-10z8x.video-dns.com/mEFxkBEKj3/player.html', titel: 'Geitenkamp, Arnhem' },
+          { src: 'https://space-10z8x.video-dns.com/2JzghPTMiJ/player.html', titel: 'Waardevol regeren' },
+          { src: 'https://space-10z8x.video-dns.com/fTYTktVHJU/player.html', titel: 'Zorg voor water' },
+        ],
+        flip: false,
+      },
+      {
+        label: 'Webinars',
+        titel: 'Live uitzendingen voor beleidsmakers door heel Nederland.',
+        tekst: 'De Raad voor de leefomgeving en infrastructuur organiseert bij het afronden van een advies altijd een publieksbijeenkomst. Een gezamenlijk moment waar geïnteresseerden samenkomen om te praten over de inhoud. Omdat een fysiek evenement soms niet de meest efficiënte, laagdrempelige en/of duurzame oplossing is, probeert de Rli dit tegenwoordig ook via een livestream op te zetten. Vanuit de Astrolads Studio schuiven meerdere tafelgasten aan, stellen kijkers inhoudelijke vragen en bekijken de deelnemers gezamenlijk video\'s omtrent het thema. Vanuit Astrolads verzorgen wij de Studio, aankleding, techniek, video\'s, kijkersvragen en meer.',
+        mave: [
+          { src: 'https://space-10z8x.video-dns.com/sSH54IMwML/player.html', titel: 'Webinar Rli' },
+        ],
+        flip: true,
+      },
+    ],
+  },
+  'vereniging-elektrische-rijders': {
+    tag: 'Vereniging Elektrische Rijders',
+    titel: 'De stem van elektrisch rijden in Nederland.',
+    metaDescription: 'Jarenlange samenwerking met de Vereniging Elektrische Rijders. Video\'s, fotografie en webinars over elektrisch rijden en de laadinfrastructuur in Nederland.',
+    intro: 'De Vereniging Elektrische Rijders (VER) vertegenwoordigt de belangen van elektrische rijders in Nederland en zet zich in voor de verdere groei en verbetering van elektrisch rijden. Met een achterban van inmiddels ruim 20.000 leden, een onmisbare partij in de transitie naar elektrisch vervoer. Door kennis te delen, onderzoek te doen en actief het gesprek aan te gaan, draagt de vereniging bij aan een toegankelijker, slimmer en duurzamer mobiliteitssysteem.',
+    img: '/images/cases/ver.webp',
+    themas: ['mobiliteit', 'duurzaamheid'],
+    diensten: ['Video', 'Fotografie', 'Webinars'],
+    beschrijvingImg: '/images/cases/ver-beschrijving.webp',
+    beschrijving: 'De samenwerking tussen de VER en Astrolads gaat eigenlijk vrijwel volledig terug naar het begin. Toen de VER nog een relatief klein clubje was en Astrolads bestond uit Jelle en Dave, maakten we al reportages over actuele thema\'s binnen de ontwikkelingen in de wereld van EV. Inmiddels ondersteunen we VER bij een veelvoud aan communicatie-uitingen, van webinars tot fotografie. Een leuke samenwerking waarin zowel de vereniging als Astrolads met elkaar zijn meegegroeid en een hechte band hebben opgebouwd.',
+    quote: {
+      foto: '/images/cases/ver-sjors.webp',
+      tekst: 'De VER heeft niets voor niets al jaren een samenwerking met Astrolads. Hun frisse blik op de mediawereld en de inzet van jong talent zorgt voor vlotte en levendige content, in veel verschillende vormen. Daarnaast is het team heel professioneel en is de productie van bijvoorbeeld webinars niet alleen vlekkeloos, maar ook dynamisch en interactief.',
+      naam: 'Sjors ten Tije',
+    },
+    secties: [
+      {
+        label: 'Video',
+        titel: 'Inhoudelijke aftermovies van evenementen en reportages die veel voorkomende vragen beantwoorden.',
+        tekst: 'Een belangrijk communicatiekanaal voor de Vereniging Elektrische Rijders zijn de website en de social media kanalen. Om hier optimaal gebruik van te maken, maken we meerdere type video\'s om de ambassadeurs én beginnende ev-rijders te bereiken. Inhoudelijke aftermovies van de algemene ledenvergadering zorgen ervoor dat iedereen die de VER volgt de meest recente ontwikkelingen in de ev-wereld en de vereniging meekrijgt. Met verschillende typen reportages vangen we op een laagdrempelige en vlotte manier de meest gestelde vragen en misconcepties op.',
+        mave: [
+          { src: 'https://space-10z8x.video-dns.com/EsNgjYPRFz/player.html', titel: 'Prijstransparantie' },
+          { src: 'https://space-10z8x.video-dns.com/gqU30yTSFI/player.html', titel: 'Sturen bij je buren' },
+        ],
+        flip: false,
+      },
+      {
+        label: 'Fotografie',
+        titel: 'Sfeerbeelden van de vele evenementen en representatieve portretfoto\'s van het bestuur en ambassadeurs.',
+        tekst: 'Niets is voor een organisatie zo fijn als een goedgevulde beeldbank. Foto\'s van het team, leden en evenementen zorgen dat de website, nieuwsbrief en social media kanalen er representatief bij staan. Samen met de VER reden wij bijvoorbeeld door heel het land om hun ambassadeurs in hun eigen woonomgeving in beeld te brengen. Ook zijn we vaak aanwezig op de evenementen van de VER om te zorgen voor mooie plaatjes!',
+        fotos: [
+          '/images/cases/ver-fotografie-1.webp',
+          '/images/cases/ver-fotografie-2.webp',
+          '/images/cases/ver-fotografie-3.webp',
+          '/images/cases/ver-fotografie-4.webp',
+          '/images/cases/ver-fotografie-5.webp',
+          '/images/cases/ver-fotografie-6.webp',
+          '/images/cases/ver-fotografie-7.webp',
+        ],
+        flip: true,
+      },
+      {
+        label: 'Webinars',
+        titel: 'Onderzoeksresultaten live toelichten aan betrokkenen en geïnteresseerden met ruimte voor kijkersvragen.',
+        tekst: 'De vele datagedreven rapporten en onderzoeken, zijn misschien wel de belangrijkste producten vanuit de Vereniging Elektrische Rijders. Wat vindt de ev-rijder nou écht van de laadinfrastructuur, waar laden ze het meest op, waar lopen ze tegenaan en ga zo maar door… vragen die allemaal aan bod komen in de vele enquêtes en onderzoeken die de vereniging elk (half) jaar uitzet. Omdat niet iedereen de tijd/concentratie heeft om een volledig resultatenrapport door te lezen, presenteren we de belangrijkste take-aways en cijfers ook altijd in een livestream vanuit onze studio in Den Haag. Door kort en laagdrempelig over de concrete resultaten te praten, vergroten we de impact van het vele onderzoekswerk en nemen we zoveel mogelijk mensen mee in de resultaten.',
+        mave: [
+          { src: 'https://space-10z8x.video-dns.com/9rWwSLaJoa/player.html', titel: 'EV- en berijdersonderzoek' },
+        ],
+        flip: false,
+      },
+    ],
+  },
+};
+
+const data = cases[slug as keyof typeof cases];
+if (!data) return Astro.redirect('/cases');
+---
+
+<Layout title={data.titel} description={data.metaDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": data.titel,
+    "description": data.intro,
+    "image": `https://astrolads.com${data.img}`,
+    "author": {
+      "@type": "Organization",
+      "name": "Astrolads",
+      "@id": "https://astrolads.com/#organization"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Astrolads",
+      "@id": "https://astrolads.com/#organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://astrolads.com/images/logo.webp"
+      }
+    },
+    "about": {
+      "@type": "Organization",
+      "name": data.tag
+    },
+    "keywords": data.diensten.join(", "),
+    "mainEntityOfPage": `https://astrolads.com/cases/${slug}`
+  })} />
+
+  <div class="case-detail">
+    <div class="section-inner">
+      <Breadcrumb items={[
+        { name: 'Cases', url: '/cases' },
+        { name: data.tag }
+      ]} />
+
+      <!-- Header -->
+      <div class="case-header">
+        <div class="case-header-titel">
+          <p class="section-label">{data.tag}</p>
+          <h1>{data.titel}</h1>
+        </div>
+        <div class="case-header-img">
+          <img src={data.img} alt={data.titel} width="640" height="420" loading="eager" fetchpriority="high" decoding="sync" />
+        </div>
+        <div class="case-header-left">
+          <p class="case-intro">{data.intro}</p>
+          <p class="diensten-label">Onze diensten</p>
+          <div class="case-pills">
+            {data.diensten.map(d => <span class="pill">{d}</span>)}
+          </div>
+        </div>
+      </div>
+
+      <!-- Beschrijving -->
+      {'beschrijving' in data && (
+        <div class="case-beschrijving-sectie">
+          {'beschrijvingImg' in data && (
+            <div class="beschrijving-img">
+              <img src={data.beschrijvingImg} alt={data.tag} width="600" height="400" loading="lazy" />
+            </div>
+          )}
+          <div class="beschrijving-tekst">
+            <p>{data.beschrijving}</p>
+          </div>
+        </div>
+      )}
+
+      <!-- Quote -->
+      {'quote' in data && (
+        <div class="case-quote-wrap">
+          <div class="case-quote">
+            <span class="quote-icon">&ldquo;</span>
+            <blockquote>{data.quote.tekst}</blockquote>
+            {'foto' in data.quote && (
+              <img src={data.quote.foto} alt={data.quote.naam} class="quote-foto" />
+            )}
+          </div>
+          <p class="quote-naam">{data.quote.naam}</p>
+        </div>
+      )}
+
+      <!-- Secties -->
+      {data.secties.map(s => (
+        <div class:list={['case-sectie', { flip: s.flip }]}>
+          <div class="sectie-img">
+            {'mave' in s ? (
+              <div class="mave-player">
+                <div class="mave-main">
+                  <iframe
+                    src={s.mave[0].src}
+                    width="100%" height="100%"
+                    frameborder="0" scrolling="no" allowfullscreen
+                    id={'mave-main-' + s.label}
+                    style="border-radius:16px;"
+                  ></iframe>
+                </div>
+                {s.mave.length > 1 && (
+                  <div class="mave-thumbs">
+                    {s.mave.map((v, i) => (
+                      <button
+                        class:list={['mave-thumb', { active: i === 0 }]}
+                        data-src={v.src}
+                        data-player={'mave-main-' + s.label}
+                      >
+                        {v.titel}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : 'verticaal' in s ? (
+              <div class="verticaal-swiper">
+                <div class="verticaal-telefoon">
+                  <div class="telefoon-scherm">
+                    <iframe
+                      src={s.verticaal[0].src}
+                      width="100%" height="100%"
+                      frameborder="0" scrolling="no" allowfullscreen
+                      id={'vert-main-' + s.label}
+                      style="border:none;"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="verticaal-nav">
+                  {s.verticaal.map((m, i) => (
+                    <button
+                      class:list={['vert-thumb', { active: i === 0 }]}
+                      data-src={m.src}
+                      data-player={'vert-main-' + s.label}
+                    >
+                      {m.titel}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : 'spotify' in s ? (
+              <iframe
+                src={s.spotify}
+                width="100%"
+                height="352"
+                frameborder="0"
+                allowfullscreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                class="spotify-embed"
+                style="border-radius:16px;"
+              ></iframe>
+            ) : 'fotos' in s ? (
+              <div class="sectie-fader">
+                {s.fotos.map((f, i) => (
+                  <img
+                    src={f} alt={s.titel}
+                    width="600" height="400" loading="lazy"
+                    class:list={['fader-slide', { active: i === 0 }]}
+                  />
+                ))}
+                <div class="fader-dots">
+                  {s.fotos.map((_, i) => (
+                    <button class:list={['fader-dot', { active: i === 0 }]} data-index={i} aria-label={'Foto ' + (i + 1)}></button>
+                  ))}
+                </div>
+              </div>
+            ) : 'img' in s ? (
+              <img src={s.img} alt={s.label + ' voor ' + data.tag + ' door Astrolads'} width="600" height="400" loading="lazy" />
+            ) : null}
+          </div>
+          <div class="sectie-tekst">
+            <p class="sectie-label">{s.label}</p>
+            <h2>{s.titel}</h2>
+            <p>{s.tekst}</p>
+          </div>
+        </div>
+      ))}
+
+      <CasesSlider currentSlug={slug} />
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .case-detail { padding: 48px 0 96px; }
+
+  .back-link {
+    display: inline-flex; align-items: center;
+    color: var(--muted); text-decoration: none; font-size: 13px;
+    background: rgba(0,0,0,.06); border-radius: 999px;
+    padding: 6px 14px; margin-bottom: 40px;
+    transition: background .2s;
+  }
+  .back-link:hover { background: rgba(0,0,0,.1); }
+
+  .case-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "titel slider"
+      "tekst slider";
+    gap: 0 64px; align-items: start;
+    margin-bottom: 140px;
+  }
+  .case-header-titel { grid-area: titel; align-self: end; padding-bottom: 16px; }
+  .case-header-img { grid-area: slider; align-self: center; }
+  .case-header-left { grid-area: tekst; }
+  .case-header-titel h1 {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700; line-height: 1.15; margin-bottom: 0;
+  }
+  .case-header-titel .section-label { margin-bottom: 12px; }
+  .case-intro { color: var(--muted); line-height: 1.7; margin-bottom: 24px; font-size: 15px; }
+  .diensten-label { font-size: 13px; font-weight: 700; margin-bottom: 12px; }
+  .case-header-img img { width: 100%; border-radius: var(--radius); object-fit: cover; }
+  .case-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    font-size: 13px; background: var(--white);
+    border-radius: 999px; padding: 6px 16px;
+    border: 1px solid rgba(0,0,0,.1);
+  }
+
+  .case-beschrijving-sectie {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center; margin-bottom: 140px;
+  }
+  .beschrijving-img img { width: 100%; border-radius: var(--radius); object-fit: cover; height: 400px; }
+  .beschrijving-tekst p { color: var(--muted); line-height: 1.8; font-size: 16px; }
+
+  .case-quote-wrap {
+    position: relative;
+    margin-bottom: 140px;
+  }
+  .case-quote {
+    background: var(--navy); color: #fff;
+    border-radius: var(--radius); padding: 20px 28px;
+    position: relative; overflow: visible;
+  }
+  .quote-icon { font-size: 48px; color: var(--orange); font-family: Georgia, serif; line-height: 0.7; display: block; margin-bottom: 0; font-style: normal; }
+  .case-quote blockquote { font-size: 16px; line-height: 1.5; font-weight: 400; padding-right: 100px; }
+  .quote-naam {
+    font-size: 15px; color: var(--navy);
+    font-weight: 700;
+    margin-top: 16px; padding-right: 100px;
+    text-align: right;
+  }
+  .quote-foto {
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 160px; height: 160px;
+    border-radius: 50%; object-fit: cover;
+    border: 4px solid var(--bg);
+  }
+
+  .case-sectie {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center; margin-bottom: 140px;
+  }
+  .case-sectie.flip .sectie-img { order: 2; }
+  .case-sectie.flip .sectie-tekst { order: 1; }
+  .sectie-img img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+
+  .mave-player { display: flex; flex-direction: column; gap: 12px; }
+  .mave-main {
+    width: 100%; aspect-ratio: 16/9;
+    border-radius: var(--radius); overflow: hidden;
+    background: #000;
+  }
+  .mave-main iframe { width: 100%; height: 100%; border: none; }
+  .mave-thumbs { display: flex; gap: 8px; }
+  .mave-thumb {
+    flex: 1; padding: 7px 12px;
+    border: 1.5px solid rgba(0,0,0,.12);
+    border-radius: 999px; background: var(--white);
+    font-family: var(--font); font-size: 12px;
+    cursor: pointer; transition: all .2s;
+    color: var(--muted); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .mave-thumb:hover { border-color: var(--orange); color: var(--orange); }
+  .mave-thumb.active { border-color: var(--orange); color: var(--orange); font-weight: 700; }
+
+  .verticaal-swiper {
+    display: flex; flex-direction: column; align-items: center; gap: 24px;
+  }
+  .verticaal-telefoon {
+    width: 260px;
+    aspect-ratio: 9/16;
+    background: #111;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 0 0 8px #1a1a1a, 0 20px 60px rgba(0,0,0,.3);
+    position: relative;
+  }
+  .telefoon-scherm {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .telefoon-scherm iframe {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180%;
+    height: 180%;
+    border: none;
+    pointer-events: all;
+  }
+  .verticaal-nav {
+    display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  }
+  .vert-thumb {
+    padding: 7px 16px;
+    border: 1.5px solid rgba(0,0,0,.12);
+    border-radius: 999px; background: var(--white);
+    font-family: var(--font); font-size: 12px;
+    cursor: pointer; transition: all .2s; color: var(--muted);
+  }
+  .vert-thumb:hover { border-color: var(--orange); color: var(--orange); }
+  .vert-thumb.active { border-color: var(--orange); color: var(--orange); font-weight: 700; }
+
+  .sectie-fader {
+    position: relative; border-radius: var(--radius);
+    overflow: hidden; aspect-ratio: 3/2;
+  }
+  .sectie-fader .fader-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity .8s ease;
+  }
+  .sectie-fader .fader-slide.active { opacity: 1; }
+  .sectie-fader .fader-dots {
+    position: absolute; bottom: 16px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 2;
+  }
+  .sectie-fader .fader-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,.5);
+    border: none; cursor: pointer; padding: 0;
+    transition: background .2s;
+  }
+  .sectie-fader .fader-dot.active { background: #fff; }
+
+  .sectie-label {
+    font-size: 12px; font-weight: 700; color: var(--orange-dark);
+    text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px;
+  }
+  .sectie-tekst h2 { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+  .sectie-tekst p { color: var(--muted); line-height: 1.7; }
+
+  @media (max-width: 768px) {
+    .case-detail { padding: 32px 0 56px; }
+    .back-link { margin-bottom: 24px; }
+
+    /* Header: titel → foto → tekst/pills */
+    .case-header {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-areas: none !important;
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+      margin-bottom: 64px;
+      text-align: left;
+    }
+    .case-header-titel,
+    .case-header-img,
+    .case-header-left {
+      grid-area: auto !important;
+      align-self: auto !important;
+      width: 100%;
+      text-align: left;
+    }
+    .case-header-titel { order: 1 !important; padding-bottom: 0; }
+    .case-header-img { order: 2 !important; }
+    .case-header-left { order: 3 !important; }
+    .case-header-titel h1 {
+      font-size: clamp(26px, 6.5vw, 34px);
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+    .case-intro { font-size: 14px; line-height: 1.6; margin-bottom: 20px; text-align: left; }
+    .case-header-img img {
+      width: 100%;
+      height: auto !important;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .pill { font-size: 12px; padding: 5px 12px; }
+    .case-pills { justify-content: flex-start; }
+    .diensten-label { text-align: left; }
+
+    /* Beschrijving: foto BOVEN tekst */
+    .case-beschrijving-sectie {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 64px;
+    }
+    .case-beschrijving-sectie .beschrijving-img { order: 1; }
+    .case-beschrijving-sectie .beschrijving-tekst { order: 2; }
+    .beschrijving-img img {
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .beschrijving-tekst p { font-size: 14px; line-height: 1.7; }
+
+    /* Case-sectie: label → titel → media → tekst */
+    .case-sectie {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px;
+      margin-bottom: 64px;
+      text-align: left;
+    }
+    .case-sectie .sectie-tekst {
+      display: contents;
+    }
+    .case-sectie .sectie-tekst .sectie-label { order: 1; text-align: left; }
+    .case-sectie .sectie-tekst h2 { order: 2; text-align: left; }
+    .case-sectie .sectie-img,
+    .case-sectie.flip .sectie-img { order: 3 !important; width: 100%; }
+    .case-sectie .sectie-tekst p { order: 4; text-align: left; }
+    .case-sectie.flip .sectie-tekst { order: unset; }
+
+    .sectie-img img {
+      width: 100%;
+      aspect-ratio: 16 / 9 !important;
+      height: auto !important;
+      object-fit: cover;
+    }
+    .sectie-fader {
+      aspect-ratio: 16 / 9 !important;
+      width: 100%;
+      position: relative;
+    }
+    .sectie-fader .fader-slide {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    .mave-main {
+      width: 100% !important;
+      aspect-ratio: 16/9;
+    }
+
+    .case-quote-wrap { margin-bottom: 96px; }
+    .case-quote { padding: 20px 24px; }
+    .case-quote blockquote {
+      font-size: 14px;
+      line-height: 1.5;
+      padding-right: 0;
+    }
+    .quote-icon { font-size: 36px; margin-bottom: -10px; }
+    .quote-foto {
+      width: 90px; height: 90px;
+      bottom: -55px; right: -12px;
+      border-width: 3px;
+    }
+    .quote-naam {
+      font-size: 14px;
+      margin-top: 10px;
+      padding-right: 90px;
+      text-align: right;
+    }
+
+    .sectie-tekst h2 { font-size: 22px; margin-bottom: 12px; }
+    .sectie-tekst p { font-size: 14px; line-height: 1.7; }
+    .sectie-label { font-size: 11px; margin-bottom: 8px; }
+
+    .mave-thumbs { flex-wrap: wrap; }
+    .mave-thumb { flex: 1 1 calc(50% - 4px); font-size: 11px; padding: 6px 10px; }
+
+    .case-sectie .sectie-img:has(.verticaal-swiper) {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+    }
+    .verticaal-swiper {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .verticaal-telefoon {
+      width: 200px;
+      margin: 0 auto;
+      box-shadow: 0 0 0 6px #1a1a1a, 0 12px 32px rgba(0,0,0,.25);
+      border-radius: 24px;
+    }
+    .verticaal-nav {
+      display: block;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .vert-thumb {
+      display: inline-block;
+      margin: 0 3px;
+      font-size: 11px;
+      padding: 6px 12px;
+    }
+
+    .sectie-fader .fader-dot { width: 10px; height: 10px; }
+
+    .spotify-embed { height: 152px !important; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.mave-thumb').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var playerId = btn.getAttribute('data-player');
+      var src = btn.getAttribute('data-src');
+      var iframe = document.getElementById(playerId);
+      if (iframe) iframe.src = src;
+      var thumbs = btn.closest('.mave-thumbs').querySelectorAll('.mave-thumb');
+      thumbs.forEach(function(t) { t.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.vert-thumb').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var playerId = btn.getAttribute('data-player');
+      var src = btn.getAttribute('data-src');
+      var iframe = document.getElementById(playerId);
+      if (iframe) iframe.src = src;
+      var thumbs = btn.closest('.verticaal-nav').querySelectorAll('.vert-thumb');
+      thumbs.forEach(function(t) { t.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.sectie-fader').forEach(function(fader) {
+    var slides = fader.querySelectorAll('.fader-slide');
+    var dots = fader.querySelectorAll('.fader-dot');
+    var current = 0;
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goTo(parseInt(dot.getAttribute('data-index')));
+      });
+    });
+    if (slides.length > 1) {
+      setInterval(function() {
+        goTo((current + 1) % slides.length);
+      }, 4000);
+    }
+  });
+</script>

@@ -1,0 +1,362 @@
+---
+import LayoutEN from '../../layouts/LayoutEN.astro';
+
+const team = [
+  { slug: 'luuk-van-ooijen', naam: 'Luuk van Ooijen', rol: 'Team Manager', foto: '/images/team/luuk.webp' },
+  { slug: 'floor-van-der-hoeven', naam: 'Floor van der Hoeven', rol: 'Communications Advisor', foto: '/images/team/floor.webp' },
+  { slug: 'joey-meeuwenoord', naam: 'Joey Meeuwenoord', rol: 'Project Owner Video', foto: '/images/team/joey.webp' },
+  { slug: 'kylian-benna', naam: 'Kylian Benna', rol: 'Project Owner Socials', foto: '/images/team/kylian.webp' },
+  { slug: 'jelle-van-der-zanden', naam: 'Jelle van der Zanden', rol: 'Co-founder', foto: '/images/team/jelle.webp' },
+  { slug: 'dave-verwey', naam: 'Dave Verwey', rol: 'Co-founder', foto: '/images/team/dave.webp' },
+  { slug: 'philip-tjahjadi', naam: 'Philip Tjahjadi', rol: 'Community Manager', foto: '/images/team/philip.webp' },
+  { slug: 'nick-mooijekind', naam: 'Nick Mooijekind', rol: 'Media Maker', foto: '/images/team/nick.webp' },
+  { slug: 'paulina-kacymirow', naam: 'Paulina Kacymirow', rol: 'Media Maker', foto: '/images/team/paulina.webp' },
+  { slug: 'bas-nieuwenhuijs', naam: 'Bas Nieuwenhuijs', rol: 'Student Supervisor', foto: '/images/team/bas.webp' },
+  { slug: 'doa-karasahin', naam: 'Doa Karasahin', rol: 'Student Supervisor', foto: '/images/team/doa.webp' },
+  { slug: 'thijs-riep', naam: 'Thijs Riep', rol: 'Finance Officer', foto: '/images/team/thijs.webp' },
+  { slug: 'sude-kirlioglu', naam: 'Sude Kirlioglu', rol: 'Media Maker Intern', foto: '/images/team/sude.webp' },
+  { slug: 'zofia-michalak', naam: 'Zofia Michalak', rol: 'Community Intern', foto: '/images/team/zofia.webp' },
+  { slug: 'jamie-kuiper', naam: 'Jamie Kuiper', rol: 'Media Maker Intern', foto: '/images/team/jamie.webp' },
+];
+
+const pijlers = [
+  {
+    titel: 'Making valuable knowledge truly land',
+    tekst: 'We specialise in translating knowledge into concrete, timely and engaging communication strategies and the effective content that follows. All in one place, so we can move fast. Everything needed to make your message truly land, so the audience, from young people to policymakers, understands it.',
+    link: { label: 'Discover our services', href: '/en/services' },
+  },
+  {
+    titel: 'Creative work with social impact',
+    tekst: 'We deliberately choose to use our talents for projects with social impact. No advertising for commercial purposes, but effective campaigns for social organisations, knowledge platforms, government, educational institutions, advisory councils, industry associations and more.',
+    link: { label: 'Discover our cases', href: '/cases' },
+  },
+  {
+    titel: 'Social return: Zero waste of creative potential',
+    tekst: 'We believe that investing in young creative talent is a win for both the young people themselves and the world around them. That\'s why Astrolads invests a significant part of its revenue in offering development opportunities for creative young people and students.',
+    link: { label: 'Discover our community', href: '/community' },
+  },
+];
+
+const klanten = [
+  { naam: 'BOB KOB Opleidingen', logo: '/images/klanten/bob-kob.webp' },
+  { naam: 'Hart voor de Zaak', logo: '/images/klanten/hart-voor-de-zaak.webp' },
+  { naam: 'MBO Rijnland', logo: '/images/klanten/mbo-rijnland.webp' },
+  { naam: 'Na de Oorlog', logo: '/images/klanten/na-de-oorlog.webp' },
+  { naam: 'Natuurlijk Deelmobiliteit', logo: '/images/klanten/natuurlijk-deelmobiliteit.webp' },
+  { naam: 'Nederlandse School voor Openbaar Bestuur', logo: '/images/klanten/nederlandse-school-voor-openbaar-bestuur.webp' },
+  { naam: 'NKL Nederland', logo: '/images/klanten/nkl-nederland.webp' },
+  { naam: 'NL Hydrogen', logo: '/images/klanten/nlhydrogen.webp' },
+  { naam: 'OOMT', logo: '/images/klanten/oomt.webp' },
+  { naam: 'Vereniging Elektrische Rijders', logo: '/images/klanten/vereniging-elektrische-rijders.webp' },
+  
+];
+---
+
+<LayoutEN
+  title="About us"
+  description="Meet the Astrolads team. A communications agency with in-house production team in The Hague, creating creative work with genuine social impact."
+>
+
+  <div class="over-page">
+    <div class="section-inner">
+
+      <!-- ── INTRO ── -->
+      <div class="intro-sectie">
+        <div class="deco-cirkel" aria-hidden="true"></div>
+        <div class="intro-tekst">
+          <h2>About us</h2>
+          <p>Astrolads is a communications agency with in-house production team focused on creating effective content around topics such as (electric) mobility, infrastructure, innovation, education, participation, construction, digital accessibility, energy and sustainability. With content at the core, we have all digital disciplines in-house: videos, webinar/studio, socials, design, animations, podcasts, newsletters and much more. We'd love to welcome you to our office and studio at the liveliest square in The Hague!</p>
+        </div>
+        <div class="intro-foto">
+          <img src="/images/over-foto.webp" alt="The Astrolads team at work in their office at Grote Markt, The Hague" width="640" height="420" loading="eager" fetchpriority="high" decoding="sync" />
+        </div>
+      </div>
+
+      <!-- ── 3 PIJLERS ── -->
+      <div class="pijlers">
+        {pijlers.map((p, i) => (
+          <div class:list={['pijler-kaart', { 'has-icon-bottom': i === 1 || i === 2 }]}>
+            <h3>{p.titel}</h3>
+            <p>{p.tekst}</p>
+            <a href={p.link.href} class="pijler-link">{p.link.label} →</a>
+            <img src={'/images/over-ons/icon-' + (i + 1) + '.webp'} alt="" class:list={['pijler-icon', { 'pijler-icon-2': i === 1, 'pijler-icon-bottom': i === 2 }]} aria-hidden="true" />
+          </div>
+        ))}
+      </div>
+
+      <!-- ── LOCATIE ── -->
+      <div class="locatie-sectie" id="mission">
+        <div class="locatie-tekst">
+          <h2>In the heart of The Hague</h2>
+          <p>Because the location of your work as a young creative is incredibly important (if not the most important thing), we've established our office and studio at the liveliest square in The Hague: the Grote Markt. With a view of the terrace and the Prinsegracht, our location is also a much-loved spot for clients and studio guests to round off the day with a drink on the terrace. But that's not all, because our workspace plays a dual role. By day an office and studio, by evening a breeding ground for creative talent.</p>
+        </div>
+        <div class="locatie-foto">
+          <img src="/images/locatie.webp" alt="Grote Markt The Hague with terraces and historic buildings" width="640" height="420" loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <!-- ── KLANTEN ── -->
+      <div class="klanten-sectie">
+        <h2>Proud of every great project!</h2>
+        <p class="klanten-sub">More than 100 (inter)national and local governments and organisations already use Astrolads' approach.</p>
+        <div class="klanten-scroll" id="klantenScroll">
+          {klanten.map(k => (
+            <div class="klant-logo">
+              <img src={k.logo} alt={k.naam} loading="lazy" />
+            </div>
+          ))}
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-btn" onclick="scrollKlanten(-1)" aria-label="Previous">←</button>
+          <button class="carousel-btn" onclick="scrollKlanten(1)" aria-label="Next">→</button>
+        </div>
+      </div>
+
+      <!-- ── TEAM ── -->
+      <div class="team-sectie">
+        <h2>Our team</h2>
+        <div class="team-grid">
+          {team.map(lid => (
+            <a href={'/en/team/' + lid.slug} class="team-kaart">
+              <img src={lid.foto} alt={lid.naam + ' - ' + lid.rol + ' at Astrolads'} width="400" height="400" loading="lazy" />
+              <div class="team-kaart-body">
+                <h3>{lid.naam}</h3>
+                <p class="team-rol">{lid.rol}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</LayoutEN>
+
+<style>
+  .over-page { padding: 80px 0 120px; position: relative; overflow-x: clip; }
+
+  .intro-sectie {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
+    margin-bottom: 140px;
+    position: relative;
+  }
+  .deco-cirkel {
+    position: absolute;
+    background: var(--orange);
+    border-radius: 50%;
+    width: 480px; height: 480px;
+    top: -40px; right: -120px;
+    z-index: 0; pointer-events: none;
+    opacity: .9;
+  }
+  .intro-tekst, .intro-foto { position: relative; z-index: 1; }
+  .intro-tekst h2 { font-size: 32px; font-weight: 700; margin-bottom: 20px; }
+  .intro-tekst p { color: var(--muted); line-height: 1.8; font-size: 15px; }
+  .intro-foto img { width: 100%; border-radius: var(--radius); object-fit: cover; height: 400px; }
+
+  .pijlers {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; margin-bottom: 140px;
+  }
+  .pijler-kaart {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    display: flex; flex-direction: column; gap: 16px;
+    position: relative;
+  }
+  .pijler-icon {
+    position: absolute;
+    bottom: -10px; right: 24px;
+    width: 115px; height: 115px;
+    object-fit: contain;
+  }
+  .pijler-icon-2 {
+    position: absolute;
+    bottom: 16px; right: 36px;
+    width: 75px; height: auto;
+    object-fit: contain;
+  }
+  .pijler-icon-bottom {
+    bottom: 0px; right: 16px;
+    width: 120px; height: auto;
+    object-fit: contain;
+    object-position: bottom;
+  }
+  .has-icon-bottom { overflow: visible; }
+  .pijler-kaart h3 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+  .pijler-kaart p { color: var(--muted); font-size: 14px; line-height: 1.7; flex: 1; }
+  .pijler-link {
+    display: inline-flex; align-items: center;
+    color: var(--text); text-decoration: none; font-size: 13px;
+    background: var(--bg); border-radius: 999px; padding: 8px 16px;
+    width: fit-content; transition: background .2s;
+  }
+  .pijler-link:hover { background: #e0e0e0; }
+
+  .locatie-sectie {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
+    margin-bottom: 140px;
+  }
+  .locatie-tekst h2 { font-size: 32px; font-weight: 700; margin-bottom: 20px; line-height: 1.2; }
+  .locatie-tekst p { color: var(--muted); line-height: 1.8; font-size: 15px; }
+  .locatie-foto img { width: 100%; border-radius: var(--radius); object-fit: cover; height: 380px; }
+
+  .klanten-sectie { margin-bottom: 140px; text-align: center; }
+  .klanten-sectie h2 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
+  .klanten-sub { color: var(--muted); font-size: 14px; margin-bottom: 48px; }
+  .klanten-scroll {
+    display: flex; gap: 32px; align-items: center;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 24px 0;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .klanten-scroll::-webkit-scrollbar { display: none; }
+  .klant-logo {
+    flex: 0 0 180px; scroll-snap-align: start;
+    height: 80px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .klant-logo img {
+    max-height: 70px; max-width: 160px;
+    width: auto; height: auto; object-fit: contain;
+  }
+
+  .team-sectie { text-align: center; }
+  .team-sectie h2 { font-size: 32px; font-weight: 700; margin-bottom: 32px; }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: left;
+  }
+  .team-kaart {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none; color: inherit;
+    transition: transform .2s, box-shadow .2s;
+    display: flex; flex-direction: column;
+  }
+  .team-kaart:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+  .team-kaart img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+  .team-kaart-body { padding: 16px; }
+  .team-kaart-body h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .team-rol { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  .carousel-nav { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
+  .carousel-btn {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,.2); background: transparent;
+    cursor: pointer; font-size: 16px; transition: background .2s;
+  }
+  .carousel-btn:hover { background: var(--white); }
+
+  @media (max-width: 1024px) {
+    .team-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .over-page { padding: 40px 0 56px; }
+
+    /* Decoratie-cirkel kleiner op mobile */
+    .deco-cirkel {
+      width: 240px; height: 240px;
+      top: -150px;
+      right: -80px;
+      opacity: .9;
+      z-index: -1;
+    }
+
+    /* Intro: foto eerst, dan tekst (visueel anker) */
+    .intro-sectie {
+      display: flex; flex-direction: column-reverse;
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+    .intro-tekst h2 { font-size: 24px; margin-bottom: 14px; }
+    .intro-tekst p { font-size: 14px; line-height: 1.7; }
+    .intro-foto img {
+      aspect-ratio: 16 / 9;
+      height: auto;
+      max-height: 240px;
+    }
+
+    /* Pijlers: 1 kolom, compacter */
+    .pijlers {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+    .pijler-kaart {
+      padding: 20px;
+      gap: 10px;
+      min-height: auto;
+    }
+    .pijler-kaart h3 { font-size: 16px; line-height: 1.3; }
+    .pijler-kaart p { font-size: 13px; line-height: 1.6; }
+    .pijler-icon {
+      width: 60px; height: 60px;
+      bottom: -4px; right: 12px;
+    }
+    .pijler-icon-2 {
+      width: 44px;
+      bottom: 10px; right: 16px;
+    }
+    .pijler-icon-bottom {
+      width: 65px;
+      bottom: 0px; right: 10px;
+    }
+
+    /* Locatie: foto boven, tekst onder */
+    .locatie-sectie {
+      display: flex; flex-direction: column;
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+    .locatie-sectie .locatie-foto { order: -1; }
+    .locatie-tekst h2 { font-size: 24px; margin-bottom: 14px; line-height: 1.25; }
+    .locatie-tekst p { font-size: 14px; line-height: 1.7; }
+    .locatie-foto img {
+      aspect-ratio: 16 / 9;
+      height: auto;
+      max-height: 240px;
+    }
+
+    /* Klanten: peek-scroll, kleiner logo's */
+    .klanten-sectie { margin-bottom: 56px; text-align: left; }
+    .klanten-sectie h2 { font-size: 24px; margin-bottom: 8px; }
+    .klanten-sub { font-size: 13px; margin-bottom: 28px; }
+    .klanten-scroll {
+      margin: 0 -20px;
+      padding: 16px 20px;
+      gap: 24px;
+    }
+    .klant-logo { flex: 0 0 140px; height: 60px; }
+    .klant-logo img { max-height: 50px; max-width: 130px; }
+    .klanten-sectie .carousel-nav { display: none; }
+
+    /* Team: 2 kolommen, compactere body */
+    .team-sectie { text-align: left; }
+    .team-sectie h2 { font-size: 24px; margin-bottom: 16px; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .team-kaart img {
+      aspect-ratio: 1 / 1 !important;
+      height: auto !important;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+    .team-kaart-body { padding: 10px 12px 14px; }
+    .team-kaart-body h3 { font-size: 13px; line-height: 1.25; margin-bottom: 2px; }
+    .team-rol { font-size: 11px; line-height: 1.3; }
+  }
+</style>
+
+<script>
+  function scrollKlanten(dir) {
+    var el = document.getElementById('klantenScroll');
+    if (el) el.scrollBy({ left: dir * 200, behavior: 'smooth' });
+  }
+  window.scrollKlanten = scrollKlanten;
+</script>

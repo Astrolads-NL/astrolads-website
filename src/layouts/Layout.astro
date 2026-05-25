@@ -1,0 +1,214 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = 'Van strategie tot blijvende impact. Jouw reisgenoot voor communicatiestrategie en media-uitingen.',
+  image = '/images/og-default.jpg',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const path = Astro.url.pathname;
+
+// Taalswitcher: bepaal het equivalent EN-pad
+const nlToEn: Record<string, string> = {
+  '/': '/en',
+  '/over-ons': '/en/about',
+  '/contact': '/en/contact',
+  '/diensten': '/en/services',
+  '/cases': '/en/cases',
+  '/privacy': '/en/privacy',
+  '/cookies': '/en/cookies',
+  '/community': '/en/community',
+  '/veelgestelde-vragen': '/en/faq',
+};
+
+// Slug-mapping NL → EN voor dienstpagina's met afwijkende slug
+const dienstenSlugMap: Record<string, string> = {
+  'vormgeving': 'graphic-design',
+  'communicatiestrategie': 'communication-strategy',
+  'onderwijsinnovatie': 'education-innovation',
+  'ai-implementatie': 'ai-implementation',
+  'fotografie': 'photography',
+};
+
+let enPath = '/en';
+if (nlToEn[path] !== undefined) {
+  enPath = nlToEn[path];
+} else if (path.startsWith('/cases/')) {
+  enPath = '/en/cases/' + path.slice('/cases/'.length);
+} else if (path.startsWith('/team/')) {
+  enPath = '/en/team/' + path.slice('/team/'.length);
+} else if (path.startsWith('/diensten/')) {
+  const nlSlug = path.slice('/diensten/'.length);
+  const enSlug = dienstenSlugMap[nlSlug] || nlSlug;
+  enPath = '/en/services/' + enSlug;
+}
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.webp" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.webp" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title} | Astrolads</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Taal-alternatieven -->
+    <link rel="alternate" hreflang="nl" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href={new URL(enPath, Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | Astrolads`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:site_name" content="Astrolads" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Astrolads`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site)} />
+
+    <!-- Schema.org Organization + LocalBusiness (combined) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": "https://astrolads.com/#organization",
+      "name": "Astrolads",
+      "alternateName": "Astrolads Communicatiebureau",
+      "legalName": "Astrolads B.V.",
+      "url": "https://astrolads.com",
+      "logo": "https://astrolads.com/images/logo.webp",
+      "image": "https://astrolads.com/images/og-default.jpg",
+      "description": "Communicatiebureau met productiehuis in Den Haag. Video, podcast, socials, fotografie, webinars, websites, e-learnings en grafische vormgeving voor overheid, onderwijs en maatschappelijke organisaties.",
+      "foundingDate": "2019",
+      "priceRange": "€€",
+      "telephone": "+31619409425",
+      "email": "info@astrolads.com",
+      "vatID": "NL869374175B01",
+      "slogan": "Jouw reisgenoot voor communicatiestrategie en media-uitingen",
+      "founders": [
+        {
+          "@type": "Person",
+          "name": "Jelle van der Zanden",
+          "url": "https://astrolads.com/team/jelle-van-der-zanden"
+        },
+        {
+          "@type": "Person",
+          "name": "Dave Verwey",
+          "url": "https://astrolads.com/team/dave-verwey"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Grote Markt 22",
+        "addressLocality": "Den Haag",
+        "addressRegion": "Zuid-Holland",
+        "postalCode": "2511 BG",
+        "addressCountry": "NL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.0763,
+        "longitude": 4.3097
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "Netherlands" },
+        { "@type": "Country", "name": "Belgium" },
+        { "@type": "Place", "name": "Europe" }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+31619409425",
+        "contactType": "customer service",
+        "areaServed": ["NL", "BE", "EU"],
+        "availableLanguage": ["Dutch", "English"]
+      },
+      "knowsAbout": [
+        "Communicatiestrategie",
+        "Videoproductie",
+        "Podcastproductie",
+        "Webinars",
+        "Fotografie",
+        "Social media",
+        "Grafische vormgeving",
+        "Webdesign",
+        "AI implementatie",
+        "Onderwijsinnovatie",
+        "Drukwerk"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/astroladsnl",
+        "https://www.linkedin.com/company/astrolads"
+      ]
+    })} />
+
+    <!-- WebSite schema voor sitelinks searchbox -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://astrolads.com/#website",
+      "url": "https://astrolads.com",
+      "name": "Astrolads",
+      "publisher": { "@id": "https://astrolads.com/#organization" },
+      "inLanguage": "nl-NL"
+    })} />
+
+    <style>
+      .taal-float {
+        position: fixed;
+        bottom: 28px; right: 28px;
+        z-index: 200;
+        display: flex; flex-direction: column; gap: 6px;
+        background: var(--white);
+        border-radius: 999px;
+        padding: 8px 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,.12);
+      }
+      .taal-float-btn {
+        font-size: 20px; line-height: 1;
+        text-decoration: none;
+        opacity: .35;
+        transition: opacity .2s;
+        display: block; text-align: center;
+      }
+      .taal-float-btn:hover { opacity: .8; }
+      .taal-float-btn.active { opacity: 1; }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Naar hoofdcontent</a>
+    <Nav />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <CookieBanner lang="nl" />
+    <div class="taal-float" role="navigation" aria-label="Taal kiezen">
+      <a href={path} class:list={['taal-float-btn', 'active']} title="Nederlands" aria-label="Nederlands (huidige taal)" aria-current="true">🇳🇱</a>
+      <a href={enPath} class="taal-float-btn" title="English" aria-label="Switch to English">🇬🇧</a>
+    </div>
+  </body>
+</html>

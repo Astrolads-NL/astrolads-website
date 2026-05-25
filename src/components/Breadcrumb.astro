@@ -1,0 +1,120 @@
+---
+// Breadcrumb component
+// Gebruik: <Breadcrumb items={[{name: 'Cases', url: '/cases'}, {name: 'Deelmobiliteit'}]} />
+// Last item heeft geen URL (huidige pagina)
+// Voor night-mode pagina's: <Breadcrumb theme="dark" items={[...]} />
+
+interface BreadcrumbItem {
+  name: string;
+  url?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+  lang?: 'nl' | 'en';
+  theme?: 'light' | 'dark';
+}
+
+const { items, lang = 'nl', theme = 'light' } = Astro.props;
+const homeLabel = lang === 'en' ? 'Home' : 'Home';
+const homeUrl = lang === 'en' ? '/en' : '/';
+
+// Bouw volledige breadcrumb-lijst inclusief Home
+const allItems: BreadcrumbItem[] = [
+  { name: homeLabel, url: homeUrl },
+  ...items
+];
+
+// Schema.org BreadcrumbList
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": allItems.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    ...(item.url ? { "item": `https://astrolads.com${item.url}` } : {})
+  }))
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<nav class:list={['breadcrumb', { 'is-dark': theme === 'dark' }]} aria-label={lang === 'en' ? 'Breadcrumb' : 'Kruimelpad'}>
+  <ol>
+    {allItems.map((item, index) => (
+      <li>
+        {item.url && index < allItems.length - 1 ? (
+          <a href={item.url}>{item.name}</a>
+        ) : (
+          <span aria-current="page">{item.name}</span>
+        )}
+        {index < allItems.length - 1 && (
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb {
+    padding: 16px 0 32px;
+    font-size: 13px;
+  }
+  .breadcrumb ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .breadcrumb li {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .breadcrumb a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .breadcrumb a:hover {
+    color: var(--orange-dark);
+    text-decoration: underline;
+  }
+  .breadcrumb span[aria-current="page"] {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .breadcrumb-sep {
+    color: var(--muted);
+    opacity: .6;
+  }
+
+  /* Dark theme override */
+  .breadcrumb.is-dark a,
+  .breadcrumb.is-dark .breadcrumb-sep {
+    color: rgba(255, 255, 255, .55);
+    opacity: 1;
+  }
+  .breadcrumb.is-dark a:hover {
+    color: var(--orange);
+    text-decoration: underline;
+  }
+  .breadcrumb.is-dark span[aria-current="page"] {
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .breadcrumb {
+      font-size: 12px;
+      padding: 12px 0 20px;
+    }
+    .breadcrumb ol {
+      gap: 4px;
+    }
+  }
+</style>

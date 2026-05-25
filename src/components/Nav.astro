@@ -1,0 +1,429 @@
+---
+const currentPath = Astro.url.pathname;
+const isActive = (path: string) => currentPath === path || (path !== '/' && currentPath.startsWith(path));
+---
+
+<nav>
+  <a href="/community" class="nav-side-tab" aria-label="Naar Astrolads Community">
+    <span class="nav-side-tab-text">Community</span>
+  </a>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Astrolads</a>
+
+    <ul class="nav-links" id="navLinks">
+      <li class="has-dropdown" id="dienstenMenu">
+        <a href="/diensten" class="dropdown-toggle" aria-expanded="false" aria-controls="dienstenDropdown" aria-current={isActive('/diensten') ? 'page' : undefined}>
+          Diensten <span class="nav-arrow">›</span>
+        </a>
+        <div class="dropdown" id="dienstenDropdown">
+          <div class="dropdown-inner">
+
+            <div class="dropdown-kolom">
+              <a href="/diensten" class="dropdown-item dropdown-overzicht">Overzicht</a>
+              <p class="dropdown-titel">Advies</p>
+              <a href="/diensten/communicatiestrategie" class="dropdown-item">Communicatiestrategie</a>
+              <a href="/diensten/onderwijsinnovatie" class="dropdown-item">Onderwijsinnovatie</a>
+              <a href="/diensten/ai-implementatie" class="dropdown-item">AI-implementatie</a>
+            </div>
+
+            <div class="dropdown-kolom">
+              <p class="dropdown-titel">Creatie en productie</p>
+              <div class="dropdown-grid">
+                <a href="/diensten/fotografie" class="dropdown-item">Fotografie</a>
+                <a href="/diensten/podcast" class="dropdown-item">Podcast</a>
+                <a href="/diensten/socials" class="dropdown-item">Social media</a>
+                <a href="/diensten/software" class="dropdown-item">Software</a>
+                <a href="/diensten/video" class="dropdown-item">Video</a>
+                <a href="/diensten/vormgeving" class="dropdown-item">Vormgeving</a>
+                <a href="/diensten/webinar" class="dropdown-item">Webinar & Livestream</a>
+                <a href="/diensten/website" class="dropdown-item">Website</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </li>
+      <li><a href="/cases" aria-current={isActive('/cases') ? 'page' : undefined}>Cases</a></li>
+      <li><a href="/over-ons" aria-current={isActive('/over-ons') ? 'page' : undefined}>Over ons</a></li>
+      <li><a href="/contact" aria-current={isActive('/contact') ? 'page' : undefined}>Contact</a></li>
+      <li><a href="/contact" class="btn-orange">Kennismaken</a></li>
+      <li class="nav-community-link"><a href="/community">Naar Astrolads Community →</a></li>
+    </ul>
+
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu openen" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    padding: 12px 40px;
+    background: transparent;
+  }
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 999px;
+    padding: 0 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.08);
+    position: relative;
+  }
+ .nav-side-tab {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 340px);
+    transform: translateY(-50%);
+    background: var(--navy);
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 18px 8px 120px;
+    border-radius: 0 999px 999px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    transition: background .2s, transform .2s;
+    z-index: -1;
+    overflow: hidden;
+  }
+  .nav-side-tab:hover { transform: translateY(-50%) translateX(2px); background: var(--orange); }
+  .nav-side-tab-text { letter-spacing: .02em; }
+
+  .nav-logo {
+    font-weight: 700; font-size: 20px;
+    color: var(--text); text-decoration: none;
+  }
+ .nav-links {
+    display: flex; align-items: center; gap: 32px;
+    list-style: none;
+    margin-left: auto;
+  }
+ .nav-links > li > a {
+    text-decoration: none; color: var(--text);
+    font-size: 14px; transition: opacity .2s;
+  }
+  .nav-links > li > a:hover { opacity: .6; }
+  .nav-links > li > a[aria-current="page"] { color: var(--orange); font-weight: 700; }
+  .nav-links > li > a.btn-orange,
+  .nav-links > li > a.btn-orange:hover {
+    color: #fff;
+  }
+  .nav-arrow {
+    display: inline-block;
+    transform: rotate(90deg);
+    transition: transform .2s;
+    font-size: 14px;
+    color: var(--muted);
+    position: relative;
+    top: 2px; left: 2px;
+  }
+  .nav-arrow.open { transform: rotate(-90deg); }
+
+  /* ── Dropdown desktop ── */
+  .has-dropdown { position: static; }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    width: 100%;
+    z-index: 200;
+  }
+
+  .dropdown.open { display: block; }
+
+  .dropdown-inner {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.12);
+    padding: 32px 48px 32px 32px;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 32px;
+  }
+
+  .dropdown-titel {
+    font-size: 11px; font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase; letter-spacing: .08em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    margin-bottom: 4px;
+  }
+
+  .dropdown-item {
+    display: flex; align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    font-size: 14px; text-decoration: none; color: var(--text);
+    transition: color .2s;
+  }
+  .dropdown-item::after {
+    content: '›';
+    color: var(--muted);
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .dropdown-item:hover { color: var(--orange); }
+  .dropdown-item:hover::after { color: var(--orange); }
+
+  .dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 24px;
+  }
+
+  /* "Overzicht"-item bovenaan de dropdown (alleen mobile) */
+  .dropdown-overzicht {
+    display: none;
+    font-weight: 700;
+    padding-top: 0;
+    padding-bottom: 16px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+  }
+
+  /* "Naar Community"-link alleen op mobile zichtbaar (op desktop is de side-tab er al) */
+  .nav-community-link { display: none; }
+
+  /* ── Hamburger ── */
+  .nav-hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer;
+    padding: 12px; min-width: 44px; min-height: 44px;
+    align-items: center; justify-content: center;
+  }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--text); border-radius: 2px;
+    transition: transform .25s, opacity .2s;
+  }
+  /* Hamburger naar X bij open */
+  .nav-hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+ @media (max-width: 768px) {
+    nav { padding: 12px 16px; }
+    .nav-inner { border-radius: 20px; padding: 0 12px 0 20px; }
+    .nav-hamburger { display: flex; }
+    .nav-side-tab { display: none; }
+
+    .nav-links {
+      display: none; flex-direction: column;
+      position: absolute; top: calc(100% + 12px); left: 0; right: 0;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      gap: 4px;
+      align-items: stretch;
+    }
+    .nav-links.open { display: flex; }
+
+    .nav-links > li {
+      width: 100%;
+      list-style: none;
+    }
+    .nav-links > li > a {
+      display: block;
+      padding: 14px 16px;
+      font-size: 15px;
+      border-radius: 12px;
+      transition: background .15s;
+    }
+    .nav-links > li > a:hover {
+      opacity: 1;
+      background: var(--bg);
+    }
+    .nav-links > li > a.btn-orange {
+      text-align: center;
+      margin-top: 8px;
+    }
+    /* "Naar Community"-link onderaan, met divider erboven */
+    .nav-community-link {
+      display: list-item;
+      border-top: 1px solid rgba(0,0,0,.08);
+      margin-top: 16px;
+      padding-top: 12px;
+    }
+    .nav-community-link > a {
+      color: var(--muted) !important;
+      font-size: 13px !important;
+      text-align: center;
+    }
+
+    /* Mobile dropdown: inline uitschuivend onder Diensten */
+    .has-dropdown { position: relative; }
+    .has-dropdown .dropdown-toggle {
+      display: flex !important;
+      align-items: center; justify-content: space-between;
+    }
+
+    .dropdown {
+      display: none !important;
+      position: static;
+      width: 100%;
+      box-shadow: none;
+      margin-top: 12px;
+    }
+    .dropdown.open {
+      display: block !important;
+    }
+    .dropdown-inner {
+      grid-template-columns: 1fr;
+      padding: 16px 16px 12px;
+      gap: 20px;
+      box-shadow: none;
+      border-radius: 12px;
+      background: var(--bg);
+    }
+    .dropdown-grid {
+      grid-template-columns: 1fr;
+      column-gap: 0;
+    }
+    .dropdown-titel {
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--text);
+      padding-bottom: 8px;
+      margin-bottom: 2px;
+    }
+    .dropdown-item {
+      padding: 10px 0;
+      font-size: 14px;
+    }
+    .dropdown-overzicht { display: flex !important; }
+    .dropdown-item::after {
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--text);
+    }
+    .nav-arrow {
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--text);
+    }
+  }
+</style>
+
+<script>
+  // Desktop dropdown hover
+  var menu = document.getElementById('dienstenMenu');
+  var dropdown = document.getElementById('dienstenDropdown');
+  var arrow = menu.querySelector('.nav-arrow');
+  var toggleLink = menu.querySelector('.dropdown-toggle');
+  var timer;
+  var isMobile = function() { return window.innerWidth <= 768; };
+
+  function openDropdown() {
+    clearTimeout(timer);
+    dropdown.classList.add('open');
+    arrow.classList.add('open');
+    toggleLink.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeDropdown(immediate) {
+    if (immediate) {
+      dropdown.classList.remove('open');
+      arrow.classList.remove('open');
+      toggleLink.setAttribute('aria-expanded', 'false');
+    } else {
+      timer = setTimeout(function() {
+        dropdown.classList.remove('open');
+        arrow.classList.remove('open');
+        toggleLink.setAttribute('aria-expanded', 'false');
+      }, 150);
+    }
+  }
+
+  // Desktop: hover open
+  menu.addEventListener('mouseenter', function() {
+    if (!isMobile()) openDropdown();
+  });
+  menu.addEventListener('mouseleave', function() {
+    if (!isMobile()) closeDropdown();
+  });
+  dropdown.addEventListener('mouseenter', function() {
+    if (!isMobile()) openDropdown();
+  });
+  dropdown.addEventListener('mouseleave', function() {
+    if (!isMobile()) closeDropdown();
+  });
+
+  // Mobile: klik op Diensten = open/sluit dropdown (klik op tekst gaat alleen door bij desktop)
+  toggleLink.addEventListener('click', function(e) {
+    if (isMobile()) {
+      e.preventDefault();
+      if (dropdown.classList.contains('open')) {
+        closeDropdown(true);
+      } else {
+        openDropdown();
+      }
+    }
+  });
+
+  // Hamburger
+  var hamburger = document.getElementById('navHamburger');
+  var navLinks = document.getElementById('navLinks');
+
+  function openMenu() {
+    navLinks.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Menu sluiten');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Menu openen');
+    closeDropdown(true);
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', function() {
+    if (navLinks.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  // Escape sluit menu en dropdown
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      if (navLinks.classList.contains('open')) closeMenu();
+      else if (dropdown.classList.contains('open')) closeDropdown(true);
+    }
+  });
+
+  // Klik buiten menu sluit het
+  document.addEventListener('click', function(e) {
+    var target = e.target;
+    if (!menu.contains(target) && !hamburger.contains(target) && !navLinks.contains(target)) {
+      if (navLinks.classList.contains('open')) closeMenu();
+      if (dropdown.classList.contains('open')) closeDropdown(true);
+    }
+  });
+
+  // Sluit menu bij klik op een sub-link (mobile UX)
+  document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (isMobile() && navLinks.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+  });
+</script>

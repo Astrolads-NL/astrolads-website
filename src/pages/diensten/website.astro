@@ -1,0 +1,228 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const toepassingen = [
+  {
+    titel: 'Een constante stroom van actualiteit',
+    tekst: 'Maar een website is niet klaar zodra de laatste pagina is afgeschreven en de call-to-action knop de juiste kleur heeft. Een website is in dat opzicht een levend organisme dat constant met de tijd mee moet gaan en actueel moet blijven. Daarom denken we graag met je mee over interessante vormen en manieren om jouw website niet alleen een stilstaande databank te laten zijn, maar ook een bewegend platform met actualiteiten. Denk aan nieuwspagina\'s, blogs, reportages of andere vormen.',
+  },
+  {
+    titel: 'Jouw website door de wasstraat',
+    tekst: 'Al wel een website maar voelt hij niet meer passend? Dan hoeven we niet volledig opnieuw te beginnen. Met een UI/UX scan, kijken we naar al het laaghangend fruit dat direct op jouw bestaande website aangepast kan worden en waar de quick-wins zitten. Een snelle en budgettair prettige manier om het meeste uit jouw bestaande website te halen!',
+  },
+];
+---
+
+<Layout
+  title="Website"
+  description="Webdesign en webdevelopment door Astrolads. Van landingspagina tot kennisbank en complete bedrijfswebsite. Slim, gebruiksvriendelijk en merkgetrouw ingericht."
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Webdesign en webdevelopment",
+    "provider": { "@type": "Organization", "name": "Astrolads", "@id": "https://astrolads.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "description": "Webdesign en webdevelopment voor landingspagina's, e-learnings, kennisbanken en complete bedrijfswebsites. Inclusief UI/UX-scans en doorontwikkeling.",
+    "url": "https://astrolads.com/diensten/website"
+  })} />
+
+  <div class="dienst-page">
+    <div class="section-inner">
+      <Breadcrumb items={[
+        { name: 'Diensten', url: '/diensten' },
+        { name: 'Website' }
+      ]} />
+
+      <!-- Header -->
+      <div class="dienst-header">
+        <div class="dienst-header-titel">
+          <p class="section-label">Diensten</p>
+          <h1>Website</h1>
+        </div>
+        <div class="dienst-header-img">
+          <img src="/images/diensten/website-klein-tot-groot.webp" alt="Astrolads website ontwikkeling" width="640" height="480" loading="eager" fetchpriority="high" decoding="sync" />
+        </div>
+        <div class="dienst-header-tekst">
+          <p class="dienst-intro">Dit is het Rome waar al die online wegen naar leiden. Jouw online hoofdvestiging waar de doelgroep zich thuis moet kunnen voelen, in moet kunnen navigeren en meegenomen moet worden door de reis die jij voor ogen hebt. Door je website slim, gebruiksvriendelijk en merkgetrouw in te richten, creëer je een inhoudelijk geladen thuishaven voor de doelgroep.</p>
+          <p class="dienst-intro">Of het nou gaat om een simpele landingspagina, tijdelijke e-learning of een uitgebreide kennisbank, wij denken vanaf de tekentafel mee en bouwen de volledige website op. Hierin denken we altijd vanuit de eindgebruiker. Wat wil de websitebezoeker zien en hoe zorgen we dat de website ervaring zo soepel mogelijk verloopt?</p>
+          <a href="/contact" class="btn-orange">Kennismaken</a>
+        </div>
+      </div>
+
+      <!-- Toepassingen -->
+      <div class="website-toepassingen">
+        <h2 class="toepassingen-titel">Meer dan alleen bouwen</h2>
+        <div class="toepassingen-grid">
+          {toepassingen.map(t => (
+            <div class="toepassing-kaart">
+              <h3>{t.titel}</h3>
+              <p>{t.tekst}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="dienst-cta">
+        <h2>Klaar om aan de slag te gaan?</h2>
+        <p>Benieuwd wat een nieuwe of vernieuwde website voor jouw organisatie kan betekenen? We denken graag met je mee.</p>
+        <a href="/contact" class="btn-orange">Kennismaken</a>
+      </div>
+
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  .dienst-page { padding: 64px 0 96px; }
+
+  .dienst-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "titel slider"
+      "tekst slider";
+    gap: 0 80px; align-items: start;
+    margin-bottom: 120px;
+  }
+  .dienst-header-titel { grid-area: titel; align-self: end; padding-bottom: 16px; }
+  .dienst-header-img { grid-area: slider; align-self: center; }
+  .dienst-header-tekst { grid-area: tekst; }
+  .dienst-header-titel h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 0;
+  }
+  .dienst-intro {
+    font-size: 17px; color: var(--muted);
+    line-height: 1.7; margin-bottom: 24px;
+  }
+  .dienst-intro + .dienst-intro { margin-top: -8px; margin-bottom: 32px; }
+  .dienst-header-img img {
+    width: 100%; border-radius: var(--radius);
+    object-fit: contain; height: 460px;
+  }
+
+  .website-toepassingen { margin-bottom: 120px; }
+  .toepassingen-titel {
+    font-size: 32px; font-weight: 700;
+    margin-bottom: 48px; text-align: center;
+  }
+  .toepassingen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .toepassing-kaart {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 40px;
+    display: flex; flex-direction: column;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .toepassing-kaart:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.08); }
+
+  .toepassing-kaart h3 {
+    font-size: 22px; font-weight: 700;
+    margin-bottom: 16px; line-height: 1.3;
+  }
+  .toepassing-kaart p {
+    color: var(--muted);
+    line-height: 1.8; font-size: 15px;
+  }
+
+  .dienst-cta {
+    text-align: center;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 64px;
+    color: #fff;
+  }
+  .dienst-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+  .dienst-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  @media (max-width: 768px) {
+    .dienst-page { padding: 32px 0 56px; }
+
+    /* Header: titel → foto → tekst → knop */
+    .dienst-header {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-areas: none !important;
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .dienst-header-titel,
+    .dienst-header-img,
+    .dienst-header-tekst {
+      grid-area: auto !important;
+      align-self: auto !important;
+      width: 100%;
+    }
+    .dienst-header-titel { order: 1 !important; }
+    .dienst-header-img { order: 2 !important; }
+    .dienst-header-tekst { order: 3 !important; }
+    .dienst-header-titel {
+      padding-bottom: 0;
+    }
+    .dienst-header-titel h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.15;
+      margin-bottom: 0;
+    }
+    .dienst-intro {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .dienst-intro + .dienst-intro { margin-top: -4px; margin-bottom: 20px; }
+    .dienst-header-img {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .dienst-header-img img {
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: auto !important;
+      max-height: 280px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* Toepassingen: 1 kolom */
+    .website-toepassingen { margin-bottom: 56px; }
+    .toepassingen-titel {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+    .toepassingen-grid { grid-template-columns: 1fr; gap: 12px; }
+    .toepassing-kaart { padding: 24px; }
+    .toepassing-kaart h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .toepassing-kaart p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* CTA compacter */
+    .dienst-cta {
+      padding: 36px 24px;
+    }
+    .dienst-cta h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .dienst-cta p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+</style>

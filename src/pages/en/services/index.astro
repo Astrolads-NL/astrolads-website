@@ -1,0 +1,410 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+
+const advies = [
+  {
+    titel: 'Communication strategy',
+    tekst: 'Together with your content-driven project or organisation, we explore who you want to reach, with what goal and intensity, in a way that truly lands.',
+    href: '/en/services/communication-strategy',
+  },
+  {
+    titel: 'Education innovation',
+    tekst: 'Partnerships with educational institutions on student media teams, hands-on learning programmes and career guidance. Tailored to each target group and school\'s needs.',
+    href: '/en/services/education-innovation',
+  },
+  {
+    titel: 'AI implementation',
+    tekst: 'From smart reporting and benchmarking to project management and automation. We help you discover how AI can be smartly applied within your organisation and goals.',
+    href: '/en/services/ai-implementation',
+  },
+];
+
+const creatie = [
+  {
+    titel: 'Photography',
+    tekst: 'From portrait shots to atmosphere captures of your event. With the right photos you put yourself in the spotlight (online) and build an image bank for future communication.',
+    href: '/en/services/photography',
+  },
+  {
+    titel: 'Podcast',
+    tekst: 'No other media format holds your audience\'s attention quite as long as a podcast. Wrapped in entertainment, an ideal form for connecting through content.',
+    href: '/en/services/podcast',
+  },
+  {
+    titel: 'Social Media',
+    tekst: 'Through online channels you reach your audience every day. It\'s also the place to do more than just broadcast, to truly start conversations and build a community.',
+    href: '/en/services/socials',
+  },
+  {
+    titel: 'Software',
+    tekst: 'From e-learnings and community platforms to data dashboards and tools made to measure. We build software that fits the people using it and the purpose it serves.',
+    href: '/en/services/software',
+  },
+  {
+    titel: 'Video',
+    tekst: 'Visuals, imagery and sound together stick better than text alone. The way to give your message a face and truly convey a feeling.',
+    href: '/en/services/video',
+  },
+  {
+    titel: 'Graphic Design',
+    tekst: 'The visual translation of who you are and what you stand for. With the right design, you create unity across all your output, from logos to reports and from infographics to presentations.',
+    href: '/en/services/graphic-design',
+  },
+  {
+    titel: 'Webinar & Livestream',
+    tekst: 'The most sustainable event is the one no one needs to leave the house for. From the Astrolads Studio you broadcast an interactive live session viewers won\'t soon forget.',
+    href: '/en/services/webinar',
+  },
+  {
+    titel: 'Website',
+    tekst: 'This is the Rome where all those online roads lead. By making your website smart, user-friendly and brand-consistent, you create a content-rich home base for your audience.',
+    href: '/en/services/website',
+  },
+];
+
+const quote = {
+  tekst: 'Astrolads is the ideal extension of my company. I can offer my clients a whole range of products. A webinar, a YouTube series, social media execution, hosting a conference, in-depth compilations... it\'s a digital partner!',
+  naam: 'Ellen Hiep',
+  organisatie: 'HiePRactief Communications',
+};
+---
+
+<LayoutEN
+  title="Services"
+  description="Discover Astrolads' services. From communication strategy and AI to video, podcast, photography and webinars. A fully end-to-end, multidisciplinary team."
+>
+  <div class="diensten-page">
+    <div class="section-inner">
+
+      <!-- Header -->
+      <div class="diensten-header">
+        <div class="diensten-header-titel">
+          <p class="section-label">Services</p>
+          <h1>We're a fully end-to-end, multidisciplinary creative team.</h1>
+        </div>
+        <div class="diensten-header-slider">
+          <img class="diensten-slide active" src="/images/diensten/diensten-slide-1.webp" alt="Astrolads at work" loading="eager" fetchpriority="high" decoding="sync" />
+          <img class="diensten-slide" src="/images/diensten/diensten-slide-2.webp" alt="Astrolads production" loading="lazy" />
+          <img class="diensten-slide" src="/images/diensten/diensten-slide-3.webp" alt="Astrolads studio" loading="lazy" />
+          <img class="diensten-slide" src="/images/diensten/diensten-slide-4.webp" alt="Astrolads team" loading="lazy" />
+          <img class="diensten-slide" src="/images/diensten/diensten-slide-5.webp" alt="Astrolads team" loading="lazy" />
+          <img class="diensten-slide" src="/images/diensten/diensten-slide-6.webp" alt="Astrolads team" loading="lazy" />
+          <img class="diensten-slide" src="/images/diensten/diensten-slide-7.webp" alt="Astrolads team" loading="lazy" />
+          <img class="diensten-slide" src="/images/diensten/diensten-slide-8.webp" alt="Astrolads team" loading="lazy" />
+          <div class="diensten-dots">
+            <button class="diensten-dot active" data-index="0"></button>
+            <button class="diensten-dot" data-index="1"></button>
+            <button class="diensten-dot" data-index="2"></button>
+            <button class="diensten-dot" data-index="3"></button>
+            <button class="diensten-dot" data-index="4"></button>
+            <button class="diensten-dot" data-index="5"></button>
+            <button class="diensten-dot" data-index="6"></button>
+            <button class="diensten-dot" data-index="7"></button>
+          </div>
+        </div>
+        <div class="diensten-header-tekst">
+          <p class="diensten-intro">That means we don't focus on just one specialism, but always offer broad capabilities. Where we once started as a video company, we've grown into a complete (digital) production house, where no media form scares us off. This not only ensures better integration between different media outputs for clients, but also fast switches, real connection on content, and above all a lot of beautiful work!</p>
+          <p class="diensten-sub">Below is a (current) collection of the work we do most often. Don't see what you're looking for?</p>
+          <a href="/en/contact" class="btn-orange">Challenge us!</a>
+        </div>
+      </div>
+
+      <!-- Quote -->
+      <div class="case-quote-wrap">
+        <div class="case-quote">
+          <span class="quote-icon">&ldquo;</span>
+          <blockquote>{quote.tekst}</blockquote>
+          <img src="/images/diensten/ellen-hiep.webp" alt="Ellen Hiep, client and partner of Astrolads" class="quote-foto" />
+        </div>
+        <p class="quote-naam">{quote.naam}<span class="quote-org">{quote.organisatie}</span></p>
+      </div>
+
+      <!-- Strategy -->
+      <div class="diensten-categorie">
+        <h2 class="categorie-titel">Strategy and advice</h2>
+        <div class="diensten-kaarten">
+          {advies.map(d => (
+            <a href={d.href} class="dienst-kaart">
+              <h3>{d.titel}</h3>
+              <p>{d.tekst}</p>
+              <span class="dienst-meer">›</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Creation -->
+      <div class="diensten-categorie">
+        <h2 class="categorie-titel">Creation and production</h2>
+        <div class="diensten-kaarten">
+          {creatie.map(d => (
+            <a href={d.href} class="dienst-kaart">
+              <h3>{d.titel}</h3>
+              <p>{d.tekst}</p>
+              <span class="dienst-meer">›</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="diensten-cta">
+        <h2>Haven't found what you're looking for?</h2>
+        <p>We do more than you'd think. Challenge us and we'll explore what's possible together.</p>
+        <a href="/en/contact" class="btn-orange">Get in touch</a>
+      </div>
+
+    </div>
+  </div>
+  <script>
+  var slides = document.querySelectorAll('.diensten-slide');
+  var dots = document.querySelectorAll('.diensten-dot');
+  var current = 0;
+  function goTo(i) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = i;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      goTo(parseInt(dot.getAttribute('data-index')));
+    });
+  });
+  setInterval(function() { goTo((current + 1) % slides.length); }, 4000);
+</script>
+</LayoutEN>
+
+<style>
+  .diensten-page { padding: 64px 0 96px; }
+
+    .diensten-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "slider titel"
+      "slider tekst";
+    gap: 0 80px; align-items: start;
+    margin-bottom: 96px;
+  }
+  .diensten-header-titel { grid-area: titel; align-self: end; padding-bottom: 16px; }
+  .diensten-header-slider { grid-area: slider; align-self: center; }
+  .diensten-header-tekst { grid-area: tekst; }
+  .diensten-header-slider {
+    position: relative; height: 500px;
+    border-radius: var(--radius); overflow: hidden;
+  }
+  .diensten-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity 1s ease;
+  }
+  .diensten-slide.active { opacity: 1; }
+  .diensten-dots {
+    position: absolute; bottom: 16px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 2;
+  }
+  .diensten-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,.5);
+    border: none; cursor: pointer; padding: 0;
+    transition: background .2s;
+  }
+  .diensten-dot.active { background: #fff; }
+  .diensten-header h1 {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  .diensten-intro {
+    color: var(--muted); line-height: 1.8; font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .diensten-sub {
+    color: var(--muted); font-size: 15px; margin-bottom: 32px;
+  }
+
+  /* Quote */
+  .case-quote-wrap {
+    position: relative;
+    margin-bottom: 96px;
+  }
+  .case-quote {
+    background: var(--navy); color: #fff;
+    border-radius: var(--radius); padding: 20px 28px;
+    position: relative; overflow: visible;
+  }
+  .case-quote blockquote {
+    font-size: 16px; line-height: 1.5;
+    font-weight: 400;
+    padding-right: 100px;
+  }
+  .quote-foto {
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 160px; height: 160px;
+    border-radius: 50%; object-fit: cover;
+    object-position: 30% center;
+    border: 4px solid var(--bg);
+  }
+  .quote-icon {
+    font-size: 48px; color: var(--orange);
+    font-family: Georgia, serif; line-height: 0.7;
+    display: block; margin-bottom: 8px;
+    font-style: normal;
+  }
+  .quote-naam {
+    font-size: 15px; color: var(--navy);
+    font-weight: 700;
+    margin-top: 16px;
+    padding-right: 100px;
+    text-align: right;
+  }
+  .quote-org {
+    color: var(--muted);
+    font-weight: 400;
+    margin-left: 6px;
+  }
+
+  .diensten-categorie { margin-bottom: 80px; }
+  .categorie-titel {
+    font-size: 13px; font-weight: 700;
+    color: var(--muted); text-transform: uppercase;
+    letter-spacing: .08em; margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
+
+  .diensten-kaarten {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .dienst-kaart {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column; gap: 12px;
+    transition: transform .2s, box-shadow .2s;
+    border: 1.5px solid transparent;
+  }
+  .dienst-kaart:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,.08);
+    border-color: var(--orange);
+  }
+  .dienst-kaart h3 { font-size: 18px; font-weight: 700; }
+  .dienst-kaart p { color: var(--muted); font-size: 14px; line-height: 1.6; flex: 1; }
+  .dienst-meer {
+    font-size: 18px; color: var(--muted);
+    margin-top: auto; align-self: flex-end;
+    transition: color .2s;
+  }
+  .dienst-kaart:hover .dienst-meer { color: var(--orange); }
+
+  .diensten-cta {
+    text-align: center;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 64px;
+    color: #fff;
+    margin-top: 40px;
+  }
+  .diensten-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+  .diensten-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  @media (max-width: 768px) {
+    .diensten-page { padding: 32px 0 56px; overflow-x: clip; }
+
+    /* Header: title → slider → text → button */
+    .diensten-header {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-areas: none !important;
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+      margin-bottom: 64px;
+    }
+    .diensten-header-titel,
+    .diensten-header-slider,
+    .diensten-header-tekst {
+      grid-area: auto !important;
+      align-self: auto !important;
+      width: 100%;
+    }
+    .diensten-header-slider {
+      position: relative !important;
+      height: auto !important;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      min-height: 200px;
+      display: block;
+    }
+    .diensten-header-titel {
+      padding-bottom: 0;
+    }
+    .diensten-header h1 {
+      font-size: clamp(26px, 6.5vw, 34px);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .diensten-intro {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .diensten-sub {
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    /* Quote: zelfde patroon als case-detail */
+    .case-quote-wrap { margin-bottom: 64px; }
+    .case-quote { padding: 20px 24px; }
+    .case-quote blockquote {
+      font-size: 14px;
+      line-height: 1.5;
+      padding-right: 0;
+    }
+    .quote-icon { font-size: 36px; margin-bottom: 4px; }
+    .quote-foto {
+      width: 90px; height: 90px;
+      bottom: -55px; right: -12px;
+      border-width: 3px;
+    }
+    .quote-naam {
+      font-size: 14px;
+      margin-top: 10px;
+      padding-right: 90px;
+      text-align: right;
+    }
+    .quote-org { display: block; font-size: 12px; margin-left: 0; margin-top: 2px; }
+
+    /* Dienst-categorieen compacter */
+    .diensten-categorie { margin-bottom: 48px; }
+    .categorie-titel { margin-bottom: 16px; padding-bottom: 8px; font-size: 12px; }
+    .diensten-kaarten { grid-template-columns: 1fr; gap: 12px; }
+    .dienst-kaart { padding: 20px; gap: 8px; }
+    .dienst-kaart h3 { font-size: 16px; }
+    .dienst-kaart p { font-size: 13px; line-height: 1.6; }
+
+    /* CTA compacter */
+    .diensten-cta {
+      padding: 36px 24px;
+      margin-top: 24px;
+    }
+    .diensten-cta h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .diensten-cta p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+</style>

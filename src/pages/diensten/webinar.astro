@@ -1,0 +1,418 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const vormen = [
+{
+    titel: 'Een interactief tafelprogramma',
+    tekst: 'De dagvoorzitter of presentator neemt de kijkers mee in een inhoudelijk programma (eventueel afgewisseld met video\'s, denk aan bijvoorbeeld een korte break met straatinterviews over het volgende inhoudelijke onderwerp dat aan bod komt). Kijkers kunnen live vragen stellen aan de tafelgasten of, waar nodig, om extra verdieping vragen waar nodig.',
+    mave: [
+      { src: 'https://space-10z8x.video-dns.com/sSH54IMwML/player.html', titel: 'Webinar Rli' },
+    ],
+  },
+  {
+    titel: 'Inbellers van over heel de wereld',
+    tekst: 'Vanuit de Astrolads Studio kunnen tafelgesprekken door heel de wereld worden uitgezonden. Met technici achter de knoppen voor slides, naambordjes en kijkersvragen, zorgen we voor een vlekkeloze kijkerservaring die niet afdoet aan de ervaring op een fysiek evenement. Door het online karakter bereik jij vanuit de Astrolads Studio vrijwel de hele wereld, als ze maar een internetverbinding hebben!',
+    img: '/images/diensten/webinar-inbellers-4.webp',
+  },
+  {
+    titel: 'Gelijk super waardevolle social content over het onderwerp',
+    tekst: 'Naast het uitzenden van een livestream, heb je met deze vorm gelijk een integrale opname waar verticale video\'s of snippets uitgeknipt kunnen worden voor extra aanjaging op de social media kanalen. Ook fotografie in de studio is mogelijk om mee te nemen in bijvoorbeeld een nieuwsbrief met de terugkijk-link.',
+    fotoPositie: 'top',
+    fotos: [
+      '/images/diensten/webinar-social-1.webp',
+      '/images/diensten/webinar-social-2.webp',
+      '/images/diensten/webinar-social-3.webp',
+      '/images/diensten/webinar-social-4.webp',
+    ],
+  },
+  {
+    titel: 'Voor elk doel het juiste platform',
+    tekst: 'Uitzenden kan natuurlijk op het gevestigde videokanaal YouTube, maar eventueel ook in Zoom, Teams of een ander streamingplatform naar keuze. Wij adviseren je hier graag in. Ons team zorgt dat het draaiboek past bij de mediavorm, de kijkers een vlekkeloze ervaring ervaren met mooie opmaak, een aanzwengelende intro-/outro video waar tafelgasten direct worden geïntroduceerd.',
+    img: '/images/diensten/webinar-platform.webp',
+  },
+];
+---
+
+<Layout
+  title="Webinars & Livestreams"
+  description="Webinars en livestreams vanuit onze studio in Den Haag. Interactieve tafelprogramma's met live publiek en expert-panels, perfect voor verdieping op inhoudelijke thema's."
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Webinars en livestreams",
+    "provider": { "@type": "Organization", "name": "Astrolads", "@id": "https://astrolads.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "description": "Webinars en livestreams vanuit onze studio in Den Haag. Interactieve tafelprogramma's met live publiek, opgenomen voor terugkijken en social snippets.",
+    "url": "https://astrolads.com/diensten/webinar"
+  })} />
+
+  <div class="dienst-page">
+    <div class="section-inner">
+      <Breadcrumb items={[
+        { name: 'Diensten', url: '/diensten' },
+        { name: 'Webinar' }
+      ]} />
+
+      <!-- Header -->
+      <div class="dienst-header">
+        <div class="dienst-header-titel">
+          <p class="section-label">Diensten</p>
+          <h1>Webinars & Livestreams</h1>
+        </div>
+        <div class="dienst-header-img">
+          <div class="header-slider">
+            <img class="header-slide active" src="/images/diensten/webinar-slide-1.webp" alt="Astrolads webinar productie" width="640" height="480" loading="eager" fetchpriority="high" decoding="sync" />
+            <img class="header-slide" src="/images/diensten/webinar-slide-2.webp" alt="Astrolads webinar productie" width="640" height="480" loading="lazy" />
+            <img class="header-slide" src="/images/diensten/webinar-slide-3.webp" alt="Astrolads webinar productie" width="640" height="480" loading="lazy" />
+            <img class="header-slide" src="/images/diensten/webinar-slide-4.webp" alt="Astrolads webinar productie" width="640" height="480" loading="lazy" />
+            <img class="header-slide" src="/images/diensten/webinar-slide-5.webp" alt="Astrolads webinar productie" width="640" height="480" loading="lazy" />
+          </div>
+        </div>
+        <div class="dienst-header-tekst">
+          <p class="dienst-intro">Bij sommige thema's en onderwerpen, wil je er met experts en ervaringsdeskundigen écht in kunnen duiken. Een Live Talkshow is hier het perfecte format voor. Kijkers hebben de kans om presentaties bij te wonen, vragen te stellen, mee te praten en de inhoud volledig tot zich te nemen… en dat vanuit hun eigen bureaustoel (scheelt gelijk een hoop tijd, kilometers, en kosten voor borrelhapjes)!</p>
+          <a href="/contact" class="btn-orange">Kennismaken</a>
+        </div>
+      </div>
+
+      <!-- Vormen -->
+      <div class="dienst-vormen">
+        <h2 class="vormen-titel">Wat maakt een livestream zo krachtig?</h2>
+        <div class="vormen-grid">
+          {vormen.map((v, i) => (
+            <div class:list={['vorm-sectie', { flip: i % 2 !== 0 }]}>
+              <div class="vorm-img">
+                {'mave' in v ? (
+                  <div class="mave-player">
+                    <div class="mave-main">
+                      <iframe
+                        src={v.mave[0].src}
+                        width="100%" height="100%"
+                        frameborder="0" scrolling="no" allowfullscreen
+                        id={'mave-' + v.titel.replace(/\s/g, '-')}
+                        style="border-radius:16px;"
+                      ></iframe>
+                    </div>
+                    {v.mave.length > 1 && (
+                      <div class="mave-thumbs">
+                        {v.mave.map((m, i) => (
+                          <button
+                            class:list={['mave-thumb', { active: i === 0 }]}
+                            data-src={m.src}
+                            data-player={'mave-' + v.titel.replace(/\s/g, '-')}
+                          >
+                            {m.titel}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : 'fotos' in v ? (
+                  <div class:list={['vorm-fader', { 'fader-top': v.fotoPositie === 'top' }]}>
+                    {v.fotos.map((f, i) => (
+                      <img
+                        src={f} alt={v.titel}
+                        width="600" height="400" loading="lazy"
+                        class:list={['fader-slide', { active: i === 0 }]}
+                      />
+                    ))}
+                    <div class="fader-dots">
+                      {v.fotos.map((_, i) => (
+                        <button class:list={['fader-dot', { active: i === 0 }]} data-index={i} aria-label={'Foto ' + (i + 1)}></button>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <img src={v.img} alt={v.titel + ' door Astrolads'} width="600" height="400" loading="lazy" />
+                )}
+              </div>
+              <div class="vorm-tekst">
+                <h3>{v.titel}</h3>
+                <p>{v.tekst}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="dienst-cta">
+        <h2>Klaar om aan de slag te gaan?</h2>
+        <p>Benieuwd wat een livestream of webinar voor jouw organisatie kan betekenen? We denken graag met je mee.</p>
+        <a href="/contact" class="btn-orange">Kennismaken</a>
+      </div>
+
+    </div>
+  </div>
+
+<script>
+document.querySelectorAll('.mave-thumb').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var playerId = btn.getAttribute('data-player');
+      var src = btn.getAttribute('data-src');
+      var iframe = document.getElementById(playerId);
+      if (iframe) iframe.src = src;
+      var thumbs = btn.closest('.mave-thumbs').querySelectorAll('.mave-thumb');
+      thumbs.forEach(function(t) { t.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+  var slides = document.querySelectorAll('.header-slide');
+  var current = 0;
+  setInterval(function() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+
+  document.querySelectorAll('.vorm-fader').forEach(function(fader) {
+    var slides = fader.querySelectorAll('.fader-slide');
+    var dots = fader.querySelectorAll('.fader-dot');
+    var current = 0;
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goTo(parseInt(dot.getAttribute('data-index')));
+      });
+    });
+    if (slides.length > 1) {
+      setInterval(function() {
+        goTo((current + 1) % slides.length);
+      }, 4000);
+    }
+  });
+</script>
+
+</Layout>
+
+<style>
+  .dienst-page { padding: 64px 0 96px; }
+
+  .dienst-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "titel slider"
+      "tekst slider";
+    gap: 0 80px; align-items: start;
+    margin-bottom: 120px;
+  }
+  .dienst-header-titel { grid-area: titel; align-self: end; padding-bottom: 16px; }
+  .dienst-header-img { grid-area: slider; align-self: center; }
+  .dienst-header-tekst { grid-area: tekst; }
+  .dienst-header-titel h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 0;
+  }
+  .dienst-intro {
+    font-size: 17px; color: var(--muted);
+    line-height: 1.7; margin-bottom: 32px;
+  }
+  .dienst-header-img img { width: 100%; border-radius: var(--radius); object-fit: cover; height: 460px; }
+  .header-slider { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; }
+  .header-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity 1s ease;
+  }
+  .header-slide.active { opacity: 1; }
+  .vormen-titel {
+    font-size: 32px; font-weight: 700;
+    margin-bottom: 64px; text-align: center;
+  }
+
+  .vorm-sectie {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start;
+    margin-bottom: 120px;
+  }
+  .vorm-sectie.flip .vorm-img { order: 2; }
+  .vorm-sectie.flip .vorm-tekst { order: 1; }
+  .vorm-img img { width: 100%; border-radius: var(--radius); object-fit: cover; height: 320px; }
+  .mave-player { display: flex; flex-direction: column; gap: 12px; }
+  .mave-main { width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; background: #000; }
+  .mave-main iframe { width: 100%; height: 100%; border: none; }
+  .mave-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .mave-thumb {
+    flex: 1; padding: 7px 12px;
+    border: 1.5px solid rgba(0,0,0,.12);
+    border-radius: 999px; background: var(--white);
+    font-family: var(--font); font-size: 12px;
+    cursor: pointer; transition: all .2s;
+    color: var(--muted); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .mave-thumb:hover { border-color: var(--orange); color: var(--orange); }
+  .mave-thumb.active { border-color: var(--orange); color: var(--orange); font-weight: 700; }
+  .vorm-tekst h3 { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+  .vorm-tekst p { color: var(--muted); line-height: 1.8; font-size: 15px; }
+
+  .vorm-fader {
+    position: relative; border-radius: var(--radius);
+    overflow: hidden; aspect-ratio: 3/2;
+  }
+  .vorm-fader .fader-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center center;
+    opacity: 0;
+    transition: opacity .8s ease;
+  }
+  .vorm-fader.fader-top .fader-slide {
+    object-position: center 20%;
+  }
+  .vorm-fader .fader-slide.active { opacity: 1; }
+  .vorm-fader .fader-dots {
+    position: absolute; bottom: 16px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 2;
+  }
+  .vorm-fader .fader-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,.5);
+    border: none; cursor: pointer; padding: 0;
+    transition: background .2s;
+  }
+  .vorm-fader .fader-dot.active { background: #fff; }
+
+  .dienst-cta {
+    text-align: center;
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 64px;
+    color: #fff;
+  }
+  .dienst-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+  .dienst-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  @media (max-width: 768px) {
+    .dienst-page { padding: 32px 0 56px; }
+
+    /* Header: titel → slider → tekst → knop */
+    .dienst-header {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-areas: none !important;
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .dienst-header-titel,
+    .dienst-header-img,
+    .dienst-header-tekst {
+      grid-area: auto !important;
+      align-self: auto !important;
+      width: 100%;
+    }
+    .dienst-header-titel {
+      padding-bottom: 0;
+    }
+    .dienst-header-titel h1 {
+      font-size: clamp(28px, 7vw, 36px);
+      line-height: 1.15;
+      margin-bottom: 0;
+    }
+    .dienst-intro {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .header-slider {
+      height: auto !important;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      position: relative;
+    }
+    .header-slider .header-slide {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    /* Vormen-titel */
+    .vormen-titel {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    /* Vorm-secties: titel boven, foto/player in midden, tekst onder */
+    .vorm-sectie {
+      display: flex; flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .vorm-sectie .vorm-img { order: 2; }
+    .vorm-sectie .vorm-tekst { order: 1; display: contents; }
+    .vorm-sectie .vorm-tekst h3 { order: 1; }
+    .vorm-sectie .vorm-tekst p { order: 3; }
+    .vorm-sectie.flip .vorm-img { order: 2; }
+    .vorm-img { width: 100%; }
+
+    /* Vorm-fader 16:9 op mobile */
+    .vorm-fader {
+      aspect-ratio: 16 / 9 !important;
+      height: auto !important;
+      width: 100%;
+      position: relative;
+    }
+    .vorm-fader .fader-slide {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    /* Losse foto's 16:9 */
+    .vorm-img > img {
+      aspect-ratio: 16 / 9 !important;
+      height: auto !important;
+    }
+
+    /* Mave-player thumbs wrappable */
+    .mave-thumbs {
+      display: flex; flex-wrap: wrap;
+      gap: 6px;
+    }
+    .mave-thumb {
+      flex: 1 1 calc(50% - 4px);
+      font-size: 11px;
+      padding: 6px 10px;
+    }
+
+    .vorm-fader .fader-dot { width: 10px; height: 10px; }
+    .vorm-tekst h3 {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+    .vorm-tekst p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* CTA compacter */
+    .dienst-cta {
+      padding: 36px 24px;
+    }
+    .dienst-cta h2 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .dienst-cta p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+</style>

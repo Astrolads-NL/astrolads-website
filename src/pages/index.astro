@@ -1,0 +1,477 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const cases = [
+{ slug: 'deelmobiliteit', tag: 'Natuurlijk!Deelmobiliteit', titel: 'Deelmobiliteit in Nederland versnellen', img: '/images/cases/deelmobiliteit.webp', themas: ['mobiliteit', 'duurzaamheid'] },  { slug: 'nsob', tag: 'Nederlandse School voor Openbaar Bestuur', titel: 'Hoogwaardig onderwijs en gefundeerd onderzoek over de publieke sector', img: '/images/cases/nsob.webp', themas: ['overheid', 'wetenschap', 'onderwijs'] },
+  { slug: 'bob-kob', tag: 'BOB-KOB', titel: 'Praktijkgerichte opleider die vakmanschap in bouw en infra versterkt.', img: '/images/cases/bob-kob.webp', themas: ['bouw', 'onderwijs'] },
+  { slug: 'na-de-oorlog', tag: 'Stichting Na de Oorlog', titel: 'Verhalen uit de Tweede Wereldoorlog doorgeven aan nieuwe generaties.', img: '/images/cases/na-de-oorlog.webp', themas: ['jongeren', 'onderwijs', 'maatschappelijk'] },
+  { slug: 'rli', tag: 'Raad voor de leefomgeving en infrastructuur', titel: 'Adviesraad voor regering en parlement omtrent o.a. wonen, ruimtelijke ordening & milieu.', img: '/images/cases/rli.webp', themas: ['overheid', 'wetenschap', 'duurzaamheid', 'mobiliteit', 'infrastructuur'] },
+  { slug: 'vereniging-elektrische-rijders', tag: 'Vereniging Elektrische Rijders', titel: 'De stem van elektrisch rijden in Nederland.', img: '/images/cases/ver.webp', themas: ['mobiliteit', 'duurzaamheid'] },
+];
+
+
+---
+
+<Layout
+  title="Jouw reisgenoot voor communicatiestrategie en media-uitingen"
+  description="Astrolads is jouw reisgenoot voor communicatiestrategie en media-uitingen. Communicatiebureau met productiehuis aan de Grote Markt in Den Haag."
+>
+
+  
+
+  <section class="hero">
+    <div class="hero-left">
+<p class="hero-label">Van strategie tot blijvende impact</p>      <h1>Jouw reisgenoot voor communicatie&shy;strategie en media&shy;uitingen.</h1>
+      <a href="/contact" class="btn-orange">Kennismaken</a>
+      <div class="rocket-wrap" aria-hidden="true">
+        <img src="/images/raket.webp" alt="" class="rocket-img" loading="lazy" decoding="async" />
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        {cases.map((c, i) => (
+          <a href={'/cases/' + c.slug} class:list={['slide', { active: i === 0 }]} aria-label={'Bekijk case: ' + c.titel}>
+            <img
+              src={c.img}
+              alt={c.titel + ' - case van Astrolads voor ' + c.tag}
+              width="640" height="420"
+              loading={i === 0 ? 'eager' : 'lazy'}
+              fetchpriority={i === 0 ? 'high' : 'low'}
+              decoding={i === 0 ? 'sync' : 'async'}
+            />
+            <div class="slide-label">
+              <p class="slide-tag">{c.tag}</p>
+              <p class="slide-titel">{c.titel}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="hero-cards">
+        <div class="card-quote">
+          <span class="quote-icon" aria-hidden="true">&ldquo;</span>
+          <blockquote>Divers, vaardig, flexibel, verschroeiend hoog tempo en bovenal... ontzettend fijn team om mee te werken!</blockquote>
+          <a href="/diensten" class="btn-outline">Ontdek diensten</a>
+        </div>
+        <div class="card-about">
+<img src="/images/goal.webp" alt="" class="about-icon" aria-hidden="true" width="25" height="20" loading="lazy" decoding="async" />         <p class="card-about-text">Communicatiebureau met productiehuis aan het levendigste plein van de hofstad!</p>
+          <a href="/over-ons" class="btn-text-arrow">Over ons</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="diensten" class="diensten-section">
+    <div class="section-inner">
+      <div class="diensten-kolommen">
+        <header class="diensten-header">
+          <p class="section-label">Diensten</p>
+          <h2 class="section-title">Waarmee kunnen we je helpen?</h2>
+        </header>
+        <div class="diensten-grid">
+          <div class="diensten-kolom">
+            <p class="kolom-titel">Advies</p>
+            <div class="diensten-lijst">
+              <a href="/diensten/communicatiestrategie" class="dienst-item">Communicatiestrategie <span class="dienst-arrow">›</span></a>
+              <a href="/diensten/onderwijsinnovatie" class="dienst-item">Onderwijsinnovatie <span class="dienst-arrow">›</span></a>
+              <a href="/diensten/ai-implementatie" class="dienst-item">AI-implementatie <span class="dienst-arrow">›</span></a>
+            </div>
+          </div>
+          <div class="diensten-kolom">
+            <p class="kolom-titel">Creatie en productie</p>
+            <div class="diensten-lijst drieen">
+              <a href="/diensten/fotografie" class="dienst-item">Fotografie <span class="dienst-arrow">›</span></a>
+              <a href="/diensten/podcast" class="dienst-item">Podcast <span class="dienst-arrow">›</span></a>
+              <a href="/diensten/socials" class="dienst-item">Social media <span class="dienst-arrow">›</span></a>
+              <a href="/diensten/video" class="dienst-item">Video <span class="dienst-arrow">›</span></a>
+              <a href="/diensten/vormgeving" class="dienst-item">Vormgeving <span class="dienst-arrow">›</span></a>
+              <a href="/diensten/webinar" class="dienst-item">Webinar & Livestream <span class="dienst-arrow">›</span></a>
+              <a href="/diensten/website" class="dienst-item">Website <span class="dienst-arrow">›</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases" class="cases-section">
+    <div class="section-inner">
+      <p class="section-label">Cases</p>
+      <h2 class="section-title">Trots op alle gave projecten!</h2>
+
+      <div class="thema-filters">
+        <button class="thema-btn active" data-thema="alle">Alle</button>
+        <button class="thema-btn" data-thema="mobiliteit">Mobiliteit</button>
+        <button class="thema-btn" data-thema="overheid">Overheid</button>
+        <button class="thema-btn" data-thema="duurzaamheid">Duurzaamheid</button>
+        <button class="thema-btn" data-thema="onderwijs">Onderwijs</button>
+        <button class="thema-btn" data-thema="wetenschap">Wetenschap</button>
+        <button class="thema-btn" data-thema="bouw">Bouw</button>
+        <button class="thema-btn" data-thema="infrastructuur">Infrastructuur</button>
+        <button class="thema-btn" data-thema="toegankelijkheid">Toegankelijkheid</button>
+        <button class="thema-btn" data-thema="innovatie">Innovatie</button>
+        <button class="thema-btn" data-thema="jongeren">Jongeren</button>
+        <button class="thema-btn" data-thema="maatschappelijk">Maatschappelijk</button>
+      </div>
+
+      <div class="cases-scroll" id="casesScroll">
+        {cases.map(c => (
+          <a href={'/cases/' + c.slug} class="case-card" data-themas={c.themas.join(',')}>
+            <img src={c.img} alt={c.tag} width="520" height="320" loading="lazy" />
+            <div class="case-card-body">
+              <p class="case-tag">{c.tag}</p>
+              <h3>{c.titel} <span>›</span></h3>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="carousel-nav">
+        <button class="carousel-btn" onclick="scrollCases(-1)" aria-label="Vorige case">←</button>
+        <button class="carousel-btn" onclick="scrollCases(1)" aria-label="Volgende case">→</button>
+      </div>
+    </div>
+  </section>
+
+  </Layout>
+
+<style>
+  .hero {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 72px 40px 80px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 48px; align-items: start;
+  }
+  .hero-left { position: relative; padding-top: 20px; }
+  .hero-label { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 700; line-height: 1.1; margin-bottom: 32px; }
+
+  .rocket-wrap { margin-top: -150px; margin-left: 240px; margin-bottom: 0px; }
+  .rocket-img { width: 500px; height: auto; opacity: .8; }
+
+  .hero-right { display: flex; flex-direction: column; gap: 16px; }
+  .hero-img-wrap { position: relative; height: 300px; border-radius: var(--radius); overflow: hidden; }
+    .hero-img-wrap .slide {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    opacity: 0; transition: opacity 1s ease;
+    text-decoration: none; color: inherit;
+    display: block;
+    pointer-events: none;
+  }
+  .hero-img-wrap .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .hero-img-wrap .slide.active { opacity: 1; }
+  .hero-img-wrap .slide img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 30%;
+  }
+  .slide-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 32px 20px 16px;
+    background: linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 100%);
+    color: #fff;
+  }
+  .slide-tag {
+    font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em;
+    opacity: .8; margin-bottom: 4px;
+  }
+  .slide-titel {
+    font-size: 13px; font-weight: 700; line-height: 1.3;
+  }
+  .hero-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .card-quote {
+    background: var(--navy); color: #fff;
+    border-radius: var(--radius); padding: 24px;
+    min-height: 250px;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .quote-icon {
+    position: absolute;
+    top: 40px; left: 24px;
+    font-size: 40px;
+    color: var(--orange);
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+  .card-quote blockquote {
+    font-weight: 700; font-size: 15px; line-height: 1.4;
+    margin-top: 50px;
+  }
+  .quote-author { font-size: 12px; opacity: .7; }
+
+  .btn-outline {
+    display: inline-flex; align-items: center;
+    border: 1.5px solid rgba(255,255,255,.35); color: #fff;
+    text-decoration: none; font-size: 13px;
+    border-radius: 999px; padding: 8px 16px;
+    margin-top: auto;
+    width: fit-content; transition: background .2s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,.1); }
+
+  .card-about {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    min-height: 250px;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .about-icon {
+    position: absolute;
+    top: 38px; left: 24px;
+    width: 25px; height: 20px;
+  }
+  .card-about-text {
+    font-weight: 700; font-size: 15px; line-height: 1.4;
+    margin-top: 50px;
+    margin-bottom: 16px;
+  }
+  .card-about .btn-text-arrow {
+    margin-top: auto;
+    width: fit-content;
+  }
+
+  .diensten-section { padding: 80px 0; }
+  .diensten-kolommen {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 48px;
+  }
+  .diensten-header { margin-bottom: 40px; }
+  .diensten-header .section-title { margin-bottom: 0; }
+  .diensten-grid {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start;
+  }
+  .kolom-titel {
+    font-size: 13px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: .08em;
+    padding-bottom: 12px; border-bottom: 1px solid rgba(0,0,0,.1); margin-bottom: 0;
+  }
+  .diensten-lijst { display: grid; grid-template-columns: 1fr; }
+  .diensten-lijst.drieen { grid-template-columns: repeat(3, 1fr); }
+  .dienst-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 16px 14px 0; border-bottom: 1px solid rgba(0,0,0,.08);
+    font-size: 14px; text-decoration: none; color: var(--text); transition: color .2s;
+  }
+  .dienst-item:hover { color: var(--orange); }
+  .dienst-item.no-arrow { cursor: default; }
+  .dienst-item.no-arrow:hover { color: var(--text); }
+  .dienst-arrow { color: var(--muted); }
+  .dienst-item:hover .dienst-arrow { color: var(--orange); }
+
+  .cases-section { padding: 80px 0; }
+  .thema-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .thema-btn {
+    padding: 8px 18px; border-radius: 999px;
+    border: 1.5px solid rgba(0,0,0,.12); background: transparent;
+    font-family: var(--font); font-size: 13px; color: var(--muted);
+    cursor: pointer; transition: background .2s, border-color .2s, color .2s;
+    font-weight: 700;
+  }
+  .thema-btn:hover { border-color: var(--orange); color: var(--orange); }
+  .thema-btn.active { background: var(--orange-dark); border-color: var(--orange-dark); color: #fff; }
+  .thema-btn:focus { outline: none; }
+  .thema-btn:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+    border-radius: 999px;
+  }
+
+  .cases-scroll {
+    display: flex; gap: 20px;
+    overflow-x: auto; overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    padding: 16px 4px 24px;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .cases-scroll::-webkit-scrollbar { display: none; }
+  .case-card {
+    flex: 0 0 260px; scroll-snap-align: start;
+    background: var(--white); border-radius: var(--radius);
+    overflow: hidden; text-decoration: none; color: inherit;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .case-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+  .case-card.hidden { display: none; }
+  .case-card img { width: 100%; height: 160px; object-fit: cover; }
+  .case-card-body { padding: 16px; }
+  .case-tag { font-size: 11px; font-weight: 700; color: var(--orange-dark); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
+  .case-card-body h3 { font-size: 15px; font-weight: 700; line-height: 1.3; display: flex; justify-content: space-between; gap: 8px; }
+  .case-card-body h3 span { color: var(--muted); flex-shrink: 0; }
+
+  .carousel-nav { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
+  .carousel-btn {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,.2); background: transparent;
+    cursor: pointer; font-size: 16px; transition: background .2s;
+  }
+  .carousel-btn:hover { background: var(--white); }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding: 32px 20px 32px; gap: 72px; }
+    .hero-left {
+      padding-top: 0;
+      position: relative;
+    }
+    .hero-label { margin-bottom: 20px; font-size: 13px; }
+    .hero h1 {
+      font-size: clamp(30px, 6.5vw, 38px);
+      line-height: 1.2;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-left .btn-orange {
+      position: relative;
+      z-index: 1;
+    }
+    .rocket-wrap {
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      margin: 0;
+      width: 150px;
+      z-index: 0;
+      pointer-events: none;
+    } 
+    .rocket-img {
+  width: 100%;
+  height: auto;
+  opacity: .5;
+}
+    .hero-cards { grid-template-columns: 1fr; gap: 16px; }
+    .card-about { min-height: auto; padding: 28px 24px; }
+    .card-quote {
+      min-height: auto;
+      padding: 20px 24px;
+    }
+    .card-quote blockquote {
+      font-size: 13px;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .card-quote .quote-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+    .card-quote .btn-outline {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+    .quote-icon {
+      position: static;
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    .about-icon {
+      position: static;
+      width: 28px;
+      height: auto;
+      margin-bottom: 16px;
+    }
+    .card-quote blockquote {
+      margin-top: 0;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .card-about-text {
+      margin-top: 0;
+      font-size: 15px;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .btn-outline { padding: 10px 20px; font-size: 13px; }
+    .diensten-section, .cases-section { padding: 48px 0; }
+    .diensten-kolommen { padding: 24px; }
+    .diensten-header { margin-bottom: 24px; }
+    .diensten-header .section-title {
+      font-size: clamp(26px, 6vw, 32px);
+      line-height: 1.2;
+    }
+    .diensten-grid { grid-template-columns: 1fr; gap: 24px; }
+    .diensten-lijst.drieen { grid-template-columns: 1fr; }
+    .dienst-item {
+      padding: 12px 0;
+      font-size: 14px;
+    }
+    .thema-filters {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      margin: 0 -20px 32px;
+      padding: 0 20px 4px;
+      gap: 8px;
+    }
+    .thema-filters::-webkit-scrollbar { display: none; }
+    .thema-btn {
+      flex-shrink: 0;
+      padding: 7px 14px;
+      font-size: 12px;
+    }
+    .cases-scroll {
+      margin: 0 -20px;
+      padding: 16px 20px 24px;
+      gap: 12px;
+    }
+    .case-card {
+      flex: 0 0 calc(100% - 80px);
+    }
+    .cases-section .carousel-nav { display: none; }
+    .case-card {
+      flex: 0 0 calc(100% - 60px);
+    }
+    
+  }
+
+  </style>
+
+<script>
+  function scrollCases(dir) {
+    var el = document.getElementById('casesScroll');
+    if (el) el.scrollBy({ left: dir * 280, behavior: 'smooth' });
+  }
+  window.scrollCases = scrollCases;
+
+  var slides = document.querySelectorAll('.hero-img-wrap .slide');
+  var current = 0;
+  setInterval(function() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4500);
+
+  var filterBtns = document.querySelectorAll('.thema-btn');
+  var caseCards = document.querySelectorAll('.case-card');
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var thema = btn.getAttribute('data-thema');
+      caseCards.forEach(function(card) {
+        if (thema === 'alle') {
+          card.classList.remove('hidden');
+        } else {
+          var cardThemas = card.getAttribute('data-themas').split(',');
+          if (cardThemas.indexOf(thema) > -1) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        }
+      });
+      document.getElementById('casesScroll').scrollTo({ left: 0 });
+    });
+  });
+</script>
