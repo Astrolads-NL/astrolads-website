@@ -55,12 +55,7 @@ const toepassingen = [
           <a href="/en/contact" class="btn-orange">Get in touch</a>
         </div>
         <div class="dienst-header-img">
-          <div class="header-slider">
-            <img class="header-slide active" src="/images/diensten/ai-slide-1.webp" alt="Astrolads AI implementation" width="640" height="480" loading="eager" fetchpriority="high" decoding="sync" />
-            <img class="header-slide" src="/images/diensten/ai-slide-2.webp" alt="Astrolads AI implementation" width="640" height="480" loading="lazy" />
-            <img class="header-slide" src="/images/diensten/ai-slide-3.webp" alt="Astrolads AI implementation" width="640" height="480" loading="lazy" />
-            <img class="header-slide" src="/images/diensten/ai-slide-4.webp" alt="Astrolads AI implementation" width="640" height="480" loading="lazy" />
-          </div>
+          <img src="/images/diensten/ai-header.webp" alt="Astrolads AI implementation" width="640" height="460" loading="eager" fetchpriority="high" decoding="sync" />
         </div>
       </div>
 
@@ -114,14 +109,11 @@ const toepassingen = [
     font-size: 17px; color: var(--muted);
     line-height: 1.7; margin-bottom: 32px;
   }
-  .header-slider { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; }
-  .header-slide {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover; opacity: 0;
-    transition: opacity 1s ease;
+  .dienst-header-img img {
+    width: 100%; height: 460px;
+    border-radius: var(--radius);
+    object-fit: cover;
   }
-  .header-slide.active { opacity: 1; }
 
   .ai-visie {
     background: var(--white);
@@ -198,9 +190,11 @@ const toepassingen = [
       line-height: 1.7;
       margin-bottom: 20px;
     }
-    .header-slider {
+    .dienst-header-img img {
       height: auto;
       aspect-ratio: 16 / 9;
+      max-height: 240px;
+      object-position: center 20%;
     }
 
     /* Vision-blok compacter */
@@ -250,14 +244,3 @@ const toepassingen = [
   }
 </style>
 
-<script>
-  var slides = document.querySelectorAll('.header-slide');
-  var current = 0;
-  if (slides.length > 1) {
-    setInterval(function() {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 4000);
-  }
-</script>

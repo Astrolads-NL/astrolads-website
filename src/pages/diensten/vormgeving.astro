@@ -53,11 +53,7 @@ const vormen = [
           <h1>Vormgeving</h1>
         </div>
         <div class="dienst-header-img">
-          <div class="header-slider">
-            <img class="header-slide active" src="/images/diensten/vormgeving-slide-1.webp" alt="Astrolads vormgeving" width="640" height="480" loading="eager" fetchpriority="high" decoding="sync" />
-            <img class="header-slide" src="/images/diensten/vormgeving-slide-2.webp" alt="Astrolads vormgeving" width="640" height="480" loading="lazy" />
-            <img class="header-slide" src="/images/diensten/vormgeving-slide-3.webp" alt="Astrolads vormgeving" width="640" height="480" loading="lazy" />
-          </div>
+          <img src="/images/diensten/vormgeving-header.webp" alt="Astrolads vormgeving" width="640" height="460" loading="eager" fetchpriority="high" decoding="sync" />
         </div>
         <div class="dienst-header-tekst">
           <p class="dienst-intro">Een poster, banner, drukwerk, infographic, illustratie, animatie of losse content voor social media… vormgeving vind je in alle vormen en maten. Het neemt de lezer aan de hand mee door complexe materie en zorgt voor samenhang tussen alle gepubliceerde content. Het verbindt alle kanalen (fysiek en digitaal) van jouw organisatie aan elkaar. Zo weet de doelgroep direct dat ze met de juiste organisatie te maken hebben.</p>
@@ -128,14 +124,11 @@ const vormen = [
     font-size: 16px; color: var(--muted);
     line-height: 1.7; margin-bottom: 32px;
   }
-  .header-slider { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; }
-  .header-slide {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover; opacity: 0;
-    transition: opacity 1s ease;
+  .dienst-header-img img {
+    width: 100%; height: 460px;
+    border-radius: var(--radius);
+    object-fit: cover;
   }
-  .header-slide.active { opacity: 1; }
 
   .vormen-titel {
     font-size: 32px; font-weight: 700;
@@ -216,18 +209,11 @@ const vormen = [
       line-height: 1.7;
       margin-bottom: 20px;
     }
-    .header-slider {
-      height: auto !important;
+    .dienst-header-img img {
+      height: auto;
       aspect-ratio: 16 / 9;
-      width: 100%;
-      position: relative;
-    }
-    .header-slider .header-slide {
-      position: absolute !important;
-      inset: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
+      max-height: 240px;
+      object-position: center 20%;
     }
 
     /* Vormen-titel */
@@ -305,16 +291,8 @@ const vormen = [
         goTo(parseInt(dot.getAttribute('data-index')));
       });
     });
-    if (slides.length > 1) {
+     if (slides.length > 1) {
       setInterval(function() { goTo((current + 1) % slides.length); }, interval);
     }
   });
-
-  var headerSlides = document.querySelectorAll('.header-slide');
-  var headerCurrent = 0;
-  setInterval(function() {
-    headerSlides[headerCurrent].classList.remove('active');
-    headerCurrent = (headerCurrent + 1) % headerSlides.length;
-    headerSlides[headerCurrent].classList.add('active');
-  }, 4000);
 </script>
