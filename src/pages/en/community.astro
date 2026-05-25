@@ -26,6 +26,7 @@ const initiatiefFotos = [
 <LayoutNightEN
   title="Community"
   description="Astrolads Community is the community hub for creative talent in The Hague. Meet like-minded people at events and kickstart valuable creative initiatives."
+  image="/images/og/community/community.jpg"
 >
   <div class="community-page">
     <div class="section-inner">
@@ -57,10 +58,6 @@ const initiatiefFotos = [
       <section class="pijlers">
         <h2>Discover the community</h2>
         <p class="sectie-intro">The Astrolads Community is built on two main pillars:</p>
-        <ol class="pijler-intro-lijst">
-          <li><strong>Events</strong>, (recurring) events where you discover new hobbies, meet people and celebrate shared passions.</li>
-          <li><strong>Initiatives</strong>, concepts and ideas from outsiders that get a boost from Astrolads to help them get off the ground. This can range from financial support, material support in the form of studios and cameras, networking opportunities or entrepreneurial advice.</li>
-        </ol>
 
         <div class="pijler-grid">
           <a href="/en/community/events" class="pijler">
@@ -76,7 +73,7 @@ const initiatiefFotos = [
             </div>
             <div class="pijler-body">
               <h3>Events</h3>
-              <p>An accessible way to meet others and discover new forms of creativity together. You're welcome!</p>
+              <p>Recurring events where you discover new hobbies, meet people and celebrate shared passions. An accessible way to connect with others and explore new forms of creativity together. You're welcome!</p>
               <span class="btn-night-ghost">To the agenda →</span>
             </div>
           </a>
@@ -94,7 +91,7 @@ const initiatiefFotos = [
             </div>
             <div class="pijler-body">
               <h3>Initiatives</h3>
-              <p>Astrolads supports valuable creative initiatives that contribute to the world, the region or simply to the lives of creatives themselves. What's your idea?</p>
+              <p>Concepts and ideas from outsiders that get a boost from Astrolads to take off. Think financial support, material support (studios, cameras), networking opportunities or entrepreneurial advice. What's your idea?</p>
               <span class="btn-night-ghost">View initiatives →</span>
             </div>
           </a>
@@ -199,27 +196,7 @@ const initiatiefFotos = [
   .sectie-intro {
     color: var(--night-muted);
     text-align: center;
-    max-width: 640px; margin: 0 auto 20px;
-  }
-  .pijler-intro-lijst {
-    color: var(--night-muted);
-    max-width: 720px;
-    margin: 0 auto 48px;
-    padding-left: 24px;
-    list-style: decimal;
-    line-height: 1.7;
-  }
-  .pijler-intro-lijst li {
-    margin-bottom: 12px;
-    padding-left: 8px;
-  }
-  .pijler-intro-lijst li::marker {
-    color: var(--orange);
-    font-weight: 700;
-  }
-  .pijler-intro-lijst strong {
-    color: var(--night-text);
-    font-weight: 700;
+    max-width: 640px; margin: 0 auto 48px;
   }
   .pijler-grid {
     display: grid;
@@ -253,7 +230,13 @@ const initiatiefFotos = [
     transform: translateX(-50%);
     display: flex; gap: 6px; z-index: 2;
   }
-  .pijler-body { padding: 28px; }
+  .pijler-body {
+    padding: 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .pijler-body h3 {
     font-size: 22px; font-weight: 700;
     margin-bottom: 12px;
@@ -309,15 +292,7 @@ const initiatiefFotos = [
     }
     .sectie-intro {
       font-size: 14px;
-      margin-bottom: 16px;
-    }
-    .pijler-intro-lijst {
-      font-size: 14px;
-      margin-bottom: 28px;
-      padding-left: 20px;
-    }
-    .pijler-intro-lijst li {
-      margin-bottom: 10px;
+      margin-bottom: 32px;
     }
     .pijler-grid {
       grid-template-columns: 1fr;

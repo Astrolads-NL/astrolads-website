@@ -1,7 +1,6 @@
 ---
 import LayoutNight from '../layouts/LayoutNight.astro';
 
-// Slider 1: Hero/sfeer slider
 const sfeerFotos = [
   '/images/community/sfeer-1.webp',
   '/images/community/sfeer-2.webp',
@@ -10,7 +9,6 @@ const sfeerFotos = [
   '/images/community/sfeer-5.webp',
 ];
 
-// Slider 2 — Events impressie
 const eventFotos = [
   '/images/community/event-1.webp',
   '/images/community/event-2.webp',
@@ -18,7 +16,6 @@ const eventFotos = [
   '/images/community/event-4.webp',
 ];
 
-// Slider 3 — Initiatieven impressie
 const initiatiefFotos = [
   '/images/community/initiatief-1.webp',
   '/images/community/initiatief-2.webp',
@@ -29,6 +26,7 @@ const initiatiefFotos = [
 <LayoutNight
   title="Community"
   description="Astrolads Community is de broedplaats voor creatief talent in Den Haag. Ontmoet gelijkgestemden tijdens events en kickstart waardevolle creatieve initiatieven."
+  image="/images/og/community/community.jpg"
 >
   <div class="community-page">
     <div class="section-inner">
@@ -60,10 +58,7 @@ const initiatiefFotos = [
       <section class="pijlers">
         <h2>Ontdek de community</h2>
         <p class="sectie-intro">De Astrolads Community bestaat met name uit twee grote pijlers:</p>
-        <ol class="pijler-intro-lijst">
-          <li><strong>Events</strong> — (terugkerende) events waar je nieuwe hobby's ontdekt, mensen leert kennen en gedeelde passies kan vieren.</li>
-          <li><strong>Initiatieven</strong> — concepten en ideeën van externen die van Astrolads een zetje in de rug krijgen om van de grond te komen. Dit kan verschillen van financiële steun, materiële steun in de vorm van studio's en camera's, netwerk-mogelijkheden of ondernemersadvies.</li>
-        </ol>
+        
 
         <div class="pijler-grid">
           <a href="/community/events" class="pijler">
@@ -79,7 +74,7 @@ const initiatiefFotos = [
             </div>
             <div class="pijler-body">
               <h3>Events</h3>
-              <p>Laagdrempelige manier om met anderen in contact te komen en samen nieuwe vormen van creativiteit te ontdekken. Wees welkom!</p>
+              <p>(Terugkerende) events waar je nieuwe hobby's ontdekt, mensen leert kennen en gedeelde passies kan vieren. Laagdrempelig in contact komen en samen nieuwe vormen van creativiteit ontdekken. Wees welkom!</p>
               <span class="btn-night-ghost">Naar de agenda →</span>
             </div>
           </a>
@@ -97,7 +92,7 @@ const initiatiefFotos = [
             </div>
             <div class="pijler-body">
               <h3>Initiatieven</h3>
-              <p>Astrolads ondersteunt waardevolle creatieve initiatieven die iets bijdragen aan de wereld, regio of simpelweg in het leven van creatives zelf. Wat is jouw idee?</p>
+              <p>Concepten en ideeën van externen die van Astrolads een zetje in de rug krijgen. Denk aan financiële steun, materiële steun (studio's, camera's), netwerk-mogelijkheden of ondernemersadvies. Wat is jouw idee?</p>
               <span class="btn-night-ghost">Bekijk initiatieven →</span>
             </div>
           </a>
@@ -210,18 +205,24 @@ const initiatiefFotos = [
     color: var(--night-muted);
     max-width: 720px;
     margin: 0 auto 48px;
-    padding-left: 24px;
-    list-style: decimal;
+    padding-left: 0;
+    list-style: none;
     line-height: 1.7;
+    text-align: center;
+    counter-reset: pijler;
   }
   .pijler-intro-lijst li {
     margin-bottom: 12px;
-    padding-left: 8px;
+    padding-left: 0;
+    counter-increment: pijler;
   }
-  .pijler-intro-lijst li::marker {
+  .pijler-intro-lijst li::before {
+    content: counter(pijler) ". ";
     color: var(--orange);
     font-weight: 700;
+    margin-right: 4px;
   }
+  
   .pijler-intro-lijst strong {
     color: var(--night-text);
     font-weight: 700;
@@ -258,7 +259,13 @@ const initiatiefFotos = [
     transform: translateX(-50%);
     display: flex; gap: 6px; z-index: 2;
   }
-  .pijler-body { padding: 28px; }
+  .pijler-body {
+    padding: 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .pijler-body h3 {
     font-size: 22px; font-weight: 700;
     margin-bottom: 12px;
@@ -323,7 +330,6 @@ const initiatiefFotos = [
     .pijler-intro-lijst {
       font-size: 14px;
       margin-bottom: 28px;
-      padding-left: 20px;
     }
     .pijler-intro-lijst li {
       margin-bottom: 10px;

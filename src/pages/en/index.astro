@@ -52,11 +52,10 @@ const cases = [
           <blockquote>Diverse, skilled, flexible, working at a blistering pace and above all... an incredibly fun team to work with!</blockquote>
           <a href="/en/services" class="btn-outline">Discover our services</a>
         </div>
-        <div class="card-about">
-          <img src="/images/goal.webp" alt="" class="about-icon" aria-hidden="true" width="25" height="20" loading="lazy" decoding="async" />
-          <p class="card-about-text">Communications agency with in-house production team at the liveliest square of The Hague!</p>
-          <a href="/en/about" class="btn-text-arrow">About us</a>
-        </div>
+        <a href="/en/about" class="card-team">
+          <img src="/images/over-foto.webp" alt="Astrolads team at work in the office at the Grote Markt The Hague" width="400" height="250" loading="lazy" decoding="async" />
+          <span class="card-team-btn">About us →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -117,7 +116,7 @@ const cases = [
 
       <div class="cases-scroll" id="casesScroll">
         {cases.map(c => (
-          <a href={'/cases/' + c.slug} class="case-card" data-themas={c.themas.join(',')}>
+          <a href={'/en/cases/' + c.slug} class="case-card" data-themas={c.themas.join(',')}>
             <img src={c.img} alt={c.tag} width="520" height="320" loading="lazy" />
             <div class="case-card-body">
               <p class="case-tag">{c.tag}</p>
@@ -125,6 +124,13 @@ const cases = [
             </div>
           </a>
         ))}
+        <a href="/en/contact" class="case-card case-card-more">
+          <div class="case-card-more-body">
+            <p class="more-eyebrow">And many more!</p>
+            <h3>Curious what we can do for your organisation?</h3>
+            <span class="more-cta">Get in touch →</span>
+          </div>
+        </a>
       </div>
 
       <div class="carousel-nav">
@@ -214,27 +220,36 @@ const cases = [
   }
   .btn-outline:hover { background: rgba(255,255,255,.1); }
 
-  .card-about {
-    background: var(--white);
+  .card-team {
     border-radius: var(--radius);
-    padding: 24px;
     min-height: 250px;
-    display: flex; flex-direction: column;
     position: relative;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    transition: transform .2s;
   }
-  .about-icon {
+  .card-team:hover { transform: translateY(-2px); }
+  .card-team img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: 70% 35%;
+    position: absolute; inset: 0;
+  }
+  .card-team-btn {
     position: absolute;
-    top: 38px; left: 24px;
-    width: 25px; height: 20px;
+    bottom: 20px; left: 20px;
+    background: #fff;
+    color: var(--text);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    z-index: 2;
+    transition: background .2s;
   }
-  .card-about-text {
-    font-weight: 700; font-size: 15px; line-height: 1.4;
-    margin-top: 50px;
-    margin-bottom: 16px;
-  }
-  .card-about .btn-text-arrow {
-    margin-top: auto;
-    width: fit-content;
+  .card-team:hover .card-team-btn {
+    background: var(--bg);
   }
 
   .diensten-section { padding: 80px 0; }
@@ -300,6 +315,51 @@ const cases = [
   }
   .case-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
   .case-card.hidden { display: none; }
+
+  /* "And many more" card */
+  .case-card-more {
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 24px;
+  }
+  .case-card-more:hover {
+    background: #232f4d;
+  }
+  .case-card-more-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .more-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .case-card-more h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+    margin: 0;
+  }
+  .more-cta {
+    display: inline-flex;
+    align-items: center;
+    background: var(--orange);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    width: fit-content;
+    margin-top: 4px;
+  }
   .case-card img { width: 100%; height: 160px; object-fit: cover; }
   .case-card-body { padding: 16px; }
   .case-tag { font-size: 11px; font-weight: 700; color: var(--orange-dark); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
@@ -347,7 +407,9 @@ const cases = [
       opacity: .5;
     }
     .hero-cards { grid-template-columns: 1fr; gap: 16px; }
-    .card-about { min-height: auto; padding: 28px 24px; }
+    .card-team {
+      min-height: 220px;
+    }
     .card-quote {
       min-height: auto;
       padding: 20px 24px;
@@ -370,12 +432,7 @@ const cases = [
       font-size: 36px;
       margin-bottom: 12px;
     }
-    .about-icon {
-      position: static;
-      width: 28px;
-      height: auto;
-      margin-bottom: 16px;
-    }
+    
     .card-quote blockquote {
       margin-top: 0;
       font-size: 15px;

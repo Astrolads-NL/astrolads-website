@@ -1,381 +1,290 @@
-# Astrolads Website — README & Briefing Sessie 14
+# Astrolads Website
 
-**Datum laatste sessie:** 25 mei 2026 (sessie 13)
-**Status:** SEO-perfect, AI-vriendelijk, snel. Klaar voor deploy! 🚀
+Productie-website voor Astrolads B.V. — communicatiebureau & productiehuis in Den Haag. Statische site gebouwd met Astro, tweetalig (NL/EN), deployed op Netlify.
+
+**Live**: [astrolads-website.netlify.app](https://astrolads-website.netlify.app) (binnenkort: [astrolads.com](https://astrolads.com))
+**Repo**: [github.com/Astrolads-NL/astrolads-website](https://github.com/Astrolads-NL/astrolads-website) (public)
 
 ---
 
-## 🎯 PROJECT CONTEXT
+## 🚀 Quickstart
 
-### Tech stack
-- **Framework:** Astro (static site generator)
-- **Lokaal:** `/Users/daveverwey/Documents/Website Projects/astrolads/`
-- **Node:** 24.15.0
-- **Dev server:** `npm run dev` (port 4321)
-- **Build:** `npm run build` → 87 pages
-- **Preview:** `npm run preview`
+```bash
+npm install        # Install dependencies
+npm run dev        # Dev server op poort 4321
+npm run build      # Production build
+npm run preview    # Preview production build
+```
 
-### Design tokens (CSS variabelen)
+**Folder**: `/Users/daveverwey/Documents/Website Projects/astrolads/`
+**Node**: 24.15.0
+
+---
+
+## 📊 Performance
+
+**Lighthouse productie scores** (gemeten 25 mei 2026):
+
+| Metric | Score |
+|---|---|
+| Performance | **100** |
+| Accessibility | 96 |
+| Best Practices | **100** |
+| SEO | **100** |
+
+**Core Web Vitals**: FCP 0.8s, LCP 1.9s, TBT 30ms, CLS 0
+**Build**: 87 pagina's in ~2.2s
+
+---
+
+## 🏗️ Tech Stack
+
+- **Framework**: Astro v4 (static site generation)
+- **Styling**: Vanilla CSS met CSS variables
+- **Beelden**: WebP voor content, JPG voor OG, PNG/SVG voor favicons
+- **Deployment**: Netlify (Free tier, public repo)
+- **Versioning**: Git via GitHub
+
+---
+
+## 📁 Folder structuur
+
+```
+astrolads/
+├── src/
+│   ├── pages/
+│   │   ├── index.astro              # Homepage NL
+│   │   ├── over-ons.astro, contact.astro, community.astro
+│   │   ├── veelgestelde-vragen.astro
+│   │   ├── diensten/                # 11 dienstpagina's NL
+│   │   ├── cases/[slug].astro       # 6 cases (NL)
+│   │   ├── team/[slug].astro        # 15 mensen (NL)
+│   │   ├── community/               # Community sub-pages
+│   │   └── en/                      # Engelse mirror
+│   │       ├── services/, cases/, team/, community/
+│   ├── layouts/
+│   │   ├── Layout.astro             # NL standard (wit thema)
+│   │   ├── LayoutEN.astro
+│   │   ├── LayoutNight.astro        # NL community (donker)
+│   │   └── LayoutNightEN.astro
+│   ├── components/
+│   │   ├── Nav.astro + 3 varianten
+│   │   ├── Footer.astro + 3 varianten
+│   │   ├── Breadcrumb.astro, CookieBanner.astro
+│   │   └── CasesSlider.astro
+│   └── styles/global.css
+├── public/
+│   ├── images/
+│   │   ├── cases/, team/, diensten/    # WebP content
+│   │   └── og/                          # 33 OG-images (1200x630 JPG)
+│   │       ├── cases/ (6)
+│   │       ├── team/ (15)
+│   │       └── diensten/ (12)
+│   ├── robots.txt, llms.txt, site.webmanifest
+│   └── favicons + logo
+├── astro.config.mjs
+├── netlify.toml
+└── .gitignore
+```
+
+---
+
+## 🎨 Design system
+
+### CSS Variables (`global.css`)
+
 ```css
---orange: #F4622A
---orange-dark: #D84F1A
---navy: #1A2744
---bg: #EDEDED
+--orange: #F4622A         /* primary brand */
+--orange-dark: #D84F1A    /* hover */
+--navy: #1A2744           /* dark backgrounds */
+--bg: #EDEDED             /* page background */
 --white: #FFFFFF
 --text: #1A1A1A
 --muted: #6B6B6B
 --radius: 16px
+--font: 'Inter', system-ui, sans-serif
 ```
 
-### Tone of voice
-- **NL informeel** ("je" niet "u")
-- **Geen em-dashes** (ook niet in EN)
-- **Geen en-dashes** voor regulier gebruik
-- Team functies **bold + hoofdletters consistent**
-- Domein: `astrolads.com`
+### Night thema (community)
+```css
+--night-bg: #0a0e1a
+--night-surface: #1a2238
+--night-border: rgba(255,255,255,.1)
+--night-text: #ffffff
+--night-muted: rgba(255,255,255,.6)
+```
+
+### Style guide
+- Informele NL tone of voice ("je" niet "u")
+- Geen em-dashes (—), wel ellipsis (…)
+- Mobile-first niet, wel volledig `@media (max-width: 768px)` block per component
 
 ---
 
-## 📊 HUIDIGE STATUS
+## 🌍 Routing
 
-### Bouw status
-- ✅ **87 pages** clean built, 0 errors
-- ✅ **Lighthouse (localhost):** 91 Performance / 96 Accessibility / 100 Best Practices / 100 SEO
-- ✅ **Verwacht op Netlify:** 95+ Performance (CDN + brotli)
+### Structuur
+- NL = root paths
+- EN = `/en/...` prefix
 
-### Content compleet
-- ✅ NL + EN volledig (homepage, cases, diensten, team, community, contact, FAQ)
-- ✅ 15 teamleden NL + EN
-- ✅ 6 cases NL + EN
-- ✅ 11 dienst-detailpagina's NL + EN
-- ✅ FAQ-pagina's (`/veelgestelde-vragen` + `/en/faq`)
-- ✅ Privacy, algemene voorwaarden, 404
+### Slug-mapping NL → EN (in `Layout.astro`)
+```javascript
+const nlToEn = {
+  '/': '/en',
+  '/over-ons': '/en/about',
+  '/contact': '/en/contact',
+  '/diensten': '/en/services',
+  '/cases': '/en/cases',
+  '/community': '/en/community',
+  '/veelgestelde-vragen': '/en/faq',
+};
 
-### SEO/AI optimalisatie compleet
-- ✅ Organization + LocalBusiness schema in Layout (NL + EN)
-- ✅ WebSite schema
-- ✅ Article-schema op alle cases
-- ✅ Person-schema op alle teamleden (met @id worksFor → #organization)
-- ✅ FAQPage-schema op FAQ-pagina's
-- ✅ BreadcrumbList-schema op 60+ detail-pagina's
-- ✅ `robots.txt` met 16 AI-bots toegestaan (GPTBot, ChatGPT, Claude, Perplexity)
-- ✅ `llms.txt` AI-standaard
-- ✅ Sitemap.xml auto-gegenereerd
-- ✅ Meta-descriptions 49 pagina's (150-160 chars met "Astrolads" keyword)
-- ✅ Alt-tags geupgraded (Jelle, Dave, Floor, Ellen met functies)
+const dienstenSlugMap = {
+  'vormgeving': 'graphic-design',
+  'communicatiestrategie': 'communication-strategy',
+  'onderwijsinnovatie': 'education-innovation',
+  'ai-implementatie': 'ai-implementation',
+  'fotografie': 'photography',
+};
+// Andere diensten hebben zelfde slug NL/EN
+```
 
-### Performance optimalisatie
-- ✅ **WebP-conversie:** alle 329 images (94 MB → ~50 MB)
-- ✅ **Cases resize:** 16 MB → 5 MB (max 1400px breed)
-- ✅ `og-default.jpg` behouden als JPG (voor LinkedIn/Facebook compatibility)
-- ✅ `logo.png` behouden voor schema referenties
-
-### UX fixes
-- ✅ Hero slider klikbaar (NL + EN, met pointer-events op active slide)
-- ✅ Breadcrumbs op alle detail-pagina's (light + dark theme)
-- ✅ Footer-links naar FAQ (Contact-kolom + bottom-bar)
-- ✅ Taal-switcher mapping volledig (NL ↔ EN)
-- ✅ WeBuild logo verwijderd uit klantenslider
-
-### Backup
-- 🛡️ `src.backup/` (backup voor WebP-conversie)
-- 🛡️ `public/images/cases-original/` (originele case-foto's)
-- Beide kunnen weg na deploy + visuele check
+Cases & team slugs zijn taal-onafhankelijk.
 
 ---
 
-## 📋 TO-DO LIJST (PRIORITEIT)
+## 🔍 SEO
 
-### 🔴 HOOG PRIO — Tot livegang
+### Schema.org JSON-LD
+- `Organization` + `LocalBusiness` (combined, @id #organization) in alle layouts
+- `WebSite` schema voor sitelinks searchbox
+- Cases: `Article` schema per case
+- Team: `Person` schema per persoon
+- Diensten: `Service` schema per pagina
+- FAQ: `FAQPage` schema
 
-#### 1. Deploy voorbereiding (~5 min)
+### Open Graph & Twitter Cards
+Per-pagina OG-images (1200×630 JPG):
+- Cases: `/images/og/cases/{slug}.jpg`
+- Team: `/images/og/team/{slug}.jpg`
+- Diensten: `/images/og/diensten/{slug}.jpg`
+- Anders: `/images/og-default.jpg`
+
+### Crawling
+- `robots.txt` met 16 AI-bot configs (GPTBot, Claude-Web, etc.)
+- `llms.txt` voor LLM-friendly content discovery
+- Sitemap auto-gegenereerd via `@astrojs/sitemap`
+- Canonical + hreflang in alle layouts (NL/EN/x-default)
+
+---
+
+## 🚢 Deployment
+
+### Netlify config
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+```
+
+### Workflow
 ```bash
-# Backup folders opruimen
-rm -rf src.backup
-rm -rf public/images/cases-original
-
-# Check folder size
-du -sh public/images/
-du -sh src/
-
-# Final build check
-npm run build
+git add -A
+git commit -m "feat: description"
+git push
+# → Netlify auto-deploys binnen 1-2 min
 ```
 
-#### 2. Git initialisatie (~10 min)
+### Post-launch checklist
+- [ ] Custom domain `astrolads.com` koppelen aan Netlify
+- [ ] DNS A-records + CNAME bij registrar
+- [ ] Google Analytics 4 ID in `CookieBanner.astro`
+- [ ] Search Console + Bing Webmaster sitemap submission
+- [ ] Netlify form notifications → info@astrolads.com
+
+---
+
+## 🖼️ Beeldoptimalisatie
+
+Alle conversie/resize via `sharp-cli@5.2.0`, vooraf gegenereerd (geen runtime processing).
+
+### Voorbeeld: OG-image genereren
 ```bash
-git init
+npx sharp -i "public/images/cases/deelmobiliteit.webp" \
+  -o "public/images/og/cases/deelmobiliteit.jpg" \
+  -f jpeg -q 85 \
+  resize 1200 630 --fit cover --position center
 ```
 
-Maak `.gitignore` aan in root:
-```
-node_modules/
-dist/
-.DS_Store
-.env
-.env.local
-.env.*.local
-src.backup/
-public/images/cases-original/
-*.log
-.vscode/
-.idea/
-```
+### Quirks
+- ⚠️ `--withoutEnlargement` flag werkt NIET in sharp-cli
+- ⚠️ Squoosh-CLI werkt NIET met spaces in paden
+- ✅ WebP: `npx sharp -i in.png -o out.webp -f webp -q 85`
 
-Daarna:
-```bash
-git add .
-git commit -m "Initial commit: Astrolads website ready for deploy"
-```
-
-#### 3. GitHub setup (~10 min)
-1. Maak GitHub organisatie "Astrolads" (of gebruik bestaand account)
-2. Maak **privé** repo `astrolads-website`
-3. Pushen:
-```bash
-git remote add origin https://github.com/Astrolads/astrolads-website.git
-git branch -M main
-git push -u origin main
-```
-
-#### 4. Netlify deploy (~15 min)
-1. Account aanmaken op netlify.com (kan met GitHub-login)
-2. "Add new site" → "Import from Git"
-3. Selecteer Astrolads/astrolads-website
-4. Build settings:
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-   - **Node version:** 24 (in environment variables of netlify.toml)
-5. Deploy → krijgt random URL zoals `astrolads-website.netlify.app`
-
-#### 5. Lighthouse test op productie URL
-- Open Netlify staging URL in incognito
-- F12 → Lighthouse → Mobile → Analyze
-- **Verwachting: 95+ Performance**
-
-#### 6. Mobile tests echte devices (~30 min)
-- iPhone Safari: body-scroll-lock mobile menu testen
-- Android Chrome: touch-swipe sliders
-- Cookieconsent banner werkt
-- Alle interne links nalopen
-- FAQ-accordeon werkt
-- Taal-switcher werkt op alle pagina's
-
-#### 7. Custom domain astrolads.com koppelen (~30 min)
-- In Netlify: Domain settings → Add custom domain → astrolads.com
-- DNS records bij domein-registrar instellen (A record + CNAME)
-- Automatic HTTPS via Netlify
-- Wacht 1-24 uur op DNS propagatie
+### Resultaten
+- Public folder: 137 → 52 MB na full conversie
+- Cases foto's: 16 → 5 MB (resize 1400 breed)
 
 ---
 
-### 🟡 MIDDEL PRIO — Voor of vlak na live
+## 🛠️ Maintenance
 
-#### 8. Google Analytics 4
-1. GA4 property aanmaken
-2. Measurement ID kopiëren (`G-XXXXXXXXXX`)
-3. In `src/components/CookieBanner.astro` regel met `var GA_ID = ...` invullen
-4. Commit + push → auto-deploy
+### Nieuwe case toevoegen
+1. Foto's in `public/images/cases/{slug}-*.webp`
+2. OG-image genereren (zie sharp-cli voorbeeld)
+3. Entry in `src/pages/cases/[slug].astro` (NL)
+4. Entry in `src/pages/en/cases/[slug].astro` (EN)
+5. Slug toevoegen aan `getStaticPaths()` in beide
 
-#### 9. Content team afwachten
-- **AI-implementatie header-foto** (`ai-header.jpg` → wordt `ai-header.webp`)
-- **Vormgeving header-foto** (`vormgeving-header.jpg` → wordt `vormgeving-header.webp`)
-- Eventueel scherpere SVG favicon
-
-#### 10. Search engine submission
-- Google Search Console: site toevoegen + sitemap inschrijven
-- Bing Webmaster Tools: idem
-- Verifieer dat alle 87 pages indexable zijn
-
-#### 11. Netlify form-notifications
-- Contact-form notificaties naar `info@astrolads.com`
-- Spam-bescherming check
+### Nieuw teamlid
+1. Foto's in `public/images/team/{voornaam}-*.webp`
+2. OG-image: target naar `og/team/{voornaam-achternaam}.jpg`
+3. Entry + slug in beide `[slug].astro` files
 
 ---
 
-### 🟢 LAGE PRIO — Post-launch
+## 🎯 Open todos
 
-#### 12. Image-optimalisatie restjes
-- Sommige team/diensten foto's nog te groot voor display size
-- Optioneel: meer compressie of resize
+### Hoge prioriteit
+- [ ] Custom domain koppelen
+- [ ] GA4 ID configureren
+- [ ] Search Console setup
 
-#### 13. Sanity Events CMS
-- Voor de 2-3 events/maand op community pagina
-- Of via Netlify Forms voor simpele submissions
+### Medium
+- [ ] Community pagina's eigen OG-images
+- [ ] NavNightEN.astro Agency tab → wit
+- [ ] EN FooterNight Astrolads B.V. regel
+- [ ] Nieuwe cases: MBO Rijnland, Hart voor de Zaak, OOMT, NKL Nederland, NL Hydrogen, We Build
 
-#### 14. Nieuwe cases toevoegen
-- MBO Rijnland
-- Hart voor de Zaak
-- OOMT
-- NKL Nederland
-- NL Hydrogen
-- We Build
-
-#### 15. Per-teamlid `fotosPosities` array
-- Fine-tuning object-position van foto's in slider
-- Voor optimale gezichten in beeld
+### Laag
+- [ ] Sanity Events CMS voor community events
+- [ ] Per-teamlid fotoPosities fine-tuning
+- [ ] Echte mobile tests
 
 ---
 
-## 🗂️ BELANGRIJKE FILES & LOCATIES
+## 🐛 Bekende quirks
 
-### Layouts
-- `src/layouts/Layout.astro` — NL hoofdlayout met Organization+LocalBusiness+WebSite schemas
-- `src/layouts/LayoutEN.astro` — EN versie
-- `src/layouts/LayoutNight.astro` — Dark mode NL (community pagina's)
-- `src/layouts/LayoutNightEN.astro` — Dark mode EN
-
-### Components
-- `src/components/Breadcrumb.astro` — Herbruikbaar met `theme="dark"` prop
-- `src/components/Footer.astro` — NL footer met FAQ link
-- `src/components/FooterEN.astro` — EN footer met FAQ link
-- `src/components/Navbar.astro` — Met taal-switcher
-- `src/components/CasesSlider.astro` — Cases carousel
-- `src/components/CookieBanner.astro` — GA-ID hier invullen
-
-### Belangrijke pages
-- `src/pages/index.astro` — Homepage NL (hero slider klikbaar)
-- `src/pages/en/index.astro` — Homepage EN
-- `src/pages/veelgestelde-vragen.astro` — FAQ NL met FAQPage-schema
-- `src/pages/en/faq.astro` — FAQ EN
-- `src/pages/cases/[slug].astro` — Dynamic case detail NL
-- `src/pages/en/cases/[slug].astro` — Dynamic case detail EN
-- `src/pages/team/[slug].astro` — Dynamic team detail NL
-- `src/pages/en/team/[slug].astro` — Dynamic team detail EN
-
-### Public/SEO files
-- `public/robots.txt` — 16 AI-bots toegestaan
-- `public/llms.txt` — AI-standaard
-- `public/images/logo.png` — 512×512 (blijft PNG voor schema's)
-- `public/images/og-default.jpg` — 1200×630 (blijft JPG voor social media)
-
----
-
-## 🎨 PATTERNS & CONVENTIES
-
-### Breadcrumb pattern
-```astro
-<!-- Light theme (default) -->
-<Breadcrumb items={[
-  { name: 'Cases', url: '/cases' },
-  { name: 'Deelmobiliteit' }
-]} />
-
-<!-- EN versie -->
-<Breadcrumb lang="en" items={[...]} />
-
-<!-- Dark theme (community pagina's) -->
-<Breadcrumb theme="dark" items={[...]} />
-```
-- Plaats binnen `<div class="section-inner">` net na opening
-- Laatste item zonder URL = huidige pagina
-- Vervangt oude "← Terug" link of "Community/X" eyebrow
-
-### Article-schema (cases)
-- `@type: "Article"` (niet CreativeWork)
-- `author + publisher` beide `@id` naar `#organization`
-- `about: data.tag` (opdrachtgever)
-- `keywords: data.diensten.join(", ")`
-- `mainEntityOfPage: volledige URL`
-
-### Person-schema (team)
-- `jobTitle: data.rollen[0]`
-- `description: data.bio`
-- `image: full URL met astrolads.com prefix`
-- `worksFor: @id reference naar globale #organization`
-- `knowsAbout: alle rollen array`
-- `sameAs: conditional spread op LinkedIn` (`...(data.linkedin ? { "sameAs": [data.linkedin] } : {})`)
-
-### FAQ structuur
-- Losse URL `/veelgestelde-vragen` (NL) en `/en/faq` (EN)
-- FAQPage-schema met `mainEntity` array
-- Visueel: `<details>`/`<summary>` accordeon met animated icon
-- CTA blok onderaan ("Nog vragen? Kennismaken")
-
-### Image strategy
-- **Algemeen:** WebP (alles geconverteerd)
-- **Cases:** max 1400px breed (geresized)
-- **OG image:** `og-default.jpg` blijft JPG (Facebook/LinkedIn compatibility)
-- **Logo schema:** `logo.png` blijft PNG (crawler compatibility)
-
-### Hero slider patroon (NL + EN)
-- Foto's klikbaar via `<a href="/cases/slug">`
-- `pointer-events: none` op inactive slides
-- `pointer-events: auto` op active slide
-- Geen hover-underline
-
----
-
-## ⚠️ BEKENDE QUIRKS
-
-### Sharp-cli CLI flags
-- `--withoutEnlargement` werkt NIET (zoals bij sharp library)
-- `npx sharp -i ... -o ... -f webp -q 80 resize 1400` is correcte syntax
-- Output naar zelfde dir overschrijft origineel → gebruik tijdelijke dir
-
-### Astro import tags moeten matchen
-- `import LayoutNight from '../layouts/LayoutNightEN.astro'` werkt NIET als tag `<LayoutNightEN>` is
-- Import-naam moet exact matchen met JSX tag-naam
-
-### Netlify forms
-- HTML forms automatisch detected door Netlify
-- Geen extra setup nodig, maar wel `netlify` attribuut op `<form>`
-
-### Spaties in paths
-- Folder `Website Projects` heeft spatie → veroorzaakte Squoosh CLI bug
-- Sharp werkt wel met spaties
-
----
-
-## 🚀 QUICK START VOOR VOLGENDE SESSIE
-
-```bash
-# 1. Naar project folder
-cd "/Users/daveverwey/Documents/Website Projects/astrolads"
-
-# 2. Dev server (om visueel te checken)
-npm run dev
-
-# 3. Build check
-npm run build
-
-# 4. Preview (productie-build lokaal)
-npm run preview
-```
-
-**Eerste actie volgende sessie:** Backups opruimen + Git init + GitHub setup.
-
----
-
-## 📞 BRIEFING VOOR VOLGENDE CHAT
-
-**Plak dit aan het begin van de volgende chat:**
-
-> Hi! We werken aan de Astrolads website (Astro static site). Sessie 13 is afgerond, alle SEO/AI optimalisatie + WebP-conversie is gedaan. Lighthouse score lokaal: 91/96/100/100. Site heeft 87 pages clean built.
->
-> Tone: NL informeel, geen em-dashes. Folder: `/Users/daveverwey/Documents/Website Projects/astrolads/`. Node 24.15.0.
->
-> Doel deze sessie: **GitHub + Netlify deploy** zodat we een staging URL hebben om mobile te testen, daarna custom domain astrolads.com koppelen.
->
-> Lees voor context het README bestand `astrolads-readme.md` dat ik bijvoeg, dan weet je alles wat we al gedaan hebben en wat de patterns/conventies zijn.
-
----
-
-## 🎯 GESCHATTE TIJD TOT LIVE
-
-| Stap | Tijd |
+| Quirk | Workaround |
 |---|---|
-| Deploy voorbereiding (cleanup) | 5 min |
-| Git init + .gitignore | 10 min |
-| GitHub repo + push | 10 min |
-| Netlify setup + eerste deploy | 15 min |
-| Lighthouse test op staging | 5 min |
-| Mobile tests echte devices | 30 min |
-| Custom domain koppelen | 30 min |
-| Wachten op DNS propagatie | 1-24u |
-| Final tests | 30 min |
-| **Totaal effectief** | **~2.5-3 uur** |
+| zsh interpreteert `[...]` als glob | Quote paths: `'src/pages/team/[slug].astro'` |
+| Squoosh-CLI breekt met spaces in path | Gebruik sharp-cli ipv |
+| Favicons cachen agressief | Cmd+Shift+R hard refresh |
+| LinkedIn OG-cache 7 dagen | Use Post Inspector om te refreshen |
+| `display: contents` breekt centering | Gebruik `flex column + align-items: center` |
+| Astrolads-NL org private = $20/mnd | Repo is public gemaakt |
 
 ---
 
-🚀 **Je bent klaar om live te gaan. Veel succes!**
+## 📚 Sessie-historie
+
+- **Sessie 1-12**: Initiële opbouw — alle 87 pagina's
+- **Sessie 13**: SEO/AI optimalisatie (robots, llms.txt, sitemap, Breadcrumbs, FAQ, WebP-conversie)
+- **Sessie 14**: Deploy naar Netlify, Lighthouse 100/96/100/100
+- **Sessie 15**: Content tweaks, klikbare podcast covers, OG-images per pagina, mobile nav scrollable
+
+---
+
+**Contact**: info@astrolads.com
+**Adres**: Grote Markt 22, 2511 BG Den Haag
+**Built by**: Dave Verwey (met dank aan Claude)

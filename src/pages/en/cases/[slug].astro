@@ -315,7 +315,7 @@ const data = cases[slug as keyof typeof cases];
 if (!data) return Astro.redirect('/en/cases');
 ---
 
-<LayoutEN title={data.titel} description={data.metaDescription}>
+<LayoutEN title={data.titel} description={data.metaDescription} image={`/images/og/cases/${slug}.jpg`}>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
