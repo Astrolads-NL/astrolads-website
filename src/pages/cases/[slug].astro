@@ -58,6 +58,7 @@ const cases = {
           '/images/cases/deelmobiliteit-webinar-2.webp',
           '/images/cases/deelmobiliteit-webinar-3.webp',
         ],
+        fotoPositie: 'top',
         flip: false,
       },
       {
@@ -464,7 +465,7 @@ if (!data) return Astro.redirect('/cases');
                 style="border-radius:16px;"
               ></iframe>
             ) : 'fotos' in s ? (
-              <div class="sectie-fader">
+              <div class:list={['sectie-fader', 'fotoPositie' in s ? `pos-${s.fotoPositie}` : null]}>
                 {s.fotos.map((f, i) => (
                   <img
                     src={f} alt={s.titel}
@@ -649,6 +650,8 @@ if (!data) return Astro.redirect('/cases');
     transition: opacity .8s ease;
   }
   .sectie-fader .fader-slide.active { opacity: 1; }
+  .sectie-fader.pos-top .fader-slide { object-position: center 25%; }
+  .sectie-fader.pos-bottom .fader-slide { object-position: center 75%; }
   .sectie-fader .fader-dots {
     position: absolute; bottom: 16px; left: 50%;
     transform: translateX(-50%);
@@ -730,6 +733,7 @@ if (!data) return Astro.redirect('/cases');
     .case-sectie {
       display: flex !important;
       flex-direction: column !important;
+      align-items: stretch !important;
       gap: 16px;
       margin-bottom: 64px;
       text-align: left;

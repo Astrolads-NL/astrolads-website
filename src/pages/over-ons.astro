@@ -38,16 +38,16 @@ const pijlers = [
 ];
 
 const klanten = [
+  { naam: 'OOMT', logo: '/images/klanten/oomt.webp' },
+  { naam: 'Nederlandse School voor Openbaar Bestuur', logo: '/images/klanten/nederlandse-school-voor-openbaar-bestuur.webp' },
+  { naam: 'Natuurlijk Deelmobiliteit', logo: '/images/klanten/natuurlijk-deelmobiliteit.webp' },
   { naam: 'BOB KOB Opleidingen', logo: '/images/klanten/bob-kob.webp' },
+  { naam: 'Vereniging Elektrische Rijders', logo: '/images/klanten/vereniging-elektrische-rijders.webp' },
+  { naam: 'Na de Oorlog', logo: '/images/klanten/na-de-oorlog.webp' },
   { naam: 'Hart voor de Zaak', logo: '/images/klanten/hart-voor-de-zaak.webp' },
   { naam: 'MBO Rijnland', logo: '/images/klanten/mbo-rijnland.webp' },
-  { naam: 'Na de Oorlog', logo: '/images/klanten/na-de-oorlog.webp' },
-  { naam: 'Natuurlijk Deelmobiliteit', logo: '/images/klanten/natuurlijk-deelmobiliteit.webp' },
-  { naam: 'Nederlandse School voor Openbaar Bestuur', logo: '/images/klanten/nederlandse-school-voor-openbaar-bestuur.webp' },
   { naam: 'NKL Nederland', logo: '/images/klanten/nkl-nederland.webp' },
   { naam: 'NL Hydrogen', logo: '/images/klanten/nlhydrogen.webp' },
-  { naam: 'OOMT', logo: '/images/klanten/oomt.webp' },
-  { naam: 'Vereniging Elektrische Rijders', logo: '/images/klanten/vereniging-elektrische-rijders.webp' },
 ];
 ---
 
@@ -325,18 +325,35 @@ const klanten = [
       max-height: 240px;
     }
 
-    /* Klanten: peek-scroll, kleiner logo's */
+    /* Klanten: peek-scroll met halve logo rechts als hint */
     .klanten-sectie { margin-bottom: 56px; text-align: left; }
     .klanten-sectie h2 { font-size: 24px; margin-bottom: 8px; }
     .klanten-sub { font-size: 13px; margin-bottom: 28px; }
     .klanten-scroll {
       margin: 0 -20px;
       padding: 16px 20px;
-      gap: 24px;
+      gap: 16px;
+      scroll-padding-left: 20px;
     }
-    .klant-logo { flex: 0 0 140px; height: 60px; }
+    .klant-logo {
+      flex: 0 0 140px;
+      height: 60px;
+    }
     .klant-logo img { max-height: 50px; max-width: 130px; }
-    .klanten-sectie .carousel-nav { display: none; }
+    .klant-logo img[alt="Natuurlijk Deelmobiliteit"] {
+      max-height: 85px;
+      max-width: 200px;
+    }
+    .klant-logo img[alt="Nederlandse School voor Openbaar Bestuur"] {
+      max-height: 60px;
+      max-width: 150px;
+    }
+    .klanten-sectie .carousel-nav { display: flex; }
+    .klanten-sectie .carousel-btn {
+      width: 36px; height: 36px;
+      font-size: 14px;
+    }
+    .klanten-sectie .carousel-nav { justify-content: flex-end; margin-top: 12px; }
 
     /* Team: 2 kolommen, compactere body */
     .team-sectie { text-align: left; }

@@ -92,6 +92,10 @@ a { color: inherit; }
 
 /* ── Utilities ── */
 .section-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+@media (max-width: 768px) {
+  .section-inner { padding: 0 20px; }
+}
 .section-label {
   font-size: 13px; font-weight: 700;
   color: var(--muted);
