@@ -41,8 +41,11 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <div class="contact-right">
-          <form class="contact-form" name="contact" method="POST" data-netlify="true" action="/bedankt">
+          <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field" action="/bedankt">
             <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden" style="display:none;">
+              <label>Niet invullen: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
 
             <div class="form-group">
               <label for="naam">Naam</label>
