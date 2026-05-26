@@ -121,7 +121,7 @@ a { color: inherit; }
   padding: 10px 22px;
   border-radius: 999px;
   font-family: var(--font);
-  font-size: 14px; font-weight: 400;
+  font-size: 14px; font-weight: 700;
   text-decoration: none;
   transition: opacity .2s, transform .15s;
   display: inline-block;
