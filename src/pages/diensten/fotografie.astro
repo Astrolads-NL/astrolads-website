@@ -38,7 +38,6 @@ const vormen = [
 <Layout
   title="Fotografie"
   description="Professionele fotografie voor events, portretten en bedrijfsuitingen. Astrolads zorgt voor een uniforme beeldbank en sfeerverslag van jouw merk of evenement."
-  image="/images/og/diensten/fotografie.jpg"
 >
 
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -55,7 +54,7 @@ const vormen = [
     <div class="section-inner">
       <Breadcrumb items={[
         { name: 'Diensten', url: '/diensten' },
-        { name: 'PAGINA_NAAM_HIER' }
+        { name: 'Fotografie' }
       ]} />
 
       <!-- Header -->
@@ -69,6 +68,16 @@ const vormen = [
        <div class="dienst-header-img">
           <img src="/images/diensten/fotografie-slide-1.webp" alt="Astrolads fotografie" width="640" height="480" loading="eager" fetchpriority="high" decoding="sync" />
         </div>
+      </div>
+
+      <!-- Quote -->
+      <div class="dienst-quote-wrap">
+        <div class="dienst-quote">
+          <span class="quote-icon">&ldquo;</span>
+          <blockquote>Heel strakke en goede content met een minimale briefing!</blockquote>
+          <img src="/images/diensten/quotes/stephan-bredewold.webp" alt="Stephan Bredewold" class="quote-foto" />
+        </div>
+        <p class="quote-naam">Stephan Bredewold</p>
       </div>
 
       <!-- Vormen -->
@@ -193,6 +202,65 @@ const vormen = [
   }
   .dienst-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
   .dienst-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  /* Dienst Quote Block (mobile only) */
+  .dienst-quote-wrap {
+    display: none;
+    position: relative;
+    margin: 64px 0 96px;
+  }
+  .dienst-quote {
+    background: var(--navy); color: #fff;
+    border-radius: var(--radius); padding: 20px 28px;
+    position: relative; overflow: visible;
+  }
+  .dienst-quote .quote-icon {
+    font-size: 48px; color: var(--orange);
+    font-family: Georgia, serif; line-height: 0.7;
+    display: block; margin-bottom: 0; font-style: normal;
+  }
+  .dienst-quote blockquote {
+    font-size: 16px; line-height: 1.5; font-weight: 400;
+    padding-right: 100px;
+  }
+  .dienst-quote-wrap .quote-naam {
+    font-size: 15px; color: var(--navy);
+    font-weight: 700;
+    margin-top: 16px; padding-right: 180px;
+    text-align: right;
+  }
+  .dienst-quote .quote-foto {
+    position: absolute;
+    bottom: -80px; right: -20px;
+    width: 160px; height: 160px;
+    border-radius: 50%; object-fit: cover;
+    border: 4px solid var(--bg);
+  }
+
+  @media (max-width: 768px) {
+    .dienst-quote-wrap {
+      display: block;
+      margin: 40px 0 80px;
+    }
+    .dienst-quote { padding: 20px 24px; }
+    .dienst-quote blockquote {
+      font-size: 14px;
+      line-height: 1.5;
+      padding-right: 0;
+    }
+    .dienst-quote .quote-icon { font-size: 36px; margin-bottom: -10px; }
+    .dienst-quote .quote-foto {
+      width: 90px; height: 90px;
+      bottom: -55px; right: -12px;
+      border-width: 3px;
+    }
+    .dienst-quote-wrap .quote-naam {
+      font-size: 14px;
+      margin-top: 10px;
+      padding-right: 90px;
+      text-align: right;
+    }
+  }
 
   @media (max-width: 768px) {
     .dienst-page { padding: 32px 0 56px; }

@@ -54,6 +54,16 @@ const vormen = [
         </div>
       </div>
 
+      <!-- Quote -->
+      <div class="dienst-quote-wrap">
+        <div class="dienst-quote">
+          <span class="quote-icon">&ldquo;</span>
+          <blockquote>Lekker op vrijdagavond appen om een opdracht succesvol af te ronden, geen 9 tot 5 mentaliteit!</blockquote>
+          <img src="/images/diensten/quotes/jacqueline-de-groot.webp" alt="Jacqueline de Groot" class="quote-foto" />
+        </div>
+        <p class="quote-naam">Jacqueline de Groot</p>
+      </div>
+
       <!-- Vormen -->
       <div class="dienst-vormen">
         <h2 class="vormen-titel">Wat kunnen we voor je doen?</h2>
@@ -139,6 +149,63 @@ const vormen = [
   }
   .dienst-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
   .dienst-cta p { opacity: .8; margin-bottom: 32px; font-size: 16px; }
+
+  /* Dienst Quote Block */
+  .dienst-quote-wrap {
+    position: relative;
+    margin: 64px 0 96px;
+  }
+  .dienst-quote {
+    background: var(--navy); color: #fff;
+    border-radius: var(--radius); padding: 20px 28px;
+    position: relative; overflow: visible;
+  }
+  .dienst-quote .quote-icon {
+    font-size: 48px; color: var(--orange);
+    font-family: Georgia, serif; line-height: 0.7;
+    display: block; margin-bottom: 0; font-style: normal;
+  }
+  .dienst-quote blockquote {
+    font-size: 16px; line-height: 1.5; font-weight: 400;
+    padding-right: 100px;
+  }
+  .dienst-quote-wrap .quote-naam {
+    font-size: 15px; color: var(--navy);
+    font-weight: 700;
+    margin-top: 16px; padding-right: 180px;
+    text-align: right;
+  }
+  .dienst-quote .quote-foto {
+    position: absolute;
+    bottom: -80px; right: -20px;
+    width: 160px; height: 160px;
+    border-radius: 50%; object-fit: cover;
+    border: 4px solid var(--bg);
+  }
+
+  @media (max-width: 768px) {
+    .dienst-quote-wrap {
+      margin: 40px 0 80px;
+    }
+    .dienst-quote { padding: 20px 24px; }
+    .dienst-quote blockquote {
+      font-size: 14px;
+      line-height: 1.5;
+      padding-right: 0;
+    }
+    .dienst-quote .quote-icon { font-size: 36px; margin-bottom: -10px; }
+    .dienst-quote .quote-foto {
+      width: 90px; height: 90px;
+      bottom: -55px; right: -12px;
+      border-width: 3px;
+    }
+    .dienst-quote-wrap .quote-naam {
+      font-size: 14px;
+      margin-top: 10px;
+      padding-right: 90px;
+      text-align: right;
+    }
+  }
 
   @media (max-width: 768px) {
     .dienst-page { padding: 32px 0 56px; }
