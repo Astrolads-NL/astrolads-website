@@ -8,9 +8,8 @@ const isActive = (path: string) => currentPath === path || (path !== '/' && curr
     <span class="nav-side-tab-text">Community</span>
   </a>
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
+    <a href="/" class="nav-logo" aria-label="Astrolads">
       <img src="/images/logo/astrolads-logo.png" alt="Astrolads" />
-      <a href="/" class="nav-logo" aria-label="Astrolads"><img src="/images/logo/astrolads-logo.png" alt="Astrolads" /></a>
     </a>
 
     <ul class="nav-links" id="navLinks">
@@ -97,8 +96,14 @@ const isActive = (path: string) => currentPath === path || (path !== '/' && curr
   .nav-side-tab-text { letter-spacing: .02em; }
 
   .nav-logo {
-    font-weight: 700; font-size: 20px;
-    color: var(--text); text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    height: 24px;
+    width: auto;
+    display: block;
   }
  .nav-links {
     display: flex; align-items: center; gap: 32px;
