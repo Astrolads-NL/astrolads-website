@@ -67,7 +67,7 @@ const covers = [
           <blockquote>Every podcast recording is a blast!</blockquote>
           <img src="/images/diensten/quotes/lennard-toma.webp" alt="Lennard Toma" class="quote-foto" />
         </div>
-        <p class="quote-naam">Lennard Toma</p>
+        <p class="quote-naam">Lennard Toma<span class="quote-org">Psychologist and author</span></p>
       </div>
 
       <!-- Slider left, text right -->
@@ -277,6 +277,13 @@ const covers = [
     font-weight: 700;
     margin-top: 16px; padding-right: 180px;
     text-align: right;
+  }
+  .dienst-quote-wrap .quote-org {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 2px;
   }
   .dienst-quote .quote-foto {
     position: absolute;
