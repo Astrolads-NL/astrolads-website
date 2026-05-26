@@ -69,9 +69,10 @@ const currentPath = Astro.url.pathname;
 
   .nav-logo {
     display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-end;
+    gap: 4px;
     text-decoration: none;
+    line-height: 1;
   }
   .nav-logo img {
     height: 45px;
@@ -81,7 +82,9 @@ const currentPath = Astro.url.pathname;
   .nav-logo-accent {
     color: var(--orange);
     font-weight: 700;
-    font-size: 20px;
+    font-size: 22px;
+    position: relative;
+    top: -4px;
   }
 
   .nav-links {
