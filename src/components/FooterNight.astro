@@ -74,7 +74,7 @@
     font-size: 22px;
     font-weight: 700;
     position: relative;
-    top: 2px;
+    top: 1px;
   }
   .footer-tagline { color: var(--night-muted); margin-top: 8px; max-width: 280px; }
   .footer-titel {
@@ -100,6 +100,7 @@
   
   @media (max-width: 768px) {
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-logo span { display: none; }
     .footer-bottom {
       flex-direction: column;
       align-items: flex-start;
