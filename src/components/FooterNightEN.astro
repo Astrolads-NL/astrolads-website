@@ -10,7 +10,6 @@
       </div>
       <div class="footer-col">
         <p class="footer-titel">Community</p>
-        <a href="/en/community">Home</a>
         <a href="/en/community/events">Events</a>
         <a href="/en/community/initiatives">Initiatives</a>
         <a href="/en/community/initiatives#pitch">Pitch your idea</a>
@@ -20,7 +19,6 @@
         <p>Astrolads B.V.</p>
         <p>Grote Markt 22</p>
         <p>2511 BG The Hague</p>
-        <a href="mailto:info@astrolads.com">info@astrolads.com</a>
       </div>
       <div class="footer-col">
         <p class="footer-titel">Follow us</p>
@@ -56,6 +54,8 @@
     margin-bottom: 48px;
   }
   .footer-col { display: flex; flex-direction: column; gap: 8px; }
+  .footer-col:nth-of-type(2),
+  .footer-col:nth-of-type(4) { margin-top: 12px; }
   .footer-col a { color: var(--night-muted); text-decoration: none; font-size: 14px; transition: color .2s; }
   .footer-col a:hover { color: var(--orange); }
   .footer-col p { color: var(--night-muted); font-size: 14px; }
@@ -67,15 +67,17 @@
     align-items: center;
     gap: 6px;
     line-height: 1;
+    margin-bottom: 16px;
+    margin-left: -3px;
   }
   .footer-logo img { height: 45px; width: auto; display: block; }
-  .footer-logo span {
+ .footer-logo span {
     color: var(--orange);
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 700;
     position: relative;
-    top: 2px;
-    left: -1px;
+    top: 1px;
+    
   }
   .footer-tagline { color: var(--night-muted); margin-top: 8px; max-width: 280px; }
   .footer-titel {
@@ -100,8 +102,24 @@
   .footer-bottom-links a:hover { color: var(--orange); }
 
   @media (max-width: 768px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-    .footer-logo span { display: none; }
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    /* Brand (logo + tagline) bovenaan, volledige breedte */
+    .footer-col:nth-of-type(1) {
+      grid-column: 1 / -1;
+      margin-bottom: 8px;
+    }
+    /* Community links, Contact rechts (zelfde rij) */
+    .footer-col:nth-of-type(2) { grid-column: 1; grid-row: 2; margin-top: 0; }
+    .footer-col:nth-of-type(3) { grid-column: 2; grid-row: 2; }
+    /* Volg ons onderaan, volledige breedte */
+    .footer-col:nth-of-type(4) {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      margin-top: 0;
+    }
     .footer-bottom {
       flex-direction: column;
       align-items: flex-start;
