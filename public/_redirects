@@ -1,0 +1,4 @@
+# Redirects van oude site naar nieuwe paginas
+/onze-missie              /over-ons                       301
+/studentenmediateams      /diensten/onderwijsinnovatie    301
+/podcast-advertenties     /diensten/podcast               301
