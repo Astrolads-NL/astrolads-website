@@ -83,7 +83,7 @@ const vormen = [
           <blockquote>Really sharp, high-quality content with minimal briefing!</blockquote>
           <img src="/images/diensten/quotes/stephan-bredewold.webp" alt="Stephan Bredewold" class="quote-foto" />
         </div>
-        <p class="quote-naam">Stephan Bredewold</p>
+        <p class="quote-naam">Stephan Bredewold<span class="quote-org">Director Fountain Fuel</span></p>
       </div>
 
       <!-- Forms -->
@@ -232,8 +232,13 @@ const vormen = [
   .dienst-quote-wrap .quote-naam {
     font-size: 15px; color: var(--navy);
     font-weight: 700;
-    margin-top: 16px; padding-right: 180px;
+    margin-top: 16px; padding-right: 80px;
     text-align: right;
+  }
+  .dienst-quote-wrap .quote-org {
+    color: var(--muted);
+    font-weight: 400;
+    margin-left: 6px;
   }
   .dienst-quote .quote-foto {
     position: absolute;
@@ -265,6 +270,12 @@ const vormen = [
       margin-top: 10px;
       padding-right: 90px;
       text-align: right;
+    }
+    .dienst-quote-wrap .quote-org {
+      display: block;
+      margin-left: 0;
+      font-size: 12px;
+      margin-top: 2px;
     }
   }
 
