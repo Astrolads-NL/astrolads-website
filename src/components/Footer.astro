@@ -115,7 +115,7 @@ const cases = [
     margin-bottom: 28px;
     position: relative;
     top: -5px;
-    left: -6px;
+    left: -1px;
   }
   .footer-brand .logo img {
     height: 45px;
@@ -136,7 +136,12 @@ const cases = [
   .socials a:hover { opacity: .6; }
 
   .footer-col h3 {
-    font-weight: 700; font-size: 14px; margin-bottom: 20px;
+    font-weight: 700; font-size: 14px; margin-bottom: 18px;
+  }
+  @media (min-width: 769px) {
+    .footer-col:not(.footer-brand) {
+      padding-top: 14px;
+    }
   }
   .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
   .footer-col ul a { text-decoration: none; color: var(--muted); font-size: 13px; transition: color .2s; }
@@ -194,9 +199,8 @@ const cases = [
     }
     .footer-col:nth-of-type(5) {
       align-self: start;
-      margin-top: 72px;
+      margin-top: 65px;
     }
-
     /* Raket subtiel rechtsonder */
     .footer-raket {
       display: block;
