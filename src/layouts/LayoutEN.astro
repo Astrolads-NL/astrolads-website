@@ -66,6 +66,8 @@ if (enToNl[path] !== undefined) {
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.webp" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title} | Astrolads</title>
@@ -198,6 +200,21 @@ if (enToNl[path] !== undefined) {
       .taal-float-btn:hover { opacity: .8; }
       .taal-float-btn.active { opacity: 1; }
     </style>
+
+    <!-- Google Analytics 4 (alleen na cookie consent) -->
+    <script is:inline>
+      if (localStorage.getItem('astrolads-cookie-consent') === 'accepted') {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-BVMBH0N84J';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ window.dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-BVMBH0N84J', { anonymize_ip: true });
+      }
+    </script>
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
