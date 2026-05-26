@@ -31,6 +31,7 @@ const cases = {
       foto: '/images/cases/deelmobiliteit-eddy.webp',
       tekst: 'Het werken met Astrolads is voor mij als werken met een volledig (online) communicatieteam, maar dan extern georganiseerd. Divers, vaardig, flexibel, verschroeiend hoog tempo en bovenal... ontzettend fijne gasten om mee te werken!',
       naam: 'Eddy Carree',
+      organisatie: 'Communicatiestrateeg',
     },
     secties: [
       {
@@ -109,6 +110,7 @@ const cases = {
       foto: '/images/cases/nsob-christiaan.webp',
       tekst: 'Als de witte jasjes van Astrolads binnen komen wandelen, voel ik me direct op m\'n gemak. Wie die jas ook aanheeft. Je weet direct dat je je op technisch gebied nergens meer zorgen over hoeft te maken, dat (bijna) alles kan en dat iedereen zich op z\'n gemak voelt. En dat zo\'n partner dan ook nog inhoudelijk goed op de hoogte is en kan reflecteren op de inhoud van bijvoorbeeld een podcast: dat werkt als een trein!',
       naam: 'Christiaan van der Kaaij',
+      organisatie: 'Onderzoeker en opleidingsmanager',
     },
     secties: [
       {
@@ -234,6 +236,7 @@ const cases = {
       foto: '/images/cases/rli-douwe.webp',
       tekst: 'Astrolads weet telkens goed de balans te vinden tussen inhoud / vorm, formeel / vlot en enthousiasme / zakelijkheid... altijd een feest om samen te werken!',
       naam: 'Douwe Wielenga',
+      organisatie: 'Projectleider',
     },
     secties: [
       {
@@ -272,6 +275,7 @@ const cases = {
       foto: '/images/cases/ver-sjors.webp',
       tekst: 'De VER heeft niets voor niets al jaren een samenwerking met Astrolads. Hun frisse blik op de mediawereld en de inzet van jong talent zorgt voor vlotte en levendige content, in veel verschillende vormen. Daarnaast is het team heel professioneel en is de productie van bijvoorbeeld webinars niet alleen vlekkeloos, maar ook dynamisch en interactief.',
       naam: 'Sjors ten Tije',
+      organisatie: 'Communicatiemanager',
     },
     secties: [
       {
@@ -394,7 +398,7 @@ if (!data) return Astro.redirect('/cases');
               <img src={data.quote.foto} alt={data.quote.naam} class="quote-foto" />
             )}
           </div>
-          <p class="quote-naam">{data.quote.naam}</p>
+          <p class="quote-naam">{data.quote.naam}{'organisatie' in data.quote && <span class="quote-org">{data.quote.organisatie}</span>}</p>
         </div>
       )}
 
@@ -559,6 +563,12 @@ if (!data) return Astro.redirect('/cases');
     margin-top: 16px; padding-right: 100px;
     text-align: right;
   }
+  .quote-org {
+    color: var(--muted);
+    font-weight: 400;
+    margin-left: 6px;
+  }
+
   .quote-foto {
     position: absolute;
     bottom: -80px; right: -80px;
