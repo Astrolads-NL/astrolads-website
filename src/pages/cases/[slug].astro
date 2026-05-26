@@ -552,7 +552,7 @@ if (!data) return Astro.redirect('/cases');
     position: relative; overflow: visible;
   }
   .quote-icon { font-size: 48px; color: var(--orange); font-family: Georgia, serif; line-height: 0.7; display: block; margin-bottom: 0; font-style: normal; }
-  .case-quote blockquote { font-size: 16px; line-height: 1.5; font-weight: 400; padding-right: 100px; }
+  .case-quote blockquote { font-size: 16px; line-height: 1.5; font-weight: 400; padding-right: 0; }
   .quote-naam {
     font-size: 15px; color: var(--navy);
     font-weight: 700;
@@ -773,7 +773,7 @@ if (!data) return Astro.redirect('/cases');
     }
 
     .case-quote-wrap { margin-bottom: 96px; }
-    .case-quote { padding: 20px 24px; }
+    .case-quote { padding: 20px 24px 40px; }
     .case-quote blockquote {
       font-size: 14px;
       line-height: 1.5;
