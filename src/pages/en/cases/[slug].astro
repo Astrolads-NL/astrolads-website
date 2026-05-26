@@ -563,15 +563,13 @@ if (!data) return Astro.redirect('/en/cases');
   .quote-naam {
     font-size: 15px; color: var(--navy);
     font-weight: 700;
-    margin-top: 16px; padding-right: 180px;
+    margin-top: 16px; padding-right: 100px;
     text-align: right;
   }
   .quote-org {
-    display: block;
-    font-size: 12px;
-    font-weight: 400;
     color: var(--muted);
-    margin-top: 2px;
+    font-weight: 400;
+    margin-left: 6px;
   }
   .quote-foto {
     position: absolute;
@@ -801,6 +799,12 @@ if (!data) return Astro.redirect('/en/cases');
       margin-top: 10px;
       padding-right: 90px;
       text-align: right;
+    }
+    .quote-org {
+      display: block;
+      margin-left: 0;
+      font-size: 12px;
+      margin-top: 2px;
     }
 
     .sectie-tekst h2 { font-size: 22px; margin-bottom: 12px; }
