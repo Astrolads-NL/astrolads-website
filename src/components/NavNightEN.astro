@@ -68,12 +68,20 @@ const currentPath = Astro.url.pathname;
   .nav-side-tab-text { letter-spacing: .02em; }
 
   .nav-logo {
-    font-weight: 700; font-size: 20px;
-    color: var(--night-text); text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    height: 45px;
+    width: auto;
+    display: block;
   }
   .nav-logo-accent {
     color: var(--orange);
     font-weight: 700;
+    font-size: 20px;
   }
 
   .nav-links {
