@@ -1,0 +1,658 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const cijfers = [
+  { getal: '50+', label: 'overheidsinstanties en kennisinstituten' },
+  { getal: '7+', label: 'jaar ervaring in de publieke sector' },
+  { getal: '500+', label: 'projecten' },
+];
+
+const diensten = [
+  { naam: 'Communicatiestrategie', url: '/diensten/communicatiestrategie', img: '/images/diensten/strategie-header.webp', meer: false },
+  { naam: 'Video', url: '/diensten/video', img: '/images/diensten/video-slide-1.webp', meer: false },
+  { naam: 'Podcast', url: '/diensten/podcast', img: '/images/diensten/podcast-slide-1.webp', meer: false },
+  { naam: 'Webinar & Livestream', url: '/diensten/webinar', img: '/images/diensten/webinar-social-2.webp', meer: false, fotoTop: true },
+  { naam: 'Fotografie', url: '/diensten/fotografie', img: '/images/diensten/fotografie-evenementen-1.webp', meer: false },
+  { naam: 'Vormgeving & Animatie', url: '/diensten/vormgeving', img: '/images/diensten/vormgeving-header.webp', meer: false },
+  { naam: 'Social media', url: '/diensten/socials', img: '/images/diensten/socials-header.webp', meer: false },
+  { naam: 'Website', url: '/diensten/website', img: '/images/diensten/website-klein-tot-groot.webp', meer: false },
+  { naam: 'AI-implementatie', url: '/diensten/ai-implementatie', img: '/images/diensten/ai-header.webp', meer: false },
+  { naam: 'En nog veel meer!', url: '/diensten', tekst: 'Ontdek al onze diensten', img: null, meer: true },
+];
+
+const cases = [
+  { slug: 'nsob', tag: 'Nederlandse School voor Openbaar Bestuur', titel: 'Hoogwaardig onderwijs en gefundeerd onderzoek over de publieke sector', img: '/images/cases/nsob.webp' },
+  { slug: 'rli', tag: 'Raad voor de leefomgeving en infrastructuur', titel: 'Adviesraad voor regering en parlement omtrent o.a. wonen, ruimtelijke ordening & milieu', img: '/images/cases/rli.webp' },
+  { slug: 'rathenau', tag: 'Rathenau Instituut', titel: 'Onafhankelijke kennis over maatschappelijk verantwoorde wetenschap, technologie en innovatie', img: '/images/cases/rathenau.webp' },
+  { slug: 'nkl-nederland', tag: 'NKL Nederland', titel: 'Betrouwbare kennis over laadinfrastructuur voor beleidsmakers en bedrijven', img: '/images/cases/nkl-nederland.webp' },
+  { slug: 'na-de-oorlog', tag: 'Stichting Na de Oorlog', titel: 'Verhalen uit de Tweede Wereldoorlog doorgeven aan nieuwe generaties', img: '/images/cases/na-de-oorlog.webp' },
+];
+
+const stappen = [
+  {
+    nummer: '01',
+    titel: 'Kennismaken',
+    tekst: 'We luisteren naar jouw uitdaging, doelgroep en organisatie. Geen verkoopgesprek, wel een goed gesprek.',
+  },
+  {
+    nummer: '02',
+    titel: 'Strategie & concept',
+    tekst: 'We vertalen jouw boodschap naar een doelgroep-gedreven strategie en concreet concept dat past bij wat jij wilt bereiken.',
+  },
+  {
+    nummer: '03',
+    titel: 'Productie & impact',
+    tekst: 'Ons interne productiehuis brengt het concept tot leven. Van video tot webinar, van podcast tot vormgeving, alles in huis.',
+  },
+];
+---
+
+<Layout
+  title="Communicatiebureau voor de publieke sector"
+  description="Astrolads is dé communicatiepartner voor overheidsorganisaties, kennisinstituten en maatschappelijke organisaties. Strategie én productie onder één dak."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Communicatie voor de publieke sector",
+    "provider": { "@type": "Organization", "name": "Astrolads", "@id": "https://astrolads.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "Netherlands" },
+    "description": "Communicatiestrategie en mediaproductie voor overheidsorganisaties, kennisinstituten en maatschappelijke organisaties. Alles onder één dak.",
+    "url": "https://astrolads.com/voor/overheid"
+  })} />
+
+  <div class="overheid-page">
+    <div class="section-inner">
+      <Breadcrumb items={[
+        { name: 'Voor de publieke sector' }
+      ]} />
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-left">
+          <p class="eyebrow">Communicatiebureau voor de publieke sector</p>
+          <h1>Strategie én productie onder één dak</h1>
+          <p class="hero-sub">Astrolads is dé communicatiepartner voor overheidsorganisaties, kennisinstituten en maatschappelijke organisaties. Van strategisch advies tot complete productie, alles in huis!</p>
+          <a href="/contact" class="btn-orange">Plan een kennismakingsgesprek</a>
+          <p class="hero-cta-sub">We zijn benieuwd naar jouw uitdaging!</p>
+        </div>
+        <div class="hero-right">
+          <div class="hero-img-stack">
+            <img src="/images/diensten/diensten-slide-1.webp" alt="Astrolads diensten" class="stack-1" width="400" height="300" loading="eager" fetchpriority="high" decoding="sync" />
+            <img src="/images/diensten/webinar-slide-2.webp" alt="Astrolads webinar" class="stack-2" width="400" height="300" loading="eager" decoding="async" />
+            <img src="/images/diensten/strategie-header.webp" alt="Astrolads communicatiestrategie" class="stack-3" width="400" height="300" loading="eager" decoding="async" />
+          </div>
+        </div>
+      </section>
+
+      <!-- CIJFERS -->
+      <section class="cijfers">
+        <p class="cijfers-titel">Je bent in goed gezelschap!</p>
+        <div class="cijfers-grid">
+          {cijfers.map(c => (
+            <div class="cijfer-blok">
+              <p class="cijfer-getal">{c.getal}</p>
+              <p class="cijfer-label">{c.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- DIENSTEN GRID -->
+      <section class="diensten-sectie">
+        <header class="sectie-header">
+          <p class="section-label">Onze diensten</p>
+          <h2>Een compleet productiehuis tot je beschikking</h2>
+          <p class="sectie-lead">Of je nu een strategie wil laten ontwikkelen of complete productie wil uitbesteden, bij Astrolads kan het allebei. En vaak juist samen.</p>
+        </header>
+        <div class="diensten-grid">
+          {diensten.map(d => d.meer ? (
+            <a href={d.url} class="dienst-card dienst-card-meer">
+              <div class="dienst-meer-body">
+                <p class="dienst-meer-eyebrow">En nog veel meer!</p>
+                <h3 class="dienst-meer-titel">{d.tekst}</h3>
+                <span class="dienst-meer-cta">Bekijk diensten →</span>
+              </div>
+            </a>
+          ) : (
+            <a href={d.url} class="dienst-card">
+              <div class={`dienst-foto ${d.fotoTop ? 'foto-top' : ''}`} style={`background-image: url(${d.img});`}></div>
+              <div class="dienst-body">
+                <span class="dienst-naam">{d.naam}</span>
+                <span class="dienst-pijl">→</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- QUOTE -->
+      <section class="quote-wrap">
+        <div class="quote-box">
+          <span class="quote-icon">&ldquo;</span>
+          <blockquote>Astrolads weet telkens goed de balans te vinden tussen inhoud / vorm, formeel / vlot en enthousiasme / zakelijkheid... altijd een feest om samen te werken!</blockquote>
+          <img src="/images/cases/rli-douwe.webp" alt="Douwe Wielenga, Raad voor de leefomgeving en infrastructuur" class="quote-foto" width="130" height="130" loading="lazy" decoding="async" />
+        </div>
+        <p class="quote-naam">Douwe Wielenga<span class="quote-org">Projectleider, Raad voor de leefomgeving en infrastructuur</span></p>
+      </section>
+
+      <!-- CASES SLIDER -->
+      <section class="cases-sectie">
+        <header class="sectie-header">
+          <p class="section-label">Cases uit de publieke sector</p>
+          <h2>Vertrouwd door publieke partijen</h2>
+          <p class="sectie-lead">Een greep uit onze samenwerkingen met overheidsorganisaties, kennisinstituten en maatschappelijke organisaties.</p>
+        </header>
+
+        <div class="cases-scroll" id="overheidCasesScroll">
+          {cases.map(c => (
+            <a href={'/cases/' + c.slug} class="case-card">
+              <img src={c.img} alt={c.tag} width="520" height="320" loading="lazy" />
+              <div class="case-card-body">
+                <p class="case-tag">{c.tag}</p>
+                <h3>{c.titel} <span>›</span></h3>
+              </div>
+            </a>
+          ))}
+          <a href="/contact" class="case-card case-card-more">
+            <div class="case-card-more-body">
+              <p class="more-eyebrow">En nog veel meer!</p>
+              <h3>Benieuwd naar wat we voor jouw organisatie kunnen betekenen?</h3>
+              <span class="more-cta">Kennismaken →</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="carousel-btn" onclick="scrollOverheidCases(-1)" aria-label="Vorige case">←</button>
+          <button class="carousel-btn" onclick="scrollOverheidCases(1)" aria-label="Volgende case">→</button>
+        </div>
+      </section>
+
+      <!-- HOE WE WERKEN -->
+      <section class="proces-sectie">
+        <header class="sectie-header">
+          <p class="section-label">Onze werkwijze</p>
+          <h2>Hoe wij jouw uitdaging aanpakken</h2>
+        </header>
+        <div class="proces-grid">
+          {stappen.map(s => (
+            <div class="proces-blok">
+              <p class="proces-nummer">{s.nummer}</p>
+              <h3>{s.titel}</h3>
+              <p>{s.tekst}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- SLUIT CTA -->
+      <section class="sluit-cta">
+        <h2>Klaar om samen impact te maken?</h2>
+        <p>Plan een kennismakingsgesprek, we zijn benieuwd naar jouw uitdaging!</p>
+        <a href="/contact" class="btn-orange">Plan een kennismakingsgesprek</a>
+      </section>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+    .overheid-page { 
+    padding: 32px 0 96px; 
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin: 48px 0 100px;
+  }
+  .eyebrow {
+    font-size: 13px; font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase; letter-spacing: .12em;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 540px;
+  }
+  .hero-cta-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 12px;
+    margin-left: 4px;
+  }
+
+  .hero-img-stack {
+    position: relative;
+    aspect-ratio: 4/3;
+  }
+  .hero-img-stack img {
+    position: absolute;
+    border-radius: var(--radius);
+    object-fit: cover;
+    box-shadow: 0 12px 40px rgba(0,0,0,.15);
+  }
+  .stack-1 {
+    top: 4%; left: 8%;
+    width: 52%; height: 52%;
+    z-index: 3;
+  }
+  .stack-2 {
+    top: 22%; right: 0;
+    width: 48%; height: 48%;
+    z-index: 2;
+  }
+  .stack-3 {
+    bottom: 4%; left: 18%;
+    width: 56%; height: 44%;
+    z-index: 1;
+  }
+
+  /* CIJFERS */
+  .cijfers {
+    background: var(--navy);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 48px 48px 56px;
+    margin-bottom: 120px;
+    text-align: center;
+  }
+  .cijfers-titel {
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 700;
+    margin-bottom: 36px;
+    color: #fff;
+  }
+  .cijfers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .cijfer-blok { text-align: center; }
+  .cijfer-getal {
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .cijfer-label {
+    font-size: 15px;
+    opacity: .85;
+    line-height: 1.4;
+  }
+
+  /* SECTIE HEADER (gedeeld) */
+  .sectie-header {
+    text-align: center;
+    margin-bottom: 48px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-label {
+    font-size: 12px; font-weight: 700;
+    color: var(--orange-dark);
+    text-transform: uppercase; letter-spacing: .12em;
+    margin-bottom: 12px;
+  }
+  .sectie-header h2 {
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .sectie-lead {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* DIENSTEN GRID met foto's */
+  .diensten-sectie { margin-bottom: 120px; }
+  .diensten-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .dienst-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform .2s, box-shadow .2s;
+    display: block;
+  }
+  .dienst-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,.1);
+  }
+  .dienst-foto {
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg);
+  }
+  .dienst-foto.foto-top {
+    background-position: center 15%;
+  }
+
+  /* En nog veel meer kaart */
+  .dienst-card-meer {
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    min-height: 196px;
+  }
+  .dienst-meer-body { padding: 24px 20px; }
+  .dienst-meer-eyebrow {
+    font-size: 12px; font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: 12px;
+  }
+  .dienst-meer-titel {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+  .dienst-meer-cta {
+    display: inline-block;
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 13px;
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 2px;
+  }
+  .dienst-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+  }
+  .dienst-naam { font-size: 14px; font-weight: 700; }
+  .dienst-pijl { color: var(--muted); font-size: 16px; transition: color .2s, transform .2s; }
+  .dienst-card:hover .dienst-pijl { color: var(--orange); transform: translateX(2px); }
+
+  /* QUOTE */
+  .quote-wrap {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto 120px;
+    overflow: visible;
+  }
+  .quote-box {
+    background: var(--navy);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 32px 40px;
+    position: relative;
+  }
+  .quote-icon {
+    font-size: 64px;
+    color: var(--orange);
+    font-family: Georgia, serif;
+    line-height: .6;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .quote-box blockquote {
+    font-size: 18px;
+    line-height: 1.5;
+    padding-right: 100px;
+  }
+  .quote-foto {
+    position: absolute;
+    bottom: -50px;
+    right: -40px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bg);
+  }
+  .quote-naam {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-top: 20px;
+    padding-right: 120px;
+    text-align: right;
+  }
+  .quote-org {
+    display: block;
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  /* CASES SLIDER */
+  .cases-sectie { 
+    margin-bottom: 120px;
+  }
+  .cases-scroll {
+    display: flex; gap: 20px;
+    overflow-x: auto; overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    padding: 16px 4px 24px;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .cases-scroll::-webkit-scrollbar { display: none; }
+  .case-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .case-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+  .case-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+  .case-card-body { padding: 18px; }
+  .case-tag {
+    font-size: 11px; font-weight: 700;
+    color: var(--orange-dark);
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    margin-bottom: 6px;
+  }
+  .case-card-body h3 {
+    font-size: 15px; font-weight: 700;
+    line-height: 1.35;
+    display: flex; justify-content: space-between; gap: 8px;
+  }
+  .case-card-body h3 span { color: var(--muted); flex-shrink: 0; }
+
+  /* En nog veel meer kaart */
+  .case-card-more {
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  .case-card-more-body { padding: 28px 24px; }
+  .case-card-more-body .more-eyebrow {
+    font-size: 12px; font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: 12px;
+  }
+  .case-card-more-body h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .more-cta {
+    display: inline-block;
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 2px;
+  }
+  .case-card-more:hover { transform: translateY(-4px); }
+
+  .carousel-nav {
+    display: flex; gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+  }
+  .carousel-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,.2);
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background .2s;
+  }
+  .carousel-btn:hover { background: var(--white); }
+
+  /* PROCES */
+  .proces-sectie { margin-bottom: 120px; }
+  .proces-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .proces-blok {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    position: relative;
+  }
+  .proces-nummer {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--orange);
+    opacity: .25;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .proces-blok h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .proces-blok p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* SLUIT CTA */
+  .sluit-cta {
+    background: var(--navy);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 72px 48px;
+    text-align: center;
+  }
+  .sluit-cta h2 {
+    font-size: clamp(28px, 3.5vw, 38px);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .sluit-cta p {
+    font-size: 16px;
+    opacity: .85;
+    margin-bottom: 32px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin: 24px 0 64px;
+    }
+    .hero-img-stack { max-width: 340px; margin: 0 auto 0 0; width: 100%; }
+    .cijfers {
+      padding: 32px 20px 40px;
+      margin-bottom: 64px;
+    }
+    .cijfers-titel { 
+      margin-bottom: 24px;
+      font-size: 20px;
+    }
+    .cijfers-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .cijfer-getal { font-size: 56px; }
+    .cijfer-label { font-size: 14px; }
+    .diensten-sectie,
+    .cases-sectie,
+    .proces-sectie,
+    .quote-wrap { margin-bottom: 64px; }
+    .proces-grid { grid-template-columns: 1fr; gap: 16px; }
+    .diensten-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .dienst-foto { 
+      height: 0; 
+      padding-bottom: 75%; /* vierkanter, ~4:3 verhouding */
+      background-position: center center;
+    }
+    .dienst-body { padding: 10px 12px; }
+    .dienst-naam { font-size: 12px; line-height: 1.3; }
+    .quote-box { padding: 24px 24px 40px; }
+    .quote-box blockquote { font-size: 15px; padding-right: 0; }
+    .quote-foto {
+      width: 80px; height: 80px;
+      bottom: -45px;
+      right: 0;
+    }
+    .quote-naam { padding-right: 80px; font-size: 14px; }
+    .sluit-cta { padding: 48px 28px; }
+    .cases-scroll {
+      margin: 0 -20px;
+      padding: 16px 20px 24px;
+      scroll-padding-left: 20px;
+      gap: 12px;
+    }
+    .case-card { flex: 0 0 calc(100% - 60px); }
+    .carousel-nav { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .diensten-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .dienst-naam { font-size: 11px; }
+  }
+</style>
+
+<script is:inline>
+  function scrollOverheidCases(direction) {
+    const scroll = document.getElementById('overheidCasesScroll');
+    if (!scroll) return;
+    const cardWidth = 320; // card + gap
+    scroll.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+  }
+</script>
