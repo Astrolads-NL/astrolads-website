@@ -18,18 +18,20 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const path = Astro.url.pathname;
+// normaliseer: haal trailing slash weg voor de lookups
+const cleanPath = path === '/' ? '/' : path.replace(/\/$/, '');
 
-// Taalswitcher: bepaal het equivalent EN-pad
+// Taalswitcher: bepaal het equivalent EN-pad (altijd mét trailing slash)
 const nlToEn: Record<string, string> = {
-  '/': '/en',
-  '/over-ons': '/en/about',
-  '/contact': '/en/contact',
-  '/diensten': '/en/services',
-  '/cases': '/en/cases',
-  '/privacy': '/en/privacy',
-  '/cookies': '/en/cookies',
-  '/community': '/en/community',
-  '/veelgestelde-vragen': '/en/faq',
+  '/': '/en/',
+  '/over-ons': '/en/about/',
+  '/contact': '/en/contact/',
+  '/diensten': '/en/services/',
+  '/cases': '/en/cases/',
+  '/privacy': '/en/privacy/',
+  '/cookies': '/en/cookies/',
+  '/community': '/en/community/',
+  '/veelgestelde-vragen': '/en/faq/',
 };
 
 // Slug-mapping NL → EN voor dienstpagina's met afwijkende slug
@@ -41,17 +43,17 @@ const dienstenSlugMap: Record<string, string> = {
   'fotografie': 'photography',
 };
 
-let enPath = '/en';
-if (nlToEn[path] !== undefined) {
-  enPath = nlToEn[path];
-} else if (path.startsWith('/cases/')) {
-  enPath = '/en/cases/' + path.slice('/cases/'.length);
-} else if (path.startsWith('/team/')) {
-  enPath = '/en/team/' + path.slice('/team/'.length);
-} else if (path.startsWith('/diensten/')) {
-  const nlSlug = path.slice('/diensten/'.length);
+let enPath = '/en/';
+if (nlToEn[cleanPath] !== undefined) {
+  enPath = nlToEn[cleanPath];
+} else if (cleanPath.startsWith('/cases/')) {
+  enPath = '/en/cases/' + cleanPath.slice('/cases/'.length) + '/';
+} else if (cleanPath.startsWith('/team/')) {
+  enPath = '/en/team/' + cleanPath.slice('/team/'.length) + '/';
+} else if (cleanPath.startsWith('/diensten/')) {
+  const nlSlug = cleanPath.slice('/diensten/'.length);
   const enSlug = dienstenSlugMap[nlSlug] || nlSlug;
-  enPath = '/en/services/' + enSlug;
+  enPath = '/en/services/' + enSlug + '/';
 }
 ---
 

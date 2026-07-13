@@ -20,17 +20,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // Taalswitcher: bepaal het equivalent NL-pad
 const path = Astro.url.pathname;
+// normaliseer: haal trailing slash weg voor de lookups
+const cleanPath = path === '/' ? '/' : path.replace(/\/$/, '');
 const enToNl: Record<string, string> = {
   '/en': '/',
-  '/en/': '/',
-  '/en/about': '/over-ons',
-  '/en/contact': '/contact',
-  '/en/services': '/diensten',
-  '/en/cases': '/cases',
-  '/en/privacy': '/privacy',
-  '/en/cookies': '/cookies',
-  '/en/community': '/community',
-  '/en/faq': '/veelgestelde-vragen',
+  '/en/about': '/over-ons/',
+  '/en/contact': '/contact/',
+  '/en/services': '/diensten/',
+  '/en/cases': '/cases/',
+  '/en/privacy': '/privacy/',
+  '/en/cookies': '/cookies/',
+  '/en/community': '/community/',
+  '/en/faq': '/veelgestelde-vragen/',
 };
 
 // Slug-mapping EN → NL voor dienstpagina's met afwijkende slug
@@ -43,16 +44,16 @@ const servicesSlugMap: Record<string, string> = {
 };
 
 let nlPath = '/';
-if (enToNl[path] !== undefined) {
-  nlPath = enToNl[path];
-} else if (path.startsWith('/en/cases/')) {
-  nlPath = '/cases/' + path.slice('/en/cases/'.length);
-} else if (path.startsWith('/en/team/')) {
-  nlPath = '/team/' + path.slice('/en/team/'.length);
-} else if (path.startsWith('/en/services/')) {
-  const enSlug = path.slice('/en/services/'.length);
+if (enToNl[cleanPath] !== undefined) {
+  nlPath = enToNl[cleanPath];
+} else if (cleanPath.startsWith('/en/cases/')) {
+  nlPath = '/cases/' + cleanPath.slice('/en/cases/'.length) + '/';
+} else if (cleanPath.startsWith('/en/team/')) {
+  nlPath = '/team/' + cleanPath.slice('/en/team/'.length) + '/';
+} else if (cleanPath.startsWith('/en/services/')) {
+  const enSlug = cleanPath.slice('/en/services/'.length);
   const nlSlug = servicesSlugMap[enSlug] || enSlug;
-  nlPath = '/diensten/' + nlSlug;
+  nlPath = '/diensten/' + nlSlug + '/';
 }
 ---
 

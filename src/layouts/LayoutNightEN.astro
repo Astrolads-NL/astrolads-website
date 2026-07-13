@@ -20,14 +20,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // Taalswitcher: bepaal het equivalent NL-pad
 const path = Astro.url.pathname;
+const cleanPath = path.replace(/\/$/, '') || '/';
 const enToNl: Record<string, string> = {
-  '/en/community': '/community',
-  '/en/community/': '/community',
-  '/en/community/events': '/community/events',
-  '/en/community/initiatives': '/community/initiatieven',
+  '/en/community': '/community/',
+  '/en/community/events': '/community/events/',
+  '/en/community/initiatives': '/community/initiatieven/',
 };
 
-let nlPath = enToNl[path] || '/community';
+let nlPath = enToNl[cleanPath] || '/community/';
 ---
 
 <!doctype html>
