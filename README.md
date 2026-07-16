@@ -129,14 +129,17 @@ astrolads/
 
 ### Slug-mapping NL → EN (in `Layout.astro`)
 ```javascript
+// Let op: pathname wordt eerst genormaliseerd (trailing slash eraf)
+// via cleanPath, want trailingSlash: 'always' geeft paden mét slash.
+// Output-paden hebben altijd trailing slash (consistent met canonical).
 const nlToEn = {
-  '/': '/en',
-  '/over-ons': '/en/about',
-  '/contact': '/en/contact',
-  '/diensten': '/en/services',
-  '/cases': '/en/cases',
-  '/community': '/en/community',
-  '/veelgestelde-vragen': '/en/faq',
+  '/': '/en/',
+  '/over-ons': '/en/about/',
+  '/contact': '/en/contact/',
+  '/diensten': '/en/services/',
+  '/cases': '/en/cases/',
+  '/community': '/en/community/',
+  '/veelgestelde-vragen': '/en/faq/',
 };
 
 const dienstenSlugMap = {
@@ -244,6 +247,7 @@ npx sharp -i "public/images/cases/deelmobiliteit.webp" \
 ---
 
 ## 🎯 Open todos
+- [ ] noindex op government landingspagina's (voor/ + en/for/) zodat Ads-pagina's uit organische index blijven
 
 ### Hoge prioriteit
 - [ ] Custom domain koppelen
@@ -282,6 +286,7 @@ npx sharp -i "public/images/cases/deelmobiliteit.webp" \
 - **Sessie 13**: SEO/AI optimalisatie (robots, llms.txt, sitemap, Breadcrumbs, FAQ, WebP-conversie)
 - **Sessie 14**: Deploy naar Netlify, Lighthouse 100/96/100/100
 - **Sessie 15**: Content tweaks, klikbare podcast covers, OG-images per pagina, mobile nav scrollable
+- **Sessie 16**: SEO-check op Search Console data. Hreflang/taalmapping bug gefixt in alle 4 layouts (trailing-slash mismatch brak de NL↔EN paren, o.a. nsob). trailingSlash config opgeschoond.
 
 ---
 
