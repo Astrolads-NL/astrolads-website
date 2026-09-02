@@ -129,6 +129,8 @@ const teamleden = {
     buiten: 'Zoals al benoemd, is Thijs overal en nergens te vinden omdat hij zijn huis heeft opgezegd en samen met zijn vrouw de wereld rondreist. Daarnaast heeft hij meerdere hobby\'s die hij op reis heeft meegenomen. Thijs speelt namelijk al sinds zijn jonge jaren gitaar, en haalt hier ook op reis nog steeds plezier uit.<br><br>Daarnaast heeft hij een grote passie voor duiken (in water, niet bij de belastingdienst), waarvoor hij op reis natuurlijk de mooiste locaties tegenkomt. Naast dit alles, kan hij ook enorm genieten van rennen, klimmen, zwemmen… sporten dus! Thijs wordt gekenmerkt door een positieve en energieke mindset, die altijd opzoek is naar wat wél kan!',
     fotos: ['/images/team/thijs-1.webp', '/images/team/thijs-2.webp'],
     fotosBuiten: ['/images/team/thijs-buiten-1.webp', '/images/team/thijs-buiten-2.webp', '/images/team/thijs-buiten-3.webp', '/images/team/thijs-buiten-4.webp'],
+        fotosPositiesMobile: ['', 'center 65%', '', ''],
+    fotosBuitenPositiesMobile: ['', '', 'center 75%', 'center 20%'],
     faderSpeed: 7000,
     faderSpeedBuiten: 4000,
     decoratie: { kleur: 'var(--orange)', top: '40px', right: '-120px', size: '480px' },
@@ -369,7 +371,7 @@ const andereTeamleden = volgorde
                   width="480" height="560"
                   loading="lazy"
                   class:list={['fader-slide', { active: i === 0 }]}
-                  style={data.fotosPosities && data.fotosPosities[i] ? 'object-position:' + data.fotosPosities[i] : ''}
+                                    style={`${data.fotosPosities && data.fotosPosities[i] ? 'object-position:' + data.fotosPosities[i] + ';' : ''}${data.fotosPositiesMobile && data.fotosPositiesMobile[i] ? '--mobile-pos:' + data.fotosPositiesMobile[i] + ';' : ''}`}
                 />
               ))}
               <div class="fader-dots">
