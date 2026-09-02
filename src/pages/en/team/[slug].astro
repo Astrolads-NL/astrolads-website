@@ -430,7 +430,7 @@ const andereTeamleden = volgorde
       <!-- Our team -->
       <div class="ons-team">
         <h2>Our team</h2>
-        <div class="team-grid">
+        <div class="team-grid" id="teamGrid">
           {andereTeamleden.map(lid => (
             <a href={'/en/team/' + lid.slug} class="team-card">
               <img src={lid.foto} alt={lid.naam} width="300" height="300" loading="lazy" />
@@ -440,6 +440,10 @@ const andereTeamleden = volgorde
               </div>
             </a>
           ))}
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-btn" onclick="scrollOnsTeam(-1)" aria-label="Previous">←</button>
+          <button class="carousel-btn" onclick="scrollOnsTeam(1)" aria-label="Next">→</button>
         </div>
       </div>
 
@@ -497,7 +501,7 @@ const andereTeamleden = volgorde
     border-radius: var(--radius);
     overflow: hidden;
     aspect-ratio: 4/3;
-  }
+  } 
   .over-tekst h2 { font-size: 32px; font-weight: 700; margin-bottom: 24px; }
   .over-tekst p { color: var(--muted); line-height: 1.8; font-size: 15px; }
   .over-tekst p strong { color: var(--text); font-weight: 700; }
@@ -529,19 +533,32 @@ const andereTeamleden = volgorde
   .ons-team h2 { font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center; }
   .team-grid {
     display: flex; gap: 20px;
-    overflow-x: auto; padding-bottom: 8px;
+    overflow-x: auto; overflow-y: visible;
+    padding: 8px 4px 32px;
     -ms-overflow-style: none; scrollbar-width: none;
   }
   .team-grid::-webkit-scrollbar { display: none; }
   .team-card {
     flex: 0 0 220px; background: var(--white);
     border-radius: var(--radius); overflow: hidden;
-    text-decoration: none; color: inherit; transition: transform .2s;
+    text-decoration: none; color: inherit;
+    transition: transform .2s, box-shadow .2s;
   }
-  .team-card:hover { transform: translateY(-4px); }
+  .team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,.1);
+  }
   .team-card img { width: 100%; height: 220px; object-fit: cover; }
   .team-card-body { padding: 16px; display: flex; flex-direction: column; }
   .team-card-body h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+
+  .carousel-nav { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
+  .carousel-btn {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,.2); background: transparent;
+    cursor: pointer; font-size: 16px; transition: background .2s;
+  }
+  .carousel-btn:hover { background: var(--white); }
 
   @media (max-width: 768px) {
     .team-detail { padding: 32px 0 56px; }
@@ -555,78 +572,79 @@ const andereTeamleden = volgorde
       z-index: -1 !important;
     }
 
-    /* Header: foto eerst (visueel anker), tekst onder */
+    /* Header: foto eerst, tekst eronder */
     .team-header {
       display: flex; flex-direction: column-reverse;
-      gap: 24px;
+      gap: 28px;
       margin-bottom: 56px;
     }
     .team-header h1 {
       font-size: clamp(28px, 7vw, 36px);
-      line-height: 1.2;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      line-height: 1.15;
     }
-    .rollen { gap: 6px; margin-bottom: 16px; }
+    .rollen { gap: 6px; margin-bottom: 18px; }
     .rol-pill { font-size: 11px; padding: 4px 12px; }
-    .team-bio { font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
-    .linkedin-btn { font-size: 12px; padding: 7px 14px; }
-
-    /* Header-foto: groter, hoofd in beeld */
+    .team-bio { font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+    .linkedin-btn { font-size: 12px; padding: 7px 16px; }
     .team-header-img img {
       aspect-ratio: 4 / 3;
       height: auto;
+      object-fit: cover;
       object-position: center 18% !important;
     }
 
-    /* Over-secties: foto altijd boven, tekst onder */
+    /* Over-secties: foto altijd boven, tekst eronder (forceer order ondanks DOM-volgorde) */
     .over-sectie {
       display: flex; flex-direction: column;
-      gap: 20px;
+      gap: 24px;
       margin-bottom: 56px;
     }
+    /* Duo-blok op mobile: compacter wit blok */
+    .duo-blok {
+      padding: 24px;
+      gap: 20px;
+    }
     .over-sectie .over-fader { order: -1; }
-    .over-tekst h2 {
-      font-size: 22px;
-      margin-bottom: 14px;
-    }
-    .over-tekst p {
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
+    .over-tekst h2 { font-size: 24px; margin-bottom: 16px; }
+    .over-tekst p { font-size: 14px; line-height: 1.7; }
     .over-fader {
       aspect-ratio: 16 / 9;
       max-height: none;
       width: 100%;
       min-height: 200px;
     }
-    .over-fader .fader-slide { object-position: var(--mobile-pos, center 30%) !important; }
+        .over-fader .fader-slide { object-position: var(--mobile-pos, center 30%) !important; }
+
+    /* Touch-target van fader-dots iets groter */
     .fader-dot { width: 10px; height: 10px; }
 
-    /* Ons-team: peek-scroll edge-to-edge */
+    /* Ons team: peek-scroll zoals homepage */
     .ons-team { margin-top: 48px; }
-    .ons-team h2 {
-      font-size: 22px;
-      margin-bottom: 20px;
-      text-align: left;
-    }
+    .ons-team h2 { font-size: 24px; margin-bottom: 20px; text-align: left; }
     .team-grid {
       margin: 0 -20px;
-      padding: 0 20px 16px;
+      padding: 8px 20px 24px;
       gap: 12px;
     }
-    .team-card { flex: 0 0 160px; }
-    .team-card img { height: 160px; object-position: center 25%; }
-    .team-card-body { padding: 12px; }
-    .team-card-body h3 { font-size: 13px; margin-bottom: 6px; }
-    .team-card-body .btn-text-arrow {
-      font-size: 11px;
-      padding: 6px 12px;
-    }
+    .team-card { flex: 0 0 200px; }
+    .team-card img { height: 200px; }
+    .team-card-body { padding: 14px; }
+    .team-card-body h3 { font-size: 14px; }
+
+    /* Pijltjes verbergen op mobile, swipe is genoeg */
+    .ons-team .carousel-nav { display: none; }
   }
 </style>
 
 <script>
+function scrollOnsTeam(dir) {
+    var el = document.getElementById('teamGrid');
+    if (el) el.scrollBy({ left: dir * 240, behavior: 'smooth' });
+  }
+  window.scrollOnsTeam = scrollOnsTeam;
+
+
   document.querySelectorAll('.over-fader').forEach(function(fader) {
     var slides = fader.querySelectorAll('.fader-slide');
     var dots = fader.querySelectorAll('.fader-dot');
