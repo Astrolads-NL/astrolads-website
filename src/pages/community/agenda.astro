@@ -436,6 +436,7 @@ const events = [
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams(formData).toString(),
         });
+             document.querySelector('.member-cta-text').hidden = true;
         nieuwsbriefForm.hidden = true;
         nieuwsbriefSuccess.hidden = false;
       } catch (err) {
@@ -895,7 +896,8 @@ const events = [
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
-      .member-eyebrow {
+  }
+  .member-eyebrow {
     font-size: 11px;
     font-weight: 700;
     color: var(--orange);
@@ -905,19 +907,25 @@ const events = [
   }
   .nieuwsbrief-success {
     text-align: center;
-    padding: 32px 0;
+    padding: 40px 20px;
   }
   .nieuwsbrief-success h3 {
     color: var(--night-text);
     font-size: 22px;
-    margin: 12px 0 8px;
+    margin: 16px 0 8px;
   }
   .nieuwsbrief-success p {
     color: var(--night-muted);
     font-size: 14px;
     line-height: 1.6;
+    margin: 0;
   }
+  .member-form {
+    max-width: 560px;
+    margin: 0 auto;
   }
+    font-size: 14px;
+    line-height: 1.6;
 
   .member-form {
     max-width: 560px;
