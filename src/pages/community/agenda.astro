@@ -582,14 +582,14 @@ const events = [
     color: #fff;
   }
     /* Luma modal */
-  .luma-modal {
+    .luma-modal {
     display: none;
     position: fixed;
     inset: 0;
     z-index: 9999;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 100px 20px 20px;
   }
   .luma-modal.open { display: flex; }
   .luma-modal-backdrop {
@@ -598,13 +598,13 @@ const events = [
     background: rgba(0,0,0,.7);
     backdrop-filter: blur(4px);
   }
-  .luma-modal-content {
+    .luma-modal-content {
     position: relative;
     background: #fff;
     border-radius: var(--radius);
     width: 100%;
-    max-width: 480px;
-    max-height: 90vh;
+    max-width: 720px;
+    max-height: 82vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -642,10 +642,10 @@ const events = [
     background: var(--bg);
     color: var(--text);
   }
-  #luma-iframe {
+    #luma-iframe {
     flex: 1;
     border: none;
-    min-height: 600px;
+    min-height: 500px;
   }
   @media (max-width: 768px) {
     .luma-modal { padding: 12px; }
