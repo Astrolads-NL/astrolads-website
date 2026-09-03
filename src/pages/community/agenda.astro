@@ -289,7 +289,8 @@ const events = [
       <input type="text" name="voornaam" />
       <input type="text" name="achternaam" />
       <input type="date" name="geboortedatum" />
-      <input type="email" name="email" />
+           <input type="email" name="email" />
+      <input type="checkbox" name="nieuwsbrief" />
       <input type="text" name="bot-field" />
     </form>
   ))}
@@ -329,9 +330,14 @@ const events = [
           <input type="date" name="geboortedatum" required />
         </label>
 
-        <label>
+                <label>
           E-mail
           <input type="email" name="email" required autocomplete="email" />
+        </label>
+
+        <label class="checkbox-label">
+          <input type="checkbox" name="nieuwsbrief" value="ja" />
+          <span>Ik wil op de hoogte worden gehouden van evenementen, give-aways en workshops.</span>
         </label>
 
         <button type="submit" class="form-submit-btn">Aanmelden →</button>
@@ -809,6 +815,29 @@ const events = [
     font-size: 14px;
     margin-bottom: 20px;
     line-height: 1.6;
+  }
+    .checkbox-label {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    color: var(--night-muted) !important;
+    cursor: pointer;
+    padding: 4px 0;
+  }
+  .checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--orange);
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid var(--night-border);
+    cursor: pointer;
+  }
+  .checkbox-label span {
+    line-height: 1.5;
   }
   @media (max-width: 768px) {
     .form-modal { padding: 80px 12px 12px; }
