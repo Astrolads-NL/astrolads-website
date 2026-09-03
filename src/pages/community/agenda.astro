@@ -19,7 +19,8 @@ const events = [
     plekkenOver: 20,
     beschrijving: 'Filmavond met popcorn, drankjes en de gezellige Mundus community. Voor 3 euro krijg je een avond film, snacks en nieuwe vrienden. De opbrengst gaat volledig naar snacks en drankjes voor de avond.',
     foto: null,
-    lumaUrl: 'https://lu.ma/astrolads-community',
+        lumaUrl: 'https://lu.ma/astrolads-community',
+    lumaEventId: 'evt-5hyGFPGrsyRBE2s',
     vol: false,
   },
   {
@@ -220,10 +221,18 @@ const events = [
                   )}
                 </div>
                 <p class="event-beschrijving">{e.beschrijving}</p>
-                {e.vol ? (
-                  <a href={e.lumaUrl} target="_blank" rel="noopener" class="aanmeld-btn aanmeld-btn-secondary">Wachtlijst →</a>
+                                {e.vol ? (
+                  e.lumaEventId ? (
+                    <a href={`https://luma.com/event/${e.lumaEventId}`} class="aanmeld-btn aanmeld-btn-secondary luma-checkout--button" data-luma-action="checkout" data-luma-event-id={e.lumaEventId}>Wachtlijst →</a>
+                  ) : (
+                    <a href={e.lumaUrl} target="_blank" rel="noopener" class="aanmeld-btn aanmeld-btn-secondary">Wachtlijst →</a>
+                  )
                 ) : (
-                  <a href={e.lumaUrl} target="_blank" rel="noopener" class="aanmeld-btn">Aanmelden →</a>
+                  e.lumaEventId ? (
+                    <a href={`https://luma.com/event/${e.lumaEventId}`} class="aanmeld-btn luma-checkout--button" data-luma-action="checkout" data-luma-event-id={e.lumaEventId}>Aanmelden →</a>
+                  ) : (
+                    <a href={e.lumaUrl} target="_blank" rel="noopener" class="aanmeld-btn">Aanmelden →</a>
+                  )
                 )}
               </div>
             </article>
@@ -280,6 +289,7 @@ const events = [
 
     </div>
   </div>
+<script src="https://embed.lu.ma/checkout-button.js" defer></script>
 </LayoutNight>
 
 <style>
