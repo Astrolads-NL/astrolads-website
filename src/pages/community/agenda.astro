@@ -231,51 +231,53 @@ const events = [
         ))}
       </div>
 
-      <div class="member-cta">
+           <div class="member-cta">
         <div class="member-cta-text">
-          <h3>Word member van de community</h3>
-          <p>Maandelijkse nieuwsbrief, voorrang op aanmeldingen en korting op masterclasses.</p>
+          <p class="member-eyebrow">Nieuwsbrief</p>
+          <h3>Blijf op de hoogte</h3>
+          <p>Blijf op de hoogte van onze nieuwste evenementen, give-aways, workshops en meer!</p>
         </div>
-        <form 
-          class="member-form" 
-          name="community-member" 
-          method="POST" 
+        <form
+          class="member-form"
+          name="nieuwsbrief"
+          method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          action="/Bedankt/"
+          id="nieuwsbrief-form"
         >
-          <input type="hidden" name="form-name" value="community-member" />
+          <input type="hidden" name="form-name" value="nieuwsbrief" />
           <p class="hidden-honey"><label>Niet invullen: <input name="bot-field" /></label></p>
-          
-          <div class="form-row">
-            <div class="form-field">
-              <label for="member-voornaam">Voornaam</label>
-              <input type="text" id="member-voornaam" name="voornaam" required />
-            </div>
-            <div class="form-field">
-              <label for="member-achternaam">Achternaam</label>
-              <input type="text" id="member-achternaam" name="achternaam" required />
-            </div>
-          </div>
 
           <div class="form-row">
             <div class="form-field">
-              <label for="member-leeftijd">Leeftijd</label>
-              <input type="number" id="member-leeftijd" name="leeftijd" min="14" max="99" required />
+              <label for="nb-voornaam">Voornaam</label>
+              <input type="text" id="nb-voornaam" name="voornaam" required autocomplete="given-name" />
             </div>
             <div class="form-field">
-              <label for="member-telefoon">Telefoonnummer</label>
-              <input type="tel" id="member-telefoon" name="telefoon" required />
+              <label for="nb-achternaam">Achternaam</label>
+              <input type="text" id="nb-achternaam" name="achternaam" required autocomplete="family-name" />
             </div>
           </div>
 
           <div class="form-field">
-            <label for="member-email">E-mailadres</label>
-            <input type="email" id="member-email" name="email" required />
+            <label for="nb-geboortedatum">Geboortedatum</label>
+            <input type="date" id="nb-geboortedatum" name="geboortedatum" required />
           </div>
 
-          <button type="submit" class="member-submit">Word member →</button>
+          <div class="form-field">
+            <label for="nb-email">E-mailadres</label>
+            <input type="email" id="nb-email" name="email" required autocomplete="email" />
+          </div>
+
+          <button type="submit" class="member-submit">Aanmelden →</button>
         </form>
+
+        <div id="nieuwsbrief-success" class="nieuwsbrief-success" hidden>
+          <div class="form-success-icon">✓</div>
+          <h3>Bedankt!</h3>
+          <p>Je staat op de lijst. We houden je op de hoogte.</p>
+        </div>
+      </div>
       </div>
 
     </div>
@@ -416,6 +418,33 @@ const events = [
       submitBtn.textContent = 'Aanmelden →';
     }
   });
+    // Nieuwsbrief form
+  const nieuwsbriefForm = document.getElementById('nieuwsbrief-form');
+  const nieuwsbriefSuccess = document.getElementById('nieuwsbrief-success');
+
+  if (nieuwsbriefForm) {
+    nieuwsbriefForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const submitBtn = nieuwsbriefForm.querySelector('.member-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Bezig...';
+
+      try {
+        const formData = new FormData(nieuwsbriefForm);
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString(),
+        });
+        nieuwsbriefForm.hidden = true;
+        nieuwsbriefSuccess.hidden = false;
+      } catch (err) {
+        alert('Er ging iets mis. Probeer het opnieuw.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Aanmelden →';
+      }
+    });
+  }
 </script>
 
 </LayoutNight>
@@ -866,6 +895,28 @@ const events = [
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
+      .member-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin: 0 0 8px !important;
+  }
+  .nieuwsbrief-success {
+    text-align: center;
+    padding: 32px 0;
+  }
+  .nieuwsbrief-success h3 {
+    color: var(--night-text);
+    font-size: 22px;
+    margin: 12px 0 8px;
+  }
+  .nieuwsbrief-success p {
+    color: var(--night-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
   }
 
   .member-form {
