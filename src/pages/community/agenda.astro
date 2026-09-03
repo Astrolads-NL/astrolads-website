@@ -20,7 +20,6 @@ const events = [
     beschrijving: 'Filmavond met popcorn, drankjes en de gezellige Mundus community. Voor 3 euro krijg je een avond film, snacks en nieuwe vrienden. De opbrengst gaat volledig naar snacks en drankjes voor de avond.',
     foto: null,
         lumaUrl: 'https://lu.ma/astrolads-community',
-    lumaEventId: 'evt-5hyGFPGrsyRBE2s',
     vol: false,
   },
   {
@@ -222,17 +221,9 @@ const events = [
                 </div>
                 <p class="event-beschrijving">{e.beschrijving}</p>
                                 {e.vol ? (
-                  e.lumaEventId ? (
-                    <button class="aanmeld-btn aanmeld-btn-secondary" data-luma-modal={e.lumaEventId} data-luma-titel={e.titel}>Wachtlijst →</button>
-                  ) : (
-                    <a href={e.lumaUrl} target="_blank" rel="noopener" class="aanmeld-btn aanmeld-btn-secondary">Wachtlijst →</a>
-                  )
+                  <button class="aanmeld-btn aanmeld-btn-secondary" data-form-modal={e.slug} data-form-titel={e.titel}>Wachtlijst →</button>
                 ) : (
-                  e.lumaEventId ? (
-                    <button class="aanmeld-btn" data-luma-modal={e.lumaEventId} data-luma-titel={e.titel}>Aanmelden →</button>
-                  ) : (
-                    <a href={e.lumaUrl} target="_blank" rel="noopener" class="aanmeld-btn">Aanmelden →</a>
-                  )
+                  <button class="aanmeld-btn" data-form-modal={e.slug} data-form-titel={e.titel}>Aanmelden →</button>
                 )}
               </div>
             </article>
@@ -289,50 +280,134 @@ const events = [
 
     </div>
   </div>
-<!-- Luma modal -->
-<div id="luma-modal" class="luma-modal" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="luma-modal-backdrop" data-luma-close></div>
-  <div class="luma-modal-content">
-    <div class="luma-modal-header">
-      <span class="luma-modal-titel" id="luma-modal-titel"></span>
-      <button class="luma-modal-close" data-luma-close aria-label="Sluiten">×</button>
+<!-- Hidden Netlify form definities (1 per event) -->
+<div hidden aria-hidden="true">
+  {events.map(e => (
+    <form name={`event-${e.slug}`} data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value={`event-${e.slug}`} />
+      <input type="hidden" name="event-titel" />
+      <input type="text" name="voornaam" />
+      <input type="text" name="achternaam" />
+      <input type="date" name="geboortedatum" />
+      <input type="email" name="email" />
+      <input type="text" name="bot-field" />
+    </form>
+  ))}
+</div>
+
+<!-- Aanmeldformulier modal -->
+<div id="form-modal" class="form-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="form-modal-backdrop" data-form-close></div>
+  <div class="form-modal-content">
+    <div class="form-modal-header">
+      <div>
+        <p class="form-modal-eyebrow">Aanmelden</p>
+        <h3 class="form-modal-titel" id="form-modal-titel"></h3>
+      </div>
+      <button class="form-modal-close" data-form-close aria-label="Sluiten">×</button>
     </div>
-    <iframe id="luma-iframe" src="" width="100%" height="600" frameborder="0" allow="payment" title="Aanmelden voor evenement"></iframe>
+
+    <div class="form-modal-body">
+      <form id="event-aanmeld-form" class="event-aanmeld-form" method="POST">
+        <input type="hidden" name="form-name" id="form-name-input" />
+        <input type="hidden" name="event-titel" id="event-titel-input" />
+        <p hidden><label>Niet invullen: <input name="bot-field" /></label></p>
+
+        <div class="form-row">
+          <label>
+            Voornaam
+            <input type="text" name="voornaam" required autocomplete="given-name" />
+          </label>
+          <label>
+            Achternaam
+            <input type="text" name="achternaam" required autocomplete="family-name" />
+          </label>
+        </div>
+
+        <label>
+          Geboortedatum
+          <input type="date" name="geboortedatum" required />
+        </label>
+
+        <label>
+          E-mail
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+
+        <button type="submit" class="form-submit-btn">Aanmelden →</button>
+      </form>
+
+      <div id="form-success" class="form-success" hidden>
+        <div class="form-success-icon">✓</div>
+        <h3>Bedankt!</h3>
+        <p>Je aanmelding is ontvangen. We nemen contact op als er updates zijn.</p>
+        <button type="button" class="form-submit-btn" data-form-close>Sluiten</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
-  const modal = document.getElementById('luma-modal');
-  const iframe = document.getElementById('luma-iframe');
-  const titelEl = document.getElementById('luma-modal-titel');
+  const modal = document.getElementById('form-modal');
+  const form = document.getElementById('event-aanmeld-form');
+  const success = document.getElementById('form-success');
+  const titelEl = document.getElementById('form-modal-titel');
+  const formNameInput = document.getElementById('form-name-input');
+  const eventTitelInput = document.getElementById('event-titel-input');
 
-  document.querySelectorAll('[data-luma-modal]').forEach(function(btn) {
+  function openModal(slug, titel) {
+    formNameInput.value = 'event-' + slug;
+    eventTitelInput.value = titel;
+    titelEl.textContent = titel;
+    form.reset();
+    formNameInput.value = 'event-' + slug;
+    eventTitelInput.value = titel;
+    form.hidden = false;
+    success.hidden = true;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-form-modal]').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      const eventId = btn.getAttribute('data-luma-modal');
-      const titel = btn.getAttribute('data-luma-titel');
-      iframe.src = 'https://luma.com/embed/event/' + eventId + '/simple';
-      titelEl.textContent = titel;
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
+      openModal(btn.getAttribute('data-form-modal'), btn.getAttribute('data-form-titel'));
     });
   });
 
-  document.querySelectorAll('[data-luma-close]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-      iframe.src = '';
-      document.body.style.overflow = '';
-    });
+  document.querySelectorAll('[data-form-close]').forEach(function(btn) {
+    btn.addEventListener('click', closeModal);
   });
 
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.classList.contains('open')) {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-      iframe.src = '';
-      document.body.style.overflow = '';
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const submitBtn = form.querySelector('.form-submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Bezig...';
+
+    try {
+      const formData = new FormData(form);
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      });
+      form.hidden = true;
+      success.hidden = false;
+    } catch (err) {
+      alert('Er ging iets mis. Probeer het opnieuw.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Aanmelden →';
     }
   });
 </script>
@@ -581,8 +656,8 @@ const events = [
     background: rgba(255,255,255,.06);
     color: #fff;
   }
-    /* Luma modal */
-    .luma-modal {
+      /* Aanmeldformulier modal — Astrolads Night thema */
+  .form-modal {
     display: none;
     position: fixed;
     inset: 0;
@@ -591,66 +666,155 @@ const events = [
     justify-content: center;
     padding: 100px 20px 20px;
   }
-  .luma-modal.open { display: flex; }
-  .luma-modal-backdrop {
+  .form-modal.open { display: flex; }
+  .form-modal-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,.7);
-    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,.75);
+    backdrop-filter: blur(6px);
   }
-    .luma-modal-content {
+  .form-modal-content {
     position: relative;
-    background: #fff;
+    background: var(--night-surface);
+    border: 1px solid var(--night-border);
     border-radius: var(--radius);
     width: 100%;
-    max-width: 720px;
+    max-width: 520px;
     max-height: 82vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
   }
-  .luma-modal-header {
+  .form-modal-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
-    border-bottom: 1px solid rgba(0,0,0,.08);
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--night-border);
   }
-  .luma-modal-titel {
+  .form-modal-eyebrow {
+    font-size: 11px;
     font-weight: 700;
-    color: var(--text);
-    font-size: 15px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin: 0 0 4px;
   }
-  .luma-modal-close {
+  .form-modal-titel {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--night-text);
+    margin: 0;
+    line-height: 1.3;
+  }
+  .form-modal-close {
     background: none;
     border: none;
     font-size: 28px;
     line-height: 1;
     cursor: pointer;
-    color: var(--muted);
+    color: var(--night-muted);
     padding: 0;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: background .2s;
+    transition: background .2s, color .2s;
   }
-  .luma-modal-close:hover {
-    background: var(--bg);
-    color: var(--text);
+  .form-modal-close:hover {
+    background: rgba(255,255,255,.08);
+    color: var(--night-text);
   }
-    #luma-iframe {
-    flex: 1;
+  .form-modal-body {
+    padding: 24px;
+    overflow-y: auto;
+  }
+  .event-aanmeld-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .event-aanmeld-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--night-text);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .event-aanmeld-form input {
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--night-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: var(--night-text);
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color .2s, background .2s;
+  }
+  .event-aanmeld-form input:focus {
+    outline: none;
+    border-color: var(--orange);
+    background: rgba(255,255,255,.08);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .form-submit-btn {
+    background: var(--orange);
+    color: #fff;
     border: none;
-    min-height: 500px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+    margin-top: 8px;
+  }
+  .form-submit-btn:hover { background: var(--orange-dark); }
+  .form-submit-btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+  }
+  .form-success {
+    text-align: center;
+    padding: 20px 0;
+  }
+  .form-success-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    font-size: 30px;
+    line-height: 56px;
+    margin: 0 auto 16px;
+    font-weight: 700;
+  }
+  .form-success h3 {
+    color: var(--night-text);
+    font-size: 22px;
+    margin: 0 0 8px;
+  }
+  .form-success p {
+    color: var(--night-muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.6;
   }
   @media (max-width: 768px) {
-    .luma-modal { padding: 12px; }
-    .luma-modal-content { max-height: 95vh; }
-    #luma-iframe { min-height: 500px; }
+    .form-modal { padding: 80px 12px 12px; }
+    .form-modal-content { max-height: 88vh; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-modal-titel { font-size: 16px; }
   }
 
   .member-cta {
