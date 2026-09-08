@@ -187,9 +187,9 @@ const events = [
       <div class="filters">
         <button class="filter-btn active" data-filter="all">Alle</button>
         <button class="filter-btn" data-filter="pixels-pawns">Pixels & Pawns</button>
-        <button class="filter-btn" data-filter="try-out">Try-out Club</button>
-        <button class="filter-btn" data-filter="masterclass">Masterclass</button>
-        <button class="filter-btn" data-filter="meetup">Meetup</button>
+        <button class="filter-btn" data-filter="try-out">Tryout-Club</button>
+        <button class="filter-btn" data-filter="social">Social</button>
+        <button class="filter-btn" data-filter="vibe-collective">Vibe Collective</button>
       </div>
 
       <div class="timeline">
@@ -236,13 +236,13 @@ const events = [
 
            <div class="member-cta">
         <div class="member-cta-text">
-          <p class="member-eyebrow">Community Membership</p>
-          <h3>Word Astrolads Community Member! 👀</h3>
-          <p>Wil je op de hoogte blijven en meer uit Astrolads halen? Word Community Member!</p>
-          <p>Aan het begin van elke maand ontvang je onze nieuwsbrief met info over aankomende events en de deals en voordelen die bij je membership horen. Zo blijf je makkelijk op de hoogte van alles wat er speelt. 📩</p>
-          <p>Member worden is simpel: we hebben alleen een paar gegevens nodig, zoals je naam, achternaam, geboortedatum en e-mailadres. We vragen je geboortedatum zodat we weten dat je 18+ bent en, waar van toepassing, alcohol kunnen schenken tijdens events. 🍻</p>
-          <p>Je kan je op elk moment uitschrijven, maar houd er rekening mee dat je daarmee ook je Astrolads Community Membership stopzet en je toegang tot de voordelen verliest.</p>
-          <p>Dus wil je op de hoogte blijven en genieten van de member-voordelen? Meld je aan en word onderdeel van de Astrolads community! 🫶</p>
+                    <h3>Word Astrolads Community Member! 👀</h3>
+          <p class="lead-text">Wil je op de hoogte blijven en meer uit Astrolads halen? Elke maand ontvang je onze nieuwsbrief met info over aankomende events, deals en voordelen die bij je membership horen. 📩</p>
+          <details class="member-details">
+            <summary>Meer info over het membership</summary>
+            <p>Member worden is simpel: we hebben alleen een paar gegevens nodig. We vragen je geboortedatum zodat we weten dat je 18+ bent en waar van toepassing alcohol kunnen schenken tijdens events. 🍻</p>
+            <p>Je kan je op elk moment uitschrijven, maar houd er rekening mee dat je daarmee ook je Astrolads Community Membership stopzet en je toegang tot de voordelen verliest.</p>
+          </details>
         </div>
         <form
           class="member-form"
@@ -915,6 +915,36 @@ const events = [
     text-transform: uppercase;
     letter-spacing: .12em;
     margin: 0 0 8px !important;
+  }
+    .lead-text {
+    font-size: 15px !important;
+    margin-bottom: 16px !important;
+  }
+  .member-details {
+    margin-top: 8px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .member-details summary {
+    color: var(--orange);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 0;
+    list-style: none;
+    text-align: center;
+  }
+  .member-details summary::-webkit-details-marker { display: none; }
+  .member-details summary:hover { color: var(--orange-dark); }
+  .member-details[open] summary {
+    margin-bottom: 12px;
+  }
+  .member-details p {
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+    margin-bottom: 10px !important;
   }
   .nieuwsbrief-success {
     text-align: center;
