@@ -61,8 +61,7 @@ const initiatiefFotos = [
         
 
         <div class="pijler-grid">
-          <a href="/community/events" class="pijler">
-            <div class="pijler-fader" data-fader>
+          <a href="/community/agenda/" class="pijler">            <div class="pijler-fader" data-fader>
               {eventFotos.map((f, i) => (
                 <img src={f} alt={'Event impressie ' + (i + 1)} class:list={['fader-slide', { active: i === 0 }]} loading="lazy" />
               ))}

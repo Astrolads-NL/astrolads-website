@@ -60,8 +60,7 @@ const initiatiefFotos = [
         <p class="sectie-intro">The Astrolads Community is built on two main pillars:</p>
 
         <div class="pijler-grid">
-          <a href="/en/community/events" class="pijler">
-            <div class="pijler-fader" data-fader>
+          <a href="/en/community/agenda/" class="pijler">            <div class="pijler-fader" data-fader>
               {eventFotos.map((f, i) => (
                 <img src={f} alt={'Event impression ' + (i + 1)} class:list={['fader-slide', { active: i === 0 }]} loading="lazy" />
               ))}
