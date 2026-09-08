@@ -15,8 +15,7 @@ const currentPath = Astro.url.pathname;
       <li><a href="/community" class={currentPath === '/community' ? 'active' : ''} aria-current={currentPath === '/community' ? 'page' : undefined}>Home</a></li>
       <li><a href="/community/events" class={currentPath.startsWith('/community/events') ? 'active' : ''} aria-current={currentPath.startsWith('/community/events') ? 'page' : undefined}>Events</a></li>
       <li><a href="/community/initiatieven" class={currentPath.startsWith('/community/initiatieven') ? 'active' : ''} aria-current={currentPath.startsWith('/community/initiatieven') ? 'page' : undefined}>Initiatieven</a></li>
-      <li><a href="/community/initiatieven#pitch" class="btn-night">Pitch je idee</a></li>
-      <li class="nav-agency-link"><a href="/">Naar Astrolads Agency →</a></li>
+      <li><a href="/community/agenda" class={currentPath.startsWith('/community/agenda') ? 'btn-night active' : 'btn-night'} aria-current={currentPath.startsWith('/community/agenda') ? 'page' : undefined}>Agenda</a></li>      <li class="nav-agency-link"><a href="/">Naar Astrolads Agency →</a></li>
     </ul> 
 
     <button class="nav-hamburger" id="navHamburger" aria-label="Menu openen" aria-expanded="false" aria-controls="navLinks">
