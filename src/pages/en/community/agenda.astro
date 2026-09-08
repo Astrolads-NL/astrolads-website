@@ -1,0 +1,1089 @@
+---
+import LayoutNightEN from '../../../layouts/LayoutNightEN.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+
+const events = [
+  {
+    slug: 'movie-night-mundus-september-2026',
+    type: 'social',
+    typeLabel: 'Social',
+    titel: 'Movie Night × Mundus',
+    collab: 'Mundus Society',
+    datum: '2026-09-10',
+    dagNaam: 'THU',
+    maand: 'SEP',
+    dag: '10',
+    tijd: '18:30 – 22:00',
+    locatie: 'Astrolads, Grote Markt 22, The Hague',
+    prijs: '€3.50',
+    plekkenOver: 20,
+    beschrijving: 'Movie night with popcorn, drinks and the Mundus community! 🍿🎬 Come join us for a screening of Scott Pilgrim vs. the World with good company, some snacks and drinks. €3.50 tickets include the movie, snacks and drinks (all proceeds go to snacks and drinks for the evening). Bring your friends!',
+    foto: '/images/community/event-movie-night-mundus.webp',
+    lumaUrl: 'https://lu.ma/astrolads-community',
+    vol: false,
+  },
+  {
+    slug: 'pixels-pawns-open-day-september-2026',
+    type: 'pixels-pawns',
+    typeLabel: 'Pixels & Pawns',
+    subtheme: 'Open Day',
+    titel: 'Pixels & Pawns: Open Day',
+    collab: null,
+    datum: '2026-09-23',
+    dagNaam: 'WED',
+    maand: 'SEP',
+    dag: '23',
+    tijd: '18:30 – 21:30',
+    locatie: 'Astrolads, Grote Markt 22, The Hague',
+    prijs: 'Free',
+    plekkenOver: 30,
+    beschrijving: 'Our first board game night of the school year! 🎲🎮 Come by to play some board games and video games, meet the Astrolads team and have a look around our office. Great opportunity to see how you can become part of our community. Bring your friends and come hang out!',
+    foto: '/images/community/event-pixels-pawns-open-day.webp',
+    lumaUrl: 'https://lu.ma/astrolads-community',
+    vol: false,
+  },
+  {
+    slug: 'pixels-pawns-halloween-quiz-october-2026',
+    type: 'pixels-pawns',
+    typeLabel: 'Pixels & Pawns',
+    subtheme: 'Halloween Quiz',
+    titel: 'Pixels & Pawns: Halloween Quiz',
+    collab: null,
+    datum: '2026-10-14',
+    dagNaam: 'WED',
+    maand: 'OCT',
+    dag: '14',
+    tijd: '18:30 – 21:30',
+    locatie: 'Astrolads, Grote Markt 22, The Hague',
+    prijs: 'Free',
+    plekkenOver: 30,
+    beschrijving: 'Board game night with a spooky twist! 🎃🎲 We kick off with a Halloween-themed quiz (with prizes), followed by an evening of board games and good company. Come dressed up, bring your friends and get ready for a spooky night! 👻',
+    foto: '/images/community/event-pixels-pawns-halloween.webp',
+    lumaUrl: 'https://lu.ma/astrolads-community',
+    vol: false,
+  },
+  {
+    slug: 'tryout-pumpkin-carving-october-2026',
+    type: 'try-out',
+    typeLabel: 'Tryout-Club',
+    titel: 'Pumpkin Carving',
+    collab: null,
+    datum: '2026-10-28',
+    dagNaam: 'WED',
+    maand: 'OCT',
+    dag: '28',
+    tijd: '18:30 – 21:30',
+    locatie: 'Astrolads, Grote Markt 22, The Hague',
+    prijs: 'Free',
+    plekkenOver: 15,
+    beschrijving: 'Pumpkin carving time! 🎃 We provide the pumpkins, the tools and the Halloween vibes, you bring your most creative idea. Come carve a pumpkin, get creative and enjoy a fun evening. Bonus: come dressed up for Halloween and win a prize! 👻🏆',
+    foto: '/images/community/event-pumpkin-carving.webp',
+    lumaUrl: 'https://lu.ma/astrolads-community',
+    vol: false,
+  },
+  {
+    slug: 'pixels-pawns-mario-kart-november-2026',
+    type: 'pixels-pawns',
+    typeLabel: 'Pixels & Pawns',
+    subtheme: 'Mario Kart Tournament',
+    titel: 'Pixels & Pawns: Mario Kart Tournament',
+    collab: null,
+    datum: '2026-11-11',
+    dagNaam: 'WED',
+    maand: 'NOV',
+    dag: '11',
+    tijd: '18:30 – 21:30',
+    locatie: 'Astrolads, Grote Markt 22, The Hague',
+    prijs: 'Free',
+    plekkenOver: 30,
+    beschrijving: 'Mario Kart Tournament! 🏎️🏆 We bring the tournament, you bring your racing skills. Come compete, see how far you can make it and try to take home one of the prizes! Not in the mood for racing? There will be plenty of board games to hang out with. 🎲',
+    foto: '/images/community/event-pixels-pawns-mario-kart.webp',
+    lumaUrl: 'https://lu.ma/astrolads-community',
+    vol: false,
+  },
+  {
+    slug: 'vibe-collective-surprise-november-2026',
+    type: 'vibe-collective',
+    typeLabel: 'Vibe Collective',
+    titel: 'Surprise event from Vibe Collective',
+    collab: 'Vibe Collective',
+    datum: '2026-11-25',
+    dagNaam: 'WED',
+    maand: 'NOV',
+    dag: '25',
+    tijd: 'TBD',
+    locatie: 'Astrolads, Grote Markt 22, The Hague',
+    prijs: 'TBD',
+    plekkenOver: null,
+    beschrijving: 'Something special is coming to Astrolads! 👀 Vibe Collective, a student group from Inholland University, is working on something for Astrolads. We can\'t share much yet, but things are getting ready. Want to be the first to know? Sign up for our newsletter below.',
+    foto: '/images/community/event-vibe-collective.webp',
+    lumaUrl: null,
+    vol: false,
+    isSurprise: true,
+  },
+  {
+    slug: 'tryout-gingerbread-december-2026',
+    type: 'try-out',
+    typeLabel: 'Tryout-Club',
+    titel: 'Gingerbread Decoration',
+    collab: null,
+    datum: '2026-12-02',
+    dagNaam: 'WED',
+    maand: 'DEC',
+    dag: '02',
+    tijd: '18:30 – 21:30',
+    locatie: 'Astrolads, Grote Markt 22, The Hague',
+    prijs: 'Free',
+    plekkenOver: 20,
+    beschrijving: 'Gingerbread Decorating! 🍪❄️ We provide the gingerbread, the decorations and the hot chocolate, you bring your best decorating ideas. Come get creative and enjoy a cozy evening. At the end we vote for the best creations, with prizes for the winners! 🏆☕',
+    foto: '/images/community/event-gingerbread.webp',
+    lumaUrl: 'https://lu.ma/astrolads-community',
+    vol: false,
+  },
+  {
+    slug: 'pixels-pawns-holiday-quiz-december-2026',
+    type: 'pixels-pawns',
+    typeLabel: 'Pixels & Pawns',
+    subtheme: 'Holiday Quiz',
+    titel: 'Pixels & Pawns: Holiday Quiz',
+    collab: null,
+    datum: '2026-12-09',
+    dagNaam: 'WED',
+    maand: 'DEC',
+    dag: '09',
+    tijd: '18:30 – 21:30',
+    locatie: 'Astrolads, Grote Markt 22, The Hague',
+    prijs: 'Free',
+    plekkenOver: 30,
+    beschrijving: 'Holiday Quiz Night! 🎄🌍 We have a quiz about holiday traditions from around the world, from Christmas stollen to Diwali lamps. Come test how much you know, learn something new and see how you do. Hot chocolate and board games to play afterwards. ☕🎲',
+    foto: '/images/community/event-pixels-pawns-holiday-quiz.webp',
+    lumaUrl: 'https://lu.ma/astrolads-community',
+    vol: false,
+  },
+];
+---
+
+<LayoutNightEN
+  title="Agenda"
+  description="Upcoming events from the Astrolads Community in The Hague."
+  image="/images/og/community/community.jpg"
+>
+  <div class="agenda-page">
+    <div class="section-inner">
+      <Breadcrumb 
+        theme="dark"
+        items={[
+          { name: 'Community', url: '/en/community' },
+          { name: 'Agenda' }
+        ]} 
+      />
+
+      <header class="agenda-header">
+        <p class="eyebrow">Astrolads Community</p>
+        <h1>Agenda</h1>
+        <p class="lead">Discover talent, meet other creative young people and join our events at the Astrolads Studio on the Grote Markt.</p>
+      </header>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="pixels-pawns">Pixels & Pawns</button>
+        <button class="filter-btn" data-filter="try-out">Tryout-Club</button>
+        <button class="filter-btn" data-filter="social">Social</button>
+        <button class="filter-btn" data-filter="vibe-collective">Vibe Collective</button>
+      </div>
+
+      <div class="timeline">
+        {events.map((e, i) => (
+          <div class:list={['timeline-item', i % 2 === 0 ? 'left' : 'right']} data-type={e.type}>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-date" aria-hidden="true">
+              <span class="td-maand">{e.maand}</span>
+              <span class="td-dag">{e.dag}</span>
+              <span class="td-dagnaam">{e.dagNaam}</span>
+            </div>
+            <article class="event-card">
+              <div class="event-banner" style={`background-image: url(${e.foto});`}>
+                <div class="badges-top">
+                  <span class={`type-badge type-${e.type}`}>{e.typeLabel}</span>
+                  {e.collab && <span class="collab-badge">with {e.collab}</span>}
+                </div>
+                <div class="prijs-badge">{e.prijs}</div>
+              </div>
+              <div class="event-body">
+                <h3>{e.titel}</h3>
+                <div class="event-meta">
+                  <span>🕐 {e.tijd}</span>
+                  <span>📍 {e.locatie}</span>
+                  {e.vol ? (
+                    <span class="meta-vol">✗ Full</span>
+                  ) : (
+                    <span>👥 {e.plekkenOver} spots left</span>
+                  )}
+                </div>
+                <p class="event-beschrijving">{e.beschrijving}</p>
+                                {e.isSurprise ? (
+                                   <a href="#nieuwsbrief-form" class="aanmeld-btn">Keep me posted →</a>
+                ) : e.vol ? (
+                  <button class="aanmeld-btn aanmeld-btn-secondary" data-form-modal={e.slug} data-form-titel={e.titel}>Waiting list →</button>
+                ) : (
+                  <button class="aanmeld-btn" data-form-modal={e.slug} data-form-titel={e.titel}>Sign up →</button>
+                )}
+              </div>
+            </article>
+          </div>
+        ))}
+      </div>
+
+           <div class="member-cta">
+        <div class="member-cta-text">
+                    <h3>Become an Astrolads Community Member! 👀</h3>
+          <p class="lead-text">Want to stay in the loop and get more out of Astrolads? Every month you’ll receive our newsletter with info on upcoming events, deals and the perks that come with your membership! 📩</p>
+          <details class="member-details">
+            <summary>More about the membership</summary>
+            <p>Becoming a member is simple: we only need a few details. We ask for your date of birth so we know you’re 18+ and can serve alcohol at events where applicable. 🍻</p>
+            <p>You can unsubscribe at any time, but keep in mind that this also ends your Astrolads Community Membership and your access to the perks.</p>
+          </details>
+        </div>
+        <form
+          class="member-form"
+          name="nieuwsbrief"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          id="nieuwsbrief-form"
+        >
+          <input type="hidden" name="form-name" value="nieuwsbrief" />
+          <p class="hidden-honey"><label>Do not fill in: <input name="bot-field" /></label></p>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="nb-voornaam">First name</label>
+              <input type="text" id="nb-voornaam" name="voornaam" required autocomplete="given-name" />
+            </div>
+            <div class="form-field">
+              <label for="nb-achternaam">Last name</label>
+              <input type="text" id="nb-achternaam" name="achternaam" required autocomplete="family-name" />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="nb-geboortedatum">Date of birth</label>
+            <input type="date" id="nb-geboortedatum" name="geboortedatum" required />
+          </div>
+
+          <div class="form-field">
+            <label for="nb-email">Email address</label>
+            <input type="email" id="nb-email" name="email" required autocomplete="email" />
+          </div>
+
+          <button type="submit" class="member-submit">Sign up →</button>
+        </form>
+
+        <div id="nieuwsbrief-success" class="nieuwsbrief-success" hidden>
+          <div class="form-success-icon">✓</div>
+          <h3>Thank you!</h3>
+          <p>You’re on the list. We’ll keep you posted.</p>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+<!-- Hidden Netlify form definities (1 per event) -->
+<div hidden aria-hidden="true">
+  {events.map(e => (
+    <form name={`event-${e.slug}`} data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value={`event-${e.slug}`} />
+      <input type="hidden" name="event-titel" />
+      <input type="text" name="voornaam" />
+      <input type="text" name="achternaam" />
+      <input type="date" name="geboortedatum" />
+           <input type="email" name="email" />
+      <input type="text" name="bot-field" />
+    </form>
+  ))}
+</div>
+
+<!-- Aanmeldformulier modal -->
+<div id="form-modal" class="form-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="form-modal-backdrop" data-form-close></div>
+  <div class="form-modal-content">
+    <div class="form-modal-header">
+      <div>
+        <p class="form-modal-eyebrow">Sign up</p>
+        <h3 class="form-modal-titel" id="form-modal-titel"></h3>
+      </div>
+      <button class="form-modal-close" data-form-close aria-label="Close">×</button>
+    </div>
+
+    <div class="form-modal-body">
+      <form id="event-aanmeld-form" class="event-aanmeld-form" method="POST">
+        <input type="hidden" name="form-name" id="form-name-input" />
+        <input type="hidden" name="event-titel" id="event-titel-input" />
+        <p hidden><label>Do not fill in: <input name="bot-field" /></label></p>
+
+        <div class="form-row">
+          <label>
+            First name
+            <input type="text" name="voornaam" required autocomplete="given-name" />
+          </label>
+          <label>
+            Last name
+            <input type="text" name="achternaam" required autocomplete="family-name" />
+          </label>
+        </div>
+
+        <label>
+          Date of birth
+          <input type="date" name="geboortedatum" required />
+        </label>
+
+                <label>
+          Email
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+
+        <button type="submit" class="form-submit-btn">Sign up →</button>
+      </form>
+
+      <div id="form-success" class="form-success" hidden>
+        <div class="form-success-icon">✓</div>
+        <h3>Thank you!</h3>
+        <p>We’ve received your sign-up. We’ll be in touch if there are any updates.</p>
+        <button type="button" class="form-submit-btn" data-form-close>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('form-modal');
+  const form = document.getElementById('event-aanmeld-form');
+  const success = document.getElementById('form-success');
+  const titelEl = document.getElementById('form-modal-titel');
+  const formNameInput = document.getElementById('form-name-input');
+  const eventTitelInput = document.getElementById('event-titel-input');
+
+  function openModal(slug, titel) {
+    formNameInput.value = 'event-' + slug;
+    eventTitelInput.value = titel;
+    titelEl.textContent = titel;
+    form.reset();
+    formNameInput.value = 'event-' + slug;
+    eventTitelInput.value = titel;
+    form.hidden = false;
+    success.hidden = true;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-form-modal]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      openModal(btn.getAttribute('data-form-modal'), btn.getAttribute('data-form-titel'));
+    });
+  });
+
+  document.querySelectorAll('[data-form-close]').forEach(function(btn) {
+    btn.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const submitBtn = form.querySelector('.form-submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const formData = new FormData(form);
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      });
+      if (!res.ok) throw new Error('Submit mislukt: ' + res.status);
+      form.hidden = true;
+      success.hidden = false;
+    } catch (err) {
+      alert('Something went wrong. Please try again.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Sign up →';
+    }
+  });
+    // Nieuwsbrief form
+  const nieuwsbriefForm = document.getElementById('nieuwsbrief-form');
+  const nieuwsbriefSuccess = document.getElementById('nieuwsbrief-success');
+
+  if (nieuwsbriefForm) {
+    nieuwsbriefForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const submitBtn = nieuwsbriefForm.querySelector('.member-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+          const formData = new FormData(nieuwsbriefForm);
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString(),
+        });
+        if (!res.ok) throw new Error('Submit mislukt: ' + res.status);
+             document.querySelector('.member-cta-text').hidden = true;
+        nieuwsbriefForm.hidden = true;
+        nieuwsbriefSuccess.hidden = false;
+      } catch (err) {
+        alert('Something went wrong. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign up →';
+      }
+    });
+  }
+</script>
+
+</LayoutNightEN>
+
+<style>
+  .agenda-page { padding: 48px 0 96px; }
+
+  .agenda-header { margin-bottom: 40px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase; letter-spacing: .12em;
+    margin-bottom: 12px;
+  }
+  .agenda-header h1 {
+    font-size: clamp(32px, 4.5vw, 48px);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 16px;
+    color: var(--night-text);
+  }
+  .lead {
+    color: var(--night-muted);
+    font-size: 16px; line-height: 1.7;
+    max-width: 560px;
+  }
+
+  .filters {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 48px;
+  }
+  .filter-btn {
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255,255,255,.2);
+    background: transparent;
+    color: var(--night-muted);
+    font-family: var(--font); font-size: 13px; font-weight: 700;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .filter-btn:hover { border-color: var(--orange); color: var(--orange); }
+  .filter-btn.active {
+    background: var(--orange-dark);
+    border-color: var(--orange-dark);
+    color: #fff;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding: 20px 0 40px;
+    margin-bottom: 64px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(255,122,69,.4) 5%, rgba(255,122,69,.4) 95%, transparent 100%);
+    transform: translateX(-50%);
+  }
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 0 40px 48px;
+    box-sizing: border-box;
+  }
+  .timeline-item.left {
+    left: 0;
+    padding-right: 50px;
+  }
+  .timeline-item.right {
+    left: 50%;
+    padding-left: 50px;
+  }
+  .timeline-item.hidden { display: none; }
+
+  .timeline-dot {
+    position: absolute;
+    top: 24px;
+    width: 16px; height: 16px;
+    background: var(--orange);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,122,69,.2);
+    z-index: 2;
+  }
+  .timeline-item.left .timeline-dot { right: -8px; }
+  .timeline-item.right .timeline-dot { left: -8px; }
+
+  /* Date naast event */
+  .timeline-date {
+    position: absolute;
+    top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .timeline-item.left .timeline-date {
+    /* Datum aan de OVERKANT van het event = rechts van timeline-line */
+    left: calc(100% + 8px);
+    align-items: flex-start;
+    padding-left: 24px;
+  }
+  .timeline-item.right .timeline-date {
+    /* Datum aan de OVERKANT van het event = links van timeline-line */
+    right: calc(100% + 8px);
+    align-items: flex-end;
+    padding-right: 24px;
+    text-align: right;
+  }
+  .td-maand {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: 4px;
+  }
+  .td-dag {
+    font-size: 72px;
+    font-weight: 800;
+    color: rgba(255,255,255,.95);
+    line-height: .9;
+    letter-spacing: -.03em;
+  }
+  .td-dagnaam {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--night-muted);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-top: 8px;
+  }
+
+  /* Trekken kleine "verbindingslijn" van date naar timeline */
+  .timeline-date::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    height: 1px;
+    background: rgba(255,122,69,.25);
+    width: 20px;
+  }
+  .timeline-item.left .timeline-date::after { left: 0; }
+  .timeline-item.right .timeline-date::after { right: 0; }
+
+  .event-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color .2s, transform .2s;
+  }
+  .event-card:hover {
+    border-color: rgba(255,255,255,.18);
+    transform: translateY(-2px);
+  }
+
+  .event-banner {
+    position: relative;
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    background-color: #2a3550;
+  }
+  .badges-top {
+    position: absolute; top: 12px; left: 12px;
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
+  .type-badge {
+    background: rgba(0,0,0,.55);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .type-meetup { color: #c8a8ff; }
+  .type-pixels-pawns { color: #8acaff; }
+  .type-try-out { color: #ffaa85; }
+    .type-social { color: #ffcc66; }
+      .type-vibe-collective { color: #7fe0d0; }
+  .type-geen-idee-magazine { color: #ff8ac8; }
+  .type-masterclass { color: #b4e696; }
+  .collab-badge {
+    background: rgba(0,0,0,.55);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 600;
+  }
+  .prijs-badge {
+    position: absolute; top: 12px; right: 12px;
+    background: rgba(0,0,0,.55);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .event-body { padding: 16px; }
+  .event-body h3 {
+    font-size: 16px; font-weight: 700;
+    color: #fff; margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .event-meta {
+    display: flex; flex-wrap: wrap;
+    gap: 10px;
+    font-size: 11px;
+    color: var(--night-muted);
+    margin-bottom: 10px;
+  }
+  .meta-vol { color: #ff8888; font-weight: 700; }
+  .event-beschrijving {
+    font-size: 13px;
+    color: rgba(255,255,255,.7);
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+   .aanmeld-btn {
+    display: inline-block;
+    background: var(--orange);
+    color: #fff;
+    padding: 7px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 12px; font-weight: 700;
+    transition: background .2s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .aanmeld-btn:hover { background: var(--orange-dark); }
+    .aanmeld-btn-secondary {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,.7);
+  }
+  .aanmeld-btn-secondary:hover {
+    background: rgba(255,255,255,.06);
+    color: #fff;
+  }
+      /* Aanmeldformulier modal — Astrolads Night thema */
+  .form-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 20px;
+  }
+  .form-modal.open { display: flex; }
+  .form-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    backdrop-filter: blur(6px);
+  }
+  .form-modal-content {
+    position: relative;
+    background: var(--night-surface);
+    border: 1px solid var(--night-border);
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 520px;
+    max-height: 82vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  }
+  .form-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--night-border);
+  }
+  .form-modal-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin: 0 0 4px;
+  }
+  .form-modal-titel {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--night-text);
+    margin: 0;
+    line-height: 1.3;
+  }
+  .form-modal-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--night-muted);
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background .2s, color .2s;
+  }
+  .form-modal-close:hover {
+    background: rgba(255,255,255,.08);
+    color: var(--night-text);
+  }
+  .form-modal-body {
+    padding: 24px;
+    overflow-y: auto;
+  }
+   .event-aanmeld-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .event-aanmeld-form[hidden],
+  .member-form[hidden],
+  .member-cta-text[hidden] {
+    display: none !important;
+  }
+  .event-aanmeld-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--night-text);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .event-aanmeld-form input {
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--night-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: var(--night-text);
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color .2s, background .2s;
+  }
+  .event-aanmeld-form input:focus {
+    outline: none;
+    border-color: var(--orange);
+    background: rgba(255,255,255,.08);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .form-submit-btn {
+    background: var(--orange);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+    margin-top: 8px;
+  }
+  .form-submit-btn:hover { background: var(--orange-dark); }
+  .form-submit-btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+  }
+  .form-success {
+    text-align: center;
+    padding: 20px 0;
+  }
+  .form-success-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    font-size: 30px;
+    line-height: 56px;
+    margin: 0 auto 16px;
+    font-weight: 700;
+  }
+  .form-success h3 {
+    color: var(--night-text);
+    font-size: 22px;
+    margin: 0 0 8px;
+  }
+  .form-success p {
+    color: var(--night-muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+    .checkbox-label {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    color: var(--night-muted) !important;
+    cursor: pointer;
+    padding: 4px 0;
+  }
+  .checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--orange);
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid var(--night-border);
+    cursor: pointer;
+  }
+  .checkbox-label span {
+    line-height: 1.5;
+  }
+  @media (max-width: 768px) {
+    .form-modal { padding: 80px 12px 12px; }
+    .form-modal-content { max-height: 88vh; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-modal-titel { font-size: 16px; }
+  }
+
+  .member-cta {
+    background: rgba(255,122,69,.08);
+    border: 1px solid rgba(255,122,69,.25);
+    border-radius: var(--radius);
+    padding: 32px;
+  }
+  .member-cta-text {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .member-cta h3 {
+    font-size: 22px; font-weight: 700;
+    color: #fff; margin-bottom: 8px;
+  }
+  .member-cta p {
+    font-size: 14px;
+    color: var(--night-muted);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .member-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin: 0 0 8px !important;
+  }
+    .lead-text {
+    font-size: 15px !important;
+    margin-bottom: 16px !important;
+  }
+  .member-details {
+    margin-top: 8px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .member-details summary {
+    color: var(--orange);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 0;
+    list-style: none;
+    text-align: center;
+  }
+  .member-details summary::-webkit-details-marker { display: none; }
+  .member-details summary:hover { color: var(--orange-dark); }
+  .member-details[open] summary {
+    margin-bottom: 12px;
+  }
+  .member-details p {
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+    margin-bottom: 10px !important;
+  }
+  .nieuwsbrief-success {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .nieuwsbrief-success h3 {
+    color: var(--night-text);
+    font-size: 22px;
+    margin: 16px 0 8px;
+  }
+   .nieuwsbrief-success p {
+    color: var(--night-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 420px;
+  }
+  .member-form {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .hidden-honey { display: none; }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .form-field {
+    margin-bottom: 12px;
+  }
+  .form-row .form-field { margin-bottom: 0; }
+  .form-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--night-muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .form-field input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(255,255,255,.06);
+    color: #fff;
+    font-family: var(--font);
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  .form-field input:focus {
+    outline: none;
+    border-color: var(--orange);
+  }
+  .member-submit {
+    background: var(--orange);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-family: var(--font);
+    font-size: 14px; font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+    margin-top: 8px;
+  }
+  .member-submit:hover { background: var(--orange-dark); }
+
+  /* Mobile — timeline naar links, 1 kolom, datum boven event */
+  @media (max-width: 900px) {
+    .timeline::before {
+      left: 16px;
+    }
+    .timeline-item,
+    .timeline-item.left,
+    .timeline-item.right {
+      width: 100%;
+      left: 0;
+      padding: 0 0 32px 48px;
+    }
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+      left: 8px;
+      right: auto;
+    }
+    /* Datum boven event, inline, klein */
+    .timeline-item.left .timeline-date,
+    .timeline-item.right .timeline-date {
+      position: static;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 0;
+      text-align: left;
+    }
+    .timeline-date::after { display: none; }
+    .td-maand, .td-dagnaam { font-size: 12px; margin: 0; }
+    .td-dag { font-size: 20px; }
+  }
+
+  @media (max-width: 768px) {
+    .agenda-page { padding: 24px 0 56px; }
+    .event-banner { height: 140px; }
+    .event-body { padding: 14px; }
+    .event-body h3 { font-size: 15px; }
+    .event-beschrijving { font-size: 13px; }
+    .filters {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      margin: 0 -20px 32px;
+      padding: 0 20px 4px;
+    }
+    .filter-btn { flex-shrink: 0; }
+    .member-cta { padding: 24px; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .form-row .form-field { margin-bottom: 12px; }
+  }
+</style>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      timelineItems.forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-type') === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

@@ -15,8 +15,7 @@ const currentPath = Astro.url.pathname;
       <li><a href="/en/community" class={currentPath === '/en/community' ? 'active' : ''} aria-current={currentPath === '/en/community' ? 'page' : undefined}>Home</a></li>
       <li><a href="/en/community/events" class={currentPath.startsWith('/en/community/events') ? 'active' : ''} aria-current={currentPath.startsWith('/en/community/events') ? 'page' : undefined}>Events</a></li>
       <li><a href="/en/community/initiatives" class={currentPath.startsWith('/en/community/initiatives') ? 'active' : ''} aria-current={currentPath.startsWith('/en/community/initiatives') ? 'page' : undefined}>Initiatives</a></li>
-      <li><a href="/en/community/initiatives#pitch" class="btn-night">Pitch your idea</a></li>
-      <li class="nav-agency-link"><a href="/en">Back to Astrolads Agency →</a></li>
+      <li><a href="/en/community/agenda" class={currentPath.startsWith('/en/community/agenda') ? 'btn-night active' : 'btn-night'} aria-current={currentPath.startsWith('/en/community/agenda') ? 'page' : undefined}>Agenda</a></li>      <li class="nav-agency-link"><a href="/en">Back to Astrolads Agency →</a></li>
     </ul>
 
     <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
