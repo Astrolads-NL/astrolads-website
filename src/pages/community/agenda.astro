@@ -22,7 +22,8 @@ const events = [
     vol: false,
   },
   {
-    slug: 'pixels-pawns-open-day-september-2026',
+       slug: 'pixels-pawns-open-day-september-2026',
+    vol: true,
     type: 'pixels-pawns',
     typeLabel: 'Pixels & Pawns',
     subtheme: 'Open Day',
@@ -213,7 +214,7 @@ const events = [
                                 {e.isSurprise ? (
                                    <a href="#nieuwsbrief-form" class="aanmeld-btn">Blijf op de hoogte →</a>
                 ) : e.vol ? (
-                  <button class="aanmeld-btn aanmeld-btn-secondary" data-form-modal={e.slug} data-form-titel={e.titel}>Wachtlijst →</button>
+                  <span class="aanmeld-vol">Volgeboekt</span>
                 ) : (
                   <button class="aanmeld-btn" data-form-modal={e.slug} data-form-titel={e.titel}>Aanmelden →</button>
                 )}
@@ -679,6 +680,15 @@ const events = [
     font-family: inherit;
   }
   .aanmeld-btn:hover { background: var(--orange-dark); }
+  .aanmeld-vol {
+    display: inline-block;
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--night-border);
+    color: var(--night-muted);
+    font-size: 12px;
+    font-weight: 700;
+  }
     .aanmeld-btn-secondary {
     background: transparent;
     border: none;
