@@ -38,8 +38,9 @@ const events = [
     prijs: 'Gratis',
     plekkenOver: 15,
     beschrijving: 'Tijd om pompoenen uit te snijden! 🎃 Wij zorgen voor de pompoenen, het gereedschap en de Halloween-sfeer, jij brengt je creatiefste idee mee. Kom een pompoen uitsnijden, ga lekker los en geniet van een leuke avond. Bonus: kom verkleed voor Halloween en win een prijs! 👻🏆',    foto: '/images/community/event-pumpkin-carving.webp',
+        foto: '/images/community/event-pumpkin-carving.webp',
     lumaUrl: 'https://lu.ma/astrolads-community',
-    vol: false,
+    vol: true,
   },
   {
     slug: 'pixels-pawns-mario-kart-november-2026',
@@ -301,10 +302,11 @@ const events = [
         <button type="submit" class="form-submit-btn">Aanmelden →</button>
       </form>
 
-      <div id="form-success" class="form-success" hidden>
+           <div id="form-success" class="form-success" hidden>
         <div class="form-success-icon">✓</div>
         <h3>Bedankt!</h3>
         <p>Je aanmelding is ontvangen. We nemen contact op als er updates zijn.</p>
+        <p class="form-disclaimer">Wil je een plek reserveren voor meerdere personen? Meld ze dan los aan onder hun eigen naam (zelfde e-mailadres mag).</p>
         <button type="button" class="form-submit-btn" data-form-close>Sluiten</button>
       </div>
     </div>
@@ -821,6 +823,14 @@ const events = [
     font-size: 14px;
     margin-bottom: 20px;
     line-height: 1.6;
+  }
+    .form-disclaimer {
+    font-size: 12px !important;
+    color: var(--night-muted) !important;
+    font-style: italic;
+    margin-top: 8px !important;
+    padding-top: 12px;
+    border-top: 1px solid var(--night-border);
   }
     .checkbox-label {
     flex-direction: row !important;

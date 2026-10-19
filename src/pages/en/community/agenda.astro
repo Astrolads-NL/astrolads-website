@@ -40,9 +40,9 @@ const events = [
     prijs: 'Free',
     plekkenOver: 15,
     beschrijving: 'Pumpkin carving time! 🎃 We provide the pumpkins, the tools and the Halloween vibes, you bring your most creative idea. Come carve a pumpkin, get creative and enjoy a fun evening. Bonus: come dressed up for Halloween and win a prize! 👻🏆',
-    foto: '/images/community/event-pumpkin-carving.webp',
+        foto: '/images/community/event-pumpkin-carving.webp',
     lumaUrl: 'https://lu.ma/astrolads-community',
-    vol: false,
+    vol: true,
   },
   {
     slug: 'pixels-pawns-mario-kart-november-2026',
@@ -246,6 +246,7 @@ const events = [
           <div class="form-success-icon">✓</div>
           <h3>Thank you!</h3>
           <p>You’re on the list. We’ll keep you posted.</p>
+                  <p class="form-disclaimer">Would you like to reserve a spot for more people? Please sign them up individually under their own names (same email is fine).</p>
         </div>
       </div>
       </div>
@@ -829,6 +830,14 @@ const events = [
     font-size: 14px;
     margin-bottom: 20px;
     line-height: 1.6;
+  }
+    .form-disclaimer {
+    font-size: 12px !important;
+    color: var(--night-muted) !important;
+    font-style: italic;
+    margin-top: 8px !important;
+    padding-top: 12px;
+    border-top: 1px solid var(--night-border);
   }
     .checkbox-label {
     flex-direction: row !important;
