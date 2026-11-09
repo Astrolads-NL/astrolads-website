@@ -26,6 +26,26 @@ const events = [
     lumaUrl: 'https://lu.ma/astrolads-community',
     vol: false,
   },
+  {
+    slug: 'geen-idee-workshops-november-2026',
+    type: 'geen-idee-magazine',
+    typeLabel: 'Geen Idee Magazine',
+    titel: 'Geen Idee Workshops',
+    collab: null,
+    datum: '2026-11-28',
+    dagNaam: 'SAT',
+    maand: 'NOV',
+    dag: '28',
+    tijd: '15:00 – 19:00',
+    locatie: 'Astrolads, Grote Markt 22, The Hague',
+    prijs: '€5,-',
+    plekkenOver: null,
+    beschrijving: 'Introducing something new: Geen Idee Workshops! ✨ Join our creative workshops celebrating the upcoming 6th edition of the Geen Idee Magazine, organised by the creatives featured in the magazine! During the event you can choose 2 of the various creative workshops including: Zine Making, Clay Sculpting, Designing Posters, and a Theatre Workshop! 📒🎨🏺🎭 After the workshops, there will be an opportunity to talk and meet with the other creatives and party on! 💃 The workshops cost €5 (incl. material) and all proceeds go into the creation of Geen Idee Magazine 6. Your registration is complete once payment is confirmed. 🤝',
+    foto: '/images/community/event-geen-idee-workshops.webp',
+    lumaUrl: 'https://partiful.com/e/kAI86Ir0fvF7rRJMjwYt',
+    externalLink: true,
+    vol: false,
+  },
    /*{
     slug: 'vibe-collective-surprise-november-2026',
     type: 'vibe-collective',
@@ -148,6 +168,8 @@ const events = [
                 <p class="event-beschrijving">{e.beschrijving}</p>
                                 {e.isSurprise ? (
                                    <a href="#nieuwsbrief-form" class="aanmeld-btn">Keep me posted →</a>
+                ) : e.externalLink ? (
+                  <a href={e.lumaUrl} target="_blank" rel="noopener noreferrer" class="aanmeld-btn">Sign up →</a>
                 ) : e.vol ? (
                   <span class="aanmeld-vol">Fully booked</span>
                 ) : (
