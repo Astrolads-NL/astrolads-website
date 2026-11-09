@@ -37,7 +37,9 @@ const events = [
     locatie: 'Astrolads, Grote Markt 22, The Hague',
     prijs: '€5,-',
     plekkenOver: 30,
-    beschrijving: 'Introducing something new: Geen Idee Workshops! Join our creative workshops celebrating the upcoming 6th edition of the Geen Idee Magazine, organised by the creatives featured in the magazine. During the event you can choose 2 of the various creative workshops including: Zine Making, Clay Sculpting, Designing Posters, and a Theatre Workshop. After the workshops, there will be an opportunity to talk and meet with the other creatives and party on. The workshops cost €5 (incl. material) and all proceeds go into the creation of Geen Idee Magazine 6. Your registration is complete once payment is confirmed. There are 40 spots in total, with 30 still available.',
+    capaciteit: 40,
+    plekkenGenomen: 10,
+    beschrijving: 'Introducing something new: Geen Idee Workshops! Join our creative workshops celebrating the upcoming 6th edition of the Geen Idee Magazine, organised by the creatives featured in the magazine. During the event you can choose 2 of the various creative workshops including: Zine Making, Clay Sculpting, Designing Posters, and a Theatre Workshop. After the workshops, there will be an opportunity to talk and meet with the other creatives and party on. The workshops cost €5 (incl. material) and all proceeds go into the creation of Geen Idee Magazine 6. Your registration is complete once payment is confirmed.',
     foto: '/images/community/event-geen-idee-workshops.webp',
     lumaUrl: 'https://partiful.com/e/kAI86Ir0fvF7rRJMjwYt',
     externalLink: true,
@@ -150,6 +152,9 @@ const events = [
                   {e.collab && <span class="collab-badge">with {e.collab}</span>}
                 </div>
                 <div class="prijs-badge">{e.prijs}</div>
+                {e.capaciteit && (
+                  <div class="spots-badge">{e.plekkenGenomen}/{e.capaciteit} spots taken</div>
+                )}
               </div>
               <div class="event-body">
                 <h3>{e.titel}</h3>
@@ -599,6 +604,17 @@ const events = [
     font-size: 11px;
     font-weight: 700;
     color: #fff;
+  }
+
+  .spots-badge {
+    position: absolute; bottom: 12px; right: 12px;
+    background: rgba(0,0,0,.65);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: .02em;
   }
 
   .event-body { padding: 16px; }

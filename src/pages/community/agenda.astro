@@ -37,7 +37,9 @@ const events = [
     locatie: 'Astrolads, Grote Markt 22, Den Haag',
     prijs: '€5,-',
     plekkenOver: 30,
-    beschrijving: 'We introduceren iets nieuws: Geen Idee Workshops! Vier samen met ons de aankomende 6e editie van Geen Idee Magazine, georganiseerd door de creatieven uit het magazine. Kies tijdens het event 2 van de creatieve workshops: Zine Making, Clay Sculpting, Poster Design of een Theaterworkshop. Na de workshops is er volop tijd om de andere creatieven te ontmoeten en nog even door te feesten. De €5 (incl. materiaal) gaat volledig naar de productie van Geen Idee Magazine 6. Je aanmelding is definitief zodra de betaling bevestigd is. Er zijn 40 plekken in totaal, waarvan er nu nog 30 beschikbaar zijn.',
+    capaciteit: 40,
+    plekkenGenomen: 10,
+    beschrijving: 'We introduceren iets nieuws: Geen Idee Workshops! Vier samen met ons de aankomende 6e editie van Geen Idee Magazine, georganiseerd door de creatieven uit het magazine. Kies tijdens het event 2 van de creatieve workshops: Zine Making, Clay Sculpting, Poster Design of een Theaterworkshop. Na de workshops is er volop tijd om de andere creatieven te ontmoeten en nog even door te feesten. De €5 (incl. materiaal) gaat volledig naar de productie van Geen Idee Magazine 6. Je aanmelding is definitief zodra de betaling bevestigd is.',
     foto: '/images/community/event-geen-idee-workshops.webp',
     lumaUrl: 'https://partiful.com/e/kAI86Ir0fvF7rRJMjwYt',
     externalLink: true,
@@ -145,6 +147,9 @@ const events = [
                   {e.collab && <span class="collab-badge">i.s.m. {e.collab}</span>}
                 </div>
                 <div class="prijs-badge">{e.prijs}</div>
+                {e.capaciteit && (
+                  <div class="spots-badge">{e.plekkenGenomen}/{e.capaciteit} spots taken</div>
+                )}
               </div>
               <div class="event-body">
                 <h3>{e.titel}</h3>
@@ -594,6 +599,17 @@ const events = [
     font-size: 11px;
     font-weight: 700;
     color: #fff;
+  }
+
+  .spots-badge {
+    position: absolute; bottom: 12px; right: 12px;
+    background: rgba(0,0,0,.65);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: .02em;
   }
 
   .event-body { padding: 16px; }
